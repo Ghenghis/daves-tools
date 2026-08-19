@@ -1,0 +1,48 @@
+{
+  "id": "local-test",
+  "display_name": "Local Test MCP",
+  "command": "node",
+  "args": [
+    "harness/test-server.js"
+  ],
+  "start_time": "2026-08-19T22:56:02.699Z",
+  "init": "passed",
+  "list_tools": "passed",
+  "schema_valid": "passed",
+  "safe_call": "passed",
+  "stop": "passed",
+  "error": null,
+  "duration_ms": 279,
+  "tools": [
+    {
+      "name": "echo",
+      "description": "Echo the input back",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "description": "Message to echo"
+          }
+        },
+        "required": [
+          "message"
+        ]
+      }
+    },
+    {
+      "name": "ping",
+      "description": "Return a pong response",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      }
+    }
+  ],
+  "safe_call_result": {
+    "tool": "ping",
+    "has_content": true
+  },
+  "verdict": "passed"
+}
