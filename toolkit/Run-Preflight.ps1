@@ -13,7 +13,9 @@ $report = [ordered]@{
     missing   = @()
 }
 
-$statusFiles = Get-ChildItem -Path $StatusDir -Filter 'phase-*-status.json' | Sort-Object Name
+$statusFiles = Get-ChildItem -Path $StatusDir -Filter 'phase-*-status.json' |
+    Where-Object { $_.Name -notlike '*-fix-*' } |
+    Sort-Object Name
 foreach ($f in $statusFiles) {
     $items = Get-Content $f.FullName | ConvertFrom-Json
     if (-not $items) { $items = @() }

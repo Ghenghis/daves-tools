@@ -26,7 +26,12 @@ async function enable(registry, key, sendNotification) {
     const tools = await child.listTools();
     const toolMap = {};
     for (const t of tools.tools || []) {
-      toolMap[`${key}__${t.name}`] = { tool: t.name, client: child };
+      toolMap[`${key}__${t.name}`] = {
+        tool: t.name,
+        client: child,
+        description: t.description || `Proxied tool ${t.name}`,
+        inputSchema: t.inputSchema || { type: 'object', properties: {} }
+      };
     }
     active.set(key, { client: child, transport, tools: toolMap, server });
     registry.servers[key].enabled = true;
@@ -67,6 +72,20 @@ function getActiveToolNames() {
     for (const full of Object.keys(entry.tools)) names.push(full);
   }
   return names;
+}
+
+function getActiveToolsMeta() {
+  const meta = [];
+  for (const [key, entry] of active.entries()) {
+    for (const [full, t] of Object.entries(entry.tools)) {
+      meta.push({
+        name: full,
+        description: t.description,
+        inputSchema: t.inputSchema
+      });
+    }
+  }
+  return meta;
 }
 
 async function callTool(fullName, args) {

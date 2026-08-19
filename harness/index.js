@@ -2,7 +2,7 @@ const { Server } = require('@modelcontextprotocol/sdk/server/index.js');
 const { StdioServerTransport } = require('@modelcontextprotocol/sdk/server/stdio.js');
 const { CallToolRequestSchema, ListToolsRequestSchema } = require('@modelcontextprotocol/sdk/types.js');
 const { load, save, toggle } = require('./registry.js');
-const { setRegistry, enable, disable, listActive, getActiveToolNames, callTool } = require('./proxy.js');
+const { setRegistry, enable, disable, listActive, getActiveToolNames, getActiveToolsMeta, callTool } = require('./proxy.js');
 const { recommend } = require('./recommender.js');
 
 const registry = load();
@@ -27,7 +27,7 @@ const orchestratorTools = [
 ];
 
 server.setRequestHandler(ListToolsRequestSchema, async () => {
-  const active = getActiveToolNames().map(t => ({ name: t, description: `Proxied tool ${t}`, inputSchema: { type: 'object', properties: {} } }));
+  const active = getActiveToolsMeta();
   return { tools: [...orchestratorTools, ...active] };
 });
 
@@ -55,7 +55,7 @@ server.setRequestHandler(CallToolRequestSchema, async (req) => {
       return { content: [{ type: 'text', text: JSON.stringify(result, null, 2) }] };
     }
     if (name === 'list_active_mcps') {
-      return { content: [{ type: 'text', text: JSON.stringify(listActive(), null, 2) }] };
+      return { content: [{ type: 'text', text: JSON.stringify({ servers: listActive(), tools: getActiveToolsMeta() }, null, 2) }] };
     }
     if (name === 'discover_mcps_for_task') {
       return { content: [{ type: 'text', text: JSON.stringify(recommend(registry, args.task), null, 2) }] };

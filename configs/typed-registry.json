@@ -1,0 +1,2475 @@
+{
+    "version":  "1.0.0",
+    "generated":  "2026-08-19T11:47:54.7065434-07:00",
+    "schema":  "configs/typed-registry.schema.json",
+    "total":  43,
+    "mcp_server_count":  16,
+    "skill_pack_count":  10,
+    "dependency_count":  12,
+    "assets":  [
+                   {
+                       "id":  "anthropic-skills",
+                       "display_name":  "Anthropic Skills",
+                       "asset_type":  "skill_pack",
+                       "source":  {
+                                      "url":  "https://github.com/anthropics/skills",
+                                      "ref":  "main",
+                                      "commit":  null,
+                                      "license":  null,
+                                      "sha256":  null
+                                  },
+                       "profiles":  [
+                                        "CORE"
+                                    ],
+                       "capabilities":  [
+                                            "skill-source-sync",
+                                            "skill-vetting-and-pin",
+                                            "skill-evaluation"
+                                        ],
+                       "runtime":  {
+                                       "transport":  "none",
+                                       "command":  "npx -y anthropic-skills",
+                                       "args":  [
+
+                                                ],
+                                       "env_refs":  [
+
+                                                    ],
+                                       "cwd":  null,
+                                       "healthcheck":  {
+
+                                                       },
+                                       "timeout_ms":  30000,
+                                       "max_concurrency":  1,
+                                       "auto_start":  false
+                                   },
+                       "permissions":  {
+                                           "filesystem_roots":  [
+
+                                                                ],
+                                           "network_hosts":  [
+
+                                                             ],
+                                           "credentials":  [
+
+                                                           ],
+                                           "mutation_level":  "read_only",
+                                           "approval_policy":  "on_mutation"
+                                       },
+                       "verification":  {
+                                            "install":  "unknown",
+                                            "protocol":  "unknown",
+                                            "domain_smoke":  "unknown",
+                                            "last_verified":  null,
+                                            "evidence_id":  null
+                                        }
+                   },
+                   {
+                       "id":  "claude-plugins-official",
+                       "display_name":  "Claude Plugins Official",
+                       "asset_type":  "marketplace",
+                       "source":  {
+                                      "url":  "https://github.com/anthropics/claude-plugins-official",
+                                      "ref":  "main",
+                                      "commit":  null,
+                                      "license":  null,
+                                      "sha256":  null
+                                  },
+                       "profiles":  [
+                                        "CORE"
+                                    ],
+                       "capabilities":  [
+                                            "plugin-marketplace-sync",
+                                            "plugin-permission-audit",
+                                            "plugin-install-rollback"
+                                        ],
+                       "runtime":  {
+                                       "transport":  "none",
+                                       "command":  "npx -y claude-plugins-official",
+                                       "args":  [
+
+                                                ],
+                                       "env_refs":  [
+
+                                                    ],
+                                       "cwd":  null,
+                                       "healthcheck":  {
+
+                                                       },
+                                       "timeout_ms":  30000,
+                                       "max_concurrency":  1,
+                                       "auto_start":  false
+                                   },
+                       "permissions":  {
+                                           "filesystem_roots":  [
+
+                                                                ],
+                                           "network_hosts":  [
+
+                                                             ],
+                                           "credentials":  [
+
+                                                           ],
+                                           "mutation_level":  "read_only",
+                                           "approval_policy":  "on_mutation"
+                                       },
+                       "verification":  {
+                                            "install":  "unknown",
+                                            "protocol":  "unknown",
+                                            "domain_smoke":  "unknown",
+                                            "last_verified":  null,
+                                            "evidence_id":  null
+                                        }
+                   },
+                   {
+                       "id":  "serena",
+                       "display_name":  "Serena",
+                       "asset_type":  "mcp_server",
+                       "source":  {
+                                      "url":  "https://github.com/oraios/serena",
+                                      "ref":  "main",
+                                      "commit":  null,
+                                      "license":  null,
+                                      "sha256":  null
+                                  },
+                       "profiles":  [
+                                        "CORE"
+                                    ],
+                       "capabilities":  [
+                                            "semantic-project-onboard",
+                                            "symbol-impact-refactor",
+                                            "serena-index-doctor"
+                                        ],
+                       "runtime":  {
+                                       "transport":  "stdio",
+                                       "command":  "uvx",
+                                       "args":  [
+                                                    "mcp-server-serena",
+                                                    "--project",
+                                                    "\u003cPROJECT_ROOT\u003e"
+                                                ],
+                                       "env_refs":  [
+                                                        "UV_PYTHON",
+                                                        "PATH"
+                                                    ],
+                                       "cwd":  null,
+                                       "healthcheck":  {
+
+                                                       },
+                                       "timeout_ms":  30000,
+                                       "max_concurrency":  1,
+                                       "auto_start":  true
+                                   },
+                       "permissions":  {
+                                           "filesystem_roots":  [
+
+                                                                ],
+                                           "network_hosts":  [
+
+                                                             ],
+                                           "credentials":  [
+                                                               "UV_PYTHON",
+                                                               "PATH"
+                                                           ],
+                                           "mutation_level":  "read_only",
+                                           "approval_policy":  "on_mutation"
+                                       },
+                       "verification":  {
+                                            "install":  "unknown",
+                                            "protocol":  "unknown",
+                                            "domain_smoke":  "unknown",
+                                            "last_verified":  null,
+                                            "evidence_id":  null
+                                        }
+                   },
+                   {
+                       "id":  "superpowers",
+                       "display_name":  "Superpowers",
+                       "asset_type":  "skill_pack",
+                       "source":  {
+                                      "url":  "https://github.com/obra/superpowers",
+                                      "ref":  "main",
+                                      "commit":  null,
+                                      "license":  null,
+                                      "sha256":  null
+                                  },
+                       "profiles":  [
+                                        "CORE"
+                                    ],
+                       "capabilities":  [
+                                            "spec-to-worktree",
+                                            "autonomous-low-risk-execution",
+                                            "two-stage-review-proof"
+                                        ],
+                       "runtime":  {
+                                       "transport":  "none",
+                                       "command":  "node G:\\Github\\superpowers\\.opencode\\plugins\\superpowers.js",
+                                       "args":  [
+
+                                                ],
+                                       "env_refs":  [
+
+                                                    ],
+                                       "cwd":  null,
+                                       "healthcheck":  {
+
+                                                       },
+                                       "timeout_ms":  30000,
+                                       "max_concurrency":  1,
+                                       "auto_start":  false
+                                   },
+                       "permissions":  {
+                                           "filesystem_roots":  [
+
+                                                                ],
+                                           "network_hosts":  [
+
+                                                             ],
+                                           "credentials":  [
+
+                                                           ],
+                                           "mutation_level":  "read_only",
+                                           "approval_policy":  "on_mutation"
+                                       },
+                       "verification":  {
+                                            "install":  "unknown",
+                                            "protocol":  "unknown",
+                                            "domain_smoke":  "unknown",
+                                            "last_verified":  null,
+                                            "evidence_id":  null
+                                        }
+                   },
+                   {
+                       "id":  "trail-of-bits-skills-curated",
+                       "display_name":  "Trail of Bits Skills Curated",
+                       "asset_type":  "marketplace",
+                       "source":  {
+                                      "url":  "https://github.com/trailofbits/skills-curated",
+                                      "ref":  "main",
+                                      "commit":  null,
+                                      "license":  null,
+                                      "sha256":  null
+                                  },
+                       "profiles":  [
+                                        "CORE",
+                                        "ON-DEMAND"
+                                    ],
+                       "capabilities":  [
+                                            "security-skill-selection",
+                                            "pinned-security-pack-update",
+                                            "source-provenance"
+                                        ],
+                       "runtime":  {
+                                       "transport":  "none",
+                                       "command":  "",
+                                       "args":  [
+
+                                                ],
+                                       "env_refs":  [
+
+                                                    ],
+                                       "cwd":  null,
+                                       "healthcheck":  {
+
+                                                       },
+                                       "timeout_ms":  30000,
+                                       "max_concurrency":  1,
+                                       "auto_start":  false
+                                   },
+                       "permissions":  {
+                                           "filesystem_roots":  [
+
+                                                                ],
+                                           "network_hosts":  [
+
+                                                             ],
+                                           "credentials":  [
+
+                                                           ],
+                                           "mutation_level":  "read_only",
+                                           "approval_policy":  "on_mutation"
+                                       },
+                       "verification":  {
+                                            "install":  "unknown",
+                                            "protocol":  "unknown",
+                                            "domain_smoke":  "unknown",
+                                            "last_verified":  null,
+                                            "evidence_id":  null
+                                        }
+                   },
+                   {
+                       "id":  "context7",
+                       "display_name":  "Context7",
+                       "asset_type":  "mcp_server",
+                       "source":  {
+                                      "url":  "https://github.com/upstash/context7",
+                                      "ref":  "main",
+                                      "commit":  null,
+                                      "license":  null,
+                                      "sha256":  null
+                                  },
+                       "profiles":  [
+                                        "RESEARCH"
+                                    ],
+                       "capabilities":  [
+                                            "version-pinned-doc-lookup",
+                                            "citation-and-api-drift-check",
+                                            "offline-fallback"
+                                        ],
+                       "runtime":  {
+                                       "transport":  "stdio",
+                                       "command":  "npx",
+                                       "args":  [
+                                                    "-y",
+                                                    "@upstash/context7-mcp@latest"
+                                                ],
+                                       "env_refs":  [
+
+                                                    ],
+                                       "cwd":  null,
+                                       "healthcheck":  {
+
+                                                       },
+                                       "timeout_ms":  30000,
+                                       "max_concurrency":  1,
+                                       "auto_start":  true
+                                   },
+                       "permissions":  {
+                                           "filesystem_roots":  [
+
+                                                                ],
+                                           "network_hosts":  [
+
+                                                             ],
+                                           "credentials":  [
+
+                                                           ],
+                                           "mutation_level":  "read_only",
+                                           "approval_policy":  "on_mutation"
+                                       },
+                       "verification":  {
+                                            "install":  "unknown",
+                                            "protocol":  "unknown",
+                                            "domain_smoke":  "unknown",
+                                            "last_verified":  null,
+                                            "evidence_id":  null
+                                        }
+                   },
+                   {
+                       "id":  "github-mcp",
+                       "display_name":  "GitHub MCP",
+                       "asset_type":  "mcp_server",
+                       "source":  {
+                                      "url":  "https://github.com/github/github-mcp-server",
+                                      "ref":  "main",
+                                      "commit":  null,
+                                      "license":  null,
+                                      "sha256":  null
+                                  },
+                       "profiles":  [
+                                        "REPO"
+                                    ],
+                       "capabilities":  [
+                                            "repo-intake",
+                                            "issue-to-worktree",
+                                            "pr-ci-release",
+                                            "repo-mirror-sync"
+                                        ],
+                       "runtime":  {
+                                       "transport":  "stdio",
+                                       "command":  "npx",
+                                       "args":  [
+                                                    "-y",
+                                                    "@github/mcp-server"
+                                                ],
+                                       "env_refs":  [
+                                                        "GITHUB_PERSONAL_ACCESS_TOKEN"
+                                                    ],
+                                       "cwd":  null,
+                                       "healthcheck":  {
+
+                                                       },
+                                       "timeout_ms":  30000,
+                                       "max_concurrency":  1,
+                                       "auto_start":  true
+                                   },
+                       "permissions":  {
+                                           "filesystem_roots":  [
+
+                                                                ],
+                                           "network_hosts":  [
+
+                                                             ],
+                                           "credentials":  [
+                                                               "GITHUB_PERSONAL_ACCESS_TOKEN"
+                                                           ],
+                                           "mutation_level":  "read_only",
+                                           "approval_policy":  "on_mutation"
+                                       },
+                       "verification":  {
+                                            "install":  "unknown",
+                                            "protocol":  "unknown",
+                                            "domain_smoke":  "unknown",
+                                            "last_verified":  null,
+                                            "evidence_id":  null
+                                        }
+                   },
+                   {
+                       "id":  "gitlab-mcp",
+                       "display_name":  "GitLab MCP",
+                       "asset_type":  "mcp_server",
+                       "source":  {
+                                      "url":  "https://docs.gitlab.com/user/model_context_protocol/mcp_server/",
+                                      "ref":  "main",
+                                      "commit":  null,
+                                      "license":  null,
+                                      "sha256":  null
+                                  },
+                       "profiles":  [
+                                        "REPO"
+                                    ],
+                       "capabilities":  [
+                                            "mr-pipeline-runner",
+                                            "gitlab-mirror-sync",
+                                            "oauth-connection-doctor",
+                                            "runner-proof"
+                                        ],
+                       "runtime":  {
+                                       "transport":  "streamable_http",
+                                       "command":  "none",
+                                       "args":  [
+
+                                                ],
+                                       "env_refs":  [
+                                                        "GITLAB_PERSONAL_ACCESS_TOKEN"
+                                                    ],
+                                       "cwd":  null,
+                                       "healthcheck":  {
+
+                                                       },
+                                       "timeout_ms":  30000,
+                                       "max_concurrency":  1,
+                                       "auto_start":  true
+                                   },
+                       "permissions":  {
+                                           "filesystem_roots":  [
+
+                                                                ],
+                                           "network_hosts":  [
+
+                                                             ],
+                                           "credentials":  [
+                                                               "GITLAB_PERSONAL_ACCESS_TOKEN"
+                                                           ],
+                                           "mutation_level":  "read_only",
+                                           "approval_policy":  "on_mutation"
+                                       },
+                       "verification":  {
+                                            "install":  "unknown",
+                                            "protocol":  "unknown",
+                                            "domain_smoke":  "unknown",
+                                            "last_verified":  null,
+                                            "evidence_id":  null
+                                        }
+                   },
+                   {
+                       "id":  "searxng-mcp",
+                       "display_name":  "SearXNG MCP",
+                       "asset_type":  "mcp_server",
+                       "source":  {
+                                      "url":  "https://github.com/ihor-sokoliuk/mcp-searxng",
+                                      "ref":  "main",
+                                      "commit":  null,
+                                      "license":  null,
+                                      "sha256":  null
+                                  },
+                       "profiles":  [
+                                        "RESEARCH"
+                                    ],
+                       "capabilities":  [
+                                            "privacy-research",
+                                            "source-quality-and-citation",
+                                            "query-budgeting"
+                                        ],
+                       "runtime":  {
+                                       "transport":  "stdio",
+                                       "command":  "node",
+                                       "args":  [
+                                                    "G:\\Github\\searxng-mcp\\dist\\index.js"
+                                                ],
+                                       "env_refs":  [
+
+                                                    ],
+                                       "cwd":  null,
+                                       "healthcheck":  {
+
+                                                       },
+                                       "timeout_ms":  30000,
+                                       "max_concurrency":  1,
+                                       "auto_start":  true
+                                   },
+                       "permissions":  {
+                                           "filesystem_roots":  [
+
+                                                                ],
+                                           "network_hosts":  [
+
+                                                             ],
+                                           "credentials":  [
+
+                                                           ],
+                                           "mutation_level":  "read_only",
+                                           "approval_policy":  "on_mutation"
+                                       },
+                       "verification":  {
+                                            "install":  "unknown",
+                                            "protocol":  "unknown",
+                                            "domain_smoke":  "unknown",
+                                            "last_verified":  null,
+                                            "evidence_id":  null
+                                        }
+                   },
+                   {
+                       "id":  "trail-of-bits-skills",
+                       "display_name":  "Trail of Bits Skills",
+                       "asset_type":  "marketplace",
+                       "source":  {
+                                      "url":  "https://github.com/trailofbits/skills",
+                                      "ref":  "main",
+                                      "commit":  null,
+                                      "license":  null,
+                                      "sha256":  null
+                                  },
+                       "profiles":  [
+                                        "REVIEW"
+                                    ],
+                       "capabilities":  [
+                                            "secure-code-review",
+                                            "dependency-sbom-vuln-triage",
+                                            "secrets-scan"
+                                        ],
+                       "runtime":  {
+                                       "transport":  "none",
+                                       "command":  "npx -y trail-of-bits-skills",
+                                       "args":  [
+
+                                                ],
+                                       "env_refs":  [
+
+                                                    ],
+                                       "cwd":  null,
+                                       "healthcheck":  {
+
+                                                       },
+                                       "timeout_ms":  30000,
+                                       "max_concurrency":  1,
+                                       "auto_start":  false
+                                   },
+                       "permissions":  {
+                                           "filesystem_roots":  [
+
+                                                                ],
+                                           "network_hosts":  [
+
+                                                             ],
+                                           "credentials":  [
+
+                                                           ],
+                                           "mutation_level":  "read_only",
+                                           "approval_policy":  "on_mutation"
+                                       },
+                       "verification":  {
+                                            "install":  "unknown",
+                                            "protocol":  "unknown",
+                                            "domain_smoke":  "unknown",
+                                            "last_verified":  null,
+                                            "evidence_id":  null
+                                        }
+                   },
+                   {
+                       "id":  "android-mcp",
+                       "display_name":  "Android MCP",
+                       "asset_type":  "mcp_server",
+                       "source":  {
+                                      "url":  "https://github.com/qalvinahmad/android-mcp",
+                                      "ref":  "main",
+                                      "commit":  null,
+                                      "license":  null,
+                                      "sha256":  null
+                                  },
+                       "profiles":  [
+                                        "ANDROID-DEV"
+                                    ],
+                       "capabilities":  [
+                                            "android-device-doctor",
+                                            "adb-safe-control",
+                                            "apk-install-logcat-proof"
+                                        ],
+                       "runtime":  {
+                                       "transport":  "stdio",
+                                       "command":  "node",
+                                       "args":  [
+                                                    "G:\\Github\\android-mcp\\dist\\index.js"
+                                                ],
+                                       "env_refs":  [
+
+                                                    ],
+                                       "cwd":  null,
+                                       "healthcheck":  {
+
+                                                       },
+                                       "timeout_ms":  30000,
+                                       "max_concurrency":  1,
+                                       "auto_start":  true
+                                   },
+                       "permissions":  {
+                                           "filesystem_roots":  [
+
+                                                                ],
+                                           "network_hosts":  [
+
+                                                             ],
+                                           "credentials":  [
+
+                                                           ],
+                                           "mutation_level":  "read_only",
+                                           "approval_policy":  "on_mutation"
+                                       },
+                       "verification":  {
+                                            "install":  "unknown",
+                                            "protocol":  "unknown",
+                                            "domain_smoke":  "unknown",
+                                            "last_verified":  null,
+                                            "evidence_id":  null
+                                        }
+                   },
+                   {
+                       "id":  "android-mcp-lean",
+                       "display_name":  "Android MCP Lean",
+                       "asset_type":  "skill_pack",
+                       "source":  {
+                                      "url":  "https://github.com/qalvinahmad/android-mcp",
+                                      "ref":  "main",
+                                      "commit":  null,
+                                      "license":  null,
+                                      "sha256":  null
+                                  },
+                       "profiles":  [
+                                        "ANDROID-DEV"
+                                    ],
+                       "capabilities":  [
+                                            "android-lean-profile",
+                                            "capability-diff-test"
+                                        ],
+                       "runtime":  {
+                                       "transport":  "none",
+                                       "command":  "node G:\\Github\\android-mcp-lean\\dist\\index.js",
+                                       "args":  [
+
+                                                ],
+                                       "env_refs":  [
+
+                                                    ],
+                                       "cwd":  null,
+                                       "healthcheck":  {
+
+                                                       },
+                                       "timeout_ms":  30000,
+                                       "max_concurrency":  1,
+                                       "auto_start":  false
+                                   },
+                       "permissions":  {
+                                           "filesystem_roots":  [
+
+                                                                ],
+                                           "network_hosts":  [
+
+                                                             ],
+                                           "credentials":  [
+
+                                                           ],
+                                           "mutation_level":  "read_only",
+                                           "approval_policy":  "on_mutation"
+                                       },
+                       "verification":  {
+                                            "install":  "unknown",
+                                            "protocol":  "unknown",
+                                            "domain_smoke":  "unknown",
+                                            "last_verified":  null,
+                                            "evidence_id":  null
+                                        }
+                   },
+                   {
+                       "id":  "androidworld",
+                       "display_name":  "AndroidWorld",
+                       "asset_type":  "benchmark",
+                       "source":  {
+                                      "url":  "https://github.com/google-research/android_world",
+                                      "ref":  "main",
+                                      "commit":  null,
+                                      "license":  null,
+                                      "sha256":  null
+                                  },
+                       "profiles":  [
+                                        "EVAL"
+                                    ],
+                       "capabilities":  [
+                                            "mobile-agent-benchmark",
+                                            "trajectory-replay-score",
+                                            "regression-baseline"
+                                        ],
+                       "runtime":  {
+                                       "transport":  "none",
+                                       "command":  "npx -y androidworld",
+                                       "args":  [
+
+                                                ],
+                                       "env_refs":  [
+
+                                                    ],
+                                       "cwd":  null,
+                                       "healthcheck":  {
+
+                                                       },
+                                       "timeout_ms":  30000,
+                                       "max_concurrency":  1,
+                                       "auto_start":  false
+                                   },
+                       "permissions":  {
+                                           "filesystem_roots":  [
+
+                                                                ],
+                                           "network_hosts":  [
+
+                                                             ],
+                                           "credentials":  [
+
+                                                           ],
+                                           "mutation_level":  "read_only",
+                                           "approval_policy":  "on_mutation"
+                                       },
+                       "verification":  {
+                                            "install":  "unknown",
+                                            "protocol":  "unknown",
+                                            "domain_smoke":  "unknown",
+                                            "last_verified":  null,
+                                            "evidence_id":  null
+                                        }
+                   },
+                   {
+                       "id":  "appium-mcp",
+                       "display_name":  "Appium MCP",
+                       "asset_type":  "mcp_server",
+                       "source":  {
+                                      "url":  "https://github.com/appium/appium-mcp",
+                                      "ref":  "main",
+                                      "commit":  null,
+                                      "license":  null,
+                                      "sha256":  null
+                                  },
+                       "profiles":  [
+                                        "ANDROID-DEV"
+                                    ],
+                       "capabilities":  [
+                                            "appium-session-doctor",
+                                            "cross-device-test-generation",
+                                            "flake-recovery"
+                                        ],
+                       "runtime":  {
+                                       "transport":  "stdio",
+                                       "command":  "node",
+                                       "args":  [
+                                                    "G:\\Github\\appium-mcp\\dist\\index.js"
+                                                ],
+                                       "env_refs":  [
+
+                                                    ],
+                                       "cwd":  null,
+                                       "healthcheck":  {
+
+                                                       },
+                                       "timeout_ms":  30000,
+                                       "max_concurrency":  1,
+                                       "auto_start":  true
+                                   },
+                       "permissions":  {
+                                           "filesystem_roots":  [
+
+                                                                ],
+                                           "network_hosts":  [
+
+                                                             ],
+                                           "credentials":  [
+
+                                                           ],
+                                           "mutation_level":  "read_only",
+                                           "approval_policy":  "on_mutation"
+                                       },
+                       "verification":  {
+                                            "install":  "unknown",
+                                            "protocol":  "unknown",
+                                            "domain_smoke":  "unknown",
+                                            "last_verified":  null,
+                                            "evidence_id":  null
+                                        }
+                   },
+                   {
+                       "id":  "maestro",
+                       "display_name":  "Maestro",
+                       "asset_type":  "cli_dependency",
+                       "source":  {
+                                      "url":  "https://github.com/mobile-dev-inc/Maestro",
+                                      "ref":  "main",
+                                      "commit":  null,
+                                      "license":  null,
+                                      "sha256":  null
+                                  },
+                       "profiles":  [
+                                        "ANDROID-DEV"
+                                    ],
+                       "capabilities":  [
+                                            "maestro-flow-authoring",
+                                            "maestro-proof-capture",
+                                            "flow-repair"
+                                        ],
+                       "runtime":  {
+                                       "transport":  "none",
+                                       "command":  "npx -y maestro",
+                                       "args":  [
+
+                                                ],
+                                       "env_refs":  [
+
+                                                    ],
+                                       "cwd":  null,
+                                       "healthcheck":  {
+
+                                                       },
+                                       "timeout_ms":  30000,
+                                       "max_concurrency":  1,
+                                       "auto_start":  false
+                                   },
+                       "permissions":  {
+                                           "filesystem_roots":  [
+
+                                                                ],
+                                           "network_hosts":  [
+
+                                                             ],
+                                           "credentials":  [
+
+                                                           ],
+                                           "mutation_level":  "read_only",
+                                           "approval_policy":  "on_mutation"
+                                       },
+                       "verification":  {
+                                            "install":  "unknown",
+                                            "protocol":  "unknown",
+                                            "domain_smoke":  "unknown",
+                                            "last_verified":  null,
+                                            "evidence_id":  null
+                                        }
+                   },
+                   {
+                       "id":  "maestro-mcp",
+                       "display_name":  "Maestro MCP",
+                       "asset_type":  "skill_pack",
+                       "source":  {
+                                      "url":  "https://github.com/mobile-dev-inc/Maestro",
+                                      "ref":  "main",
+                                      "commit":  null,
+                                      "license":  null,
+                                      "sha256":  null
+                                  },
+                       "profiles":  [
+                                        "ANDROID-DEV"
+                                    ],
+                       "capabilities":  [
+                                            "maestro-adapter-contract",
+                                            "maestro-tool-schema-tests"
+                                        ],
+                       "runtime":  {
+                                       "transport":  "none",
+                                       "command":  "npx -y maestro-mcp",
+                                       "args":  [
+
+                                                ],
+                                       "env_refs":  [
+
+                                                    ],
+                                       "cwd":  null,
+                                       "healthcheck":  {
+
+                                                       },
+                                       "timeout_ms":  30000,
+                                       "max_concurrency":  1,
+                                       "auto_start":  false
+                                   },
+                       "permissions":  {
+                                           "filesystem_roots":  [
+
+                                                                ],
+                                           "network_hosts":  [
+
+                                                             ],
+                                           "credentials":  [
+
+                                                           ],
+                                           "mutation_level":  "read_only",
+                                           "approval_policy":  "on_mutation"
+                                       },
+                       "verification":  {
+                                            "install":  "unknown",
+                                            "protocol":  "unknown",
+                                            "domain_smoke":  "unknown",
+                                            "last_verified":  null,
+                                            "evidence_id":  null
+                                        }
+                   },
+                   {
+                       "id":  "mobile-harness",
+                       "display_name":  "Mobile Harness",
+                       "asset_type":  "skill_pack",
+                       "source":  {
+                                      "url":  "https://github.com/droidrun/mobile-harness",
+                                      "ref":  "main",
+                                      "commit":  null,
+                                      "license":  null,
+                                      "sha256":  null
+                                  },
+                       "profiles":  [
+                                        "MOBILE-AGENT"
+                                    ],
+                       "capabilities":  [
+                                            "mobile-task-router",
+                                            "device-state-recovery",
+                                            "mobile-proof-bundle"
+                                        ],
+                       "runtime":  {
+                                       "transport":  "none",
+                                       "command":  "npx -y mobile-harness",
+                                       "args":  [
+
+                                                ],
+                                       "env_refs":  [
+
+                                                    ],
+                                       "cwd":  null,
+                                       "healthcheck":  {
+
+                                                       },
+                                       "timeout_ms":  30000,
+                                       "max_concurrency":  1,
+                                       "auto_start":  false
+                                   },
+                       "permissions":  {
+                                           "filesystem_roots":  [
+
+                                                                ],
+                                           "network_hosts":  [
+
+                                                             ],
+                                           "credentials":  [
+
+                                                           ],
+                                           "mutation_level":  "read_only",
+                                           "approval_policy":  "on_mutation"
+                                       },
+                       "verification":  {
+                                            "install":  "unknown",
+                                            "protocol":  "unknown",
+                                            "domain_smoke":  "unknown",
+                                            "last_verified":  null,
+                                            "evidence_id":  null
+                                        }
+                   },
+                   {
+                       "id":  "mobilerun",
+                       "display_name":  "Mobilerun",
+                       "asset_type":  "agent_runtime",
+                       "source":  {
+                                      "url":  "https://github.com/droidrun/mobilerun",
+                                      "ref":  "main",
+                                      "commit":  null,
+                                      "license":  null,
+                                      "sha256":  null
+                                  },
+                       "profiles":  [
+                                        "MOBILE-AGENT"
+                                    ],
+                       "capabilities":  [
+                                            "mobile-agent-supervisor",
+                                            "safe-action-policy",
+                                            "runtime-recovery"
+                                        ],
+                       "runtime":  {
+                                       "transport":  "none",
+                                       "command":  "npx -y mobilerun",
+                                       "args":  [
+
+                                                ],
+                                       "env_refs":  [
+
+                                                    ],
+                                       "cwd":  null,
+                                       "healthcheck":  {
+
+                                                       },
+                                       "timeout_ms":  30000,
+                                       "max_concurrency":  1,
+                                       "auto_start":  false
+                                   },
+                       "permissions":  {
+                                           "filesystem_roots":  [
+
+                                                                ],
+                                           "network_hosts":  [
+
+                                                             ],
+                                           "credentials":  [
+
+                                                           ],
+                                           "mutation_level":  "read_only",
+                                           "approval_policy":  "on_mutation"
+                                       },
+                       "verification":  {
+                                            "install":  "unknown",
+                                            "protocol":  "unknown",
+                                            "domain_smoke":  "unknown",
+                                            "last_verified":  null,
+                                            "evidence_id":  null
+                                        }
+                   },
+                   {
+                       "id":  "android-reverse-engineering-skill",
+                       "display_name":  "Android Reverse Engineering Skill",
+                       "asset_type":  "skill_pack",
+                       "source":  {
+                                      "url":  "https://github.com/SimoneAvogadro/android-reverse-engineering-skill",
+                                      "ref":  "main",
+                                      "commit":  null,
+                                      "license":  null,
+                                      "sha256":  null
+                                  },
+                       "profiles":  [
+                                        "ANDROID-RE"
+                                    ],
+                       "capabilities":  [
+                                            "apk-triage-router",
+                                            "authorized-scope-gate",
+                                            "artifact-chain-of-custody"
+                                        ],
+                       "runtime":  {
+                                       "transport":  "none",
+                                       "command":  "npx -y android-reverse-engineering-skill",
+                                       "args":  [
+
+                                                ],
+                                       "env_refs":  [
+
+                                                    ],
+                                       "cwd":  null,
+                                       "healthcheck":  {
+
+                                                       },
+                                       "timeout_ms":  30000,
+                                       "max_concurrency":  1,
+                                       "auto_start":  false
+                                   },
+                       "permissions":  {
+                                           "filesystem_roots":  [
+
+                                                                ],
+                                           "network_hosts":  [
+
+                                                             ],
+                                           "credentials":  [
+
+                                                           ],
+                                           "mutation_level":  "read_only",
+                                           "approval_policy":  "on_mutation"
+                                       },
+                       "verification":  {
+                                            "install":  "unknown",
+                                            "protocol":  "unknown",
+                                            "domain_smoke":  "unknown",
+                                            "last_verified":  null,
+                                            "evidence_id":  null
+                                        }
+                   },
+                   {
+                       "id":  "apktool",
+                       "display_name":  "Apktool",
+                       "asset_type":  "cli_dependency",
+                       "source":  {
+                                      "url":  "https://github.com/iBotPeaches/Apktool",
+                                      "ref":  "main",
+                                      "commit":  null,
+                                      "license":  null,
+                                      "sha256":  null
+                                  },
+                       "profiles":  [
+                                        "ANDROID-RE"
+                                    ],
+                       "capabilities":  [
+                                            "apk-decode-rebuild-sign",
+                                            "diff-and-rollback",
+                                            "apktool-version-doctor"
+                                        ],
+                       "runtime":  {
+                                       "transport":  "none",
+                                       "command":  "npx -y apktool",
+                                       "args":  [
+
+                                                ],
+                                       "env_refs":  [
+
+                                                    ],
+                                       "cwd":  null,
+                                       "healthcheck":  {
+
+                                                       },
+                                       "timeout_ms":  30000,
+                                       "max_concurrency":  1,
+                                       "auto_start":  false
+                                   },
+                       "permissions":  {
+                                           "filesystem_roots":  [
+
+                                                                ],
+                                           "network_hosts":  [
+
+                                                             ],
+                                           "credentials":  [
+
+                                                           ],
+                                           "mutation_level":  "read_only",
+                                           "approval_policy":  "on_mutation"
+                                       },
+                       "verification":  {
+                                            "install":  "unknown",
+                                            "protocol":  "unknown",
+                                            "domain_smoke":  "unknown",
+                                            "last_verified":  null,
+                                            "evidence_id":  null
+                                        }
+                   },
+                   {
+                       "id":  "apktool-mcp",
+                       "display_name":  "Apktool MCP",
+                       "asset_type":  "mcp_server",
+                       "source":  {
+                                      "url":  "https://github.com/zinja-coder/apktool-mcp-server",
+                                      "ref":  "main",
+                                      "commit":  null,
+                                      "license":  null,
+                                      "sha256":  null
+                                  },
+                       "profiles":  [
+                                        "ANDROID-RE"
+                                    ],
+                       "capabilities":  [
+                                            "apktool-mcp-contract-test",
+                                            "apk-rebuild-e2e"
+                                        ],
+                       "runtime":  {
+                                       "transport":  "stdio",
+                                       "command":  "npx",
+                                       "args":  [
+                                                    "-y",
+                                                    "apktool-mcp"
+                                                ],
+                                       "env_refs":  [
+
+                                                    ],
+                                       "cwd":  null,
+                                       "healthcheck":  {
+
+                                                       },
+                                       "timeout_ms":  30000,
+                                       "max_concurrency":  1,
+                                       "auto_start":  true
+                                   },
+                       "permissions":  {
+                                           "filesystem_roots":  [
+
+                                                                ],
+                                           "network_hosts":  [
+
+                                                             ],
+                                           "credentials":  [
+
+                                                           ],
+                                           "mutation_level":  "read_only",
+                                           "approval_policy":  "on_mutation"
+                                       },
+                       "verification":  {
+                                            "install":  "unknown",
+                                            "protocol":  "unknown",
+                                            "domain_smoke":  "unknown",
+                                            "last_verified":  null,
+                                            "evidence_id":  null
+                                        }
+                   },
+                   {
+                       "id":  "frida-mcp-skills",
+                       "display_name":  "Frida MCP Skills",
+                       "asset_type":  "skill_pack",
+                       "source":  {
+                                      "url":  "https://github.com/yfe404/frida-mcp-skills",
+                                      "ref":  "main",
+                                      "commit":  null,
+                                      "license":  null,
+                                      "sha256":  null
+                                  },
+                       "profiles":  [
+                                        "ANDROID-RE-DYNAMIC"
+                                    ],
+                       "capabilities":  [
+                                            "frida-session-lifecycle",
+                                            "hook-library-vetting",
+                                            "dynamic-evidence-capture"
+                                        ],
+                       "runtime":  {
+                                       "transport":  "none",
+                                       "command":  "npx -y frida-mcp-skills",
+                                       "args":  [
+
+                                                ],
+                                       "env_refs":  [
+
+                                                    ],
+                                       "cwd":  null,
+                                       "healthcheck":  {
+
+                                                       },
+                                       "timeout_ms":  30000,
+                                       "max_concurrency":  1,
+                                       "auto_start":  false
+                                   },
+                       "permissions":  {
+                                           "filesystem_roots":  [
+
+                                                                ],
+                                           "network_hosts":  [
+
+                                                             ],
+                                           "credentials":  [
+
+                                                           ],
+                                           "mutation_level":  "read_only",
+                                           "approval_policy":  "on_mutation"
+                                       },
+                       "verification":  {
+                                            "install":  "unknown",
+                                            "protocol":  "unknown",
+                                            "domain_smoke":  "unknown",
+                                            "last_verified":  null,
+                                            "evidence_id":  null
+                                        }
+                   },
+                   {
+                       "id":  "jadx-ai-mcp",
+                       "display_name":  "JADX AI MCP",
+                       "asset_type":  "mcp_server",
+                       "source":  {
+                                      "url":  "https://github.com/zinja-coder/jadx-ai-mcp",
+                                      "ref":  "main",
+                                      "commit":  null,
+                                      "license":  null,
+                                      "sha256":  null
+                                  },
+                       "profiles":  [
+                                        "ANDROID-RE"
+                                    ],
+                       "capabilities":  [
+                                            "jadx-gui-session",
+                                            "find-reference-export",
+                                            "gui-state-recovery"
+                                        ],
+                       "runtime":  {
+                                       "transport":  "stdio",
+                                       "command":  "npx",
+                                       "args":  [
+                                                    "-y",
+                                                    "jadx-ai-mcp"
+                                                ],
+                                       "env_refs":  [
+
+                                                    ],
+                                       "cwd":  null,
+                                       "healthcheck":  {
+
+                                                       },
+                                       "timeout_ms":  30000,
+                                       "max_concurrency":  1,
+                                       "auto_start":  true
+                                   },
+                       "permissions":  {
+                                           "filesystem_roots":  [
+
+                                                                ],
+                                           "network_hosts":  [
+
+                                                             ],
+                                           "credentials":  [
+
+                                                           ],
+                                           "mutation_level":  "read_only",
+                                           "approval_policy":  "on_mutation"
+                                       },
+                       "verification":  {
+                                            "install":  "unknown",
+                                            "protocol":  "unknown",
+                                            "domain_smoke":  "unknown",
+                                            "last_verified":  null,
+                                            "evidence_id":  null
+                                        }
+                   },
+                   {
+                       "id":  "jadx-mcp-server",
+                       "display_name":  "JADX MCP Server",
+                       "asset_type":  "mcp_server",
+                       "source":  {
+                                      "url":  "https://github.com/Qtty/jadx-mcp-server",
+                                      "ref":  "main",
+                                      "commit":  null,
+                                      "license":  null,
+                                      "sha256":  null
+                                  },
+                       "profiles":  [
+                                        "ANDROID-RE"
+                                    ],
+                       "capabilities":  [
+                                            "headless-apk-analysis",
+                                            "jadx-artifact-report",
+                                            "query-budgeting"
+                                        ],
+                       "runtime":  {
+                                       "transport":  "stdio",
+                                       "command":  "npx",
+                                       "args":  [
+                                                    "-y",
+                                                    "jadx-mcp-server"
+                                                ],
+                                       "env_refs":  [
+
+                                                    ],
+                                       "cwd":  null,
+                                       "healthcheck":  {
+
+                                                       },
+                                       "timeout_ms":  30000,
+                                       "max_concurrency":  1,
+                                       "auto_start":  true
+                                   },
+                       "permissions":  {
+                                           "filesystem_roots":  [
+
+                                                                ],
+                                           "network_hosts":  [
+
+                                                             ],
+                                           "credentials":  [
+
+                                                           ],
+                                           "mutation_level":  "read_only",
+                                           "approval_policy":  "on_mutation"
+                                       },
+                       "verification":  {
+                                            "install":  "unknown",
+                                            "protocol":  "unknown",
+                                            "domain_smoke":  "unknown",
+                                            "last_verified":  null,
+                                            "evidence_id":  null
+                                        }
+                   },
+                   {
+                       "id":  "mobsf",
+                       "display_name":  "MobSF",
+                       "asset_type":  "service",
+                       "source":  {
+                                      "url":  "https://github.com/MobSF/Mobile-Security-Framework-MobSF",
+                                      "ref":  "main",
+                                      "commit":  null,
+                                      "license":  null,
+                                      "sha256":  null
+                                  },
+                       "profiles":  [
+                                        "ANDROID-RE"
+                                    ],
+                       "capabilities":  [
+                                            "mobsf-scan-orchestrator",
+                                            "finding-dedupe-prioritize",
+                                            "report-export"
+                                        ],
+                       "runtime":  {
+                                       "transport":  "none",
+                                       "command":  "npx -y mobsf",
+                                       "args":  [
+
+                                                ],
+                                       "env_refs":  [
+
+                                                    ],
+                                       "cwd":  null,
+                                       "healthcheck":  {
+
+                                                       },
+                                       "timeout_ms":  30000,
+                                       "max_concurrency":  1,
+                                       "auto_start":  false
+                                   },
+                       "permissions":  {
+                                           "filesystem_roots":  [
+
+                                                                ],
+                                           "network_hosts":  [
+
+                                                             ],
+                                           "credentials":  [
+
+                                                           ],
+                                           "mutation_level":  "read_only",
+                                           "approval_policy":  "on_mutation"
+                                       },
+                       "verification":  {
+                                            "install":  "unknown",
+                                            "protocol":  "unknown",
+                                            "domain_smoke":  "unknown",
+                                            "last_verified":  null,
+                                            "evidence_id":  null
+                                        }
+                   },
+                   {
+                       "id":  "ghidra",
+                       "display_name":  "Ghidra",
+                       "asset_type":  "cli_dependency",
+                       "source":  {
+                                      "url":  "https://github.com/NationalSecurityAgency/ghidra",
+                                      "ref":  "main",
+                                      "commit":  null,
+                                      "license":  null,
+                                      "sha256":  null
+                                  },
+                       "profiles":  [
+                                        "NATIVE-RE"
+                                    ],
+                       "capabilities":  [
+                                            "ghidra-project-import",
+                                            "analysis-cache",
+                                            "export-symbols"
+                                        ],
+                       "runtime":  {
+                                       "transport":  "none",
+                                       "command":  "",
+                                       "args":  [
+
+                                                ],
+                                       "env_refs":  [
+
+                                                    ],
+                                       "cwd":  null,
+                                       "healthcheck":  {
+
+                                                       },
+                                       "timeout_ms":  30000,
+                                       "max_concurrency":  1,
+                                       "auto_start":  false
+                                   },
+                       "permissions":  {
+                                           "filesystem_roots":  [
+
+                                                                ],
+                                           "network_hosts":  [
+
+                                                             ],
+                                           "credentials":  [
+
+                                                           ],
+                                           "mutation_level":  "read_only",
+                                           "approval_policy":  "on_mutation"
+                                       },
+                       "verification":  {
+                                            "install":  "unknown",
+                                            "protocol":  "unknown",
+                                            "domain_smoke":  "unknown",
+                                            "last_verified":  null,
+                                            "evidence_id":  null
+                                        }
+                   },
+                   {
+                       "id":  "ghidra-mcp-headless",
+                       "display_name":  "Ghidra MCP Headless",
+                       "asset_type":  "mcp_server",
+                       "source":  {
+                                      "url":  "https://github.com/SumTuusDeus/ghidra-mcp",
+                                      "ref":  "main",
+                                      "commit":  null,
+                                      "license":  null,
+                                      "sha256":  null
+                                  },
+                       "profiles":  [
+                                        "NATIVE-RE"
+                                    ],
+                       "capabilities":  [
+                                            "headless-binary-triage",
+                                            "batch-analysis-proof",
+                                            "timeout-and-cache"
+                                        ],
+                       "runtime":  {
+                                       "transport":  "none",
+                                       "command":  "",
+                                       "args":  [
+
+                                                ],
+                                       "env_refs":  [
+
+                                                    ],
+                                       "cwd":  null,
+                                       "healthcheck":  {
+
+                                                       },
+                                       "timeout_ms":  30000,
+                                       "max_concurrency":  1,
+                                       "auto_start":  true
+                                   },
+                       "permissions":  {
+                                           "filesystem_roots":  [
+
+                                                                ],
+                                           "network_hosts":  [
+
+                                                             ],
+                                           "credentials":  [
+
+                                                           ],
+                                           "mutation_level":  "read_only",
+                                           "approval_policy":  "on_mutation"
+                                       },
+                       "verification":  {
+                                            "install":  "unknown",
+                                            "protocol":  "unknown",
+                                            "domain_smoke":  "unknown",
+                                            "last_verified":  null,
+                                            "evidence_id":  null
+                                        }
+                   },
+                   {
+                       "id":  "ghidramcp-lauriewired",
+                       "display_name":  "GhidraMCP LaurieWired",
+                       "asset_type":  "mcp_server",
+                       "source":  {
+                                      "url":  "https://github.com/LaurieWired/GhidraMCP",
+                                      "ref":  "main",
+                                      "commit":  null,
+                                      "license":  null,
+                                      "sha256":  null
+                                  },
+                       "profiles":  [
+                                        "NATIVE-RE"
+                                    ],
+                       "capabilities":  [
+                                            "interactive-ghidra-control",
+                                            "state-sync",
+                                            "gui-handoff"
+                                        ],
+                       "runtime":  {
+                                       "transport":  "none",
+                                       "command":  "",
+                                       "args":  [
+
+                                                ],
+                                       "env_refs":  [
+
+                                                    ],
+                                       "cwd":  null,
+                                       "healthcheck":  {
+
+                                                       },
+                                       "timeout_ms":  30000,
+                                       "max_concurrency":  1,
+                                       "auto_start":  true
+                                   },
+                       "permissions":  {
+                                           "filesystem_roots":  [
+
+                                                                ],
+                                           "network_hosts":  [
+
+                                                             ],
+                                           "credentials":  [
+
+                                                           ],
+                                           "mutation_level":  "read_only",
+                                           "approval_policy":  "on_mutation"
+                                       },
+                       "verification":  {
+                                            "install":  "unknown",
+                                            "protocol":  "unknown",
+                                            "domain_smoke":  "unknown",
+                                            "last_verified":  null,
+                                            "evidence_id":  null
+                                        }
+                   },
+                   {
+                       "id":  "iaito",
+                       "display_name":  "iaito",
+                       "asset_type":  "gui_dependency",
+                       "source":  {
+                                      "url":  "https://github.com/radareorg/iaito",
+                                      "ref":  "main",
+                                      "commit":  null,
+                                      "license":  null,
+                                      "sha256":  null
+                                  },
+                       "profiles":  [
+                                        "NATIVE-RE"
+                                    ],
+                       "capabilities":  [
+                                            "radare-gui-handoff",
+                                            "analyst-session-export"
+                                        ],
+                       "runtime":  {
+                                       "transport":  "none",
+                                       "command":  "",
+                                       "args":  [
+
+                                                ],
+                                       "env_refs":  [
+
+                                                    ],
+                                       "cwd":  null,
+                                       "healthcheck":  {
+
+                                                       },
+                                       "timeout_ms":  30000,
+                                       "max_concurrency":  1,
+                                       "auto_start":  false
+                                   },
+                       "permissions":  {
+                                           "filesystem_roots":  [
+
+                                                                ],
+                                           "network_hosts":  [
+
+                                                             ],
+                                           "credentials":  [
+
+                                                           ],
+                                           "mutation_level":  "read_only",
+                                           "approval_policy":  "on_mutation"
+                                       },
+                       "verification":  {
+                                            "install":  "unknown",
+                                            "protocol":  "unknown",
+                                            "domain_smoke":  "unknown",
+                                            "last_verified":  null,
+                                            "evidence_id":  null
+                                        }
+                   },
+                   {
+                       "id":  "pyghidra-mcp",
+                       "display_name":  "pyghidra-mcp",
+                       "asset_type":  "mcp_server",
+                       "source":  {
+                                      "url":  "https://github.com/clearbluejar/pyghidra-mcp",
+                                      "ref":  "main",
+                                      "commit":  null,
+                                      "license":  null,
+                                      "sha256":  null
+                                  },
+                       "profiles":  [
+                                        "NATIVE-RE"
+                                    ],
+                       "capabilities":  [
+                                            "ghidra-variant-selection",
+                                            "capability-diff-test",
+                                            "state-persistence"
+                                        ],
+                       "runtime":  {
+                                       "transport":  "none",
+                                       "command":  "",
+                                       "args":  [
+
+                                                ],
+                                       "env_refs":  [
+
+                                                    ],
+                                       "cwd":  null,
+                                       "healthcheck":  {
+
+                                                       },
+                                       "timeout_ms":  30000,
+                                       "max_concurrency":  1,
+                                       "auto_start":  true
+                                   },
+                       "permissions":  {
+                                           "filesystem_roots":  [
+
+                                                                ],
+                                           "network_hosts":  [
+
+                                                             ],
+                                           "credentials":  [
+
+                                                           ],
+                                           "mutation_level":  "read_only",
+                                           "approval_policy":  "on_mutation"
+                                       },
+                       "verification":  {
+                                            "install":  "unknown",
+                                            "protocol":  "unknown",
+                                            "domain_smoke":  "unknown",
+                                            "last_verified":  null,
+                                            "evidence_id":  null
+                                        }
+                   },
+                   {
+                       "id":  "radare2",
+                       "display_name":  "radare2",
+                       "asset_type":  "cli_dependency",
+                       "source":  {
+                                      "url":  "https://github.com/radareorg/radare2",
+                                      "ref":  "main",
+                                      "commit":  null,
+                                      "license":  null,
+                                      "sha256":  null
+                                  },
+                       "profiles":  [
+                                        "NATIVE-RE"
+                                    ],
+                       "capabilities":  [
+                                            "radare2-analysis-pipeline",
+                                            "r2-project-export",
+                                            "cross-tool-handoff"
+                                        ],
+                       "runtime":  {
+                                       "transport":  "none",
+                                       "command":  "",
+                                       "args":  [
+
+                                                ],
+                                       "env_refs":  [
+
+                                                    ],
+                                       "cwd":  null,
+                                       "healthcheck":  {
+
+                                                       },
+                                       "timeout_ms":  30000,
+                                       "max_concurrency":  1,
+                                       "auto_start":  false
+                                   },
+                       "permissions":  {
+                                           "filesystem_roots":  [
+
+                                                                ],
+                                           "network_hosts":  [
+
+                                                             ],
+                                           "credentials":  [
+
+                                                           ],
+                                           "mutation_level":  "read_only",
+                                           "approval_policy":  "on_mutation"
+                                       },
+                       "verification":  {
+                                            "install":  "unknown",
+                                            "protocol":  "unknown",
+                                            "domain_smoke":  "unknown",
+                                            "last_verified":  null,
+                                            "evidence_id":  null
+                                        }
+                   },
+                   {
+                       "id":  "autogenesis",
+                       "display_name":  "AutoGenesis",
+                       "asset_type":  "mcp_server",
+                       "source":  {
+                                      "url":  "https://github.com/microsoft/AutoGenesis",
+                                      "ref":  "main",
+                                      "commit":  null,
+                                      "license":  null,
+                                      "sha256":  null
+                                  },
+                       "profiles":  [
+                                        "WINDOWS-DEV"
+                                    ],
+                       "capabilities":  [
+                                            "windows-gui-test-plan",
+                                            "record-replay",
+                                            "test-flake-diagnosis"
+                                        ],
+                       "runtime":  {
+                                       "transport":  "stdio",
+                                       "command":  "npx",
+                                       "args":  [
+                                                    "-y",
+                                                    "autogenesis"
+                                                ],
+                                       "env_refs":  [
+
+                                                    ],
+                                       "cwd":  null,
+                                       "healthcheck":  {
+
+                                                       },
+                                       "timeout_ms":  30000,
+                                       "max_concurrency":  1,
+                                       "auto_start":  true
+                                   },
+                       "permissions":  {
+                                           "filesystem_roots":  [
+
+                                                                ],
+                                           "network_hosts":  [
+
+                                                             ],
+                                           "credentials":  [
+
+                                                           ],
+                                           "mutation_level":  "read_only",
+                                           "approval_policy":  "on_mutation"
+                                       },
+                       "verification":  {
+                                            "install":  "unknown",
+                                            "protocol":  "unknown",
+                                            "domain_smoke":  "unknown",
+                                            "last_verified":  null,
+                                            "evidence_id":  null
+                                        }
+                   },
+                   {
+                       "id":  "win-dev-skills",
+                       "display_name":  "win-dev-skills",
+                       "asset_type":  "skill_pack",
+                       "source":  {
+                                      "url":  "https://github.com/microsoft/win-dev-skills",
+                                      "ref":  "main",
+                                      "commit":  null,
+                                      "license":  null,
+                                      "sha256":  null
+                                  },
+                       "profiles":  [
+                                        "WINDOWS-DEV"
+                                    ],
+                       "capabilities":  [
+                                            "daveai-winui-router",
+                                            "gui-one-click-setup",
+                                            "hermesproof-winui-adapter"
+                                        ],
+                       "runtime":  {
+                                       "transport":  "none",
+                                       "command":  "npx -y win-dev-skills",
+                                       "args":  [
+
+                                                ],
+                                       "env_refs":  [
+
+                                                    ],
+                                       "cwd":  null,
+                                       "healthcheck":  {
+
+                                                       },
+                                       "timeout_ms":  30000,
+                                       "max_concurrency":  1,
+                                       "auto_start":  false
+                                   },
+                       "permissions":  {
+                                           "filesystem_roots":  [
+
+                                                                ],
+                                           "network_hosts":  [
+
+                                                             ],
+                                           "credentials":  [
+
+                                                           ],
+                                           "mutation_level":  "read_only",
+                                           "approval_policy":  "on_mutation"
+                                       },
+                       "verification":  {
+                                            "install":  "unknown",
+                                            "protocol":  "unknown",
+                                            "domain_smoke":  "unknown",
+                                            "last_verified":  null,
+                                            "evidence_id":  null
+                                        }
+                   },
+                   {
+                       "id":  "winapp-cli",
+                       "display_name":  "WinApp CLI",
+                       "asset_type":  "cli_dependency",
+                       "source":  {
+                                      "url":  "https://github.com/microsoft/winappCli",
+                                      "ref":  "main",
+                                      "commit":  null,
+                                      "license":  null,
+                                      "sha256":  null
+                                  },
+                       "profiles":  [
+                                        "WINDOWS-DEV"
+                                    ],
+                       "capabilities":  [
+                                            "windows-package-sign",
+                                            "msix-release",
+                                            "ui-accessibility-test"
+                                        ],
+                       "runtime":  {
+                                       "transport":  "none",
+                                       "command":  "npx -y winapp-cli",
+                                       "args":  [
+
+                                                ],
+                                       "env_refs":  [
+
+                                                    ],
+                                       "cwd":  null,
+                                       "healthcheck":  {
+
+                                                       },
+                                       "timeout_ms":  30000,
+                                       "max_concurrency":  1,
+                                       "auto_start":  false
+                                   },
+                       "permissions":  {
+                                           "filesystem_roots":  [
+
+                                                                ],
+                                           "network_hosts":  [
+
+                                                             ],
+                                           "credentials":  [
+
+                                                           ],
+                                           "mutation_level":  "read_only",
+                                           "approval_policy":  "on_mutation"
+                                       },
+                       "verification":  {
+                                            "install":  "unknown",
+                                            "protocol":  "unknown",
+                                            "domain_smoke":  "unknown",
+                                            "last_verified":  null,
+                                            "evidence_id":  null
+                                        }
+                   },
+                   {
+                       "id":  "hyper-v-mcp",
+                       "display_name":  "Hyper-V MCP",
+                       "asset_type":  "mcp_server",
+                       "source":  {
+                                      "url":  "https://github.com/originsec/hyperv-mcp",
+                                      "ref":  "main",
+                                      "commit":  null,
+                                      "license":  null,
+                                      "sha256":  null
+                                  },
+                       "profiles":  [
+                                        "ISOLATED-LAB"
+                                    ],
+                       "capabilities":  [
+                                            "lab-provision-snapshot-restore",
+                                            "network-isolation",
+                                            "guest-evidence"
+                                        ],
+                       "runtime":  {
+                                       "transport":  "stdio",
+                                       "command":  "npx",
+                                       "args":  [
+                                                    "-y",
+                                                    "hyper-v-mcp"
+                                                ],
+                                       "env_refs":  [
+
+                                                    ],
+                                       "cwd":  null,
+                                       "healthcheck":  {
+
+                                                       },
+                                       "timeout_ms":  30000,
+                                       "max_concurrency":  1,
+                                       "auto_start":  true
+                                   },
+                       "permissions":  {
+                                           "filesystem_roots":  [
+
+                                                                ],
+                                           "network_hosts":  [
+
+                                                             ],
+                                           "credentials":  [
+
+                                                           ],
+                                           "mutation_level":  "read_only",
+                                           "approval_policy":  "on_mutation"
+                                       },
+                       "verification":  {
+                                            "install":  "unknown",
+                                            "protocol":  "unknown",
+                                            "domain_smoke":  "unknown",
+                                            "last_verified":  null,
+                                            "evidence_id":  null
+                                        }
+                   },
+                   {
+                       "id":  "x64dbg",
+                       "display_name":  "x64dbg",
+                       "asset_type":  "gui_dependency",
+                       "source":  {
+                                      "url":  "https://github.com/x64dbg/x64dbg",
+                                      "ref":  "main",
+                                      "commit":  null,
+                                      "license":  null,
+                                      "sha256":  null
+                                  },
+                       "profiles":  [
+                                        "WINDOWS-RE"
+                                    ],
+                       "capabilities":  [
+                                            "debug-session-setup",
+                                            "crash-repro",
+                                            "debugger-state-export"
+                                        ],
+                       "runtime":  {
+                                       "transport":  "none",
+                                       "command":  "npx -y x64dbg",
+                                       "args":  [
+
+                                                ],
+                                       "env_refs":  [
+
+                                                    ],
+                                       "cwd":  null,
+                                       "healthcheck":  {
+
+                                                       },
+                                       "timeout_ms":  30000,
+                                       "max_concurrency":  1,
+                                       "auto_start":  false
+                                   },
+                       "permissions":  {
+                                           "filesystem_roots":  [
+
+                                                                ],
+                                           "network_hosts":  [
+
+                                                             ],
+                                           "credentials":  [
+
+                                                           ],
+                                           "mutation_level":  "read_only",
+                                           "approval_policy":  "on_mutation"
+                                       },
+                       "verification":  {
+                                            "install":  "unknown",
+                                            "protocol":  "unknown",
+                                            "domain_smoke":  "unknown",
+                                            "last_verified":  null,
+                                            "evidence_id":  null
+                                        }
+                   },
+                   {
+                       "id":  "x64dbg-automate-mcp",
+                       "display_name":  "x64dbg Automate MCP",
+                       "asset_type":  "mcp_server",
+                       "source":  {
+                                      "url":  "https://github.com/dariushoule/x64dbg-automate-pyclient",
+                                      "ref":  "main",
+                                      "commit":  null,
+                                      "license":  null,
+                                      "sha256":  null
+                                  },
+                       "profiles":  [
+                                        "WINDOWS-RE"
+                                    ],
+                       "capabilities":  [
+                                            "breakpoint-plan",
+                                            "trace-export",
+                                            "safe-patch-proof"
+                                        ],
+                       "runtime":  {
+                                       "transport":  "stdio",
+                                       "command":  "npx",
+                                       "args":  [
+                                                    "-y",
+                                                    "x64dbg-automate-mcp"
+                                                ],
+                                       "env_refs":  [
+
+                                                    ],
+                                       "cwd":  null,
+                                       "healthcheck":  {
+
+                                                       },
+                                       "timeout_ms":  30000,
+                                       "max_concurrency":  1,
+                                       "auto_start":  true
+                                   },
+                       "permissions":  {
+                                           "filesystem_roots":  [
+
+                                                                ],
+                                           "network_hosts":  [
+
+                                                             ],
+                                           "credentials":  [
+
+                                                           ],
+                                           "mutation_level":  "read_only",
+                                           "approval_policy":  "on_mutation"
+                                       },
+                       "verification":  {
+                                            "install":  "unknown",
+                                            "protocol":  "unknown",
+                                            "domain_smoke":  "unknown",
+                                            "last_verified":  null,
+                                            "evidence_id":  null
+                                        }
+                   },
+                   {
+                       "id":  "x64dbg-skills",
+                       "display_name":  "x64dbg-skills",
+                       "asset_type":  "skill_pack",
+                       "source":  {
+                                      "url":  "https://github.com/dariushoule/x64dbg-skills",
+                                      "ref":  "main",
+                                      "commit":  null,
+                                      "license":  null,
+                                      "sha256":  null
+                                  },
+                       "profiles":  [
+                                        "WINDOWS-RE"
+                                    ],
+                       "capabilities":  [
+                                            "windows-re-orchestrator",
+                                            "x64dbg-recovery",
+                                            "trace-to-report"
+                                        ],
+                       "runtime":  {
+                                       "transport":  "none",
+                                       "command":  "npx -y x64dbg-skills",
+                                       "args":  [
+
+                                                ],
+                                       "env_refs":  [
+
+                                                    ],
+                                       "cwd":  null,
+                                       "healthcheck":  {
+
+                                                       },
+                                       "timeout_ms":  30000,
+                                       "max_concurrency":  1,
+                                       "auto_start":  false
+                                   },
+                       "permissions":  {
+                                           "filesystem_roots":  [
+
+                                                                ],
+                                           "network_hosts":  [
+
+                                                             ],
+                                           "credentials":  [
+
+                                                           ],
+                                           "mutation_level":  "read_only",
+                                           "approval_policy":  "on_mutation"
+                                       },
+                       "verification":  {
+                                            "install":  "unknown",
+                                            "protocol":  "unknown",
+                                            "domain_smoke":  "unknown",
+                                            "last_verified":  null,
+                                            "evidence_id":  null
+                                        }
+                   },
+                   {
+                       "id":  "assetripper",
+                       "display_name":  "AssetRipper",
+                       "asset_type":  "gui_dependency",
+                       "source":  {
+                                      "url":  "https://github.com/AssetRipper/AssetRipper",
+                                      "ref":  "main",
+                                      "commit":  null,
+                                      "license":  null,
+                                      "sha256":  null
+                                  },
+                       "profiles":  [
+                                        "UNITY-RE"
+                                    ],
+                       "capabilities":  [
+                                            "unity-asset-extract-catalog",
+                                            "provenance-and-license",
+                                            "batch-export"
+                                        ],
+                       "runtime":  {
+                                       "transport":  "none",
+                                       "command":  "npx -y assetripper",
+                                       "args":  [
+
+                                                ],
+                                       "env_refs":  [
+
+                                                    ],
+                                       "cwd":  null,
+                                       "healthcheck":  {
+
+                                                       },
+                                       "timeout_ms":  30000,
+                                       "max_concurrency":  1,
+                                       "auto_start":  false
+                                   },
+                       "permissions":  {
+                                           "filesystem_roots":  [
+
+                                                                ],
+                                           "network_hosts":  [
+
+                                                             ],
+                                           "credentials":  [
+
+                                                           ],
+                                           "mutation_level":  "read_only",
+                                           "approval_policy":  "on_mutation"
+                                       },
+                       "verification":  {
+                                            "install":  "unknown",
+                                            "protocol":  "unknown",
+                                            "domain_smoke":  "unknown",
+                                            "last_verified":  null,
+                                            "evidence_id":  null
+                                        }
+                   },
+                   {
+                       "id":  "cpp2il",
+                       "display_name":  "Cpp2IL",
+                       "asset_type":  "cli_dependency",
+                       "source":  {
+                                      "url":  "https://github.com/SamboyCoding/Cpp2IL",
+                                      "ref":  "main",
+                                      "commit":  null,
+                                      "license":  null,
+                                      "sha256":  null
+                                  },
+                       "profiles":  [
+                                        "UNITY-RE"
+                                    ],
+                       "capabilities":  [
+                                            "il2cpp-reconstruction",
+                                            "metadata-validation",
+                                            "cross-version-fallback"
+                                        ],
+                       "runtime":  {
+                                       "transport":  "none",
+                                       "command":  "npx -y cpp2il",
+                                       "args":  [
+
+                                                ],
+                                       "env_refs":  [
+
+                                                    ],
+                                       "cwd":  null,
+                                       "healthcheck":  {
+
+                                                       },
+                                       "timeout_ms":  30000,
+                                       "max_concurrency":  1,
+                                       "auto_start":  false
+                                   },
+                       "permissions":  {
+                                           "filesystem_roots":  [
+
+                                                                ],
+                                           "network_hosts":  [
+
+                                                             ],
+                                           "credentials":  [
+
+                                                           ],
+                                           "mutation_level":  "read_only",
+                                           "approval_policy":  "on_mutation"
+                                       },
+                       "verification":  {
+                                            "install":  "unknown",
+                                            "protocol":  "unknown",
+                                            "domain_smoke":  "unknown",
+                                            "last_verified":  null,
+                                            "evidence_id":  null
+                                        }
+                   },
+                   {
+                       "id":  "dnspyex",
+                       "display_name":  "dnSpyEx",
+                       "asset_type":  "gui_dependency",
+                       "source":  {
+                                      "url":  "https://github.com/dnSpyEx/dnSpy",
+                                      "ref":  "main",
+                                      "commit":  null,
+                                      "license":  null,
+                                      "sha256":  null
+                                  },
+                       "profiles":  [
+                                        "UNITY-RE"
+                                    ],
+                       "capabilities":  [
+                                            "managed-assembly-triage",
+                                            "patch-build-verify",
+                                            "symbol-export"
+                                        ],
+                       "runtime":  {
+                                       "transport":  "none",
+                                       "command":  "npx -y dnspyex",
+                                       "args":  [
+
+                                                ],
+                                       "env_refs":  [
+
+                                                    ],
+                                       "cwd":  null,
+                                       "healthcheck":  {
+
+                                                       },
+                                       "timeout_ms":  30000,
+                                       "max_concurrency":  1,
+                                       "auto_start":  false
+                                   },
+                       "permissions":  {
+                                           "filesystem_roots":  [
+
+                                                                ],
+                                           "network_hosts":  [
+
+                                                             ],
+                                           "credentials":  [
+
+                                                           ],
+                                           "mutation_level":  "read_only",
+                                           "approval_policy":  "on_mutation"
+                                       },
+                       "verification":  {
+                                            "install":  "unknown",
+                                            "protocol":  "unknown",
+                                            "domain_smoke":  "unknown",
+                                            "last_verified":  null,
+                                            "evidence_id":  null
+                                        }
+                   },
+                   {
+                       "id":  "r2unity",
+                       "display_name":  "r2unity",
+                       "asset_type":  "cli_dependency",
+                       "source":  {
+                                      "url":  "https://github.com/radareorg/r2unity",
+                                      "ref":  "main",
+                                      "commit":  null,
+                                      "license":  null,
+                                      "sha256":  null
+                                  },
+                       "profiles":  [
+                                        "UNITY-RE"
+                                    ],
+                       "capabilities":  [
+                                            "unity-metadata-to-r2",
+                                            "cross-tool-handoff",
+                                            "plugin-version-doctor"
+                                        ],
+                       "runtime":  {
+                                       "transport":  "none",
+                                       "command":  "npx -y r2unity",
+                                       "args":  [
+
+                                                ],
+                                       "env_refs":  [
+
+                                                    ],
+                                       "cwd":  null,
+                                       "healthcheck":  {
+
+                                                       },
+                                       "timeout_ms":  30000,
+                                       "max_concurrency":  1,
+                                       "auto_start":  false
+                                   },
+                       "permissions":  {
+                                           "filesystem_roots":  [
+
+                                                                ],
+                                           "network_hosts":  [
+
+                                                             ],
+                                           "credentials":  [
+
+                                                           ],
+                                           "mutation_level":  "read_only",
+                                           "approval_policy":  "on_mutation"
+                                       },
+                       "verification":  {
+                                            "install":  "unknown",
+                                            "protocol":  "unknown",
+                                            "domain_smoke":  "unknown",
+                                            "last_verified":  null,
+                                            "evidence_id":  null
+                                        }
+                   },
+                   {
+                       "id":  "playwright-cli-skills",
+                       "display_name":  "Playwright CLI + Skills",
+                       "asset_type":  "skill_pack",
+                       "source":  {
+                                      "url":  "https://github.com/microsoft/playwright-cli",
+                                      "ref":  "main",
+                                      "commit":  null,
+                                      "license":  null,
+                                      "sha256":  null
+                                  },
+                       "profiles":  [
+                                        "WEB-E2E"
+                                    ],
+                       "capabilities":  [
+                                            "web-e2e-generate-run-repair",
+                                            "visual-regression",
+                                            "accessibility-performance",
+                                            "electron-desktop-test"
+                                        ],
+                       "runtime":  {
+                                       "transport":  "stdio",
+                                       "command":  "npx",
+                                       "args":  [
+                                                    "-y",
+                                                    "@playwright/mcp@latest"
+                                                ],
+                                       "env_refs":  [
+                                                        "PLAYWRIGHT_BROWSERS_PATH"
+                                                    ],
+                                       "cwd":  null,
+                                       "healthcheck":  {
+
+                                                       },
+                                       "timeout_ms":  30000,
+                                       "max_concurrency":  1,
+                                       "auto_start":  false
+                                   },
+                       "permissions":  {
+                                           "filesystem_roots":  [
+
+                                                                ],
+                                           "network_hosts":  [
+
+                                                             ],
+                                           "credentials":  [
+                                                               "PLAYWRIGHT_BROWSERS_PATH"
+                                                           ],
+                                           "mutation_level":  "read_only",
+                                           "approval_policy":  "on_mutation"
+                                       },
+                       "verification":  {
+                                            "install":  "unknown",
+                                            "protocol":  "unknown",
+                                            "domain_smoke":  "unknown",
+                                            "last_verified":  null,
+                                            "evidence_id":  null
+                                        }
+                   }
+               ]
+}

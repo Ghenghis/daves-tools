@@ -1,197 +1,138 @@
-# DAVE-AI Tools - 49 MCP Server Ecosystem
+# DAVE-AI Tools - Typed Capability Registry
 
-A state-of-the-art collection of 49 installed, packaged, and orchestrated MCP (Model Context Protocol) servers for the DAVE-AI agent harness. Every server is cloned, tracked, and can be toggled on/off at runtime through the `daves-tools-harness` orchestrator.
+> This README is generated from `configs/typed-registry.json`. Do not hand-edit; run `toolkit\Build-ReadmeFromTypedRegistry.ps1` to regenerate.
+
+A capability registry and early orchestration harness for the DAVE-AI agent ecosystem. Assets are classified by type so MCP servers, skill packs, CLIs, GUIs, services and benchmarks are not confused with one another.
 
 ## What this repository gives you
 
-- **One installer for 49 MCP servers** - cloned from GitHub and packaged into `configs/claude-desktop-missing.json`.
-- **Preflight verification** - `docs/preflight.json` reports whether every server is cloned and healthy.
-- **Agentic orchestration harness** - `harness/index.js` exposes a single MCP endpoint. The host sees only 6 management tools, while child MCP servers are activated and deactivated on demand.
-- **Task-aware switching** - `discover_mcps_for_task` recommends the right servers for a given task, avoiding context bloat and resource waste.
+- **One typed registry** of 43 unique catalog assets (`configs/typed-registry.json`).
+- **16 MCP server candidates** with corrected official launchers where known.
+- **Preflight report** (`docs/preflight.json`) counts only unique phase rows.
+- **Agentic orchestration harness** (`harness/index.js`) exposes a single MCP endpoint for discovery, enable/disable and namespaced child calls.
+- **Task-aware switching** (`harness/recommender.js`) recommends assets by profile and capability, filtering empty/blank terms.
 
 ## Quick start
 
 ```powershell
-# Re-run the full installation and packaging pipeline
-.\toolkit\Run-AllPhases.ps1 -InstallDeps
-.\toolkit\Run-Preflight.ps1
-.\toolkit\Run-AllPhases.ps1 -PackageOnly
+# Rebuild the typed registry from the audit data
+.\toolkit\Build-TypedRegistry.ps1
 
-# Build the orchestration registry
-.\toolkit\Build-McpRegistry.ps1
+# Run preflight (ignores duplicate repair rows)
+.\toolkit\Run-Preflight.ps1
+
+# Regenerate this README
+.\toolkit\Build-ReadmeFromTypedRegistry.ps1
 
 # Run the harness
 cd harness; npm install; npm start
 ```
 
-## How the harness works
+## Asset counts
 
-```
-Claude / Claude Code / Windsurf / OpenHands
-                 |
-                 | stdio / streamable-http
-                 v
-    daves-tools-harness (one MCP endpoint)
-                 |
-    +------------+------------+
-    v            v            v
- enabled      disabled    recommended
- child MCPs   child MCPs  by task text
-```
+| Asset type | Count |
+|---|---|
+| Total unique | 43 |
+| mcp_server | 16 |
+| skill_pack | 10 |
+| cli/gui/service dependencies | 12 |
 
-The orchestrator exposes these 6 stable tools to the host:
+## Catalog by type
 
-- `list_available_mcps` - browse the full catalog and see health/installed state.
-- `enable_mcp` - start a child server and add its tools (namespaced as `server__tool`).
-- `disable_mcp` - stop a child server and free its resources.
-- `list_active_mcps` - show currently active servers and tool counts.
-- `discover_mcps_for_task` - get server recommendations from a task description.
-- `call_mcp_tool` - execute any active, namespaced child tool.
+### agent_runtime
 
-## MCP catalog by tier
+| Name | Profiles | Upstream | Command / notes |
+|---|---|---|---|
+| Mobilerun | MOBILE-AGENT | [https://github.com/droidrun/mobilerun](https://github.com/droidrun/mobilerun) | npx -y mobilerun  |
 
-### Tier A
+### benchmark
 
-| Name | Kind | Profile | Role / Use case | Status |
-|------|------|---------|-----------------|--------|
-| Anthropic Skills | Skills | CORE | Official skill examples and skill-creator | missing |
-| Claude Plugins Official | Marketplace | CORE | Curated Claude plugins | missing |
-| Serena | MCP | CORE | Semantic code navigation/editing | missing |
-| Superpowers | Plugin/skills | CORE | Development workflow discipline | missing |
+| Name | Profiles | Upstream | Command / notes |
+|---|---|---|---|
+| AndroidWorld | EVAL | [https://github.com/google-research/android_world](https://github.com/google-research/android_world) | npx -y androidworld  |
 
-### Tier A/B
+### cli_dependency
 
-| Name | Kind | Profile | Role / Use case | Status |
-|------|------|---------|-----------------|--------|
-| Trail of Bits Skills Curated | Plugin marketplace | CORE/ON-DEMAND | Reviewed skills including ghidra-headless, security-awareness, Playwright | not installed |
+| Name | Profiles | Upstream | Command / notes |
+|---|---|---|---|
+| Apktool | ANDROID-RE | [https://github.com/iBotPeaches/Apktool](https://github.com/iBotPeaches/Apktool) | npx -y apktool  |
+| Cpp2IL | UNITY-RE | [https://github.com/SamboyCoding/Cpp2IL](https://github.com/SamboyCoding/Cpp2IL) | npx -y cpp2il  |
+| Ghidra | NATIVE-RE | [https://github.com/NationalSecurityAgency/ghidra](https://github.com/NationalSecurityAgency/ghidra) | dependency / not launchable as MCP |
+| Maestro | ANDROID-DEV | [https://github.com/mobile-dev-inc/Maestro](https://github.com/mobile-dev-inc/Maestro) | npx -y maestro  |
+| r2unity | UNITY-RE | [https://github.com/radareorg/r2unity](https://github.com/radareorg/r2unity) | npx -y r2unity  |
+| radare2 | NATIVE-RE | [https://github.com/radareorg/radare2](https://github.com/radareorg/radare2) | dependency / not launchable as MCP |
+| WinApp CLI | WINDOWS-DEV | [https://github.com/microsoft/winappCli](https://github.com/microsoft/winappCli) | npx -y winapp-cli  |
 
-### Tier B
+### gui_dependency
 
-| Name | Kind | Profile | Role / Use case | Status |
-|------|------|---------|-----------------|--------|
-| Context7 | MCP/CLI | RESEARCH | Current library docs | missing |
-| GitHub MCP | MCP/Connector | REPO | Repo/issues/PR actions | missing |
-| GitLab MCP | MCP/Connector | REPO | GitLab project/MR/pipeline actions | missing |
-| SearXNG MCP | MCP | RESEARCH | Operator-controlled web search | missing |
-| Trail of Bits Skills | Plugin marketplace | REVIEW | Security review/static analysis/supply-chain workflows | missing |
+| Name | Profiles | Upstream | Command / notes |
+|---|---|---|---|
+| AssetRipper | UNITY-RE | [https://github.com/AssetRipper/AssetRipper](https://github.com/AssetRipper/AssetRipper) | npx -y assetripper  |
+| dnSpyEx | UNITY-RE | [https://github.com/dnSpyEx/dnSpy](https://github.com/dnSpyEx/dnSpy) | npx -y dnspyex  |
+| iaito | NATIVE-RE | [https://github.com/radareorg/iaito](https://github.com/radareorg/iaito) | dependency / not launchable as MCP |
+| x64dbg | WINDOWS-RE | [https://github.com/x64dbg/x64dbg](https://github.com/x64dbg/x64dbg) | npx -y x64dbg  |
 
-### Tier C
+### marketplace
 
-| Name | Kind | Profile | Role / Use case | Status |
-|------|------|---------|-----------------|--------|
-| Android MCP | MCP | ANDROID-DEV | Lean ADB-only Android control alternative | missing |
-| Android MCP Lean | MCP | ANDROID-DEV | Lean ADB-only Android control | missing |
-| AndroidWorld | Benchmark | EVAL | Android agent benchmarking | missing |
-| Appium MCP | MCP | ANDROID-DEV | Cross-platform Appium automation | missing |
-| Maestro | CLI/E2E | ANDROID-DEV | Deterministic mobile E2E | missing |
-| Maestro MCP | MCP/CLI/E2E | ANDROID-DEV | Deterministic mobile E2E flows and agent control | missing |
-| Mobile Harness | Skill/harness | MOBILE-AGENT | Portable mobile-agent operating instructions | missing |
-| Mobilerun | Agent runtime | MOBILE-AGENT | Natural-language mobile control | missing |
+| Name | Profiles | Upstream | Command / notes |
+|---|---|---|---|
+| Claude Plugins Official | CORE | [https://github.com/anthropics/claude-plugins-official](https://github.com/anthropics/claude-plugins-official) | npx -y claude-plugins-official  |
+| Trail of Bits Skills | REVIEW | [https://github.com/trailofbits/skills](https://github.com/trailofbits/skills) | npx -y trail-of-bits-skills  |
+| Trail of Bits Skills Curated | CORE, ON-DEMAND | [https://github.com/trailofbits/skills-curated](https://github.com/trailofbits/skills-curated) | dependency / not launchable as MCP |
 
-### Tier D
+### mcp_server
 
-| Name | Kind | Profile | Role / Use case | Status |
-|------|------|---------|-----------------|--------|
-| Android Reverse Engineering Skill | Plugin/skill | ANDROID-RE | Fingerprint-first APK/API extraction; Windows scripts experimental upstream | missing |
-| Apktool | CLI | ANDROID-RE | Resources/smali decode/rebuild | missing |
-| Apktool MCP | MCP | ANDROID-RE | Agent access to Apktool | missing |
-| Frida MCP Skills | Skills | ANDROID-RE-DYNAMIC | Lifecycle-safe Frida workflow | missing |
-| JADX AI MCP | MCP/plugin | ANDROID-RE | Live GUI APK decompilation/navigation | missing |
-| JADX MCP Server | MCP | ANDROID-RE | Headless APK analysis | missing |
-| MobSF | App/API | ANDROID-RE | Automated mobile triage | missing |
+| Name | Profiles | Upstream | Command / notes |
+|---|---|---|---|
+| Android MCP | ANDROID-DEV | [https://github.com/qalvinahmad/android-mcp](https://github.com/qalvinahmad/android-mcp) | node G:\Github\android-mcp\dist\index.js |
+| Apktool MCP | ANDROID-RE | [https://github.com/zinja-coder/apktool-mcp-server](https://github.com/zinja-coder/apktool-mcp-server) | npx -y apktool-mcp |
+| Appium MCP | ANDROID-DEV | [https://github.com/appium/appium-mcp](https://github.com/appium/appium-mcp) | node G:\Github\appium-mcp\dist\index.js |
+| AutoGenesis | WINDOWS-DEV | [https://github.com/microsoft/AutoGenesis](https://github.com/microsoft/AutoGenesis) | npx -y autogenesis |
+| Context7 | RESEARCH | [https://github.com/upstash/context7](https://github.com/upstash/context7) | npx -y @upstash/context7-mcp@latest |
+| Ghidra MCP Headless | NATIVE-RE | [https://github.com/SumTuusDeus/ghidra-mcp](https://github.com/SumTuusDeus/ghidra-mcp) | dependency / not launchable as MCP |
+| GhidraMCP LaurieWired | NATIVE-RE | [https://github.com/LaurieWired/GhidraMCP](https://github.com/LaurieWired/GhidraMCP) | dependency / not launchable as MCP |
+| GitHub MCP | REPO | [https://github.com/github/github-mcp-server](https://github.com/github/github-mcp-server) | npx -y @github/mcp-server |
+| GitLab MCP | REPO | [https://docs.gitlab.com/user/model_context_protocol/mcp_server/](https://docs.gitlab.com/user/model_context_protocol/mcp_server/) | dependency / not launchable as MCP |
+| Hyper-V MCP | ISOLATED-LAB | [https://github.com/originsec/hyperv-mcp](https://github.com/originsec/hyperv-mcp) | npx -y hyper-v-mcp |
+| JADX AI MCP | ANDROID-RE | [https://github.com/zinja-coder/jadx-ai-mcp](https://github.com/zinja-coder/jadx-ai-mcp) | npx -y jadx-ai-mcp |
+| JADX MCP Server | ANDROID-RE | [https://github.com/Qtty/jadx-mcp-server](https://github.com/Qtty/jadx-mcp-server) | npx -y jadx-mcp-server |
+| pyghidra-mcp | NATIVE-RE | [https://github.com/clearbluejar/pyghidra-mcp](https://github.com/clearbluejar/pyghidra-mcp) | dependency / not launchable as MCP |
+| SearXNG MCP | RESEARCH | [https://github.com/ihor-sokoliuk/mcp-searxng](https://github.com/ihor-sokoliuk/mcp-searxng) | node G:\Github\searxng-mcp\dist\index.js |
+| Serena | CORE | [https://github.com/oraios/serena](https://github.com/oraios/serena) | uvx mcp-server-serena --project <PROJECT_ROOT> |
+| x64dbg Automate MCP | WINDOWS-RE | [https://github.com/dariushoule/x64dbg-automate-pyclient](https://github.com/dariushoule/x64dbg-automate-pyclient) | npx -y x64dbg-automate-mcp |
 
-### Tier D/F
+### service
 
-| Name | Kind | Profile | Role / Use case | Status |
-|------|------|---------|-----------------|--------|
-| Ghidra | RE suite | NATIVE-RE | Disassembly/decompilation/analysis | not installed |
-| Ghidra MCP Headless | MCP | NATIVE-RE | Small headless PyGhidra MCP | not installed |
-| GhidraMCP LaurieWired | MCP/plugin | NATIVE-RE | Interactive Ghidra MCP | not installed |
-| iaito | GUI | NATIVE-RE | Official radare2 GUI | not installed |
-| pyghidra-mcp | MCP | NATIVE-RE | Headless + GUI Ghidra state | not installed |
-| radare2 | RE framework | NATIVE-RE | Binary analysis/debugging framework | not installed |
+| Name | Profiles | Upstream | Command / notes |
+|---|---|---|---|
+| MobSF | ANDROID-RE | [https://github.com/MobSF/Mobile-Security-Framework-MobSF](https://github.com/MobSF/Mobile-Security-Framework-MobSF) | npx -y mobsf  |
 
-### Tier E
+### skill_pack
 
-| Name | Kind | Profile | Role / Use case | Status |
-|------|------|---------|-----------------|--------|
-| AutoGenesis | MCP/test framework | WINDOWS-DEV | Cross-platform GUI test automation | missing |
-| WinApp CLI | CLI/skills | WINDOWS-DEV | Windows app tooling/UI automation | missing |
-| win-dev-skills | Plugin/skills | WINDOWS-DEV | Windows app build/test/package workflow | missing |
+| Name | Profiles | Upstream | Command / notes |
+|---|---|---|---|
+| Android MCP Lean | ANDROID-DEV | [https://github.com/qalvinahmad/android-mcp](https://github.com/qalvinahmad/android-mcp) | node G:\Github\android-mcp-lean\dist\index.js  |
+| Android Reverse Engineering Skill | ANDROID-RE | [https://github.com/SimoneAvogadro/android-reverse-engineering-skill](https://github.com/SimoneAvogadro/android-reverse-engineering-skill) | npx -y android-reverse-engineering-skill  |
+| Anthropic Skills | CORE | [https://github.com/anthropics/skills](https://github.com/anthropics/skills) | npx -y anthropic-skills  |
+| Frida MCP Skills | ANDROID-RE-DYNAMIC | [https://github.com/yfe404/frida-mcp-skills](https://github.com/yfe404/frida-mcp-skills) | npx -y frida-mcp-skills  |
+| Maestro MCP | ANDROID-DEV | [https://github.com/mobile-dev-inc/Maestro](https://github.com/mobile-dev-inc/Maestro) | npx -y maestro-mcp  |
+| Mobile Harness | MOBILE-AGENT | [https://github.com/droidrun/mobile-harness](https://github.com/droidrun/mobile-harness) | npx -y mobile-harness  |
+| Playwright CLI + Skills | WEB-E2E | [https://github.com/microsoft/playwright-cli](https://github.com/microsoft/playwright-cli) | npx -y @playwright/mcp@latest |
+| Superpowers | CORE | [https://github.com/obra/superpowers](https://github.com/obra/superpowers) | node G:\Github\superpowers\.opencode\plugins\superpowers.js  |
+| win-dev-skills | WINDOWS-DEV | [https://github.com/microsoft/win-dev-skills](https://github.com/microsoft/win-dev-skills) | npx -y win-dev-skills  |
+| x64dbg-skills | WINDOWS-RE | [https://github.com/dariushoule/x64dbg-skills](https://github.com/dariushoule/x64dbg-skills) | npx -y x64dbg-skills  |
 
-### Tier F
+## Official launchers corrected for P0 assets
 
-| Name | Kind | Profile | Role / Use case | Status |
-|------|------|---------|-----------------|--------|
-| Hyper-V MCP | MCP | ISOLATED-LAB | VM lifecycle/checkpoints/guest execution | missing |
-| x64dbg | Debugger | WINDOWS-RE | Windows user-mode dynamic RE | missing |
-| x64dbg Automate MCP | MCP | WINDOWS-RE | Agent debugger automation | missing |
-| x64dbg-skills | Plugin/skills | WINDOWS-RE | Debugger operating workflows | missing |
+| Asset | Transport | Command |
+|---|---|---|
+| Serena | stdio | uvx mcp-server-serena --project <PROJECT_ROOT> |
+| GitHub MCP | stdio | npx -y @github/mcp-server |
+| GitLab MCP | streamable_http | none |
+| Context7 | stdio | npx -y @upstash/context7-mcp@latest |
+| Playwright CLI + Skills | stdio | npx -y @playwright/mcp@latest |
 
-### Tier G
+## Remediation
 
-| Name | Kind | Profile | Role / Use case | Status |
-|------|------|---------|-----------------|--------|
-| AssetRipper | GUI/CLI | UNITY-RE | Unity asset extraction | missing |
-| Cpp2IL | CLI | UNITY-RE | Unity IL2CPP reconstruction | missing |
-| dnSpyEx | GUI | UNITY-RE | .NET managed assembly analysis | missing |
-| r2unity | CLI/plugin | UNITY-RE | Unity IL2CPP metadata in radare2 | missing |
+This README reflects the Phase 0 truth reset from the 2026-08-19 E2E audit. The prior README claimed 49 installed MCP servers; the catalog actually contains **43 unique assets**, of which **16** are MCP server candidates. The remaining entries are skills, CLIs, GUIs, services, benchmarks and marketplaces.
 
-### Tier H
-
-| Name | Kind | Profile | Role / Use case | Status |
-|------|------|---------|-----------------|--------|
-| Playwright CLI + Skills | CLI/skills | WEB-E2E | Token-efficient browser/PWA/Electron automation for coding agents | missing |
-
-## Use case matrix
-
-| Task | Recommended MCP servers |
-|------|-------------------------|
-| Reverse engineer a Windows PE / .NET binary | `x64dbg`, `dnSpyEx`, `AssetRipper`, `Cpp2IL`, `r2unity` |
-| Android reverse engineering | `apktool`, `jadx-mcp-server`, `frida-mcp-skills`, `mobsf`, `android-reverse-engineering-skill` |
-| Web e2e testing / automation | `playwright-cli-skills` |
-| Code review / security audit | `trail-of-bits-skills`, `anthropic-skills`, `claude-plugins-official` |
-| CI / repo management | `github-mcp`, `gitlab-mcp` |
-| Research / knowledge retrieval | `context7`, `searxng-mcp` |
-| Mobile QA / Android dev | `android-mcp`, `appium-mcp`, `maestro`, `mobilerun` |
-
-## Adding more MCP servers
-
-1. Append the server to `docs/missing-from-catalog.json`.
-2. Run `.\toolkit\Run-AllPhases.ps1` to clone, build, and package the new entry.
-3. Run `.\toolkit\Build-McpRegistry.ps1` to update `configs/mcp-registry.json`.
-4. The harness picks up the new server automatically on restart.
-
-## Claude Desktop snippet
-
-Add this single entry to `claude_desktop_config.json` to control all 49 servers:
-
-```json
-{
-  "mcpServers": {
-    "daves-tools-harness": {
-      "command": "node",
-      "args": [
-        "C:\\Users\\Admin\\CascadeProjects\\daves-tools\\harness\\index.js"
-      ],
-      "env": {
-        "MCP_REGISTRY": "C:\\Users\\Admin\\CascadeProjects\\daves-tools\\configs\\mcp-registry.json"
-      }
-    }
-  }
-}
-```
-
-## Automation scripts
-
-| Script | Purpose |
-|--------|---------|
-| `toolkit/Run-AllPhases.ps1` | Clone, install, build, and package all tiers. |
-| `toolkit/Run-Preflight.ps1` | Generate `docs/preflight.json` status report. |
-| `toolkit/Build-McpRegistry.ps1` | Build `configs/mcp-registry.json` for the harness. |
-| `toolkit/Run-FixFailures.ps1` | Re-run only items that failed preflight. |
-| `harness/index.js` | The orchestrator MCP server. |
-
-## License
-
-MIT - maintained for the DAVE-AI agent harness.

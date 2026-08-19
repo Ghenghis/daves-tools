@@ -1,0 +1,218 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "DAVE-AI Typed Tool Registry",
+  "type": "object",
+  "required": [
+    "version",
+    "assets"
+  ],
+  "properties": {
+    "version": {
+      "type": "string"
+    },
+    "assets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "display_name",
+          "asset_type",
+          "source",
+          "profiles",
+          "runtime",
+          "permissions",
+          "verification"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9._-]+$"
+          },
+          "display_name": {
+            "type": "string"
+          },
+          "asset_type": {
+            "enum": [
+              "mcp_server",
+              "skill_pack",
+              "cli_dependency",
+              "gui_dependency",
+              "service",
+              "benchmark",
+              "agent_runtime",
+              "marketplace"
+            ]
+          },
+          "source": {
+            "type": "object",
+            "required": [
+              "url",
+              "ref"
+            ],
+            "properties": {
+              "url": {
+                "type": "string"
+              },
+              "ref": {
+                "type": "string"
+              },
+              "commit": {
+                "type": "string"
+              },
+              "license": {
+                "type": "string"
+              },
+              "sha256": {
+                "type": "string"
+              }
+            }
+          },
+          "profiles": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "capabilities": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "runtime": {
+            "type": "object",
+            "required": [
+              "transport"
+            ],
+            "properties": {
+              "transport": {
+                "enum": [
+                  "stdio",
+                  "streamable_http",
+                  "none"
+                ]
+              },
+              "command": {
+                "type": "string"
+              },
+              "args": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "cwd": {
+                "type": "string"
+              },
+              "env_refs": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "healthcheck": {
+                "type": "object"
+              },
+              "timeout_ms": {
+                "type": "integer",
+                "minimum": 1000
+              },
+              "max_concurrency": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "auto_start": {
+                "type": "boolean"
+              }
+            }
+          },
+          "permissions": {
+            "type": "object",
+            "properties": {
+              "filesystem_roots": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "network_hosts": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "credentials": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "mutation_level": {
+                "enum": [
+                  "read_only",
+                  "workspace_write",
+                  "system_write",
+                  "destructive"
+                ]
+              },
+              "approval_policy": {
+                "enum": [
+                  "automatic",
+                  "on_mutation",
+                  "always",
+                  "disabled"
+                ]
+              }
+            }
+          },
+          "verification": {
+            "type": "object",
+            "required": [
+              "install",
+              "protocol",
+              "domain_smoke"
+            ],
+            "properties": {
+              "install": {
+                "enum": [
+                  "unknown",
+                  "failed",
+                  "passed"
+                ]
+              },
+              "protocol": {
+                "enum": [
+                  "not_applicable",
+                  "unknown",
+                  "failed",
+                  "passed"
+                ]
+              },
+              "domain_smoke": {
+                "enum": [
+                  "not_applicable",
+                  "unknown",
+                  "failed",
+                  "passed"
+                ]
+              },
+              "last_verified": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "evidence_id": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

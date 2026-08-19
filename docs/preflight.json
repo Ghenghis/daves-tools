@@ -1,8 +1,8 @@
 ﻿{
-    "timestamp":  "2026-08-19T09:04:08.4209579-07:00",
+    "timestamp":  "2026-08-19T11:49:58.0316813-07:00",
     "summary":  {
-                    "total":  49,
-                    "cloned":  49,
+                    "total":  36,
+                    "cloned":  36,
                     "failed":  0,
                     "skipped":  0
                 },
@@ -23,12 +23,6 @@
                        "file":  "phase-3-status.json",
                        "total":  19,
                        "cloned":  19,
-                       "failed":  0
-                   },
-                   {
-                       "file":  "phase-fix-status.json",
-                       "total":  13,
-                       "cloned":  13,
                        "failed":  0
                    }
                ],

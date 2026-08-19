@@ -1,0 +1,444 @@
+[
+  {
+    "name": "daveai-project-router",
+    "priority": "P0",
+    "purpose": "Turn a plain-language idea into a project profile, lifecycle plan, tool allowlist, risks, and acceptance gates.",
+    "tools": [
+      "project-catalog",
+      "Serena",
+      "GitHub/GitLab",
+      "HermesProof"
+    ],
+    "proof": [
+      "profile selected",
+      "tool allowlist",
+      "acceptance criteria"
+    ]
+  },
+  {
+    "name": "daveai-capability-doctor",
+    "priority": "P0",
+    "purpose": "Verify every dependency, MCP handshake, credential, device, runtime and build tool before work starts.",
+    "tools": [
+      "control-plane",
+      "all registered tools"
+    ],
+    "proof": [
+      "machine-readable health report",
+      "repair actions",
+      "recheck result"
+    ]
+  },
+  {
+    "name": "daveai-tool-lifecycle",
+    "priority": "P0",
+    "purpose": "Install, pin, update, start, stop, supervise and roll back MCP servers, skills, CLIs, GUIs and services by asset type.",
+    "tools": [
+      "tool-registry",
+      "process supervisor"
+    ],
+    "proof": [
+      "source commit/checksum",
+      "install log",
+      "protocol certification"
+    ]
+  },
+  {
+    "name": "daveai-proofed-task-loop",
+    "priority": "P0",
+    "purpose": "Run idea\u2192spec\u2192worktree\u2192implementation\u2192test\u2192independent review\u2192clean rebuild\u2192signed proof.",
+    "tools": [
+      "HermesProof",
+      "Serena",
+      "repo connectors",
+      "test adapters"
+    ],
+    "proof": [
+      "task ID",
+      "commit",
+      "tests",
+      "artifacts",
+      "evidence ID"
+    ]
+  },
+  {
+    "name": "daveai-recovery-resume",
+    "priority": "P0",
+    "purpose": "Persist task state, detect stalls/crashes, clean orphan processes and resume safely.",
+    "tools": [
+      "scheduled-tasks",
+      "process supervisor",
+      "HermesProof"
+    ],
+    "proof": [
+      "checkpoint",
+      "recovery cause",
+      "resumed gate"
+    ]
+  },
+  {
+    "name": "daveai-repo-mirror-sync",
+    "priority": "P0",
+    "purpose": "Maintain GitHub/GitLab parity, detect conflicts and prove branch/tag/release synchronization.",
+    "tools": [
+      "GitHub MCP",
+      "GitLab MCP",
+      "git"
+    ],
+    "proof": [
+      "remote SHAs",
+      "divergence report",
+      "sync result"
+    ]
+  },
+  {
+    "name": "daveai-release-train",
+    "priority": "P0",
+    "purpose": "Create professional releases for zip, VSIX, APK/AAB, MSIX, web and server artifacts.",
+    "tools": [
+      "repo connectors",
+      "WinApp",
+      "Android build",
+      "CI runners",
+      "HermesProof"
+    ],
+    "proof": [
+      "clean build",
+      "SBOM",
+      "checksums/signatures",
+      "release URLs"
+    ]
+  },
+  {
+    "name": "daveai-security-permission-broker",
+    "priority": "P0",
+    "purpose": "Apply least privilege, scoped roots, network/credential allowlists and approval rules per task/tool.",
+    "tools": [
+      "control-plane",
+      "secret store",
+      "Trail of Bits skills"
+    ],
+    "proof": [
+      "policy decision",
+      "scopes granted",
+      "secret scan"
+    ]
+  },
+  {
+    "name": "daveai-portfolio-catalog",
+    "priority": "P0",
+    "purpose": "Index, deduplicate, classify and search Dave\u2019s 700+ repositories and connect ideas to reusable components.",
+    "tools": [
+      "GitHub/GitLab",
+      "Serena",
+      "local database"
+    ],
+    "proof": [
+      "catalog snapshot",
+      "duplicate groups",
+      "reuse decisions"
+    ]
+  },
+  {
+    "name": "daveai-dependency-sbom",
+    "priority": "P0",
+    "purpose": "Resolve versions, licenses, advisories, lockfiles and SBOMs across Node, Python, Rust, Java, .NET and native tools.",
+    "tools": [
+      "package intelligence",
+      "security scanners"
+    ],
+    "proof": [
+      "locked versions",
+      "license report",
+      "vulnerability triage",
+      "SBOM"
+    ]
+  },
+  {
+    "name": "daveai-provider-router",
+    "priority": "P0",
+    "purpose": "Route architecture, coding, local/private, vision, media and verification tasks across MiniMax, Claude, local models and fallbacks.",
+    "tools": [
+      "MiniMax",
+      "LM Studio",
+      "Ollama",
+      "provider registry"
+    ],
+    "proof": [
+      "route reason",
+      "provider health",
+      "usage/latency"
+    ]
+  },
+  {
+    "name": "daveai-operator-dashboard",
+    "priority": "P0",
+    "purpose": "Give Dave a compact Windows GUI for profiles, health, approvals, progress, evidence, repair and resume without terminal work.",
+    "tools": [
+      "control-plane API",
+      "HermesProof"
+    ],
+    "proof": [
+      "visible state",
+      "action history",
+      "one-click repair result"
+    ]
+  },
+  {
+    "name": "daveai-research-synthesis",
+    "priority": "P1",
+    "purpose": "Search papers, docs and repositories; score freshness, license, compatibility and reuse value; emit an implementation contract.",
+    "tools": [
+      "Context7",
+      "SearXNG",
+      "GitHub",
+      "citation store"
+    ],
+    "proof": [
+      "source matrix",
+      "claims/citations",
+      "reuse/license decision"
+    ]
+  },
+  {
+    "name": "daveai-web-e2e",
+    "priority": "P1",
+    "purpose": "Generate, run, repair and prove web/PWA/Electron tests including traces, visual regression, accessibility and performance.",
+    "tools": [
+      "Playwright CLI",
+      "Playwright MCP",
+      "Chrome DevTools MCP"
+    ],
+    "proof": [
+      "trace",
+      "screenshots",
+      "a11y/perf report",
+      "re-run pass"
+    ]
+  },
+  {
+    "name": "daveai-android-dev-release",
+    "priority": "P1",
+    "purpose": "Manage device state, build/install/test/logcat/sign and release Android apps and games.",
+    "tools": [
+      "Android MCP",
+      "Appium",
+      "Maestro",
+      "Gradle/release adapter"
+    ],
+    "proof": [
+      "device snapshot",
+      "build hash",
+      "test flow",
+      "signed APK/AAB"
+    ]
+  },
+  {
+    "name": "daveai-android-re-static",
+    "priority": "P1",
+    "purpose": "Run authorized APK triage across Apktool, JADX and MobSF with normalized artifacts and clean-room boundaries.",
+    "tools": [
+      "Apktool MCP",
+      "JADX MCP",
+      "MobSF adapter"
+    ],
+    "proof": [
+      "scope record",
+      "artifact manifest",
+      "findings",
+      "rebuild verification"
+    ]
+  },
+  {
+    "name": "daveai-android-re-dynamic",
+    "priority": "P1",
+    "purpose": "Run controlled Frida sessions with vetted hooks, device/process locks, cleanup and trace evidence.",
+    "tools": [
+      "Frida adapter",
+      "Android MCP",
+      "isolated lab"
+    ],
+    "proof": [
+      "target authorization",
+      "hook hashes",
+      "trace",
+      "cleanup"
+    ]
+  },
+  {
+    "name": "daveai-windows-app",
+    "priority": "P1",
+    "purpose": "Route WinUI/Windows projects through design, build, UI test, packaging, signing and release.",
+    "tools": [
+      "win-dev-skills",
+      "WinApp CLI",
+      "AutoGenesis"
+    ],
+    "proof": [
+      "build/test",
+      "a11y",
+      "MSIX/signature",
+      "release"
+    ]
+  },
+  {
+    "name": "daveai-windows-re",
+    "priority": "P1",
+    "purpose": "Coordinate PE/.NET analysis, debugging, symbols, crash dumps, safe patching and reports.",
+    "tools": [
+      "x64dbg adapter",
+      "Ghidra",
+      "radare2",
+      "WinDbg adapter",
+      "Hyper-V"
+    ],
+    "proof": [
+      "target hash",
+      "analysis graph",
+      "trace/dump",
+      "patch verification"
+    ]
+  },
+  {
+    "name": "daveai-isolated-lab",
+    "priority": "P1",
+    "purpose": "Provision disposable Hyper-V labs with snapshots, network rules, guest execution and guaranteed rollback.",
+    "tools": [
+      "Hyper-V MCP",
+      "artifact transfer",
+      "HermesProof"
+    ],
+    "proof": [
+      "base image hash",
+      "snapshot",
+      "network policy",
+      "rollback"
+    ]
+  },
+  {
+    "name": "daveai-unity-re",
+    "priority": "P1",
+    "purpose": "Detect Unity/Mono/IL2CPP versions and route AssetRipper, Cpp2IL, dnSpyEx, Ghidra/radare workflows.",
+    "tools": [
+      "Unity RE dependencies",
+      "native RE adapters"
+    ],
+    "proof": [
+      "version fingerprint",
+      "artifact graph",
+      "cross-tool validation",
+      "provenance"
+    ]
+  },
+  {
+    "name": "daveai-game-project",
+    "priority": "P1",
+    "purpose": "Create and maintain Unity/Godot/Unreal/Three.js game projects with design contracts, asset import, playtests, balance and builds.",
+    "tools": [
+      "engine editor adapters",
+      "asset pipeline",
+      "test runners"
+    ],
+    "proof": [
+      "playable build",
+      "playtest replay",
+      "performance",
+      "release artifact"
+    ]
+  },
+  {
+    "name": "daveai-media-asset",
+    "priority": "P1",
+    "purpose": "Route MiniMax/ComfyUI/Blender/TTS assets through generation, cleanup, metadata, provenance and engine import.",
+    "tools": [
+      "minimax-media",
+      "ComfyUI",
+      "Blender",
+      "engine adapters"
+    ],
+    "proof": [
+      "prompt/model metadata",
+      "asset checks",
+      "license/provenance",
+      "import test"
+    ]
+  },
+  {
+    "name": "daveai-infra-deploy",
+    "priority": "P1",
+    "purpose": "Operate WSL, Docker, VPS, GitLab runners and Cloudflare deployments with health checks and rollback.",
+    "tools": [
+      "infra-runner",
+      "GitLab",
+      "Cloudflare",
+      "secret store"
+    ],
+    "proof": [
+      "deployment plan",
+      "health checks",
+      "rollback point",
+      "post-deploy evidence"
+    ]
+  },
+  {
+    "name": "daveai-local-models",
+    "priority": "P1",
+    "purpose": "Install, verify and route local models across LM Studio/Ollama/GPU profiles with VRAM and fallback policies.",
+    "tools": [
+      "provider manager",
+      "model registry",
+      "GPU monitor"
+    ],
+    "proof": [
+      "model checksum",
+      "endpoint health",
+      "VRAM profile",
+      "benchmark"
+    ]
+  },
+  {
+    "name": "daveai-data-migrations",
+    "priority": "P2",
+    "purpose": "Design schemas, run migrations, test data quality, back up and restore app databases.",
+    "tools": [
+      "SQLite/Postgres adapter",
+      "backup store"
+    ],
+    "proof": [
+      "schema diff",
+      "migration test",
+      "backup/restore proof"
+    ]
+  },
+  {
+    "name": "daveai-embedded-device",
+    "priority": "P2",
+    "purpose": "Build, flash, monitor and recover Raspberry Pi/ESP/3D-printer/motion-controller projects safely.",
+    "tools": [
+      "serial/firmware adapter",
+      "PlatformIO",
+      "device inventory"
+    ],
+    "proof": [
+      "firmware hash",
+      "device ID",
+      "flash log",
+      "rollback/safety check"
+    ]
+  },
+  {
+    "name": "daveai-accessibility-i18n",
+    "priority": "P2",
+    "purpose": "Enforce keyboard, screen-reader, contrast, responsive and localization requirements across GUIs.",
+    "tools": [
+      "Playwright/DevTools",
+      "WinApp UI",
+      "Android UI"
+    ],
+    "proof": [
+      "a11y report",
+      "locale matrix",
+      "visual proof"
+    ]
+  }
+]
