@@ -1,0 +1,177 @@
+﻿{
+    "timestamp":  "2026-08-19T08:54:57.2200917-07:00",
+    "summary":  {
+                    "total":  36,
+                    "cloned":  23,
+                    "failed":  13,
+                    "skipped":  0
+                },
+    "phases":  [
+                   {
+                       "file":  "phase-1-status.json",
+                       "total":  9,
+                       "cloned":  8,
+                       "failed":  1
+                   },
+                   {
+                       "file":  "phase-2-status.json",
+                       "total":  8,
+                       "cloned":  8,
+                       "failed":  0
+                   },
+                   {
+                       "file":  "phase-3-status.json",
+                       "total":  19,
+                       "cloned":  7,
+                       "failed":  12
+                   }
+               ],
+    "failures":  [
+                     {
+                         "name":  "GitLab MCP",
+                         "kind":  "MCP/Connector",
+                         "tier":  "B",
+                         "url":  "https://docs.gitlab.com/user/model_context_protocol/mcp_server/",
+                         "cloned":  false,
+                         "deps_installed":  false,
+                         "built":  false,
+                         "snippet_path":  null,
+                         "error":  "Non-GitHub URL; skipped"
+                     },
+                     {
+                         "name":  "AutoGenesis",
+                         "kind":  "MCP/test framework",
+                         "tier":  "E",
+                         "url":  "https://github.com/microsoft/AutoGenesis",
+                         "cloned":  false,
+                         "deps_installed":  false,
+                         "built":  false,
+                         "snippet_path":  null,
+                         "error":  "clone failed: Cloning into \u0027G:\\Github\\autogenesis\u0027..."
+                     },
+                     {
+                         "name":  "win-dev-skills",
+                         "kind":  "Plugin/skills",
+                         "tier":  "E",
+                         "url":  "https://github.com/microsoft/win-dev-skills",
+                         "cloned":  false,
+                         "deps_installed":  false,
+                         "built":  false,
+                         "snippet_path":  null,
+                         "error":  "clone failed: Cloning into \u0027G:\\Github\\win-dev-skills\u0027..."
+                     },
+                     {
+                         "name":  "WinApp CLI",
+                         "kind":  "CLI/skills",
+                         "tier":  "E",
+                         "url":  "https://github.com/microsoft/winappCli",
+                         "cloned":  false,
+                         "deps_installed":  false,
+                         "built":  false,
+                         "snippet_path":  null,
+                         "error":  "clone failed: Cloning into \u0027G:\\Github\\winapp-cli\u0027..."
+                     },
+                     {
+                         "name":  "Hyper-V MCP",
+                         "kind":  "MCP",
+                         "tier":  "F",
+                         "url":  "https://github.com/originsec/hyperv-mcp",
+                         "cloned":  false,
+                         "deps_installed":  false,
+                         "built":  false,
+                         "snippet_path":  null,
+                         "error":  "clone failed: Cloning into \u0027G:\\Github\\hyper-v-mcp\u0027..."
+                     },
+                     {
+                         "name":  "x64dbg",
+                         "kind":  "Debugger",
+                         "tier":  "F",
+                         "url":  "https://github.com/x64dbg/x64dbg",
+                         "cloned":  false,
+                         "deps_installed":  false,
+                         "built":  false,
+                         "snippet_path":  null,
+                         "error":  "clone failed: Cloning into \u0027G:\\Github\\x64dbg\u0027..."
+                     },
+                     {
+                         "name":  "x64dbg Automate MCP",
+                         "kind":  "MCP",
+                         "tier":  "F",
+                         "url":  "https://github.com/dariushoule/x64dbg-automate-pyclient",
+                         "cloned":  false,
+                         "deps_installed":  false,
+                         "built":  false,
+                         "snippet_path":  null,
+                         "error":  "clone failed: Cloning into \u0027G:\\Github\\x64dbg-automate-mcp\u0027..."
+                     },
+                     {
+                         "name":  "x64dbg-skills",
+                         "kind":  "Plugin/skills",
+                         "tier":  "F",
+                         "url":  "https://github.com/dariushoule/x64dbg-skills",
+                         "cloned":  false,
+                         "deps_installed":  false,
+                         "built":  false,
+                         "snippet_path":  null,
+                         "error":  "clone failed: Cloning into \u0027G:\\Github\\x64dbg-skills\u0027..."
+                     },
+                     {
+                         "name":  "AssetRipper",
+                         "kind":  "GUI/CLI",
+                         "tier":  "G",
+                         "url":  "https://github.com/AssetRipper/AssetRipper",
+                         "cloned":  false,
+                         "deps_installed":  false,
+                         "built":  false,
+                         "snippet_path":  null,
+                         "error":  "clone failed: Cloning into \u0027G:\\Github\\assetripper\u0027..."
+                     },
+                     {
+                         "name":  "Cpp2IL",
+                         "kind":  "CLI",
+                         "tier":  "G",
+                         "url":  "https://github.com/SamboyCoding/Cpp2IL",
+                         "cloned":  false,
+                         "deps_installed":  false,
+                         "built":  false,
+                         "snippet_path":  null,
+                         "error":  "clone failed: Cloning into \u0027G:\\Github\\cpp2il\u0027..."
+                     },
+                     {
+                         "name":  "dnSpyEx",
+                         "kind":  "GUI",
+                         "tier":  "G",
+                         "url":  "https://github.com/dnSpyEx/dnSpy",
+                         "cloned":  false,
+                         "deps_installed":  false,
+                         "built":  false,
+                         "snippet_path":  null,
+                         "error":  "clone failed: Cloning into \u0027G:\\Github\\dnspyex\u0027..."
+                     },
+                     {
+                         "name":  "r2unity",
+                         "kind":  "CLI/plugin",
+                         "tier":  "G",
+                         "url":  "https://github.com/radareorg/r2unity",
+                         "cloned":  false,
+                         "deps_installed":  false,
+                         "built":  false,
+                         "snippet_path":  null,
+                         "error":  "clone failed: Cloning into \u0027G:\\Github\\r2unity\u0027..."
+                     },
+                     {
+                         "name":  "Playwright CLI + Skills",
+                         "kind":  "CLI/skills",
+                         "tier":  "H",
+                         "url":  "https://github.com/microsoft/playwright-cli",
+                         "cloned":  false,
+                         "deps_installed":  false,
+                         "built":  false,
+                         "snippet_path":  null,
+                         "error":  "clone failed: Cloning into \u0027G:\\Github\\playwright-cli---skills\u0027..."
+                     }
+                 ],
+    "missing":  [
+
+                ]
+}
