@@ -1,0 +1,40 @@
+{
+  "name": "DAVE-AI MCP Marketplace",
+  "sources": [
+    {
+      "name": "awesome-mcp-servers",
+      "repo": "https://github.com/punkpeye/awesome-mcp-servers",
+      "role": "Curated catalog of community MCP servers"
+    },
+    {
+      "name": "claude-server",
+      "repo": "https://github.com/davidteren/claude-server",
+      "role": "Context management across Claude sessions"
+    },
+    {
+      "name": "JSON-MCP-Server",
+      "repo": "https://github.com/GongRzhe/JSON-MCP-Server",
+      "role": "JSON handling and processing tools"
+    },
+    {
+      "name": "mcp-installer",
+      "repo": "https://github.com/anaisbetts/mcp-installer",
+      "role": "Base installer for MCP servers"
+    },
+    {
+      "name": "mcp-marketplace",
+      "repo": "https://github.com/cline/mcp-marketplace",
+      "role": "Marketplace metadata and discovery"
+    },
+    {
+      "name": "mcp-server-browserbase",
+      "repo": "https://github.com/browserbase/mcp-server-browserbase",
+      "role": "Browser automation in the cloud"
+    },
+    {
+      "name": "modelcontextprotocol-servers",
+      "repo": "https://github.com/modelcontextprotocol/servers",
+      "role": "Official reference MCP servers"
+    }
+  ]
+}
