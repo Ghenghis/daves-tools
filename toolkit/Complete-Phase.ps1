@@ -3,7 +3,7 @@ param(
     [Parameter(Mandatory=$true)]
     [string]$Phase,
 
-    [string]$CatalogPath = "..\docs\missing-from-catalog.json",
+    [string]$CatalogPath = "C:\Users\Admin\CascadeProjects\daves-tools\docs\missing-from-catalog.json",
     [string]$InstallRoot = "G:\Github",
     [string[]]$Tiers = @(),
     [switch]$InstallDeps
@@ -13,8 +13,8 @@ $ErrorActionPreference = "Stop"
 
 $scriptRoot = $PSScriptRoot
 if (-not $scriptRoot) { $scriptRoot = (Get-Location).Path }
-if (-not [System.IO.Path]::IsPathRooted($CatalogPath)) {
-    $CatalogPath = Join-Path $scriptRoot $CatalogPath
+if ([string]::IsNullOrWhiteSpace($CatalogPath)) {
+    $CatalogPath = 'C:\Users\Admin\CascadeProjects\daves-tools\docs\missing-from-catalog.json'
 }
 
 $catalog = Get-Content -Path $CatalogPath -Raw | ConvertFrom-Json
@@ -46,7 +46,7 @@ $status = foreach ($item in $items) {
 
     if (-not (Test-Path $target)) {
         try {
-            git clone $url $target 2>&1 | Out-Null
+            git clone --depth 1 $url $target 2>&1 | Out-Null
             $result.cloned = $true
         } catch {
             $result.error = "clone failed: $_"
@@ -91,7 +91,7 @@ $status = foreach ($item in $items) {
     }
 
     $main = if ($pkg -and $pkg.main) { Join-Path $target $pkg.main } else { '' }
-    if (-not (Test-Path $main)) {
+    if ($main -and -not (Test-Path $main)) {
         $candidates = 'build/index.js','dist/index.js','server.js','index.js','cli.js'
         foreach ($c in $candidates) {
             $p = Join-Path $target $c
@@ -113,6 +113,9 @@ $status = foreach ($item in $items) {
 }
 
 $out = Join-Path (Split-Path $scriptRoot) "docs\phase-$Phase-status.json"
+if ([string]::IsNullOrWhiteSpace($out) -or $out -eq 'docs\phase-$Phase-status.json') {
+    $out = "C:\Users\Admin\CascadeProjects\daves-tools\docs\phase-$Phase-status.json"
+}
 $status | ConvertTo-Json -Depth 3 | Set-Content -Path $out -Encoding UTF8
 Write-Output "Phase $Phase complete. Wrote $out"
 $status | Format-Table -AutoSize
