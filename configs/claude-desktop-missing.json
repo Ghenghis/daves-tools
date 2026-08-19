@@ -1,0 +1,248 @@
+﻿{
+    "mcpServers":  {
+                       "android-mcp":  {
+                                           "args":  [
+                                                        "G:\\Github\\android-mcp\\dist\\index.js"
+                                                    ],
+                                           "env":  {
+
+                                                   },
+                                           "command":  "node"
+                                       },
+                       "android-mcp-lean":  {
+                                                "args":  [
+                                                             "G:\\Github\\android-mcp-lean\\dist\\index.js"
+                                                         ],
+                                                "env":  {
+
+                                                        },
+                                                "command":  "node"
+                                            },
+                       "android-reverse-engineering-skill":  {
+                                                                 "args":  [
+                                                                              "-y",
+                                                                              "android-reverse-engineering-skill"
+                                                                          ],
+                                                                 "env":  {
+
+                                                                         },
+                                                                 "command":  "npx"
+                                                             },
+                       "androidworld":  {
+                                            "args":  [
+                                                         "-y",
+                                                         "androidworld"
+                                                     ],
+                                            "env":  {
+
+                                                    },
+                                            "command":  "npx"
+                                        },
+                       "anthropic-skills":  {
+                                                "args":  [
+                                                             "-y",
+                                                             "anthropic-skills"
+                                                         ],
+                                                "env":  {
+
+                                                        },
+                                                "command":  "npx"
+                                            },
+                       "apktool":  {
+                                       "args":  [
+                                                    "-y",
+                                                    "apktool"
+                                                ],
+                                       "env":  {
+
+                                               },
+                                       "command":  "npx"
+                                   },
+                       "apktool-mcp":  {
+                                           "args":  [
+                                                        "-y",
+                                                        "apktool-mcp"
+                                                    ],
+                                           "env":  {
+
+                                                   },
+                                           "command":  "npx"
+                                       },
+                       "appium-mcp":  {
+                                          "args":  [
+                                                       "G:\\Github\\appium-mcp\\dist\\index.js"
+                                                   ],
+                                          "env":  {
+
+                                                  },
+                                          "command":  "node"
+                                      },
+                       "claude-plugins-official":  {
+                                                       "args":  [
+                                                                    "-y",
+                                                                    "claude-plugins-official"
+                                                                ],
+                                                       "env":  {
+
+                                                               },
+                                                       "command":  "npx"
+                                                   },
+                       "claude-server":  {
+                                             "command":  "node",
+                                             "args":  [
+                                                          "G:\\Github\\claude-server\\build\\index.js"
+                                                      ],
+                                             "env":  {
+
+                                                     }
+                                         },
+                       "context7":  {
+                                        "args":  [
+                                                     "-y",
+                                                     "@upstash/context7-mcp"
+                                                 ],
+                                        "env":  {
+
+                                                },
+                                        "command":  "npx"
+                                    },
+                       "frida-mcp-skills":  {
+                                                "args":  [
+                                                             "-y",
+                                                             "frida-mcp-skills"
+                                                         ],
+                                                "env":  {
+
+                                                        },
+                                                "command":  "npx"
+                                            },
+                       "github-mcp":  {
+                                          "args":  [
+                                                       "-y",
+                                                       "github-mcp"
+                                                   ],
+                                          "env":  {
+
+                                                  },
+                                          "command":  "npx"
+                                      },
+                       "jadx-ai-mcp":  {
+                                           "args":  [
+                                                        "-y",
+                                                        "jadx-ai-mcp"
+                                                    ],
+                                           "env":  {
+
+                                                   },
+                                           "command":  "npx"
+                                       },
+                       "jadx-mcp-server":  {
+                                               "args":  [
+                                                            "-y",
+                                                            "jadx-mcp-server"
+                                                        ],
+                                               "env":  {
+
+                                                       },
+                                               "command":  "npx"
+                                           },
+                       "maestro":  {
+                                       "args":  [
+                                                    "-y",
+                                                    "maestro"
+                                                ],
+                                       "env":  {
+
+                                               },
+                                       "command":  "npx"
+                                   },
+                       "maestro-mcp":  {
+                                           "args":  [
+                                                        "-y",
+                                                        "maestro-mcp"
+                                                    ],
+                                           "env":  {
+
+                                                   },
+                                           "command":  "npx"
+                                       },
+                       "mcp-server-browserbase":  {
+                                                      "command":  "node",
+                                                      "args":  [
+                                                                   "G:\\Github\\mcp-server-browserbase\\cli.js"
+                                                               ],
+                                                      "env":  {
+                                                                  "BROWSERBASE_API_KEY":  "\u003cyour-browserbase-api-key\u003e",
+                                                                  "BROWSERBASE_PROJECT_ID":  "\u003cyour-browserbase-project-id\u003e"
+                                                              }
+                                                  },
+                       "mobile-harness":  {
+                                              "args":  [
+                                                           "-y",
+                                                           "mobile-harness"
+                                                       ],
+                                              "env":  {
+
+                                                      },
+                                              "command":  "npx"
+                                          },
+                       "mobilerun":  {
+                                         "args":  [
+                                                      "-y",
+                                                      "mobilerun"
+                                                  ],
+                                         "env":  {
+
+                                                 },
+                                         "command":  "npx"
+                                     },
+                       "mobsf":  {
+                                     "args":  [
+                                                  "-y",
+                                                  "mobsf"
+                                              ],
+                                     "env":  {
+
+                                             },
+                                     "command":  "npx"
+                                 },
+                       "searxng-mcp":  {
+                                           "args":  [
+                                                        "G:\\Github\\searxng-mcp\\dist\\index.js"
+                                                    ],
+                                           "env":  {
+
+                                                   },
+                                           "command":  "node"
+                                       },
+                       "serena":  {
+                                      "args":  [
+                                                   "-y",
+                                                   "serena"
+                                               ],
+                                      "env":  {
+
+                                              },
+                                      "command":  "npx"
+                                  },
+                       "superpowers":  {
+                                           "args":  [
+                                                        "G:\\Github\\superpowers\\.opencode\\plugins\\superpowers.js"
+                                                    ],
+                                           "env":  {
+
+                                                   },
+                                           "command":  "node"
+                                       },
+                       "trail-of-bits-skills":  {
+                                                    "args":  [
+                                                                 "-y",
+                                                                 "trail-of-bits-skills"
+                                                             ],
+                                                    "env":  {
+
+                                                            },
+                                                    "command":  "npx"
+                                                }
+                   }
+}
