@@ -340,7 +340,7 @@
         "install": "unknown",
         "protocol": "failed",
         "domain_smoke": "unknown",
-        "last_verified": "2026-08-19T23:02:54.735Z",
+        "last_verified": "2026-08-19T23:04:35.299Z",
         "evidence_id": "cert-github-mcp"
       }
     },
