@@ -1,0 +1,101 @@
+﻿[
+    {
+        "name":  "Anthropic Skills",
+        "kind":  "Skills",
+        "tier":  "A",
+        "url":  "https://github.com/anthropics/skills",
+        "cloned":  true,
+        "deps_installed":  false,
+        "built":  false,
+        "snippet_path":  "G:\\Github\\anthropic-skills\\claude-desktop-snippet.json",
+        "error":  null
+    },
+    {
+        "name":  "Claude Plugins Official",
+        "kind":  "Marketplace",
+        "tier":  "A",
+        "url":  "https://github.com/anthropics/claude-plugins-official",
+        "cloned":  true,
+        "deps_installed":  false,
+        "built":  false,
+        "snippet_path":  "G:\\Github\\claude-plugins-official\\claude-desktop-snippet.json",
+        "error":  null
+    },
+    {
+        "name":  "Serena",
+        "kind":  "MCP",
+        "tier":  "A",
+        "url":  "https://github.com/oraios/serena",
+        "cloned":  true,
+        "deps_installed":  false,
+        "built":  false,
+        "snippet_path":  "G:\\Github\\serena\\claude-desktop-snippet.json",
+        "error":  null
+    },
+    {
+        "name":  "Superpowers",
+        "kind":  "Plugin/skills",
+        "tier":  "A",
+        "url":  "https://github.com/obra/superpowers",
+        "cloned":  true,
+        "deps_installed":  false,
+        "built":  false,
+        "snippet_path":  "G:\\Github\\superpowers\\claude-desktop-snippet.json",
+        "error":  null
+    },
+    {
+        "name":  "Context7",
+        "kind":  "MCP/CLI",
+        "tier":  "B",
+        "url":  "https://github.com/upstash/context7",
+        "cloned":  true,
+        "deps_installed":  false,
+        "built":  false,
+        "snippet_path":  "G:\\Github\\context7\\claude-desktop-snippet.json",
+        "error":  null
+    },
+    {
+        "name":  "GitHub MCP",
+        "kind":  "MCP/Connector",
+        "tier":  "B",
+        "url":  "https://github.com/github/github-mcp-server",
+        "cloned":  false,
+        "deps_installed":  false,
+        "built":  false,
+        "snippet_path":  null,
+        "error":  "clone failed: Cloning into \u0027G:\\Github\\github-mcp\u0027..."
+    },
+    {
+        "name":  "GitLab MCP",
+        "kind":  "MCP/Connector",
+        "tier":  "B",
+        "url":  "https://docs.gitlab.com/user/model_context_protocol/mcp_server/",
+        "cloned":  false,
+        "deps_installed":  false,
+        "built":  false,
+        "snippet_path":  null,
+        "error":  "Non-GitHub URL; skipped"
+    },
+    {
+        "name":  "SearXNG MCP",
+        "kind":  "MCP",
+        "tier":  "B",
+        "url":  "https://github.com/ihor-sokoliuk/mcp-searxng",
+        "cloned":  false,
+        "deps_installed":  false,
+        "built":  false,
+        "snippet_path":  null,
+        "error":  "clone failed: Cloning into \u0027G:\\Github\\searxng-mcp\u0027..."
+    },
+    {
+        "name":  "Trail of Bits Skills",
+        "kind":  "Plugin marketplace",
+        "tier":  "B",
+        "url":  "https://github.com/trailofbits/skills",
+        "cloned":  false,
+        "deps_installed":  false,
+        "built":  false,
+        "snippet_path":  null,
+        "error":  "clone failed: Cloning into \u0027G:\\Github\\trail-of-bits-skills\u0027..."
+    }
+]

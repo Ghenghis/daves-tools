@@ -48,43 +48,43 @@
         "kind":  "CLI/E2E",
         "tier":  "C",
         "url":  "https://github.com/mobile-dev-inc/Maestro",
-        "cloned":  false,
+        "cloned":  true,
         "deps_installed":  false,
         "built":  false,
-        "snippet_path":  null,
-        "error":  "clone failed: Cloning into \u0027G:\\Github\\maestro\u0027..."
+        "snippet_path":  "G:\\Github\\maestro\\claude-desktop-snippet.json",
+        "error":  null
     },
     {
         "name":  "Maestro MCP",
         "kind":  "MCP/CLI/E2E",
         "tier":  "C",
         "url":  "https://github.com/mobile-dev-inc/Maestro",
-        "cloned":  false,
+        "cloned":  true,
         "deps_installed":  false,
         "built":  false,
-        "snippet_path":  null,
-        "error":  "clone failed: Cloning into \u0027G:\\Github\\maestro-mcp\u0027..."
+        "snippet_path":  "G:\\Github\\maestro-mcp\\claude-desktop-snippet.json",
+        "error":  null
     },
     {
         "name":  "Mobile Harness",
         "kind":  "Skill/harness",
         "tier":  "C",
         "url":  "https://github.com/droidrun/mobile-harness",
-        "cloned":  false,
+        "cloned":  true,
         "deps_installed":  false,
         "built":  false,
-        "snippet_path":  null,
-        "error":  "clone failed: Cloning into \u0027G:\\Github\\mobile-harness\u0027..."
+        "snippet_path":  "G:\\Github\\mobile-harness\\claude-desktop-snippet.json",
+        "error":  null
     },
     {
         "name":  "Mobilerun",
         "kind":  "Agent runtime",
         "tier":  "C",
         "url":  "https://github.com/droidrun/mobilerun",
-        "cloned":  false,
+        "cloned":  true,
         "deps_installed":  false,
         "built":  false,
-        "snippet_path":  null,
-        "error":  "clone failed: Cloning into \u0027G:\\Github\\mobilerun\u0027..."
+        "snippet_path":  "G:\\Github\\mobilerun\\claude-desktop-snippet.json",
+        "error":  null
     }
 ]
