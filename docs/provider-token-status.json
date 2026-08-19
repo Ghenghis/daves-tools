@@ -1,0 +1,79 @@
+{
+    "timestamp":  "2026-08-19T16:09:11.8347601-07:00",
+    "total":  7,
+    "ready":  3,
+    "providers":  [
+                      {
+                          "name":  "MiniMax",
+                          "token_env":  "MINIMAX_API_KEY",
+                          "present":  true,
+                          "is_default":  true,
+                          "base_url":  "https://api.minimaxi.chat",
+                          "models":  [
+                                         "MiniMax-M2.7-highspeed"
+                                     ]
+                      },
+                      {
+                          "name":  "DeepSeek",
+                          "token_env":  "DEEPSEEK_API_KEY",
+                          "present":  true,
+                          "is_default":  false,
+                          "base_url":  "https://api.deepseek.com",
+                          "models":  [
+                                         "deepseek-chat",
+                                         "deepseek-reasoner"
+                                     ]
+                      },
+                      {
+                          "name":  "SiliconFlow",
+                          "token_env":  "SILICONFLOW_API_KEY",
+                          "present":  true,
+                          "is_default":  false,
+                          "base_url":  "https://api.siliconflow.cn",
+                          "models":  [
+
+                                     ]
+                      },
+                      {
+                          "name":  "LM Studio",
+                          "token_env":  "LMSTUDIO_API_KEY",
+                          "present":  false,
+                          "is_default":  false,
+                          "base_url":  "http://127.0.0.1:1234",
+                          "models":  [
+
+                                     ]
+                      },
+                      {
+                          "name":  "Ollama",
+                          "token_env":  "OLLAMA_API_KEY",
+                          "present":  false,
+                          "is_default":  false,
+                          "base_url":  "http://127.0.0.1:11434",
+                          "models":  [
+
+                                     ]
+                      },
+                      {
+                          "name":  "OpenRouter",
+                          "token_env":  "OPENROUTER_API_KEY",
+                          "present":  false,
+                          "is_default":  false,
+                          "base_url":  "https://openrouter.ai/api",
+                          "models":  [
+                                         "claude-sonnet-4",
+                                         "deepseek-v3"
+                                     ]
+                      },
+                      {
+                          "name":  "DeepInfra",
+                          "token_env":  "DEEPINFRA_API_KEY",
+                          "present":  false,
+                          "is_default":  false,
+                          "base_url":  "https://api.deepinfra.com",
+                          "models":  [
+
+                                     ]
+                      }
+                  ]
+}
