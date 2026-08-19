@@ -285,10 +285,10 @@
       },
       "verification": {
         "install": "unknown",
-        "protocol": "unknown",
-        "domain_smoke": "unknown",
-        "last_verified": null,
-        "evidence_id": null
+        "protocol": "passed",
+        "domain_smoke": "not_applicable",
+        "last_verified": "2026-08-19T22:57:48.633Z",
+        "evidence_id": "cert-context7"
       }
     },
     {
