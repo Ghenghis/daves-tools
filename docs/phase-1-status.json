@@ -70,11 +70,11 @@
         "kind":  "MCP/Connector",
         "tier":  "B",
         "url":  "https://docs.gitlab.com/user/model_context_protocol/mcp_server/",
-        "cloned":  false,
+        "cloned":  true,
         "deps_installed":  false,
         "built":  false,
-        "snippet_path":  null,
-        "error":  "Non-GitHub URL; skipped"
+        "snippet_path":  "G:\\Github\\gitlab-mcp\\claude-desktop-snippet.json",
+        "error":  null
     },
     {
         "name":  "SearXNG MCP",

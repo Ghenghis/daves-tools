@@ -1,0 +1,106 @@
+﻿[
+    {
+        "Name":  "GitLab MCP",
+        "Kind":  "MCP/Connector",
+        "Tier":  "B",
+        "Profile":  "REPO",
+        "Role":  "GitLab project/MR/pipeline actions",
+        "URL":  "https://docs.gitlab.com/user/model_context_protocol/mcp_server/"
+    },
+    {
+        "Name":  "AutoGenesis",
+        "Kind":  "MCP/test framework",
+        "Tier":  "E",
+        "Profile":  "WINDOWS-DEV",
+        "Role":  "Cross-platform GUI test automation",
+        "URL":  "https://github.com/microsoft/AutoGenesis"
+    },
+    {
+        "Name":  "win-dev-skills",
+        "Kind":  "Plugin/skills",
+        "Tier":  "E",
+        "Profile":  "WINDOWS-DEV",
+        "Role":  "Windows app build/test/package workflow",
+        "URL":  "https://github.com/microsoft/win-dev-skills"
+    },
+    {
+        "Name":  "WinApp CLI",
+        "Kind":  "CLI/skills",
+        "Tier":  "E",
+        "Profile":  "WINDOWS-DEV",
+        "Role":  "Windows app tooling/UI automation",
+        "URL":  "https://github.com/microsoft/winappCli"
+    },
+    {
+        "Name":  "Hyper-V MCP",
+        "Kind":  "MCP",
+        "Tier":  "F",
+        "Profile":  "ISOLATED-LAB",
+        "Role":  "VM lifecycle/checkpoints/guest execution",
+        "URL":  "https://github.com/originsec/hyperv-mcp"
+    },
+    {
+        "Name":  "x64dbg",
+        "Kind":  "Debugger",
+        "Tier":  "F",
+        "Profile":  "WINDOWS-RE",
+        "Role":  "Windows user-mode dynamic RE",
+        "URL":  "https://github.com/x64dbg/x64dbg"
+    },
+    {
+        "Name":  "x64dbg Automate MCP",
+        "Kind":  "MCP",
+        "Tier":  "F",
+        "Profile":  "WINDOWS-RE",
+        "Role":  "Agent debugger automation",
+        "URL":  "https://github.com/dariushoule/x64dbg-automate-pyclient"
+    },
+    {
+        "Name":  "x64dbg-skills",
+        "Kind":  "Plugin/skills",
+        "Tier":  "F",
+        "Profile":  "WINDOWS-RE",
+        "Role":  "Debugger operating workflows",
+        "URL":  "https://github.com/dariushoule/x64dbg-skills"
+    },
+    {
+        "Name":  "AssetRipper",
+        "Kind":  "GUI/CLI",
+        "Tier":  "G",
+        "Profile":  "UNITY-RE",
+        "Role":  "Unity asset extraction",
+        "URL":  "https://github.com/AssetRipper/AssetRipper"
+    },
+    {
+        "Name":  "Cpp2IL",
+        "Kind":  "CLI",
+        "Tier":  "G",
+        "Profile":  "UNITY-RE",
+        "Role":  "Unity IL2CPP reconstruction",
+        "URL":  "https://github.com/SamboyCoding/Cpp2IL"
+    },
+    {
+        "Name":  "dnSpyEx",
+        "Kind":  "GUI",
+        "Tier":  "G",
+        "Profile":  "UNITY-RE",
+        "Role":  ".NET managed assembly analysis",
+        "URL":  "https://github.com/dnSpyEx/dnSpy"
+    },
+    {
+        "Name":  "r2unity",
+        "Kind":  "CLI/plugin",
+        "Tier":  "G",
+        "Profile":  "UNITY-RE",
+        "Role":  "Unity IL2CPP metadata in radare2",
+        "URL":  "https://github.com/radareorg/r2unity"
+    },
+    {
+        "Name":  "Playwright CLI + Skills",
+        "Kind":  "CLI/skills",
+        "Tier":  "H",
+        "Profile":  "WEB-E2E",
+        "Role":  "Token-efficient browser/PWA/Electron automation for coding agents",
+        "URL":  "https://github.com/microsoft/playwright-cli"
+    }
+]

@@ -77,6 +77,26 @@
                                                   },
                                           "command":  "node"
                                       },
+                       "assetripper":  {
+                                           "args":  [
+                                                        "-y",
+                                                        "assetripper"
+                                                    ],
+                                           "env":  {
+
+                                                   },
+                                           "command":  "npx"
+                                       },
+                       "autogenesis":  {
+                                           "args":  [
+                                                        "-y",
+                                                        "autogenesis"
+                                                    ],
+                                           "env":  {
+
+                                                   },
+                                           "command":  "npx"
+                                       },
                        "claude-plugins-official":  {
                                                        "args":  [
                                                                     "-y",
@@ -106,6 +126,26 @@
                                                 },
                                         "command":  "npx"
                                     },
+                       "cpp2il":  {
+                                      "args":  [
+                                                   "-y",
+                                                   "cpp2il"
+                                               ],
+                                      "env":  {
+
+                                              },
+                                      "command":  "npx"
+                                  },
+                       "dnspyex":  {
+                                       "args":  [
+                                                    "-y",
+                                                    "dnspyex"
+                                                ],
+                                       "env":  {
+
+                                               },
+                                       "command":  "npx"
+                                   },
                        "frida-mcp-skills":  {
                                                 "args":  [
                                                              "-y",
@@ -126,6 +166,26 @@
                                                   },
                                           "command":  "npx"
                                       },
+                       "gitlab-mcp":  {
+                                          "args":  [
+                                                       "-y",
+                                                       "@gitlab/mcp-server"
+                                                   ],
+                                          "env":  {
+                                                      "GITLAB_PERSONAL_ACCESS_TOKEN":  "\u003cTOKEN\u003e"
+                                                  },
+                                          "command":  "npx"
+                                      },
+                       "hyper-v-mcp":  {
+                                           "args":  [
+                                                        "-y",
+                                                        "hyper-v-mcp"
+                                                    ],
+                                           "env":  {
+
+                                                   },
+                                           "command":  "npx"
+                                       },
                        "jadx-ai-mcp":  {
                                            "args":  [
                                                         "-y",
@@ -206,6 +266,26 @@
                                              },
                                      "command":  "npx"
                                  },
+                       "playwright-cli---skills":  {
+                                                       "args":  [
+                                                                    "-y",
+                                                                    "@playwright/cli"
+                                                                ],
+                                                       "env":  {
+
+                                                               },
+                                                       "command":  "npx"
+                                                   },
+                       "r2unity":  {
+                                       "args":  [
+                                                    "-y",
+                                                    "r2unity"
+                                                ],
+                                       "env":  {
+
+                                               },
+                                       "command":  "npx"
+                                   },
                        "searxng-mcp":  {
                                            "args":  [
                                                         "G:\\Github\\searxng-mcp\\dist\\index.js"
@@ -243,6 +323,56 @@
 
                                                             },
                                                     "command":  "npx"
-                                                }
+                                                },
+                       "win-dev-skills":  {
+                                              "args":  [
+                                                           "-y",
+                                                           "win-dev-skills"
+                                                       ],
+                                              "env":  {
+
+                                                      },
+                                              "command":  "npx"
+                                          },
+                       "winapp-cli":  {
+                                          "args":  [
+                                                       "-y",
+                                                       "winapp-cli"
+                                                   ],
+                                          "env":  {
+
+                                                  },
+                                          "command":  "npx"
+                                      },
+                       "x64dbg":  {
+                                      "args":  [
+                                                   "-y",
+                                                   "x64dbg"
+                                               ],
+                                      "env":  {
+
+                                              },
+                                      "command":  "npx"
+                                  },
+                       "x64dbg-automate-mcp":  {
+                                                   "args":  [
+                                                                "-y",
+                                                                "x64dbg-automate-mcp"
+                                                            ],
+                                                   "env":  {
+
+                                                           },
+                                                   "command":  "npx"
+                                               },
+                       "x64dbg-skills":  {
+                                             "args":  [
+                                                          "-y",
+                                                          "x64dbg-skills"
+                                                      ],
+                                             "env":  {
+
+                                                     },
+                                             "command":  "npx"
+                                         }
                    }
 }

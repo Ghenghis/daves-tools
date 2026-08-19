@@ -1,79 +1,13 @@
 ﻿[
     {
-        "name":  "Android Reverse Engineering Skill",
-        "kind":  "Plugin/skill",
-        "tier":  "D",
-        "url":  "https://github.com/SimoneAvogadro/android-reverse-engineering-skill",
+        "name":  "GitLab MCP",
+        "kind":  "MCP/Connector",
+        "tier":  "B",
+        "url":  "https://docs.gitlab.com/user/model_context_protocol/mcp_server/",
         "cloned":  true,
         "deps_installed":  false,
         "built":  false,
-        "snippet_path":  "G:\\Github\\android-reverse-engineering-skill\\claude-desktop-snippet.json",
-        "error":  null
-    },
-    {
-        "name":  "Apktool",
-        "kind":  "CLI",
-        "tier":  "D",
-        "url":  "https://github.com/iBotPeaches/Apktool",
-        "cloned":  true,
-        "deps_installed":  false,
-        "built":  false,
-        "snippet_path":  "G:\\Github\\apktool\\claude-desktop-snippet.json",
-        "error":  null
-    },
-    {
-        "name":  "Apktool MCP",
-        "kind":  "MCP",
-        "tier":  "D",
-        "url":  "https://github.com/zinja-coder/apktool-mcp-server",
-        "cloned":  true,
-        "deps_installed":  false,
-        "built":  false,
-        "snippet_path":  "G:\\Github\\apktool-mcp\\claude-desktop-snippet.json",
-        "error":  null
-    },
-    {
-        "name":  "Frida MCP Skills",
-        "kind":  "Skills",
-        "tier":  "D",
-        "url":  "https://github.com/yfe404/frida-mcp-skills",
-        "cloned":  true,
-        "deps_installed":  false,
-        "built":  false,
-        "snippet_path":  "G:\\Github\\frida-mcp-skills\\claude-desktop-snippet.json",
-        "error":  null
-    },
-    {
-        "name":  "JADX AI MCP",
-        "kind":  "MCP/plugin",
-        "tier":  "D",
-        "url":  "https://github.com/zinja-coder/jadx-ai-mcp",
-        "cloned":  true,
-        "deps_installed":  false,
-        "built":  false,
-        "snippet_path":  "G:\\Github\\jadx-ai-mcp\\claude-desktop-snippet.json",
-        "error":  null
-    },
-    {
-        "name":  "JADX MCP Server",
-        "kind":  "MCP",
-        "tier":  "D",
-        "url":  "https://github.com/Qtty/jadx-mcp-server",
-        "cloned":  true,
-        "deps_installed":  false,
-        "built":  false,
-        "snippet_path":  "G:\\Github\\jadx-mcp-server\\claude-desktop-snippet.json",
-        "error":  null
-    },
-    {
-        "name":  "MobSF",
-        "kind":  "App/API",
-        "tier":  "D",
-        "url":  "https://github.com/MobSF/Mobile-Security-Framework-MobSF",
-        "cloned":  true,
-        "deps_installed":  false,
-        "built":  false,
-        "snippet_path":  "G:\\Github\\mobsf\\claude-desktop-snippet.json",
+        "snippet_path":  "G:\\Github\\gitlab-mcp\\claude-desktop-snippet.json",
         "error":  null
     },
     {
