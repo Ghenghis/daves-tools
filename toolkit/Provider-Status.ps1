@@ -16,7 +16,7 @@ $providers = @(
     @{ name = 'LM Studio'; token_env = 'LMSTUDIO_API_KEY'; base_url = 'http://127.0.0.1:1234'; default = $false; models = @() }
     @{ name = 'Ollama'; token_env = 'OLLAMA_API_KEY'; base_url = 'http://127.0.0.1:11434'; default = $false; models = @() }
     @{ name = 'OpenRouter'; token_env = 'OPENROUTER_API_KEY'; base_url = 'https://openrouter.ai/api'; default = $false; models = @('claude-sonnet-4','deepseek-v3') }
-    @{ name = 'DeepInfra'; token_env = 'DEEPINFRA_API_KEY'; base_url = 'https://api.deepinfra.com'; default = $false; models = @() }
+    @{ name = 'DeepInfra'; token_env = 'DEEPINFRA_TOKEN'; base_url = 'https://api.deepinfra.com'; default = $false; models = @() }
 )
 
 $results = @()

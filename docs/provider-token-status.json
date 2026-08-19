@@ -1,7 +1,7 @@
 {
-    "timestamp":  "2026-08-19T16:09:11.8347601-07:00",
+    "timestamp":  "2026-08-19T16:14:30.0203972-07:00",
     "total":  7,
-    "ready":  3,
+    "ready":  4,
     "providers":  [
                       {
                           "name":  "MiniMax",
@@ -67,8 +67,8 @@
                       },
                       {
                           "name":  "DeepInfra",
-                          "token_env":  "DEEPINFRA_API_KEY",
-                          "present":  false,
+                          "token_env":  "DEEPINFRA_TOKEN",
+                          "present":  true,
                           "is_default":  false,
                           "base_url":  "https://api.deepinfra.com",
                           "models":  [
