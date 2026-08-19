@@ -530,10 +530,10 @@
       },
       "verification": {
         "install": "unknown",
-        "protocol": "unknown",
+        "protocol": "failed",
         "domain_smoke": "unknown",
-        "last_verified": null,
-        "evidence_id": null
+        "last_verified": "2026-08-19T23:16:35.764Z",
+        "evidence_id": "cert-android-mcp"
       }
     },
     {
@@ -1485,10 +1485,10 @@
       },
       "verification": {
         "install": "unknown",
-        "protocol": "unknown",
+        "protocol": "failed",
         "domain_smoke": "unknown",
-        "last_verified": null,
-        "evidence_id": null
+        "last_verified": "2026-08-19T23:15:35.261Z",
+        "evidence_id": "cert-autogenesis"
       }
     },
     {
