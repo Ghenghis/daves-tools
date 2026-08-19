@@ -17,6 +17,7 @@ if ([string]::IsNullOrWhiteSpace($CatalogPath)) {
     $CatalogPath = 'C:\Users\Admin\CascadeProjects\daves-tools\docs\missing-from-catalog.json'
 }
 
+if ($Tiers -and $Tiers -is [string]) { $Tiers = $Tiers -split '[,\s]+' | Where-Object { $_ } }
 $catalog = Get-Content -Path $CatalogPath -Raw | ConvertFrom-Json
 $items = if ($Tiers) { $catalog | Where-Object { $_.Tier -in $Tiers } } else { $catalog }
 
@@ -116,6 +117,7 @@ $out = Join-Path (Split-Path $scriptRoot) "docs\phase-$Phase-status.json"
 if ([string]::IsNullOrWhiteSpace($out) -or $out -eq 'docs\phase-$Phase-status.json') {
     $out = "C:\Users\Admin\CascadeProjects\daves-tools\docs\phase-$Phase-status.json"
 }
-$status | ConvertTo-Json -Depth 3 | Set-Content -Path $out -Encoding UTF8
+$json = if ($status) { $status | ConvertTo-Json -Depth 3 } else { '[]' }
+$json | Set-Content -Path $out -Encoding UTF8
 Write-Output "Phase $Phase complete. Wrote $out"
-$status | Format-Table -AutoSize
+if ($status) { $status | Format-Table -AutoSize }
