@@ -1,0 +1,346 @@
+﻿[
+    {
+        "Name":  "Anthropic Skills",
+        "Kind":  "Skills",
+        "Tier":  "A",
+        "Profile":  "CORE",
+        "Role":  "Official skill examples and skill-creator",
+        "URL":  "https://github.com/anthropics/skills"
+    },
+    {
+        "Name":  "Claude Plugins Official",
+        "Kind":  "Marketplace",
+        "Tier":  "A",
+        "Profile":  "CORE",
+        "Role":  "Curated Claude plugins",
+        "URL":  "https://github.com/anthropics/claude-plugins-official"
+    },
+    {
+        "Name":  "Serena",
+        "Kind":  "MCP",
+        "Tier":  "A",
+        "Profile":  "CORE",
+        "Role":  "Semantic code navigation/editing",
+        "URL":  "https://github.com/oraios/serena"
+    },
+    {
+        "Name":  "Superpowers",
+        "Kind":  "Plugin/skills",
+        "Tier":  "A",
+        "Profile":  "CORE",
+        "Role":  "Development workflow discipline",
+        "URL":  "https://github.com/obra/superpowers"
+    },
+    {
+        "Name":  "Trail of Bits Skills Curated",
+        "Kind":  "Plugin marketplace",
+        "Tier":  "A/B",
+        "Profile":  "CORE/ON-DEMAND",
+        "Role":  "Reviewed skills including ghidra-headless, security-awareness, Playwright",
+        "URL":  "https://github.com/trailofbits/skills-curated"
+    },
+    {
+        "Name":  "Context7",
+        "Kind":  "MCP/CLI",
+        "Tier":  "B",
+        "Profile":  "RESEARCH",
+        "Role":  "Current library docs",
+        "URL":  "https://github.com/upstash/context7"
+    },
+    {
+        "Name":  "GitHub MCP",
+        "Kind":  "MCP/Connector",
+        "Tier":  "B",
+        "Profile":  "REPO",
+        "Role":  "Repo/issues/PR actions",
+        "URL":  "https://github.com/github/github-mcp-server"
+    },
+    {
+        "Name":  "GitLab MCP",
+        "Kind":  "MCP/Connector",
+        "Tier":  "B",
+        "Profile":  "REPO",
+        "Role":  "GitLab project/MR/pipeline actions",
+        "URL":  "https://docs.gitlab.com/user/model_context_protocol/mcp_server/"
+    },
+    {
+        "Name":  "SearXNG MCP",
+        "Kind":  "MCP",
+        "Tier":  "B",
+        "Profile":  "RESEARCH",
+        "Role":  "Operator-controlled web search",
+        "URL":  "https://github.com/ihor-sokoliuk/mcp-searxng"
+    },
+    {
+        "Name":  "Trail of Bits Skills",
+        "Kind":  "Plugin marketplace",
+        "Tier":  "B",
+        "Profile":  "REVIEW",
+        "Role":  "Security review/static analysis/supply-chain workflows",
+        "URL":  "https://github.com/trailofbits/skills"
+    },
+    {
+        "Name":  "Android MCP",
+        "Kind":  "MCP",
+        "Tier":  "C",
+        "Profile":  "ANDROID-DEV",
+        "Role":  "Lean ADB-only Android control alternative",
+        "URL":  "https://github.com/qalvinahmad/android-mcp"
+    },
+    {
+        "Name":  "Android MCP Lean",
+        "Kind":  "MCP",
+        "Tier":  "C",
+        "Profile":  "ANDROID-DEV",
+        "Role":  "Lean ADB-only Android control",
+        "URL":  "https://github.com/qalvinahmad/android-mcp"
+    },
+    {
+        "Name":  "AndroidWorld",
+        "Kind":  "Benchmark",
+        "Tier":  "C",
+        "Profile":  "EVAL",
+        "Role":  "Android agent benchmarking",
+        "URL":  "https://github.com/google-research/android_world"
+    },
+    {
+        "Name":  "Appium MCP",
+        "Kind":  "MCP",
+        "Tier":  "C",
+        "Profile":  "ANDROID-DEV",
+        "Role":  "Cross-platform Appium automation",
+        "URL":  "https://github.com/appium/appium-mcp"
+    },
+    {
+        "Name":  "Maestro",
+        "Kind":  "CLI/E2E",
+        "Tier":  "C",
+        "Profile":  "ANDROID-DEV",
+        "Role":  "Deterministic mobile E2E",
+        "URL":  "https://github.com/mobile-dev-inc/Maestro"
+    },
+    {
+        "Name":  "Maestro MCP",
+        "Kind":  "MCP/CLI/E2E",
+        "Tier":  "C",
+        "Profile":  "ANDROID-DEV",
+        "Role":  "Deterministic mobile E2E flows and agent control",
+        "URL":  "https://github.com/mobile-dev-inc/Maestro"
+    },
+    {
+        "Name":  "Mobile Harness",
+        "Kind":  "Skill/harness",
+        "Tier":  "C",
+        "Profile":  "MOBILE-AGENT",
+        "Role":  "Portable mobile-agent operating instructions",
+        "URL":  "https://github.com/droidrun/mobile-harness"
+    },
+    {
+        "Name":  "Mobilerun",
+        "Kind":  "Agent runtime",
+        "Tier":  "C",
+        "Profile":  "MOBILE-AGENT",
+        "Role":  "Natural-language mobile control",
+        "URL":  "https://github.com/droidrun/mobilerun"
+    },
+    {
+        "Name":  "Android Reverse Engineering Skill",
+        "Kind":  "Plugin/skill",
+        "Tier":  "D",
+        "Profile":  "ANDROID-RE",
+        "Role":  "Fingerprint-first APK/API extraction; Windows scripts experimental upstream",
+        "URL":  "https://github.com/SimoneAvogadro/android-reverse-engineering-skill"
+    },
+    {
+        "Name":  "Apktool",
+        "Kind":  "CLI",
+        "Tier":  "D",
+        "Profile":  "ANDROID-RE",
+        "Role":  "Resources/smali decode/rebuild",
+        "URL":  "https://github.com/iBotPeaches/Apktool"
+    },
+    {
+        "Name":  "Apktool MCP",
+        "Kind":  "MCP",
+        "Tier":  "D",
+        "Profile":  "ANDROID-RE",
+        "Role":  "Agent access to Apktool",
+        "URL":  "https://github.com/zinja-coder/apktool-mcp-server"
+    },
+    {
+        "Name":  "Frida MCP Skills",
+        "Kind":  "Skills",
+        "Tier":  "D",
+        "Profile":  "ANDROID-RE-DYNAMIC",
+        "Role":  "Lifecycle-safe Frida workflow",
+        "URL":  "https://github.com/yfe404/frida-mcp-skills"
+    },
+    {
+        "Name":  "JADX AI MCP",
+        "Kind":  "MCP/plugin",
+        "Tier":  "D",
+        "Profile":  "ANDROID-RE",
+        "Role":  "Live GUI APK decompilation/navigation",
+        "URL":  "https://github.com/zinja-coder/jadx-ai-mcp"
+    },
+    {
+        "Name":  "JADX MCP Server",
+        "Kind":  "MCP",
+        "Tier":  "D",
+        "Profile":  "ANDROID-RE",
+        "Role":  "Headless APK analysis",
+        "URL":  "https://github.com/Qtty/jadx-mcp-server"
+    },
+    {
+        "Name":  "MobSF",
+        "Kind":  "App/API",
+        "Tier":  "D",
+        "Profile":  "ANDROID-RE",
+        "Role":  "Automated mobile triage",
+        "URL":  "https://github.com/MobSF/Mobile-Security-Framework-MobSF"
+    },
+    {
+        "Name":  "Ghidra",
+        "Kind":  "RE suite",
+        "Tier":  "D/F",
+        "Profile":  "NATIVE-RE",
+        "Role":  "Disassembly/decompilation/analysis",
+        "URL":  "https://github.com/NationalSecurityAgency/ghidra"
+    },
+    {
+        "Name":  "Ghidra MCP Headless",
+        "Kind":  "MCP",
+        "Tier":  "D/F",
+        "Profile":  "NATIVE-RE",
+        "Role":  "Small headless PyGhidra MCP",
+        "URL":  "https://github.com/SumTuusDeus/ghidra-mcp"
+    },
+    {
+        "Name":  "GhidraMCP LaurieWired",
+        "Kind":  "MCP/plugin",
+        "Tier":  "D/F",
+        "Profile":  "NATIVE-RE",
+        "Role":  "Interactive Ghidra MCP",
+        "URL":  "https://github.com/LaurieWired/GhidraMCP"
+    },
+    {
+        "Name":  "iaito",
+        "Kind":  "GUI",
+        "Tier":  "D/F",
+        "Profile":  "NATIVE-RE",
+        "Role":  "Official radare2 GUI",
+        "URL":  "https://github.com/radareorg/iaito"
+    },
+    {
+        "Name":  "pyghidra-mcp",
+        "Kind":  "MCP",
+        "Tier":  "D/F",
+        "Profile":  "NATIVE-RE",
+        "Role":  "Headless + GUI Ghidra state",
+        "URL":  "https://github.com/clearbluejar/pyghidra-mcp"
+    },
+    {
+        "Name":  "radare2",
+        "Kind":  "RE framework",
+        "Tier":  "D/F",
+        "Profile":  "NATIVE-RE",
+        "Role":  "Binary analysis/debugging framework",
+        "URL":  "https://github.com/radareorg/radare2"
+    },
+    {
+        "Name":  "AutoGenesis",
+        "Kind":  "MCP/test framework",
+        "Tier":  "E",
+        "Profile":  "WINDOWS-DEV",
+        "Role":  "Cross-platform GUI test automation",
+        "URL":  "https://github.com/microsoft/AutoGenesis"
+    },
+    {
+        "Name":  "win-dev-skills",
+        "Kind":  "Plugin/skills",
+        "Tier":  "E",
+        "Profile":  "WINDOWS-DEV",
+        "Role":  "Windows app build/test/package workflow",
+        "URL":  "https://github.com/microsoft/win-dev-skills"
+    },
+    {
+        "Name":  "WinApp CLI",
+        "Kind":  "CLI/skills",
+        "Tier":  "E",
+        "Profile":  "WINDOWS-DEV",
+        "Role":  "Windows app tooling/UI automation",
+        "URL":  "https://github.com/microsoft/winappCli"
+    },
+    {
+        "Name":  "Hyper-V MCP",
+        "Kind":  "MCP",
+        "Tier":  "F",
+        "Profile":  "ISOLATED-LAB",
+        "Role":  "VM lifecycle/checkpoints/guest execution",
+        "URL":  "https://github.com/originsec/hyperv-mcp"
+    },
+    {
+        "Name":  "x64dbg",
+        "Kind":  "Debugger",
+        "Tier":  "F",
+        "Profile":  "WINDOWS-RE",
+        "Role":  "Windows user-mode dynamic RE",
+        "URL":  "https://github.com/x64dbg/x64dbg"
+    },
+    {
+        "Name":  "x64dbg Automate MCP",
+        "Kind":  "MCP",
+        "Tier":  "F",
+        "Profile":  "WINDOWS-RE",
+        "Role":  "Agent debugger automation",
+        "URL":  "https://github.com/dariushoule/x64dbg-automate-pyclient"
+    },
+    {
+        "Name":  "x64dbg-skills",
+        "Kind":  "Plugin/skills",
+        "Tier":  "F",
+        "Profile":  "WINDOWS-RE",
+        "Role":  "Debugger operating workflows",
+        "URL":  "https://github.com/dariushoule/x64dbg-skills"
+    },
+    {
+        "Name":  "AssetRipper",
+        "Kind":  "GUI/CLI",
+        "Tier":  "G",
+        "Profile":  "UNITY-RE",
+        "Role":  "Unity asset extraction",
+        "URL":  "https://github.com/AssetRipper/AssetRipper"
+    },
+    {
+        "Name":  "Cpp2IL",
+        "Kind":  "CLI",
+        "Tier":  "G",
+        "Profile":  "UNITY-RE",
+        "Role":  "Unity IL2CPP reconstruction",
+        "URL":  "https://github.com/SamboyCoding/Cpp2IL"
+    },
+    {
+        "Name":  "dnSpyEx",
+        "Kind":  "GUI",
+        "Tier":  "G",
+        "Profile":  "UNITY-RE",
+        "Role":  ".NET managed assembly analysis",
+        "URL":  "https://github.com/dnSpyEx/dnSpy"
+    },
+    {
+        "Name":  "r2unity",
+        "Kind":  "CLI/plugin",
+        "Tier":  "G",
+        "Profile":  "UNITY-RE",
+        "Role":  "Unity IL2CPP metadata in radare2",
+        "URL":  "https://github.com/radareorg/r2unity"
+    },
+    {
+        "Name":  "Playwright CLI + Skills",
+        "Kind":  "CLI/skills",
+        "Tier":  "H",
+        "Profile":  "WEB-E2E",
+        "Role":  "Token-efficient browser/PWA/Electron automation for coding agents",
+        "URL":  "https://github.com/microsoft/playwright-cli"
+    }
+]
