@@ -22,7 +22,7 @@ if (-not $PackageOnly) {
 
 Write-Output "=== Combining snippets ==="
 $combined = @{ mcpServers = [ordered]@{} }
-$snippets = Get-ChildItem -Path $InstallRoot -Filter 'claude-desktop-snippet.json' -Recurse -ErrorAction SilentlyContinue
+$snippets = Get-ChildItem -Path $InstallRoot -Filter 'claude-desktop-snippet.json' -Depth 1 -ErrorAction SilentlyContinue
 foreach ($s in $snippets) {
     try {
         $json = Get-Content $s.FullName | ConvertFrom-Json
