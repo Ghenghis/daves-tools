@@ -1,0 +1,17 @@
+{
+  "name": "daves-tools-harness",
+  "version": "1.0.0",
+  "description": "Agentic MCP orchestration harness for DAVE-AI",
+  "main": "index.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node index.js",
+    "build:registry": "powershell -ExecutionPolicy Bypass -File ..\\toolkit\\Build-McpRegistry.ps1"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.3.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

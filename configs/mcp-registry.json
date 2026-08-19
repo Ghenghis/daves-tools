@@ -1,0 +1,974 @@
+{
+    "version":  "1.0.0",
+    "generated":  "2026-08-19T09:28:57.8091710-07:00",
+    "total":  36,
+    "servers":  {
+                    "anthropic-skills":  {
+                                             "name":  "Anthropic Skills",
+                                             "key":  "anthropic-skills",
+                                             "kind":  "Skills",
+                                             "tier":  "A",
+                                             "profile":  "CORE",
+                                             "role":  "Official skill examples and skill-creator",
+                                             "tags":  [
+                                                          "CORE",
+                                                          "Official skill examples and skill-creator",
+                                                          "Skills",
+                                                          "A",
+                                                          ""
+                                                      ],
+                                             "cloned":  false,
+                                             "snippet":  {
+                                                             "args":  [
+                                                                          "-y",
+                                                                          "anthropic-skills"
+                                                                      ],
+                                                             "env":  {
+
+                                                                     },
+                                                             "command":  "npx"
+                                                         },
+                                             "enabled":  false
+                                         },
+                    "claude-plugins-official":  {
+                                                    "name":  "Claude Plugins Official",
+                                                    "key":  "claude-plugins-official",
+                                                    "kind":  "Marketplace",
+                                                    "tier":  "A",
+                                                    "profile":  "CORE",
+                                                    "role":  "Curated Claude plugins",
+                                                    "tags":  [
+                                                                 "CORE",
+                                                                 "Curated Claude plugins",
+                                                                 "Marketplace",
+                                                                 "A",
+                                                                 ""
+                                                             ],
+                                                    "cloned":  false,
+                                                    "snippet":  {
+                                                                    "args":  [
+                                                                                 "-y",
+                                                                                 "claude-plugins-official"
+                                                                             ],
+                                                                    "env":  {
+
+                                                                            },
+                                                                    "command":  "npx"
+                                                                },
+                                                    "enabled":  false
+                                                },
+                    "serena":  {
+                                   "name":  "Serena",
+                                   "key":  "serena",
+                                   "kind":  "MCP",
+                                   "tier":  "A",
+                                   "profile":  "CORE",
+                                   "role":  "Semantic code navigation/editing",
+                                   "tags":  [
+                                                "CORE",
+                                                "Semantic code navigation/editing",
+                                                "MCP",
+                                                "A",
+                                                ""
+                                            ],
+                                   "cloned":  false,
+                                   "snippet":  {
+                                                   "args":  [
+                                                                "-y",
+                                                                "serena"
+                                                            ],
+                                                   "env":  {
+
+                                                           },
+                                                   "command":  "npx"
+                                               },
+                                   "enabled":  false
+                               },
+                    "superpowers":  {
+                                        "name":  "Superpowers",
+                                        "key":  "superpowers",
+                                        "kind":  "Plugin/skills",
+                                        "tier":  "A",
+                                        "profile":  "CORE",
+                                        "role":  "Development workflow discipline",
+                                        "tags":  [
+                                                     "CORE",
+                                                     "Development workflow discipline",
+                                                     "Plugin/skills",
+                                                     "A",
+                                                     ""
+                                                 ],
+                                        "cloned":  false,
+                                        "snippet":  {
+                                                        "args":  [
+                                                                     "G:\\Github\\superpowers\\.opencode\\plugins\\superpowers.js"
+                                                                 ],
+                                                        "env":  {
+
+                                                                },
+                                                        "command":  "node"
+                                                    },
+                                        "enabled":  false
+                                    },
+                    "context7":  {
+                                     "name":  "Context7",
+                                     "key":  "context7",
+                                     "kind":  "MCP/CLI",
+                                     "tier":  "B",
+                                     "profile":  "RESEARCH",
+                                     "role":  "Current library docs",
+                                     "tags":  [
+                                                  "RESEARCH",
+                                                  "Current library docs",
+                                                  "MCP/CLI",
+                                                  "B",
+                                                  ""
+                                              ],
+                                     "cloned":  false,
+                                     "snippet":  {
+                                                     "args":  [
+                                                                  "-y",
+                                                                  "@upstash/context7-mcp"
+                                                              ],
+                                                     "env":  {
+
+                                                             },
+                                                     "command":  "npx"
+                                                 },
+                                     "enabled":  false
+                                 },
+                    "github-mcp":  {
+                                       "name":  "GitHub MCP",
+                                       "key":  "github-mcp",
+                                       "kind":  "MCP/Connector",
+                                       "tier":  "B",
+                                       "profile":  "REPO",
+                                       "role":  "Repo/issues/PR actions",
+                                       "tags":  [
+                                                    "REPO",
+                                                    "Repo/issues/PR actions",
+                                                    "MCP/Connector",
+                                                    "B",
+                                                    ""
+                                                ],
+                                       "cloned":  false,
+                                       "snippet":  {
+                                                       "args":  [
+                                                                    "-y",
+                                                                    "github-mcp"
+                                                                ],
+                                                       "env":  {
+
+                                                               },
+                                                       "command":  "npx"
+                                                   },
+                                       "enabled":  false
+                                   },
+                    "gitlab-mcp":  {
+                                       "name":  "GitLab MCP",
+                                       "key":  "gitlab-mcp",
+                                       "kind":  "MCP/Connector",
+                                       "tier":  "B",
+                                       "profile":  "REPO",
+                                       "role":  "GitLab project/MR/pipeline actions",
+                                       "tags":  [
+                                                    "REPO",
+                                                    "GitLab project/MR/pipeline actions",
+                                                    "MCP/Connector",
+                                                    "B",
+                                                    ""
+                                                ],
+                                       "cloned":  false,
+                                       "snippet":  {
+                                                       "args":  [
+                                                                    "-y",
+                                                                    "@gitlab/mcp-server"
+                                                                ],
+                                                       "env":  {
+                                                                   "GITLAB_PERSONAL_ACCESS_TOKEN":  "\u003cTOKEN\u003e"
+                                                               },
+                                                       "command":  "npx"
+                                                   },
+                                       "enabled":  false
+                                   },
+                    "searxng-mcp":  {
+                                        "name":  "SearXNG MCP",
+                                        "key":  "searxng-mcp",
+                                        "kind":  "MCP",
+                                        "tier":  "B",
+                                        "profile":  "RESEARCH",
+                                        "role":  "Operator-controlled web search",
+                                        "tags":  [
+                                                     "RESEARCH",
+                                                     "Operator-controlled web search",
+                                                     "MCP",
+                                                     "B",
+                                                     ""
+                                                 ],
+                                        "cloned":  false,
+                                        "snippet":  {
+                                                        "args":  [
+                                                                     "G:\\Github\\searxng-mcp\\dist\\index.js"
+                                                                 ],
+                                                        "env":  {
+
+                                                                },
+                                                        "command":  "node"
+                                                    },
+                                        "enabled":  false
+                                    },
+                    "trail-of-bits-skills":  {
+                                                 "name":  "Trail of Bits Skills",
+                                                 "key":  "trail-of-bits-skills",
+                                                 "kind":  "Plugin marketplace",
+                                                 "tier":  "B",
+                                                 "profile":  "REVIEW",
+                                                 "role":  "Security review/static analysis/supply-chain workflows",
+                                                 "tags":  [
+                                                              "REVIEW",
+                                                              "Security review/static analysis/supply-chain workflows",
+                                                              "Plugin marketplace",
+                                                              "B",
+                                                              ""
+                                                          ],
+                                                 "cloned":  false,
+                                                 "snippet":  {
+                                                                 "args":  [
+                                                                              "-y",
+                                                                              "trail-of-bits-skills"
+                                                                          ],
+                                                                 "env":  {
+
+                                                                         },
+                                                                 "command":  "npx"
+                                                             },
+                                                 "enabled":  false
+                                             },
+                    "android-mcp":  {
+                                        "name":  "Android MCP",
+                                        "key":  "android-mcp",
+                                        "kind":  "MCP",
+                                        "tier":  "C",
+                                        "profile":  "ANDROID-DEV",
+                                        "role":  "Lean ADB-only Android control alternative",
+                                        "tags":  [
+                                                     "ANDROID-DEV",
+                                                     "Lean ADB-only Android control alternative",
+                                                     "MCP",
+                                                     "C",
+                                                     ""
+                                                 ],
+                                        "cloned":  false,
+                                        "snippet":  {
+                                                        "args":  [
+                                                                     "G:\\Github\\android-mcp\\dist\\index.js"
+                                                                 ],
+                                                        "env":  {
+
+                                                                },
+                                                        "command":  "node"
+                                                    },
+                                        "enabled":  false
+                                    },
+                    "android-mcp-lean":  {
+                                             "name":  "Android MCP Lean",
+                                             "key":  "android-mcp-lean",
+                                             "kind":  "MCP",
+                                             "tier":  "C",
+                                             "profile":  "ANDROID-DEV",
+                                             "role":  "Lean ADB-only Android control",
+                                             "tags":  [
+                                                          "ANDROID-DEV",
+                                                          "Lean ADB-only Android control",
+                                                          "MCP",
+                                                          "C",
+                                                          ""
+                                                      ],
+                                             "cloned":  false,
+                                             "snippet":  {
+                                                             "args":  [
+                                                                          "G:\\Github\\android-mcp-lean\\dist\\index.js"
+                                                                      ],
+                                                             "env":  {
+
+                                                                     },
+                                                             "command":  "node"
+                                                         },
+                                             "enabled":  false
+                                         },
+                    "androidworld":  {
+                                         "name":  "AndroidWorld",
+                                         "key":  "androidworld",
+                                         "kind":  "Benchmark",
+                                         "tier":  "C",
+                                         "profile":  "EVAL",
+                                         "role":  "Android agent benchmarking",
+                                         "tags":  [
+                                                      "EVAL",
+                                                      "Android agent benchmarking",
+                                                      "Benchmark",
+                                                      "C",
+                                                      ""
+                                                  ],
+                                         "cloned":  false,
+                                         "snippet":  {
+                                                         "args":  [
+                                                                      "-y",
+                                                                      "androidworld"
+                                                                  ],
+                                                         "env":  {
+
+                                                                 },
+                                                         "command":  "npx"
+                                                     },
+                                         "enabled":  false
+                                     },
+                    "appium-mcp":  {
+                                       "name":  "Appium MCP",
+                                       "key":  "appium-mcp",
+                                       "kind":  "MCP",
+                                       "tier":  "C",
+                                       "profile":  "ANDROID-DEV",
+                                       "role":  "Cross-platform Appium automation",
+                                       "tags":  [
+                                                    "ANDROID-DEV",
+                                                    "Cross-platform Appium automation",
+                                                    "MCP",
+                                                    "C",
+                                                    ""
+                                                ],
+                                       "cloned":  false,
+                                       "snippet":  {
+                                                       "args":  [
+                                                                    "G:\\Github\\appium-mcp\\dist\\index.js"
+                                                                ],
+                                                       "env":  {
+
+                                                               },
+                                                       "command":  "node"
+                                                   },
+                                       "enabled":  false
+                                   },
+                    "maestro":  {
+                                    "name":  "Maestro",
+                                    "key":  "maestro",
+                                    "kind":  "CLI/E2E",
+                                    "tier":  "C",
+                                    "profile":  "ANDROID-DEV",
+                                    "role":  "Deterministic mobile E2E",
+                                    "tags":  [
+                                                 "ANDROID-DEV",
+                                                 "Deterministic mobile E2E",
+                                                 "CLI/E2E",
+                                                 "C",
+                                                 ""
+                                             ],
+                                    "cloned":  false,
+                                    "snippet":  {
+                                                    "args":  [
+                                                                 "-y",
+                                                                 "maestro"
+                                                             ],
+                                                    "env":  {
+
+                                                            },
+                                                    "command":  "npx"
+                                                },
+                                    "enabled":  false
+                                },
+                    "maestro-mcp":  {
+                                        "name":  "Maestro MCP",
+                                        "key":  "maestro-mcp",
+                                        "kind":  "MCP/CLI/E2E",
+                                        "tier":  "C",
+                                        "profile":  "ANDROID-DEV",
+                                        "role":  "Deterministic mobile E2E flows and agent control",
+                                        "tags":  [
+                                                     "ANDROID-DEV",
+                                                     "Deterministic mobile E2E flows and agent control",
+                                                     "MCP/CLI/E2E",
+                                                     "C",
+                                                     ""
+                                                 ],
+                                        "cloned":  false,
+                                        "snippet":  {
+                                                        "args":  [
+                                                                     "-y",
+                                                                     "maestro-mcp"
+                                                                 ],
+                                                        "env":  {
+
+                                                                },
+                                                        "command":  "npx"
+                                                    },
+                                        "enabled":  false
+                                    },
+                    "mobile-harness":  {
+                                           "name":  "Mobile Harness",
+                                           "key":  "mobile-harness",
+                                           "kind":  "Skill/harness",
+                                           "tier":  "C",
+                                           "profile":  "MOBILE-AGENT",
+                                           "role":  "Portable mobile-agent operating instructions",
+                                           "tags":  [
+                                                        "MOBILE-AGENT",
+                                                        "Portable mobile-agent operating instructions",
+                                                        "Skill/harness",
+                                                        "C",
+                                                        ""
+                                                    ],
+                                           "cloned":  false,
+                                           "snippet":  {
+                                                           "args":  [
+                                                                        "-y",
+                                                                        "mobile-harness"
+                                                                    ],
+                                                           "env":  {
+
+                                                                   },
+                                                           "command":  "npx"
+                                                       },
+                                           "enabled":  false
+                                       },
+                    "mobilerun":  {
+                                      "name":  "Mobilerun",
+                                      "key":  "mobilerun",
+                                      "kind":  "Agent runtime",
+                                      "tier":  "C",
+                                      "profile":  "MOBILE-AGENT",
+                                      "role":  "Natural-language mobile control",
+                                      "tags":  [
+                                                   "MOBILE-AGENT",
+                                                   "Natural-language mobile control",
+                                                   "Agent runtime",
+                                                   "C",
+                                                   ""
+                                               ],
+                                      "cloned":  false,
+                                      "snippet":  {
+                                                      "args":  [
+                                                                   "-y",
+                                                                   "mobilerun"
+                                                               ],
+                                                      "env":  {
+
+                                                              },
+                                                      "command":  "npx"
+                                                  },
+                                      "enabled":  false
+                                  },
+                    "android-reverse-engineering-skill":  {
+                                                              "name":  "Android Reverse Engineering Skill",
+                                                              "key":  "android-reverse-engineering-skill",
+                                                              "kind":  "Plugin/skill",
+                                                              "tier":  "D",
+                                                              "profile":  "ANDROID-RE",
+                                                              "role":  "Fingerprint-first APK/API extraction; Windows scripts experimental upstream",
+                                                              "tags":  [
+                                                                           "ANDROID-RE",
+                                                                           "Fingerprint-first APK/API extraction; Windows scripts experimental upstream",
+                                                                           "Plugin/skill",
+                                                                           "D",
+                                                                           ""
+                                                                       ],
+                                                              "cloned":  false,
+                                                              "snippet":  {
+                                                                              "args":  [
+                                                                                           "-y",
+                                                                                           "android-reverse-engineering-skill"
+                                                                                       ],
+                                                                              "env":  {
+
+                                                                                      },
+                                                                              "command":  "npx"
+                                                                          },
+                                                              "enabled":  false
+                                                          },
+                    "apktool":  {
+                                    "name":  "Apktool",
+                                    "key":  "apktool",
+                                    "kind":  "CLI",
+                                    "tier":  "D",
+                                    "profile":  "ANDROID-RE",
+                                    "role":  "Resources/smali decode/rebuild",
+                                    "tags":  [
+                                                 "ANDROID-RE",
+                                                 "Resources/smali decode/rebuild",
+                                                 "CLI",
+                                                 "D",
+                                                 ""
+                                             ],
+                                    "cloned":  false,
+                                    "snippet":  {
+                                                    "args":  [
+                                                                 "-y",
+                                                                 "apktool"
+                                                             ],
+                                                    "env":  {
+
+                                                            },
+                                                    "command":  "npx"
+                                                },
+                                    "enabled":  false
+                                },
+                    "apktool-mcp":  {
+                                        "name":  "Apktool MCP",
+                                        "key":  "apktool-mcp",
+                                        "kind":  "MCP",
+                                        "tier":  "D",
+                                        "profile":  "ANDROID-RE",
+                                        "role":  "Agent access to Apktool",
+                                        "tags":  [
+                                                     "ANDROID-RE",
+                                                     "Agent access to Apktool",
+                                                     "MCP",
+                                                     "D",
+                                                     ""
+                                                 ],
+                                        "cloned":  false,
+                                        "snippet":  {
+                                                        "args":  [
+                                                                     "-y",
+                                                                     "apktool-mcp"
+                                                                 ],
+                                                        "env":  {
+
+                                                                },
+                                                        "command":  "npx"
+                                                    },
+                                        "enabled":  false
+                                    },
+                    "frida-mcp-skills":  {
+                                             "name":  "Frida MCP Skills",
+                                             "key":  "frida-mcp-skills",
+                                             "kind":  "Skills",
+                                             "tier":  "D",
+                                             "profile":  "ANDROID-RE-DYNAMIC",
+                                             "role":  "Lifecycle-safe Frida workflow",
+                                             "tags":  [
+                                                          "ANDROID-RE-DYNAMIC",
+                                                          "Lifecycle-safe Frida workflow",
+                                                          "Skills",
+                                                          "D",
+                                                          ""
+                                                      ],
+                                             "cloned":  false,
+                                             "snippet":  {
+                                                             "args":  [
+                                                                          "-y",
+                                                                          "frida-mcp-skills"
+                                                                      ],
+                                                             "env":  {
+
+                                                                     },
+                                                             "command":  "npx"
+                                                         },
+                                             "enabled":  false
+                                         },
+                    "jadx-ai-mcp":  {
+                                        "name":  "JADX AI MCP",
+                                        "key":  "jadx-ai-mcp",
+                                        "kind":  "MCP/plugin",
+                                        "tier":  "D",
+                                        "profile":  "ANDROID-RE",
+                                        "role":  "Live GUI APK decompilation/navigation",
+                                        "tags":  [
+                                                     "ANDROID-RE",
+                                                     "Live GUI APK decompilation/navigation",
+                                                     "MCP/plugin",
+                                                     "D",
+                                                     ""
+                                                 ],
+                                        "cloned":  false,
+                                        "snippet":  {
+                                                        "args":  [
+                                                                     "-y",
+                                                                     "jadx-ai-mcp"
+                                                                 ],
+                                                        "env":  {
+
+                                                                },
+                                                        "command":  "npx"
+                                                    },
+                                        "enabled":  false
+                                    },
+                    "jadx-mcp-server":  {
+                                            "name":  "JADX MCP Server",
+                                            "key":  "jadx-mcp-server",
+                                            "kind":  "MCP",
+                                            "tier":  "D",
+                                            "profile":  "ANDROID-RE",
+                                            "role":  "Headless APK analysis",
+                                            "tags":  [
+                                                         "ANDROID-RE",
+                                                         "Headless APK analysis",
+                                                         "MCP",
+                                                         "D",
+                                                         ""
+                                                     ],
+                                            "cloned":  false,
+                                            "snippet":  {
+                                                            "args":  [
+                                                                         "-y",
+                                                                         "jadx-mcp-server"
+                                                                     ],
+                                                            "env":  {
+
+                                                                    },
+                                                            "command":  "npx"
+                                                        },
+                                            "enabled":  false
+                                        },
+                    "mobsf":  {
+                                  "name":  "MobSF",
+                                  "key":  "mobsf",
+                                  "kind":  "App/API",
+                                  "tier":  "D",
+                                  "profile":  "ANDROID-RE",
+                                  "role":  "Automated mobile triage",
+                                  "tags":  [
+                                               "ANDROID-RE",
+                                               "Automated mobile triage",
+                                               "App/API",
+                                               "D",
+                                               ""
+                                           ],
+                                  "cloned":  false,
+                                  "snippet":  {
+                                                  "args":  [
+                                                               "-y",
+                                                               "mobsf"
+                                                           ],
+                                                  "env":  {
+
+                                                          },
+                                                  "command":  "npx"
+                                              },
+                                  "enabled":  false
+                              },
+                    "autogenesis":  {
+                                        "name":  "AutoGenesis",
+                                        "key":  "autogenesis",
+                                        "kind":  "MCP/test framework",
+                                        "tier":  "E",
+                                        "profile":  "WINDOWS-DEV",
+                                        "role":  "Cross-platform GUI test automation",
+                                        "tags":  [
+                                                     "WINDOWS-DEV",
+                                                     "Cross-platform GUI test automation",
+                                                     "MCP/test framework",
+                                                     "E",
+                                                     ""
+                                                 ],
+                                        "cloned":  false,
+                                        "snippet":  {
+                                                        "args":  [
+                                                                     "-y",
+                                                                     "autogenesis"
+                                                                 ],
+                                                        "env":  {
+
+                                                                },
+                                                        "command":  "npx"
+                                                    },
+                                        "enabled":  false
+                                    },
+                    "win-dev-skills":  {
+                                           "name":  "win-dev-skills",
+                                           "key":  "win-dev-skills",
+                                           "kind":  "Plugin/skills",
+                                           "tier":  "E",
+                                           "profile":  "WINDOWS-DEV",
+                                           "role":  "Windows app build/test/package workflow",
+                                           "tags":  [
+                                                        "WINDOWS-DEV",
+                                                        "Windows app build/test/package workflow",
+                                                        "Plugin/skills",
+                                                        "E",
+                                                        ""
+                                                    ],
+                                           "cloned":  false,
+                                           "snippet":  {
+                                                           "args":  [
+                                                                        "-y",
+                                                                        "win-dev-skills"
+                                                                    ],
+                                                           "env":  {
+
+                                                                   },
+                                                           "command":  "npx"
+                                                       },
+                                           "enabled":  false
+                                       },
+                    "winapp-cli":  {
+                                       "name":  "WinApp CLI",
+                                       "key":  "winapp-cli",
+                                       "kind":  "CLI/skills",
+                                       "tier":  "E",
+                                       "profile":  "WINDOWS-DEV",
+                                       "role":  "Windows app tooling/UI automation",
+                                       "tags":  [
+                                                    "WINDOWS-DEV",
+                                                    "Windows app tooling/UI automation",
+                                                    "CLI/skills",
+                                                    "E",
+                                                    ""
+                                                ],
+                                       "cloned":  false,
+                                       "snippet":  {
+                                                       "args":  [
+                                                                    "-y",
+                                                                    "winapp-cli"
+                                                                ],
+                                                       "env":  {
+
+                                                               },
+                                                       "command":  "npx"
+                                                   },
+                                       "enabled":  false
+                                   },
+                    "hyper-v-mcp":  {
+                                        "name":  "Hyper-V MCP",
+                                        "key":  "hyper-v-mcp",
+                                        "kind":  "MCP",
+                                        "tier":  "F",
+                                        "profile":  "ISOLATED-LAB",
+                                        "role":  "VM lifecycle/checkpoints/guest execution",
+                                        "tags":  [
+                                                     "ISOLATED-LAB",
+                                                     "VM lifecycle/checkpoints/guest execution",
+                                                     "MCP",
+                                                     "F",
+                                                     ""
+                                                 ],
+                                        "cloned":  false,
+                                        "snippet":  {
+                                                        "args":  [
+                                                                     "-y",
+                                                                     "hyper-v-mcp"
+                                                                 ],
+                                                        "env":  {
+
+                                                                },
+                                                        "command":  "npx"
+                                                    },
+                                        "enabled":  false
+                                    },
+                    "x64dbg":  {
+                                   "name":  "x64dbg",
+                                   "key":  "x64dbg",
+                                   "kind":  "Debugger",
+                                   "tier":  "F",
+                                   "profile":  "WINDOWS-RE",
+                                   "role":  "Windows user-mode dynamic RE",
+                                   "tags":  [
+                                                "WINDOWS-RE",
+                                                "Windows user-mode dynamic RE",
+                                                "Debugger",
+                                                "F",
+                                                ""
+                                            ],
+                                   "cloned":  false,
+                                   "snippet":  {
+                                                   "args":  [
+                                                                "-y",
+                                                                "x64dbg"
+                                                            ],
+                                                   "env":  {
+
+                                                           },
+                                                   "command":  "npx"
+                                               },
+                                   "enabled":  false
+                               },
+                    "x64dbg-automate-mcp":  {
+                                                "name":  "x64dbg Automate MCP",
+                                                "key":  "x64dbg-automate-mcp",
+                                                "kind":  "MCP",
+                                                "tier":  "F",
+                                                "profile":  "WINDOWS-RE",
+                                                "role":  "Agent debugger automation",
+                                                "tags":  [
+                                                             "WINDOWS-RE",
+                                                             "Agent debugger automation",
+                                                             "MCP",
+                                                             "F",
+                                                             ""
+                                                         ],
+                                                "cloned":  false,
+                                                "snippet":  {
+                                                                "args":  [
+                                                                             "-y",
+                                                                             "x64dbg-automate-mcp"
+                                                                         ],
+                                                                "env":  {
+
+                                                                        },
+                                                                "command":  "npx"
+                                                            },
+                                                "enabled":  false
+                                            },
+                    "x64dbg-skills":  {
+                                          "name":  "x64dbg-skills",
+                                          "key":  "x64dbg-skills",
+                                          "kind":  "Plugin/skills",
+                                          "tier":  "F",
+                                          "profile":  "WINDOWS-RE",
+                                          "role":  "Debugger operating workflows",
+                                          "tags":  [
+                                                       "WINDOWS-RE",
+                                                       "Debugger operating workflows",
+                                                       "Plugin/skills",
+                                                       "F",
+                                                       ""
+                                                   ],
+                                          "cloned":  false,
+                                          "snippet":  {
+                                                          "args":  [
+                                                                       "-y",
+                                                                       "x64dbg-skills"
+                                                                   ],
+                                                          "env":  {
+
+                                                                  },
+                                                          "command":  "npx"
+                                                      },
+                                          "enabled":  false
+                                      },
+                    "assetripper":  {
+                                        "name":  "AssetRipper",
+                                        "key":  "assetripper",
+                                        "kind":  "GUI/CLI",
+                                        "tier":  "G",
+                                        "profile":  "UNITY-RE",
+                                        "role":  "Unity asset extraction",
+                                        "tags":  [
+                                                     "UNITY-RE",
+                                                     "Unity asset extraction",
+                                                     "GUI/CLI",
+                                                     "G",
+                                                     ""
+                                                 ],
+                                        "cloned":  false,
+                                        "snippet":  {
+                                                        "args":  [
+                                                                     "-y",
+                                                                     "assetripper"
+                                                                 ],
+                                                        "env":  {
+
+                                                                },
+                                                        "command":  "npx"
+                                                    },
+                                        "enabled":  false
+                                    },
+                    "cpp2il":  {
+                                   "name":  "Cpp2IL",
+                                   "key":  "cpp2il",
+                                   "kind":  "CLI",
+                                   "tier":  "G",
+                                   "profile":  "UNITY-RE",
+                                   "role":  "Unity IL2CPP reconstruction",
+                                   "tags":  [
+                                                "UNITY-RE",
+                                                "Unity IL2CPP reconstruction",
+                                                "CLI",
+                                                "G",
+                                                ""
+                                            ],
+                                   "cloned":  false,
+                                   "snippet":  {
+                                                   "args":  [
+                                                                "-y",
+                                                                "cpp2il"
+                                                            ],
+                                                   "env":  {
+
+                                                           },
+                                                   "command":  "npx"
+                                               },
+                                   "enabled":  false
+                               },
+                    "dnspyex":  {
+                                    "name":  "dnSpyEx",
+                                    "key":  "dnspyex",
+                                    "kind":  "GUI",
+                                    "tier":  "G",
+                                    "profile":  "UNITY-RE",
+                                    "role":  ".NET managed assembly analysis",
+                                    "tags":  [
+                                                 "UNITY-RE",
+                                                 ".NET managed assembly analysis",
+                                                 "GUI",
+                                                 "G",
+                                                 ""
+                                             ],
+                                    "cloned":  false,
+                                    "snippet":  {
+                                                    "args":  [
+                                                                 "-y",
+                                                                 "dnspyex"
+                                                             ],
+                                                    "env":  {
+
+                                                            },
+                                                    "command":  "npx"
+                                                },
+                                    "enabled":  false
+                                },
+                    "r2unity":  {
+                                    "name":  "r2unity",
+                                    "key":  "r2unity",
+                                    "kind":  "CLI/plugin",
+                                    "tier":  "G",
+                                    "profile":  "UNITY-RE",
+                                    "role":  "Unity IL2CPP metadata in radare2",
+                                    "tags":  [
+                                                 "UNITY-RE",
+                                                 "Unity IL2CPP metadata in radare2",
+                                                 "CLI/plugin",
+                                                 "G",
+                                                 ""
+                                             ],
+                                    "cloned":  false,
+                                    "snippet":  {
+                                                    "args":  [
+                                                                 "-y",
+                                                                 "r2unity"
+                                                             ],
+                                                    "env":  {
+
+                                                            },
+                                                    "command":  "npx"
+                                                },
+                                    "enabled":  false
+                                },
+                    "playwright-cli-skills":  {
+                                                  "name":  "Playwright CLI + Skills",
+                                                  "key":  "playwright-cli-skills",
+                                                  "kind":  "CLI/skills",
+                                                  "tier":  "H",
+                                                  "profile":  "WEB-E2E",
+                                                  "role":  "Token-efficient browser/PWA/Electron automation for coding agents",
+                                                  "tags":  [
+                                                               "WEB-E2E",
+                                                               "Token-efficient browser/PWA/Electron automation for coding agents",
+                                                               "CLI/skills",
+                                                               "H",
+                                                               ""
+                                                           ],
+                                                  "cloned":  false,
+                                                  "snippet":  {
+                                                                  "args":  [
+                                                                               "-y",
+                                                                               "@playwright/cli"
+                                                                           ],
+                                                                  "env":  {
+
+                                                                          },
+                                                                  "command":  "npx"
+                                                              },
+                                                  "enabled":  false
+                                              }
+                }
+}
