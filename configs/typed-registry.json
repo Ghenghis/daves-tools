@@ -316,7 +316,7 @@
         "command": "npx",
         "args": [
           "-y",
-          "@github/mcp-server"
+          "@modelcontextprotocol/server-github"
         ],
         "env_refs": [
           "GITHUB_PERSONAL_ACCESS_TOKEN"
@@ -338,9 +338,9 @@
       },
       "verification": {
         "install": "unknown",
-        "protocol": "failed",
-        "domain_smoke": "unknown",
-        "last_verified": "2026-08-19T23:04:35.299Z",
+        "protocol": "passed",
+        "domain_smoke": "not_applicable",
+        "last_verified": "2026-08-19T23:08:24.093Z",
         "evidence_id": "cert-github-mcp"
       }
     },
@@ -365,9 +365,12 @@
         "runner-proof"
       ],
       "runtime": {
-        "transport": "streamable_http",
-        "command": "none",
-        "args": [],
+        "transport": "stdio",
+        "command": "npx",
+        "args": [
+          "-y",
+          "@modelcontextprotocol/server-gitlab"
+        ],
         "env_refs": [
           "GITLAB_PERSONAL_ACCESS_TOKEN"
         ],
@@ -388,10 +391,10 @@
       },
       "verification": {
         "install": "unknown",
-        "protocol": "unknown",
+        "protocol": "failed",
         "domain_smoke": "unknown",
-        "last_verified": null,
-        "evidence_id": null
+        "last_verified": "2026-08-19T23:08:36.742Z",
+        "evidence_id": "cert-gitlab-mcp"
       }
     },
     {
