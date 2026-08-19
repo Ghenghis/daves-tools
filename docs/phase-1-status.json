@@ -59,11 +59,11 @@
         "kind":  "MCP/Connector",
         "tier":  "B",
         "url":  "https://github.com/github/github-mcp-server",
-        "cloned":  false,
+        "cloned":  true,
         "deps_installed":  false,
         "built":  false,
-        "snippet_path":  null,
-        "error":  "clone failed: Cloning into \u0027G:\\Github\\github-mcp\u0027..."
+        "snippet_path":  "G:\\Github\\github-mcp\\claude-desktop-snippet.json",
+        "error":  null
     },
     {
         "name":  "GitLab MCP",
@@ -81,21 +81,21 @@
         "kind":  "MCP",
         "tier":  "B",
         "url":  "https://github.com/ihor-sokoliuk/mcp-searxng",
-        "cloned":  false,
+        "cloned":  true,
         "deps_installed":  false,
         "built":  false,
-        "snippet_path":  null,
-        "error":  "clone failed: Cloning into \u0027G:\\Github\\searxng-mcp\u0027..."
+        "snippet_path":  "G:\\Github\\searxng-mcp\\claude-desktop-snippet.json",
+        "error":  null
     },
     {
         "name":  "Trail of Bits Skills",
         "kind":  "Plugin marketplace",
         "tier":  "B",
         "url":  "https://github.com/trailofbits/skills",
-        "cloned":  false,
+        "cloned":  true,
         "deps_installed":  false,
         "built":  false,
-        "snippet_path":  null,
-        "error":  "clone failed: Cloning into \u0027G:\\Github\\trail-of-bits-skills\u0027..."
+        "snippet_path":  "G:\\Github\\trail-of-bits-skills\\claude-desktop-snippet.json",
+        "error":  null
     }
 ]
