@@ -4,6 +4,9 @@ const { CallToolRequestSchema, ListToolsRequestSchema } = require('@modelcontext
 const { load, save, toggle } = require('./registry.js');
 const { setRegistry, enable, disable, listActive, getActiveToolNames, getActiveToolsMeta, callTool } = require('./proxy.js');
 const { recommend } = require('./recommender.js');
+const { canCall } = require('./policy.js');
+const { redactSecrets } = require('./secrets.js');
+const { recordEvent } = require('./events.js');
 
 const registry = load();
 setRegistry(registry);
@@ -46,12 +49,14 @@ server.setRequestHandler(CallToolRequestSchema, async (req) => {
       const result = await enable(registry, args.key, sendNotification);
       toggle(registry, args.key, true);
       save(registry);
+      recordEvent('mcp.enabled', { key: args.key, status: result.status });
       return { content: [{ type: 'text', text: JSON.stringify(result, null, 2) }] };
     }
     if (name === 'disable_mcp') {
       const result = await disable(registry, args.key, sendNotification);
       toggle(registry, args.key, false);
       save(registry);
+      recordEvent('mcp.disabled', { key: args.key });
       return { content: [{ type: 'text', text: JSON.stringify(result, null, 2) }] };
     }
     if (name === 'list_active_mcps') {
@@ -60,15 +65,25 @@ server.setRequestHandler(CallToolRequestSchema, async (req) => {
     if (name === 'discover_mcps_for_task') {
       return { content: [{ type: 'text', text: JSON.stringify(recommend(registry, args.task), null, 2) }] };
     }
-    if (name === 'call_mcp_tool') {
-      const result = await callTool(args.tool, args.arguments || {});
-      return { content: [{ type: 'text', text: JSON.stringify(result, null, 2) }] };
+    if (name === 'call_mcp_tool' || (name.includes('__') && !orchestratorTools.find(t => t.name === name))) {
+      const toolName = name === 'call_mcp_tool' ? args.tool : name;
+      const toolArgs = name === 'call_mcp_tool' ? (args.arguments || {}) : args;
+      const parts = toolName.split('__');
+      const key = parts[0];
+      const childTool = parts.slice(1).join('__');
+      const asset = (registry.servers && registry.servers[key]) || {};
+      const decision = canCall(asset, childTool, toolArgs, process.cwd());
+      if (!decision.allowed) {
+        recordEvent('mcp.call_denied', { tool: toolName, reason: decision.reason });
+        return { isError: true, content: [{ type: 'text', text: redactSecrets(decision.reason) }] };
+      }
+      const result = await callTool(toolName, toolArgs);
+      recordEvent('mcp.call', { tool: toolName, status: 'ok' });
+      return { content: [{ type: 'text', text: redactSecrets(JSON.stringify(result, null, 2)) }] };
     }
-    // proxied tool
-    const result = await callTool(name, args);
-    return { content: [{ type: 'text', text: JSON.stringify(result, null, 2) }] };
   } catch (err) {
-    return { isError: true, content: [{ type: 'text', text: `Error: ${err.message}` }] };
+    recordEvent('mcp.error', { tool: req.params.name, error: err.message });
+    return { isError: true, content: [{ type: 'text', text: redactSecrets(`Error: ${err.message}`) }] };
   }
 });
 
