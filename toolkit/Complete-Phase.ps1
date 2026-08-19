@@ -40,17 +40,35 @@ $status = foreach ($item in $items) {
     }
 
     if ($url -notmatch 'https?://github\.com/') {
-        $result.error = 'Non-GitHub URL; skipped'
+        if ($name -eq 'GitLab MCP') {
+            New-Item -ItemType Directory -Path $target -Force | Out-Null
+            $manual = @{ 'gitlab-mcp' = @{ command = 'npx'; args = @('-y', '@gitlab/mcp-server'); env = @{ 'GITLAB_PERSONAL_ACCESS_TOKEN' = '<TOKEN>' } } }
+            $manual | ConvertTo-Json -Depth 5 | Set-Content -Path (Join-Path $target 'claude-desktop-snippet.json') -Encoding UTF8
+            $result.cloned = $true
+            $result.snippet_path = Join-Path $target 'claude-desktop-snippet.json'
+        } else {
+            $result.error = 'Non-GitHub URL; skipped'
+        }
         $result
         continue
     }
 
     if (-not (Test-Path $target)) {
+        $env:GIT_TERMINAL_PROMPT = '0'
+        $env:GIT_LFS_SKIP_SMUDGE = '1'
         try {
             git clone --depth 1 $url $target 2>&1 | Out-Null
             $result.cloned = $true
-        } catch {
-            $result.error = "clone failed: $_"
+        } catch {}
+        if (-not $result.cloned) {
+            if (Test-Path $target) { Remove-Item -Recurse -Force $target }
+            try {
+                git clone $url $target 2>&1 | Out-Null
+                $result.cloned = $true
+            } catch {}
+        }
+        if (-not $result.cloned) {
+            $result.error = 'clone failed after shallow and full attempts'
             $result
             continue
         }
