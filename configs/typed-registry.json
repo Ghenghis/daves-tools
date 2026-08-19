@@ -146,10 +146,10 @@
       },
       "verification": {
         "install": "unknown",
-        "protocol": "unknown",
+        "protocol": "failed",
         "domain_smoke": "unknown",
-        "last_verified": null,
-        "evidence_id": null
+        "last_verified": "2026-08-19T22:58:17.479Z",
+        "evidence_id": "cert-serena"
       }
     },
     {
@@ -338,10 +338,10 @@
       },
       "verification": {
         "install": "unknown",
-        "protocol": "unknown",
+        "protocol": "failed",
         "domain_smoke": "unknown",
-        "last_verified": null,
-        "evidence_id": null
+        "last_verified": "2026-08-19T23:02:54.735Z",
+        "evidence_id": "cert-github-mcp"
       }
     },
     {
@@ -979,10 +979,10 @@
       },
       "verification": {
         "install": "unknown",
-        "protocol": "unknown",
+        "protocol": "failed",
         "domain_smoke": "unknown",
-        "last_verified": null,
-        "evidence_id": null
+        "last_verified": "2026-08-19T22:59:02.134Z",
+        "evidence_id": "cert-apktool-mcp"
       }
     },
     {
