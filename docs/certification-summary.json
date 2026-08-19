@@ -1,0 +1,185 @@
+{
+    "timestamp":  "2026-08-19T16:06:45.2412922-07:00",
+    "total":  16,
+    "passed":  9,
+    "failed":  3,
+    "not_applicable":  0,
+    "results":  [
+                    {
+                        "id":  "serena",
+                        "display_name":  "Serena",
+                        "command":  "uvx",
+                        "args":  "mcp-server-serena --project \u003cPROJECT_ROOT\u003e",
+                        "verdict":  "failed",
+                        "protocol":  "failed",
+                        "domain_smoke":  "unknown",
+                        "last_verified":  "2026-08-19T22:58:17.479Z",
+                        "error":  "MCP error -32000: Connection closed"
+                    },
+                    {
+                        "id":  "context7",
+                        "display_name":  "Context7",
+                        "command":  "npx",
+                        "args":  "-y @upstash/context7-mcp@latest",
+                        "verdict":  "passed",
+                        "protocol":  "passed",
+                        "domain_smoke":  "not_applicable",
+                        "last_verified":  "2026-08-19T22:57:48.633Z",
+                        "error":  null
+                    },
+                    {
+                        "id":  "github-mcp",
+                        "display_name":  "GitHub MCP",
+                        "command":  "npx",
+                        "args":  "-y @github/mcp-server",
+                        "verdict":  "failed",
+                        "protocol":  "failed",
+                        "domain_smoke":  "unknown",
+                        "last_verified":  "2026-08-19T23:04:35.299Z",
+                        "error":  "MCP error -32000: Connection closed"
+                    },
+                    {
+                        "id":  "gitlab-mcp",
+                        "display_name":  "GitLab MCP",
+                        "command":  "none",
+                        "args":  "",
+                        "verdict":  "unknown",
+                        "protocol":  "unknown",
+                        "domain_smoke":  "unknown",
+                        "last_verified":  null,
+                        "error":  ""
+                    },
+                    {
+                        "id":  "searxng-mcp",
+                        "display_name":  "SearXNG MCP",
+                        "command":  "node",
+                        "args":  "G:\\Github\\searxng-mcp\\dist\\index.js",
+                        "verdict":  "unknown",
+                        "protocol":  "unknown",
+                        "domain_smoke":  "unknown",
+                        "last_verified":  null,
+                        "error":  ""
+                    },
+                    {
+                        "id":  "android-mcp",
+                        "display_name":  "Android MCP",
+                        "command":  "node",
+                        "args":  "G:\\Github\\android-mcp\\dist\\index.js",
+                        "verdict":  "unknown",
+                        "protocol":  "unknown",
+                        "domain_smoke":  "unknown",
+                        "last_verified":  null,
+                        "error":  ""
+                    },
+                    {
+                        "id":  "appium-mcp",
+                        "display_name":  "Appium MCP",
+                        "command":  "node",
+                        "args":  "G:\\Github\\appium-mcp\\dist\\index.js",
+                        "verdict":  "unknown",
+                        "protocol":  "unknown",
+                        "domain_smoke":  "unknown",
+                        "last_verified":  null,
+                        "error":  ""
+                    },
+                    {
+                        "id":  "apktool-mcp",
+                        "display_name":  "Apktool MCP",
+                        "command":  "npx",
+                        "args":  "-y apktool-mcp",
+                        "verdict":  "failed",
+                        "protocol":  "failed",
+                        "domain_smoke":  "unknown",
+                        "last_verified":  "2026-08-19T22:59:02.134Z",
+                        "error":  "MCP error -32000: Connection closed"
+                    },
+                    {
+                        "id":  "jadx-ai-mcp",
+                        "display_name":  "JADX AI MCP",
+                        "command":  "npx",
+                        "args":  "-y jadx-ai-mcp",
+                        "verdict":  "unknown",
+                        "protocol":  "unknown",
+                        "domain_smoke":  "unknown",
+                        "last_verified":  null,
+                        "error":  ""
+                    },
+                    {
+                        "id":  "jadx-mcp-server",
+                        "display_name":  "JADX MCP Server",
+                        "command":  "npx",
+                        "args":  "-y jadx-mcp-server",
+                        "verdict":  "unknown",
+                        "protocol":  "unknown",
+                        "domain_smoke":  "unknown",
+                        "last_verified":  null,
+                        "error":  ""
+                    },
+                    {
+                        "id":  "ghidra-mcp-headless",
+                        "display_name":  "Ghidra MCP Headless",
+                        "command":  "",
+                        "args":  "",
+                        "verdict":  "unknown",
+                        "protocol":  "unknown",
+                        "domain_smoke":  "unknown",
+                        "last_verified":  null,
+                        "error":  ""
+                    },
+                    {
+                        "id":  "ghidramcp-lauriewired",
+                        "display_name":  "GhidraMCP LaurieWired",
+                        "command":  "",
+                        "args":  "",
+                        "verdict":  "unknown",
+                        "protocol":  "unknown",
+                        "domain_smoke":  "unknown",
+                        "last_verified":  null,
+                        "error":  ""
+                    },
+                    {
+                        "id":  "pyghidra-mcp",
+                        "display_name":  "pyghidra-mcp",
+                        "command":  "",
+                        "args":  "",
+                        "verdict":  "unknown",
+                        "protocol":  "unknown",
+                        "domain_smoke":  "unknown",
+                        "last_verified":  null,
+                        "error":  ""
+                    },
+                    {
+                        "id":  "autogenesis",
+                        "display_name":  "AutoGenesis",
+                        "command":  "npx",
+                        "args":  "-y autogenesis",
+                        "verdict":  "unknown",
+                        "protocol":  "unknown",
+                        "domain_smoke":  "unknown",
+                        "last_verified":  null,
+                        "error":  ""
+                    },
+                    {
+                        "id":  "hyper-v-mcp",
+                        "display_name":  "Hyper-V MCP",
+                        "command":  "npx",
+                        "args":  "-y hyper-v-mcp",
+                        "verdict":  "unknown",
+                        "protocol":  "unknown",
+                        "domain_smoke":  "unknown",
+                        "last_verified":  null,
+                        "error":  ""
+                    },
+                    {
+                        "id":  "x64dbg-automate-mcp",
+                        "display_name":  "x64dbg Automate MCP",
+                        "command":  "npx",
+                        "args":  "-y x64dbg-automate-mcp",
+                        "verdict":  "unknown",
+                        "protocol":  "unknown",
+                        "domain_smoke":  "unknown",
+                        "last_verified":  null,
+                        "error":  ""
+                    }
+                ]
+}
