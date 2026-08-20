@@ -1,8 +1,8 @@
 {
-    "timestamp":  "2026-08-19T16:32:03.6438369-07:00",
+    "timestamp":  "2026-08-19T17:59:16.9615854-07:00",
     "total":  43,
-    "healthy":  28,
-    "unhealthy":  15,
+    "healthy":  29,
+    "unhealthy":  14,
     "results":  [
                     {
                         "id":  "anthropic-skills",
@@ -39,14 +39,13 @@
                         "display_name":  "Serena",
                         "asset_type":  "mcp_server",
                         "install_ok":  true,
-                        "env_ok":  false,
+                        "env_ok":  true,
                         "missing_env":  [
-                                            "UV_PYTHON"
+
                                         ],
                         "protocol_ok":  "failed",
                         "healthy":  false,
                         "repair_actions":  [
-                                               "Set env vars: UV_PYTHON",
                                                "Run certifier"
                                            ]
                     },
@@ -640,14 +639,14 @@
                         "display_name":  "Playwright CLI + Skills",
                         "asset_type":  "skill_pack",
                         "install_ok":  true,
-                        "env_ok":  false,
+                        "env_ok":  true,
                         "missing_env":  [
-                                            "PLAYWRIGHT_BROWSERS_PATH"
+
                                         ],
                         "protocol_ok":  "passed",
-                        "healthy":  false,
+                        "healthy":  true,
                         "repair_actions":  [
-                                               "Set env vars: PLAYWRIGHT_BROWSERS_PATH"
+
                                            ]
                     }
                 ]

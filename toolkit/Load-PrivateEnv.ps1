@@ -12,7 +12,17 @@ foreach ($dir in $SearchPaths) {
     $all += Get-ChildItem -Path $dir -File -ErrorAction SilentlyContinue | Where-Object { $_.Name -like '.env*' }
 }
 
+$defaults = @{
+    'PLAYWRIGHT_BROWSERS_PATH' = '0'
+    'UV_PYTHON' = 'python'
+}
+
 $loaded = @{}
+foreach ($k in $defaults.Keys) {
+    [Environment]::SetEnvironmentVariable($k, $defaults[$k], 'Process')
+    $loaded[$k] = '<default>'
+}
+
 foreach ($file in $all | Sort-Object LastWriteTime -Descending) {
     Get-Content $file.FullName | ForEach-Object {
         $line = $_.Trim()

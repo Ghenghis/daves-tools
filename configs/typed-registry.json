@@ -148,7 +148,7 @@
         "install": "unknown",
         "protocol": "failed",
         "domain_smoke": "unknown",
-        "last_verified": "2026-08-19T22:58:17.479Z",
+        "last_verified": "2026-08-20T00:57:39.335Z",
         "evidence_id": "cert-serena"
       }
     },
@@ -1996,7 +1996,7 @@
         "install": "unknown",
         "protocol": "passed",
         "domain_smoke": "passed",
-        "last_verified": "2026-08-19T22:56:59.924Z",
+        "last_verified": "2026-08-20T00:58:20.769Z",
         "evidence_id": "cert-playwright-cli-skills"
       }
     }

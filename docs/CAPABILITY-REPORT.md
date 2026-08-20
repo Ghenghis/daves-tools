@@ -1,26 +1,25 @@
 # Capability Doctor Report
 
-**Generated:** 2026-08-19T16:32:03.6438369-07:00**
+**Generated:** 2026-08-19T17:59:16.9615854-07:00**
 
 - **Total:** 43
-- **Healthy:** 28
-- **Unhealthy:** 15
+- **Healthy:** 29
+- **Unhealthy:** 14
 
 ## Unhealthy assets
 
 | Asset | Type | Install | Env | Protocol | Repair |
 |---|---|---|---|---|---|
-| pyghidra-mcp | mcp_server | True | OK | unknown | Run certifier |
 | GhidraMCP LaurieWired | mcp_server | True | OK | unknown | Run certifier |
 | Ghidra MCP Headless | mcp_server | True | OK | unknown | Run certifier |
-| AutoGenesis | mcp_server | True | OK | failed | Run certifier |
-| Playwright CLI + Skills | skill_pack | True | missing PLAYWRIGHT_BROWSERS_PATH | passed | Set env vars: PLAYWRIGHT_BROWSERS_PATH |
+| JADX MCP Server | mcp_server | True | OK | unknown | Run certifier |
+| pyghidra-mcp | mcp_server | True | OK | unknown | Run certifier |
 | x64dbg Automate MCP | mcp_server | True | OK | unknown | Run certifier |
 | Hyper-V MCP | mcp_server | True | OK | unknown | Run certifier |
-| JADX MCP Server | mcp_server | True | OK | unknown | Run certifier |
+| AutoGenesis | mcp_server | True | OK | failed | Run certifier |
 | SearXNG MCP | mcp_server | True | OK | unknown | Run certifier |
 | GitLab MCP | mcp_server | True | OK | failed | Run certifier |
-| Serena | mcp_server | True | missing UV_PYTHON | failed | Set env vars: UV_PYTHON; Run certifier |
+| Serena | mcp_server | True | OK | failed | Run certifier |
 | Android MCP | mcp_server | True | OK | failed | Run certifier |
 | JADX AI MCP | mcp_server | True | OK | unknown | Run certifier |
 | Apktool MCP | mcp_server | True | OK | failed | Run certifier |
@@ -30,20 +29,21 @@
 
 | Asset | Type |
 |---|---|
-| iaito | gui_dependency |
 | radare2 | cli_dependency |
 | win-dev-skills | skill_pack |
-| Ghidra | cli_dependency |
-| Apktool | cli_dependency |
+| WinApp CLI | cli_dependency |
+| iaito | gui_dependency |
 | Frida MCP Skills | skill_pack |
 | MobSF | service |
-| Cpp2IL | cli_dependency |
+| Ghidra | cli_dependency |
 | dnSpyEx | gui_dependency |
 | r2unity | cli_dependency |
-| AssetRipper | gui_dependency |
-| WinApp CLI | cli_dependency |
+| Playwright CLI + Skills | skill_pack |
+| Cpp2IL | cli_dependency |
 | x64dbg | gui_dependency |
 | x64dbg-skills | skill_pack |
+| AssetRipper | gui_dependency |
+| Apktool | cli_dependency |
 | Context7 | mcp_server |
 | GitHub MCP | mcp_server |
 | Trail of Bits Skills | marketplace |

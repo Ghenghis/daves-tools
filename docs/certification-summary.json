@@ -1,8 +1,8 @@
 {
-    "timestamp":  "2026-08-19T16:06:45.2412922-07:00",
+    "timestamp":  "2026-08-19T18:02:41.0721965-07:00",
     "total":  16,
-    "passed":  9,
-    "failed":  3,
+    "passed":  2,
+    "failed":  5,
     "not_applicable":  0,
     "results":  [
                     {
@@ -13,7 +13,7 @@
                         "verdict":  "failed",
                         "protocol":  "failed",
                         "domain_smoke":  "unknown",
-                        "last_verified":  "2026-08-19T22:58:17.479Z",
+                        "last_verified":  "2026-08-20T00:57:39.335Z",
                         "error":  "MCP error -32000: Connection closed"
                     },
                     {
@@ -31,23 +31,23 @@
                         "id":  "github-mcp",
                         "display_name":  "GitHub MCP",
                         "command":  "npx",
-                        "args":  "-y @github/mcp-server",
-                        "verdict":  "failed",
-                        "protocol":  "failed",
-                        "domain_smoke":  "unknown",
-                        "last_verified":  "2026-08-19T23:04:35.299Z",
-                        "error":  "MCP error -32000: Connection closed"
+                        "args":  "-y @modelcontextprotocol/server-github",
+                        "verdict":  "passed",
+                        "protocol":  "passed",
+                        "domain_smoke":  "not_applicable",
+                        "last_verified":  "2026-08-19T23:08:24.093Z",
+                        "error":  null
                     },
                     {
                         "id":  "gitlab-mcp",
                         "display_name":  "GitLab MCP",
-                        "command":  "none",
-                        "args":  "",
-                        "verdict":  "unknown",
-                        "protocol":  "unknown",
+                        "command":  "npx",
+                        "args":  "-y @modelcontextprotocol/server-gitlab",
+                        "verdict":  "failed",
+                        "protocol":  "failed",
                         "domain_smoke":  "unknown",
-                        "last_verified":  null,
-                        "error":  ""
+                        "last_verified":  "2026-08-19T23:20:13.972Z",
+                        "error":  "MCP error -32000: Connection closed"
                     },
                     {
                         "id":  "searxng-mcp",
@@ -65,11 +65,11 @@
                         "display_name":  "Android MCP",
                         "command":  "node",
                         "args":  "G:\\Github\\android-mcp\\dist\\index.js",
-                        "verdict":  "unknown",
-                        "protocol":  "unknown",
+                        "verdict":  "failed",
+                        "protocol":  "failed",
                         "domain_smoke":  "unknown",
-                        "last_verified":  null,
-                        "error":  ""
+                        "last_verified":  "2026-08-19T23:16:35.764Z",
+                        "error":  "MCP error -32000: Connection closed"
                     },
                     {
                         "id":  "appium-mcp",
@@ -153,11 +153,11 @@
                         "display_name":  "AutoGenesis",
                         "command":  "npx",
                         "args":  "-y autogenesis",
-                        "verdict":  "unknown",
-                        "protocol":  "unknown",
+                        "verdict":  "failed",
+                        "protocol":  "failed",
                         "domain_smoke":  "unknown",
-                        "last_verified":  null,
-                        "error":  ""
+                        "last_verified":  "2026-08-19T23:15:35.261Z",
+                        "error":  "MCP error -32000: Connection closed"
                     },
                     {
                         "id":  "hyper-v-mcp",

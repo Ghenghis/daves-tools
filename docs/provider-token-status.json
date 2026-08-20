@@ -1,7 +1,7 @@
 {
-    "timestamp":  "2026-08-19T16:14:30.0203972-07:00",
+    "timestamp":  "2026-08-19T18:02:42.3660265-07:00",
     "total":  7,
-    "ready":  4,
+    "ready":  5,
     "providers":  [
                       {
                           "name":  "MiniMax",
@@ -57,7 +57,7 @@
                       {
                           "name":  "OpenRouter",
                           "token_env":  "OPENROUTER_API_KEY",
-                          "present":  false,
+                          "present":  true,
                           "is_default":  false,
                           "base_url":  "https://openrouter.ai/api",
                           "models":  [
