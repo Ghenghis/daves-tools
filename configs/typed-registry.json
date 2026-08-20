@@ -393,7 +393,7 @@
         "install": "unknown",
         "protocol": "failed",
         "domain_smoke": "unknown",
-        "last_verified": "2026-08-19T23:08:36.742Z",
+        "last_verified": "2026-08-19T23:20:13.972Z",
         "evidence_id": "cert-gitlab-mcp"
       }
     },

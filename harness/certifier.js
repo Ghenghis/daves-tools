@@ -58,6 +58,7 @@ async function certify(asset, options = {}) {
 
   let client = null;
   let transport = null;
+  let stderr = '';
 
   try {
     client = new Client({ name: `certifier-${asset.id}`, version: '1.0.0' });
@@ -67,6 +68,13 @@ async function certify(asset, options = {}) {
       env: buildEnv(asset),
       stderr: 'pipe'
     });
+
+    try {
+      const stream = transport.stderr;
+      if (stream && stream.on) {
+        stream.on('data', (data) => { stderr += data.toString(); });
+      }
+    } catch {}
 
     await withTimeout(client.connect(transport), timeout, 'connect');
     result.init = 'passed';
@@ -128,6 +136,7 @@ async function certify(asset, options = {}) {
     }
   }
 
+  if (stderr) result.stderr = stderr.slice(0, 2000);
   result.duration_ms = Date.now() - start;
   if (!result.error && result.init === 'passed' && result.list_tools === 'passed') {
     result.verdict = 'passed';

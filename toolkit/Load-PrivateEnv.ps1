@@ -9,7 +9,7 @@ $ErrorActionPreference = "SilentlyContinue"
 $all = @()
 foreach ($dir in $SearchPaths) {
     if (-not (Test-Path $dir)) { continue }
-    $all += Get-ChildItem -Path $dir -File -Filter '*.env' -ErrorAction SilentlyContinue
+    $all += Get-ChildItem -Path $dir -File -ErrorAction SilentlyContinue | Where-Object { $_.Name -like '.env*' }
 }
 
 $loaded = @{}

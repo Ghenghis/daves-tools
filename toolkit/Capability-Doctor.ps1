@@ -2,10 +2,13 @@
 param(
     [string]$RegistryPath = "C:\Users\Admin\CascadeProjects\daves-tools\configs\typed-registry.json",
     [string]$JsonPath = "C:\Users\Admin\CascadeProjects\daves-tools\docs\capability-report.json",
-    [string]$MdPath = "C:\Users\Admin\CascadeProjects\daves-tools\docs\CAPABILITY-REPORT.md"
+    [string]$MdPath = "C:\Users\Admin\CascadeProjects\daves-tools\docs\CAPABILITY-REPORT.md",
+    [string]$EnvLoader = "C:\Users\Admin\CascadeProjects\daves-tools\toolkit\Load-PrivateEnv.ps1"
 )
 
 $ErrorActionPreference = "Stop"
+
+& $EnvLoader -Quiet
 
 $raw = [System.IO.File]::ReadAllText($RegistryPath)
 $raw = $raw -replace '^\uFEFF', ''

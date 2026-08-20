@@ -1,0 +1,33 @@
+{
+    "timestamp":  "2026-08-19T16:31:25.9193045-07:00",
+    "idea":  "Reverse engineer an Android APK and inspect its code",
+    "selected_profile":  "mobile-reverse",
+    "healthy_count":  27,
+    "primary":  [
+                    "android-mcp-lean",
+                    "mobile-harness",
+                    "maestro",
+                    "maestro-mcp",
+                    "dnspyex",
+                    "assetripper",
+                    "cpp2il"
+                ],
+    "fallback":  [
+                     "android-mcp",
+                     "appium-mcp",
+                     "apktool-mcp",
+                     "jadx-mcp-server",
+                     "jadx-ai-mcp",
+                     "ghidra-mcp-headless",
+                     "ghidramcp-lauriewired",
+                     "pyghidra-mcp",
+                     "anthropic-skills",
+                     "superpowers",
+                     "context7"
+                 ],
+    "profile_notes":  [
+                          "Primary cockpit uses healthy + non-failed assets from $best profile.",
+                          "Fallback list triggers automatically if a primary tool is unavailable.",
+                          "Load private env with toolkit\\Load-PrivateEnv.ps1 before invoking MCPs."
+                      ]
+}

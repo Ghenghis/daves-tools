@@ -1,8 +1,8 @@
 {
-    "timestamp":  "2026-08-19T13:14:04.8307214-07:00",
+    "timestamp":  "2026-08-19T16:32:03.6438369-07:00",
     "total":  43,
-    "healthy":  26,
-    "unhealthy":  17,
+    "healthy":  28,
+    "unhealthy":  15,
     "results":  [
                     {
                         "id":  "anthropic-skills",
@@ -43,7 +43,7 @@
                         "missing_env":  [
                                             "UV_PYTHON"
                                         ],
-                        "protocol_ok":  "unknown",
+                        "protocol_ok":  "failed",
                         "healthy":  false,
                         "repair_actions":  [
                                                "Set env vars: UV_PYTHON",
@@ -89,10 +89,10 @@
                         "missing_env":  [
 
                                         ],
-                        "protocol_ok":  "unknown",
-                        "healthy":  false,
+                        "protocol_ok":  "passed",
+                        "healthy":  true,
                         "repair_actions":  [
-                                               "Run certifier"
+
                                            ]
                     },
                     {
@@ -100,31 +100,28 @@
                         "display_name":  "GitHub MCP",
                         "asset_type":  "mcp_server",
                         "install_ok":  true,
-                        "env_ok":  false,
+                        "env_ok":  true,
                         "missing_env":  [
-                                            "GITHUB_PERSONAL_ACCESS_TOKEN"
+
                                         ],
-                        "protocol_ok":  "unknown",
-                        "healthy":  false,
+                        "protocol_ok":  "passed",
+                        "healthy":  true,
                         "repair_actions":  [
-                                               "Set env vars: GITHUB_PERSONAL_ACCESS_TOKEN",
-                                               "Run certifier"
+
                                            ]
                     },
                     {
                         "id":  "gitlab-mcp",
                         "display_name":  "GitLab MCP",
                         "asset_type":  "mcp_server",
-                        "install_ok":  false,
-                        "env_ok":  false,
+                        "install_ok":  true,
+                        "env_ok":  true,
                         "missing_env":  [
-                                            "GITLAB_PERSONAL_ACCESS_TOKEN"
+
                                         ],
-                        "protocol_ok":  "unknown",
+                        "protocol_ok":  "failed",
                         "healthy":  false,
                         "repair_actions":  [
-                                               "Install: GitLab MCP",
-                                               "Set env vars: GITLAB_PERSONAL_ACCESS_TOKEN",
                                                "Run certifier"
                                            ]
                     },
@@ -167,7 +164,7 @@
                         "missing_env":  [
 
                                         ],
-                        "protocol_ok":  "unknown",
+                        "protocol_ok":  "failed",
                         "healthy":  false,
                         "repair_actions":  [
                                                "Run certifier"
@@ -317,7 +314,7 @@
                         "missing_env":  [
 
                                         ],
-                        "protocol_ok":  "unknown",
+                        "protocol_ok":  "failed",
                         "healthy":  false,
                         "repair_actions":  [
                                                "Run certifier"
@@ -482,7 +479,7 @@
                         "missing_env":  [
 
                                         ],
-                        "protocol_ok":  "unknown",
+                        "protocol_ok":  "failed",
                         "healthy":  false,
                         "repair_actions":  [
                                                "Run certifier"
@@ -647,7 +644,7 @@
                         "missing_env":  [
                                             "PLAYWRIGHT_BROWSERS_PATH"
                                         ],
-                        "protocol_ok":  "unknown",
+                        "protocol_ok":  "passed",
                         "healthy":  false,
                         "repair_actions":  [
                                                "Set env vars: PLAYWRIGHT_BROWSERS_PATH"
