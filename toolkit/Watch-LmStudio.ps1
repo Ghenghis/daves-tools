@@ -2,10 +2,11 @@
 Param(
     [switch]$RegisterTask,
     [switch]$UnregisterTask,
+    [switch]$Test,
     [string]$ConfigPath
 )
 
-$ErrorActionPreference = 'Stop'
+$ErrorActionPreference = 'Continue'
 
 if (-not $ConfigPath) {
     $ConfigPath = Join-Path (Join-Path (Split-Path $PSScriptRoot -Parent) 'configs') 'lmstudio-watchdog.json'
@@ -37,7 +38,8 @@ function Find-LmStudioExe {
     }
     $found = Get-ChildItem -Path $env:LOCALAPPDATA -Filter 'LM Studio.exe' -Recurse -ErrorAction SilentlyContinue | Select-Object -First 1 -ExpandProperty FullName
     if ($found) { return $found }
-    throw 'Could not find LM Studio.exe. Set config.exe to the full path.'
+    Write-Log 'Could not find LM Studio.exe. Set config.exe to the full path to enable restarts.'
+    return $null
 }
 
 function Test-LmStudioAlive {
@@ -59,11 +61,16 @@ function Stop-LmStudioProcess {
 
 function Start-LmStudioProcess {
     $exe = Find-LmStudioExe
+    if (-not $exe) { return }
     Write-Log ('Starting {0}' -f $exe)
-    if ($config.startArgs -and $config.startArgs.Count -gt 0) {
-        Start-Process -FilePath $exe -ArgumentList $config.startArgs -WindowStyle Hidden
-    } else {
-        Start-Process -FilePath $exe -WindowStyle Hidden
+    try {
+        if ($config.startArgs -and $config.startArgs.Count -gt 0) {
+            Start-Process -FilePath $exe -ArgumentList $config.startArgs -WindowStyle Hidden
+        } else {
+            Start-Process -FilePath $exe -WindowStyle Hidden
+        }
+    } catch {
+        Write-Log ('Failed to start LM Studio: {0}' -f $_.Exception.Message)
     }
 }
 
@@ -79,7 +86,7 @@ function Wait-ForAlive {
 if ($RegisterTask) {
     $action = New-ScheduledTaskAction -Execute 'powershell.exe' -Argument ('-WindowStyle Hidden -ExecutionPolicy Bypass -File "{0}"' -f (Join-Path $PSScriptRoot 'Watch-LmStudio.ps1'))
     $trigger = New-ScheduledTaskTrigger -AtLogon
-    $principal = New-ScheduledTaskPrincipal -UserId $env:USERNAME -RunLevel Highest
+    $principal = New-ScheduledTaskPrincipal -UserId $env:USERNAME -RunLevel Limited
     $settings = New-ScheduledTaskSettingsSet -AllowStartIfOnBatteries -DontStopIfGoingOnBatteries -StartWhenAvailable
     Register-ScheduledTask -TaskName 'DAVE-AI LM Studio Watchdog' -Action $action -Trigger $trigger -Principal $principal -Settings $settings -Force
     Write-Log 'Registered scheduled task DAVE-AI LM Studio Watchdog'
@@ -92,30 +99,44 @@ if ($UnregisterTask) {
     return
 }
 
+if ($Test) {
+    if (Test-LmStudioAlive) {
+        Write-Log 'LM Studio watchdog test: GREEN (reachable)'
+        exit 0
+    } else {
+        Write-Log 'LM Studio watchdog test: RED (unreachable)'
+        exit 1
+    }
+}
+
 $failures = 0
 Write-Log 'LM Studio watchdog started'
 
 while ($true) {
-    if (Test-LmStudioAlive) {
-        if ($failures -gt 0) {
-            Write-Log 'LM Studio is reachable again'
-            $failures = 0
-        }
-    } else {
-        $failures++
-        Write-Log ('LM Studio unreachable. Failure {0} of {1}' -f $failures, $config.retries)
-        if ($failures -ge $config.retries) {
-            Write-Log 'Restart threshold reached. Restarting LM Studio.'
-            Stop-LmStudioProcess
-            Start-Sleep -Seconds $config.restartDelay
-            Start-LmStudioProcess
-            if (Wait-ForAlive) {
-                Write-Log 'LM Studio is back. LM Link should auto-reconnect.'
-            } else {
-                Write-Log 'LM Studio did not come back after restart.'
+    try {
+        if (Test-LmStudioAlive) {
+            if ($failures -gt 0) {
+                Write-Log 'LM Studio is reachable again'
+                $failures = 0
             }
-            $failures = 0
+        } else {
+            $failures++
+            Write-Log ('LM Studio unreachable. Failure {0} of {1}' -f $failures, $config.retries)
+            if ($failures -ge $config.retries) {
+                Write-Log 'Restart threshold reached. Restarting LM Studio.'
+                Stop-LmStudioProcess
+                Start-Sleep -Seconds $config.restartDelay
+                Start-LmStudioProcess
+                if (Wait-ForAlive) {
+                    Write-Log 'LM Studio is back. LM Studio Link should auto-reconnect.'
+                } else {
+                    Write-Log 'LM Studio did not come back after restart.'
+                }
+                $failures = 0
+            }
         }
+    } catch {
+        Write-Log ('Watchdog loop error: {0}' -f $_.Exception.Message)
     }
     Start-Sleep -Seconds $config.interval
 }

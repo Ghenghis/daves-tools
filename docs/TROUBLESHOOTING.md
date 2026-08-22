@@ -43,6 +43,26 @@ The asset tried to read or write outside `permissions.filesystem_roots`. Either 
 
 An asset has no `last_verified` timestamp. Run `node harness/certifier.js --id <asset-id>` for that asset.
 
+## PowerShell or apps keep closing / services die unexpectedly
+
+A third-party scheduled task named `VSCode-Runaway-Watchdog-5min` was killing processes every 5 minutes, including PowerShell, LM Studio, and ComfyUI. A related logon task `VSCode-Startup-Kill-Runaways` did the same at startup.
+
+To stop the interference:
+
+```powershell
+schtasks /change /tn "VSCode-Runaway-Watchdog-5min" /disable
+schtasks /change /tn "VSCode-Startup-Kill-Runaways" /disable
+schtasks /end /tn "VSCode-Runaway-Watchdog-5min"
+```
+
+Also delete the old DAVE-AI watchdog if it was registered with an unsafe configuration:
+
+```powershell
+schtasks /delete /tn "DAVE-AI LM Studio Watchdog" /f
+```
+
+Use `toolkit/Watch-LmStudio.ps1 -Test` to verify LM Studio is reachable without starting a background task.
+
 ## IDE cannot find the harness
 
 - Use the full absolute path to `harness/proxy.js` in the IDE config.

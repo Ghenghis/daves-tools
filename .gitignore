@@ -10,3 +10,7 @@ configs/mcp-ide/
 logs/
 daves-tools.zip
 configs/service-ports.json
+docs/harness-events.ndjson
+docs/supervisor-state.json
+docs/smoke-test-report.json
+.serena/
