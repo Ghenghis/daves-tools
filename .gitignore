@@ -7,3 +7,6 @@ audit/
 audit-files.txt
 docs/profiles.tmp
 configs/mcp-ide/
+logs/
+daves-tools.zip
+configs/service-ports.json

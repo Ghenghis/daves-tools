@@ -8,13 +8,13 @@ Param(
 $ErrorActionPreference = 'Stop'
 
 if (-not $ConfigPath) {
-    $ConfigPath = Join-Path $PSScriptRoot '..' 'configs' 'lmstudio-watchdog.json'
+    $ConfigPath = Join-Path (Join-Path (Split-Path $PSScriptRoot -Parent) 'configs') 'lmstudio-watchdog.json'
 }
 
 $config = Get-Content $ConfigPath -Raw | ConvertFrom-Json
 $logPath = $config.logPath
 if (-not [System.IO.Path]::IsPathRooted($logPath)) {
-    $logPath = Join-Path $PSScriptRoot '..' $logPath | Resolve-Path
+    $logPath = Join-Path (Split-Path $PSScriptRoot -Parent) $logPath
 }
 
 function Write-Log($message) {

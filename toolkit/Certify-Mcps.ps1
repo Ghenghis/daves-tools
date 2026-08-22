@@ -19,8 +19,9 @@ $scriptPath = "C:\Users\Admin\CascadeProjects\daves-tools\harness\certify-asset.
 
 foreach ($a in $mcpAssets) {
     Write-Output "Certifying $($a.display_name) ..."
-    $outFile = "$auditDir\cert-$($a.id).json"
+    $outFile = "$auditDir\cert-$($a.id).stdout.txt"
     $errFile = "$auditDir\cert-$($a.id).err"
+    $jsonFile = "$auditDir\cert-$($a.id).json"
     $argList = @($scriptPath, $a.id, $RegistryPath)
     $proc = Start-Process -FilePath "node" -ArgumentList $argList -PassThru -Wait -NoNewWindow -WorkingDirectory "C:\Users\Admin\CascadeProjects\daves-tools" -RedirectStandardOutput $outFile -RedirectStandardError $errFile
     if ($proc.ExitCode -ne 0) {
@@ -35,7 +36,7 @@ foreach ($a in $mcpAssets) {
             verdict = 'failed'
         }
     } else {
-        $r = [System.IO.File]::ReadAllText($outFile) | ConvertFrom-Json
+        $r = [System.IO.File]::ReadAllText($jsonFile) | ConvertFrom-Json
         $a.verification.protocol = if ($r.init -eq 'passed' -and $r.list_tools -eq 'passed') { 'passed' } else { 'failed' }
         $a.verification.domain_smoke = $r.safe_call
         $a.verification.last_verified = (Get-Date -Format 'o')

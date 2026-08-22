@@ -30,7 +30,7 @@
         "PATH"
       ],
       "enabled": true,
-      "health": "healthy",
+      "health": "unhealthy",
       "pinned_version": null
     },
     "context7": {
@@ -57,7 +57,7 @@
       },
       "env_refs": [],
       "enabled": true,
-      "health": "healthy",
+      "health": "unhealthy",
       "pinned_version": "4.0.3"
     },
     "github-mcp": {
@@ -86,7 +86,7 @@
         "GITHUB_PERSONAL_ACCESS_TOKEN"
       ],
       "enabled": true,
-      "health": "healthy",
+      "health": "unhealthy",
       "pinned_version": "2025.4.8"
     },
     "gitlab-mcp": {
@@ -115,7 +115,7 @@
         "GITLAB_PERSONAL_ACCESS_TOKEN"
       ],
       "enabled": true,
-      "health": "healthy",
+      "health": "unhealthy",
       "pinned_version": "2025.4.25"
     },
     "searxng-mcp": {
@@ -144,7 +144,7 @@
         "SEARXNG_URL"
       ],
       "enabled": true,
-      "health": "healthy",
+      "health": "unhealthy",
       "pinned_version": "2.0.0"
     },
     "android-mcp": {
@@ -168,7 +168,7 @@
       },
       "env_refs": [],
       "enabled": true,
-      "health": "healthy",
+      "health": "unhealthy",
       "pinned_version": null
     },
     "appium-mcp": {
@@ -192,7 +192,7 @@
       },
       "env_refs": [],
       "enabled": true,
-      "health": "healthy",
+      "health": "unhealthy",
       "pinned_version": null
     },
     "apktool-mcp": {
@@ -219,7 +219,7 @@
       },
       "env_refs": [],
       "enabled": true,
-      "health": "healthy",
+      "health": "unhealthy",
       "pinned_version": null
     },
     "hyper-v-mcp": {
@@ -241,7 +241,7 @@
       },
       "env_refs": [],
       "enabled": true,
-      "health": "healthy",
+      "health": "unhealthy",
       "pinned_version": null
     },
     "x64dbg-automate-mcp": {
@@ -263,7 +263,7 @@
       },
       "env_refs": [],
       "enabled": true,
-      "health": "healthy",
+      "health": "unhealthy",
       "pinned_version": null
     },
     "ffmpeg-mcp": {
@@ -291,7 +291,7 @@
       },
       "env_refs": [],
       "enabled": true,
-      "health": "healthy",
+      "health": "unhealthy",
       "pinned_version": "0.0.3"
     },
     "comfyui-mcp": {
@@ -319,7 +319,7 @@
       },
       "env_refs": [],
       "enabled": true,
-      "health": "healthy",
+      "health": "unhealthy",
       "pinned_version": "0.52.57"
     }
   }

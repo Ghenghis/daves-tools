@@ -1,0 +1,14 @@
+{
+  "_comment": "Ports this user already relies on across PC and VPS. Local port-finders should skip these even if currently unbound, since they may be reserved for tunnels, forwards, or services that start later.",
+  "services": {
+    "lm-studio": 1234,
+    "comfyui": 8188,
+    "ollama": 11434,
+    "mcp-harness": 7331
+  },
+  "reserved_ranges": [
+    { "start": 3000, "end": 3010, "note": "common node/dev servers" },
+    { "start": 5000, "end": 5010, "note": "common flask/dev servers" }
+  ],
+  "reserved_ports": []
+}

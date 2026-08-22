@@ -1,0 +1,31 @@
+<service>
+	<id>davestoolsmcpwatchdog.exe</id>
+	<name>DavesTools MCP Watchdog</name>
+	<description>Heartbeat, health, and auto-repair supervisor for daves-tools MCP servers.</description>
+	<executable>C:\node22\node-v22.16.0-win-x64\node.exe</executable>
+	<argument>C:\Users\Admin\CascadeProjects\daves-tools\harness\node_modules\node-windows\lib\wrapper.js</argument>
+	<argument>--file</argument>
+	<argument>C:\Users\Admin\CascadeProjects\daves-tools\harness\watchdog.js</argument>
+	<argument>--scriptoptions=</argument>
+	<argument>--log</argument>
+	<argument>DavesTools MCP Watchdog wrapper</argument>
+	<argument>--grow</argument>
+	<argument>0.5</argument>
+	<argument>--wait</argument>
+	<argument>2</argument>
+	<argument>--maxrestarts</argument>
+	<argument>10</argument>
+	<argument>--abortonerror</argument>
+	<argument>n</argument>
+	<argument>--stopparentfirst</argument>
+	<argument>undefined</argument>
+	<logmode>rotate</logmode>
+	<stoptimeout>30sec</stoptimeout>
+	<env name="WATCHDOG_INTERVAL_MS" value="60000"/>
+	<serviceaccount>
+		<domain>DESKTOP-11ANAB1</domain>
+		<user>LocalSystem</user>
+		<password></password>
+	</serviceaccount>
+	<workingdirectory>C:\Users\Admin\CascadeProjects\daves-tools</workingdirectory>
+</service>
