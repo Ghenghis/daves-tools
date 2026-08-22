@@ -1,0 +1,10 @@
+{
+  "url": "http://127.0.0.1:1234/v1/models",
+  "interval": 30,
+  "retries": 3,
+  "restartDelay": 15,
+  "logPath": "logs/lmstudio-watchdog.log",
+  "exe": null,
+  "windowStyle": "Hidden",
+  "startArgs": []
+}

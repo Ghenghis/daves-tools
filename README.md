@@ -1,138 +1,150 @@
-# DAVE-AI Tools - Typed Capability Registry
+# DAVE-AI Tools
 
-> This README is generated from `configs/typed-registry.json`. Do not hand-edit; run `toolkit\Build-ReadmeFromTypedRegistry.ps1` to regenerate.
+A typed, certifiable, Windows-first harness for Model Context Protocol (MCP) servers, skill packs, and the dependencies that power local-first AI workflows.
 
-A capability registry and early orchestration harness for the DAVE-AI agent ecosystem. Assets are classified by type so MCP servers, skill packs, CLIs, GUIs, services and benchmarks are not confused with one another.
+This repository is the control plane for the DAVE-AI ecosystem: a single source of truth for what tools are installed, how they are launched, what they are allowed to touch, and whether they are actually healthy.
 
-## What this repository gives you
+- 43 catalogued assets (16 MCP servers, 10 skill packs, 12 runtime dependencies, 5 reusable profiles)
+- One typed registry (`configs/typed-registry.json`) drives every launcher, certifier, and installer
+- Every asset is tagged with profiles, permissions, health rules, and a mutation approval policy
+- High-risk tools can be sandboxed in containers via `harness/container.js`
+- Local LLM support through LM Studio and Ollama, with ComfyUI for diffusion workflows
 
-- **One typed registry** of 43 unique catalog assets (`configs/typed-registry.json`).
-- **16 MCP server candidates** with corrected official launchers where known.
-- **Preflight report** (`docs/preflight.json`) counts only unique phase rows.
-- **Agentic orchestration harness** (`harness/index.js`) exposes a single MCP endpoint for discovery, enable/disable and namespaced child calls.
-- **Task-aware switching** (`harness/recommender.js`) recommends assets by profile and capability, filtering empty/blank terms.
+## What this gives you
+
+- Stop copy-pasting JSON snippets into Claude Desktop, Cline, or Windsurf. The registry exports validated launch snippets.
+- Know before an agent calls a tool whether the tool is installed, reachable, and domain-tested.
+- Keep secrets off disk in plaintext with DPAPI-backed credential resolution.
+- Run untrusted or network-facing MCPs inside Docker without rewriting their launch commands.
+- Recover automatically when LM Studio crashes or becomes unreachable via `toolkit/Watch-LmStudio.ps1`.
+
+## What this is NOT
+
+- It is not a new model hub. It does not download or host LLM weights. We point you to `docs/RECOMMENDED-MODELS.md` for the best local GGUF models.
+- It is not a replacement for official MCP servers. It is a manager, certifier, and integration layer.
+- It is not finished. Certification coverage is still growing; see `docs/certification-summary.json` for the current pass/fail state.
 
 ## Quick start
 
-```powershell
-# Rebuild the typed registry from the audit data
-.\toolkit\Build-TypedRegistry.ps1
+1. Install prerequisites: Node.js LTS, Python 3.x with `pip`, Git, and optionally Docker Desktop.
+2. Clone the repository and install the harness:
+   ```
+   npm install
+   ```
+3. (Optional) set up Windows service monitoring:
+   ```powershell
+   .\toolkit\Install-McpService.ps1
+   ```
+4. Certify the currently configured assets:
+   ```
+   node harness/certifier.js
+   ```
+5. Start the orchestration harness:
+   ```
+   node harness/proxy.js
+   ```
+6. Open `docs/SETUP.md` for IDE-specific wiring (Claude Desktop, Cline, Windsurf, Roo Code).
 
-# Run preflight (ignores duplicate repair rows)
-.\toolkit\Run-Preflight.ps1
+## Repository layout
 
-# Regenerate this README
-.\toolkit\Build-ReadmeFromTypedRegistry.ps1
+| Path | Purpose |
+|------|---------|
+| `configs/typed-registry.json` | Single source of truth for all 43 assets |
+| `harness/` | Certifier, proxy, container resolver, health checks, watchdog |
+| `docs/` | Certification reports, setup guides, security model, catalog |
+| `toolkit/` | PowerShell and Node scripts for install, sync, and watchdogs |
+| `tests/` | Unit and integration tests for the harness |
 
-# Run the harness
-cd harness; npm install; npm start
+## Architecture
+
+```
+IDE / Agent
+    |
+    v
+harness/proxy.js  (MCP lifecycle, task-aware switching)
+    |
+    +-- harness/certifier.js   (pre-flight certification)
+    +-- harness/container.js   (Docker fallback for high-risk MCPs)
+    +-- harness/health.js      (heartbeat + recovery)
+    +-- harness/watchdog.js    (global harness watchdog)
+    |
+    v
+Stdio / SSE MCP servers, local skill packs, and ComfyUI/LM Studio endpoints
 ```
 
-## Asset counts
+The harness routes each tool call through a typed, permission-scoped channel. Profiles such as `CORE`, `CODE`, `MEDIA`, `SECURITY`, and `REVERSE` decide which assets are active for a given task. When an asset is marked `isolation: container` in the registry, `harness/container.js` transparently wraps the launch in Docker.
 
-| Asset type | Count |
-|---|---|
-| Total unique | 43 |
-| mcp_server | 16 |
-| skill_pack | 10 |
-| cli/gui/service dependencies | 12 |
+## Registry design
 
-## Catalog by type
+`configs/typed-registry.json` describes every asset with the following fields:
 
-### agent_runtime
+- `id`, `display_name`, `asset_type`
+- `source` URL, ref, commit, license, and sha256
+- `profiles` the asset belongs to
+- `capabilities` it exposes
+- `runtime` command, args, cwd, env, timeout, and transport
+- `permissions` filesystem roots, network hosts, credential refs, mutation level, approval policy
+- `verification` install, protocol, domain smoke, last verified timestamp, and evidence id
+- optional `metadata.isolation` for containerized execution
 
-| Name | Profiles | Upstream | Command / notes |
-|---|---|---|---|
-| Mobilerun | MOBILE-AGENT | [https://github.com/droidrun/mobilerun](https://github.com/droidrun/mobilerun) | npx -y mobilerun  |
+No MCP server is loaded unless it is represented in this file and has passed at least the protocol certification for its profile.
 
-### benchmark
+## Certification status
 
-| Name | Profiles | Upstream | Command / notes |
-|---|---|---|---|
-| AndroidWorld | EVAL | [https://github.com/google-research/android_world](https://github.com/google-research/android_world) | npx -y androidworld  |
+The latest run in `docs/certification-summary.json` shows:
 
-### cli_dependency
+- Total MCP servers tested: 16
+- Passed: 2
+- Failed: 5
+- Unknown / not tested: 9
 
-| Name | Profiles | Upstream | Command / notes |
-|---|---|---|---|
-| Apktool | ANDROID-RE | [https://github.com/iBotPeaches/Apktool](https://github.com/iBotPeaches/Apktool) | npx -y apktool  |
-| Cpp2IL | UNITY-RE | [https://github.com/SamboyCoding/Cpp2IL](https://github.com/SamboyCoding/Cpp2IL) | npx -y cpp2il  |
-| Ghidra | NATIVE-RE | [https://github.com/NationalSecurityAgency/ghidra](https://github.com/NationalSecurityAgency/ghidra) | dependency / not launchable as MCP |
-| Maestro | ANDROID-DEV | [https://github.com/mobile-dev-inc/Maestro](https://github.com/mobile-dev-inc/Maestro) | npx -y maestro  |
-| r2unity | UNITY-RE | [https://github.com/radareorg/r2unity](https://github.com/radareorg/r2unity) | npx -y r2unity  |
-| radare2 | NATIVE-RE | [https://github.com/radareorg/radare2](https://github.com/radareorg/radare2) | dependency / not launchable as MCP |
-| WinApp CLI | WINDOWS-DEV | [https://github.com/microsoft/winappCli](https://github.com/microsoft/winappCli) | npx -y winapp-cli  |
+`docs/MCP-CATALOG.md` lists every asset, its certification verdict, and the tool surface exposed when it passes. `docs/CERTIFICATION-LESSONS.md` explains the most common failure modes and how to fix them.
 
-### gui_dependency
+## Security model
 
-| Name | Profiles | Upstream | Command / notes |
-|---|---|---|---|
-| AssetRipper | UNITY-RE | [https://github.com/AssetRipper/AssetRipper](https://github.com/AssetRipper/AssetRipper) | npx -y assetripper  |
-| dnSpyEx | UNITY-RE | [https://github.com/dnSpyEx/dnSpy](https://github.com/dnSpyEx/dnSpy) | npx -y dnspyex  |
-| iaito | NATIVE-RE | [https://github.com/radareorg/iaito](https://github.com/radareorg/iaito) | dependency / not launchable as MCP |
-| x64dbg | WINDOWS-RE | [https://github.com/x64dbg/x64dbg](https://github.com/x64dbg/x64dbg) | npx -y x64dbg  |
+- Secrets are referenced by name in the registry, resolved at runtime, and stored with DPAPI on Windows.
+- No credentials are committed to Git. The `.gitignore` already excludes `configs/secrets.json`, `.env`, and `*.key`.
+- Filesystem access is scoped to `permissions.filesystem_roots`.
+- Network access is scoped to `permissions.network_hosts`.
+- Any tool that can write, delete, or execute code requires explicit approval unless `mutation_level` is `read_only`.
+- High-risk or binary-manipulation tools (`apktool-mcp`, reverse-engineering MCPs) default to container isolation.
 
-### marketplace
+See `docs/SECURITY.md` for the full policy and secret setup.
 
-| Name | Profiles | Upstream | Command / notes |
-|---|---|---|---|
-| Claude Plugins Official | CORE | [https://github.com/anthropics/claude-plugins-official](https://github.com/anthropics/claude-plugins-official) | npx -y claude-plugins-official  |
-| Trail of Bits Skills | REVIEW | [https://github.com/trailofbits/skills](https://github.com/trailofbits/skills) | npx -y trail-of-bits-skills  |
-| Trail of Bits Skills Curated | CORE, ON-DEMAND | [https://github.com/trailofbits/skills-curated](https://github.com/trailofbits/skills-curated) | dependency / not launchable as MCP |
+## Local LLMs and ComfyUI
 
-### mcp_server
+- `docs/RECOMMENDED-MODELS.md` has the current list of best 7B–14B GGUF models for LM Studio on a 16 GB VRAM GPU.
+- LM Studio is exposed at `http://localhost:1234`. The registry can route LLM calls to this endpoint instead of cloud providers.
+- `toolkit/Watch-LmStudio.ps1` keeps LM Studio alive: heartbeat on the `/v1/models` endpoint, auto-restart on unreachable, and LM Link reconnect.
+- ComfyUI runs locally on `http://localhost:8188`. The `comfyui-mcp` asset exposes lifecycle, workflow, and model tools.
 
-| Name | Profiles | Upstream | Command / notes |
-|---|---|---|---|
-| Android MCP | ANDROID-DEV | [https://github.com/qalvinahmad/android-mcp](https://github.com/qalvinahmad/android-mcp) | node G:\Github\android-mcp\dist\index.js |
-| Apktool MCP | ANDROID-RE | [https://github.com/zinja-coder/apktool-mcp-server](https://github.com/zinja-coder/apktool-mcp-server) | npx -y apktool-mcp |
-| Appium MCP | ANDROID-DEV | [https://github.com/appium/appium-mcp](https://github.com/appium/appium-mcp) | node G:\Github\appium-mcp\dist\index.js |
-| AutoGenesis | WINDOWS-DEV | [https://github.com/microsoft/AutoGenesis](https://github.com/microsoft/AutoGenesis) | npx -y autogenesis |
-| Context7 | RESEARCH | [https://github.com/upstash/context7](https://github.com/upstash/context7) | npx -y @upstash/context7-mcp@latest |
-| Ghidra MCP Headless | NATIVE-RE | [https://github.com/SumTuusDeus/ghidra-mcp](https://github.com/SumTuusDeus/ghidra-mcp) | dependency / not launchable as MCP |
-| GhidraMCP LaurieWired | NATIVE-RE | [https://github.com/LaurieWired/GhidraMCP](https://github.com/LaurieWired/GhidraMCP) | dependency / not launchable as MCP |
-| GitHub MCP | REPO | [https://github.com/github/github-mcp-server](https://github.com/github/github-mcp-server) | npx -y @github/mcp-server |
-| GitLab MCP | REPO | [https://docs.gitlab.com/user/model_context_protocol/mcp_server/](https://docs.gitlab.com/user/model_context_protocol/mcp_server/) | dependency / not launchable as MCP |
-| Hyper-V MCP | ISOLATED-LAB | [https://github.com/originsec/hyperv-mcp](https://github.com/originsec/hyperv-mcp) | npx -y hyper-v-mcp |
-| JADX AI MCP | ANDROID-RE | [https://github.com/zinja-coder/jadx-ai-mcp](https://github.com/zinja-coder/jadx-ai-mcp) | npx -y jadx-ai-mcp |
-| JADX MCP Server | ANDROID-RE | [https://github.com/Qtty/jadx-mcp-server](https://github.com/Qtty/jadx-mcp-server) | npx -y jadx-mcp-server |
-| pyghidra-mcp | NATIVE-RE | [https://github.com/clearbluejar/pyghidra-mcp](https://github.com/clearbluejar/pyghidra-mcp) | dependency / not launchable as MCP |
-| SearXNG MCP | RESEARCH | [https://github.com/ihor-sokoliuk/mcp-searxng](https://github.com/ihor-sokoliuk/mcp-searxng) | node G:\Github\searxng-mcp\dist\index.js |
-| Serena | CORE | [https://github.com/oraios/serena](https://github.com/oraios/serena) | uvx mcp-server-serena --project <PROJECT_ROOT> |
-| x64dbg Automate MCP | WINDOWS-RE | [https://github.com/dariushoule/x64dbg-automate-pyclient](https://github.com/dariushoule/x64dbg-automate-pyclient) | npx -y x64dbg-automate-mcp |
+## Tooling scripts
 
-### service
+| Script | Purpose |
+|--------|---------|
+| `toolkit/Build-DavesCatalog.js` | Regenerate `docs/MCP-CATALOG.md` from the registry and cert files |
+| `toolkit/Sync-McpRegistry.js` | Sync runtime cwd and container metadata into the registry |
+| `toolkit/Install-McpService.ps1` | Install the harness as a Windows service or emit a systemd unit |
+| `toolkit/Watch-LmStudio.ps1` | Heartbeat and auto-restart for LM Studio |
+| `harness/certifier.js` | Certify every asset in the registry |
 
-| Name | Profiles | Upstream | Command / notes |
-|---|---|---|---|
-| MobSF | ANDROID-RE | [https://github.com/MobSF/Mobile-Security-Framework-MobSF](https://github.com/MobSF/Mobile-Security-Framework-MobSF) | npx -y mobsf  |
+## Development
 
-### skill_pack
+```
+npm install
+npm run certify
+npm test
+```
 
-| Name | Profiles | Upstream | Command / notes |
-|---|---|---|---|
-| Android MCP Lean | ANDROID-DEV | [https://github.com/qalvinahmad/android-mcp](https://github.com/qalvinahmad/android-mcp) | node G:\Github\android-mcp-lean\dist\index.js  |
-| Android Reverse Engineering Skill | ANDROID-RE | [https://github.com/SimoneAvogadro/android-reverse-engineering-skill](https://github.com/SimoneAvogadro/android-reverse-engineering-skill) | npx -y android-reverse-engineering-skill  |
-| Anthropic Skills | CORE | [https://github.com/anthropics/skills](https://github.com/anthropics/skills) | npx -y anthropic-skills  |
-| Frida MCP Skills | ANDROID-RE-DYNAMIC | [https://github.com/yfe404/frida-mcp-skills](https://github.com/yfe404/frida-mcp-skills) | npx -y frida-mcp-skills  |
-| Maestro MCP | ANDROID-DEV | [https://github.com/mobile-dev-inc/Maestro](https://github.com/mobile-dev-inc/Maestro) | npx -y maestro-mcp  |
-| Mobile Harness | MOBILE-AGENT | [https://github.com/droidrun/mobile-harness](https://github.com/droidrun/mobile-harness) | npx -y mobile-harness  |
-| Playwright CLI + Skills | WEB-E2E | [https://github.com/microsoft/playwright-cli](https://github.com/microsoft/playwright-cli) | npx -y @playwright/mcp@latest |
-| Superpowers | CORE | [https://github.com/obra/superpowers](https://github.com/obra/superpowers) | node G:\Github\superpowers\.opencode\plugins\superpowers.js  |
-| win-dev-skills | WINDOWS-DEV | [https://github.com/microsoft/win-dev-skills](https://github.com/microsoft/win-dev-skills) | npx -y win-dev-skills  |
-| x64dbg-skills | WINDOWS-RE | [https://github.com/dariushoule/x64dbg-skills](https://github.com/dariushoule/x64dbg-skills) | npx -y x64dbg-skills  |
+Use `node harness/certifier.js --profile CORE` to certify only the core profile, or `--id <asset>` to certify one asset at a time.
 
-## Official launchers corrected for P0 assets
+## Roadmap and known gaps
 
-| Asset | Transport | Command |
-|---|---|---|
-| Serena | stdio | uvx mcp-server-serena --project <PROJECT_ROOT> |
-| GitHub MCP | stdio | npx -y @github/mcp-server |
-| GitLab MCP | streamable_http | none |
-| Context7 | stdio | npx -y @upstash/context7-mcp@latest |
-| Playwright CLI + Skills | stdio | npx -y @playwright/mcp@latest |
+- Expand certification from 16 to all 43 assets.
+- Finish unit and integration test coverage under `tests/`.
+- Add health dashboards and metrics export.
+- Stabilize the LM Studio and ComfyUI watchdogs across restarts.
 
-## Remediation
+## License and contribution
 
-This README reflects the Phase 0 truth reset from the 2026-08-19 E2E audit. The prior README claimed 49 installed MCP servers; the catalog actually contains **43 unique assets**, of which **16** are MCP server candidates. The remaining entries are skills, CLIs, GUIs, services, benchmarks and marketplaces.
-
+This project is private. See the repository owner for contribution guidelines. The registry may reference third-party MCP servers and skill packs under their own licenses; those licenses are recorded in `configs/typed-registry.json`.
