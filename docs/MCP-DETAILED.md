@@ -1,6 +1,6 @@
 # DAVE-AI MCP Server Detailed Reference
 
-**Generated:** 2026-08-19T18:10:12.8652571-07:00
+**Generated:** 2026-08-20T11:31:43.8946998-07:00
 
 ## Android MCP - `android-mcp`
 
@@ -22,11 +22,11 @@
 
 ## Apktool MCP - `apktool-mcp`
 
-- **Command:** `npx`
-- **Args:** `-y apktool-mcp`
+- **Command:** `uv`
+- **Args:** `run G:/Github/apktool-mcp/apktool_mcp_server.py`
 - **Profiles:** ANDROID-RE
 - **Capabilities:** apktool-mcp-contract-test, apk-rebuild-e2e
-- **Health:** False
+- **Health:** True
 - **Certification:** failed
 - **Permissions:**
   - `filesystem_roots`: 
@@ -166,8 +166,8 @@
 
 ## Hyper-V MCP - `hyper-v-mcp`
 
-- **Command:** `npx`
-- **Args:** `-y hyper-v-mcp`
+- **Command:** `hyperv-mcp`
+- **Args:** ``
 - **Profiles:** ISOLATED-LAB
 - **Capabilities:** lab-provision-snapshot-restore, network-isolation, guest-evidence
 - **Health:** False
@@ -256,8 +256,8 @@
 
 ## Serena - `serena`
 
-- **Command:** `uvx`
-- **Args:** `mcp-server-serena --project <PROJECT_ROOT>`
+- **Command:** `uv`
+- **Args:** `run G:/Github/serena/scripts/mcp_server.py`
 - **Profiles:** CORE
 - **Capabilities:** semantic-project-onboard, symbol-impact-refactor, serena-index-doctor
 - **Health:** False
@@ -274,11 +274,11 @@
 
 ## x64dbg Automate MCP - `x64dbg-automate-mcp`
 
-- **Command:** `npx`
-- **Args:** `-y x64dbg-automate-mcp`
+- **Command:** `x64dbg-automate-mcp`
+- **Args:** ``
 - **Profiles:** WINDOWS-RE
 - **Capabilities:** breakpoint-plan, trace-export, safe-patch-proof
-- **Health:** False
+- **Health:** True
 - **Certification:** unknown
 - **Permissions:**
   - `filesystem_roots`: 

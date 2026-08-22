@@ -118,11 +118,10 @@
       ],
       "runtime": {
         "transport": "stdio",
-        "command": "uvx",
+        "command": "uv",
         "args": [
-          "mcp-server-serena",
-          "--project",
-          "<PROJECT_ROOT>"
+          "run",
+          "G:/MCP-Servers/serena/scripts/mcp_server.py"
         ],
         "env_refs": [
           "UV_PYTHON",
@@ -145,10 +144,10 @@
         "approval_policy": "on_mutation"
       },
       "verification": {
-        "install": "unknown",
-        "protocol": "failed",
+        "install": "passed",
+        "protocol": "passed",
         "domain_smoke": "unknown",
-        "last_verified": "2026-08-20T00:57:39.335Z",
+        "last_verified": "2026-08-22T05:17:58.378Z",
         "evidence_id": "cert-serena"
       }
     },
@@ -173,7 +172,7 @@
       ],
       "runtime": {
         "transport": "none",
-        "command": "node G:\\Github\\superpowers\\.opencode\\plugins\\superpowers.js",
+        "command": "node G:\\MCP-Servers\\superpowers\\.opencode\\plugins\\superpowers.js",
         "args": [],
         "env_refs": [],
         "cwd": null,
@@ -391,9 +390,9 @@
       },
       "verification": {
         "install": "unknown",
-        "protocol": "failed",
-        "domain_smoke": "unknown",
-        "last_verified": "2026-08-19T23:20:13.972Z",
+        "protocol": "passed",
+        "domain_smoke": "failed",
+        "last_verified": "2026-08-20T22:03:48.988Z",
         "evidence_id": "cert-gitlab-mcp"
       }
     },
@@ -418,11 +417,14 @@
       ],
       "runtime": {
         "transport": "stdio",
-        "command": "node",
+        "command": "npx",
         "args": [
-          "G:\\Github\\searxng-mcp\\dist\\index.js"
+          "-y",
+          "mcp-searxng"
         ],
-        "env_refs": [],
+        "env_refs": [
+          "SEARXNG_URL"
+        ],
         "cwd": null,
         "healthcheck": {},
         "timeout_ms": 30000,
@@ -437,11 +439,11 @@
         "approval_policy": "on_mutation"
       },
       "verification": {
-        "install": "unknown",
-        "protocol": "unknown",
-        "domain_smoke": "unknown",
-        "last_verified": null,
-        "evidence_id": null
+        "install": "passed",
+        "protocol": "passed",
+        "domain_smoke": "passed",
+        "last_verified": "2026-08-22T05:17:58.378Z",
+        "evidence_id": "cert-searxng-mcp"
       }
     },
     {
@@ -512,7 +514,7 @@
         "transport": "stdio",
         "command": "node",
         "args": [
-          "G:\\Github\\android-mcp\\dist\\index.js"
+          "G:\\MCP-Servers\\android-mcp\\dist\\index.js"
         ],
         "env_refs": [],
         "cwd": null,
@@ -529,10 +531,10 @@
         "approval_policy": "on_mutation"
       },
       "verification": {
-        "install": "unknown",
-        "protocol": "failed",
+        "install": "passed",
+        "protocol": "passed",
         "domain_smoke": "unknown",
-        "last_verified": "2026-08-19T23:16:35.764Z",
+        "last_verified": "2026-08-22T05:17:58.378Z",
         "evidence_id": "cert-android-mcp"
       }
     },
@@ -556,7 +558,7 @@
       ],
       "runtime": {
         "transport": "none",
-        "command": "node G:\\Github\\android-mcp-lean\\dist\\index.js",
+        "command": "node G:\\MCP-Servers\\android-mcp-lean\\dist\\index.js",
         "args": [],
         "env_refs": [],
         "cwd": null,
@@ -648,7 +650,7 @@
         "transport": "stdio",
         "command": "node",
         "args": [
-          "G:\\Github\\appium-mcp\\dist\\index.js"
+          "G:\\MCP-Servers\\appium-mcp\\dist\\index.js"
         ],
         "env_refs": [],
         "cwd": null,
@@ -665,11 +667,11 @@
         "approval_policy": "on_mutation"
       },
       "verification": {
-        "install": "unknown",
-        "protocol": "unknown",
-        "domain_smoke": "unknown",
-        "last_verified": null,
-        "evidence_id": null
+        "install": "passed",
+        "protocol": "passed",
+        "domain_smoke": "passed",
+        "last_verified": "2026-08-22T05:17:58.378Z",
+        "evidence_id": "cert-appium-mcp"
       }
     },
     {
@@ -961,10 +963,10 @@
       ],
       "runtime": {
         "transport": "stdio",
-        "command": "npx",
+        "command": "uv",
         "args": [
-          "-y",
-          "apktool-mcp"
+          "run",
+          "G:/MCP-Servers/apktool-mcp/apktool_mcp_server.py"
         ],
         "env_refs": [],
         "cwd": null,
@@ -982,9 +984,9 @@
       },
       "verification": {
         "install": "unknown",
-        "protocol": "failed",
-        "domain_smoke": "unknown",
-        "last_verified": "2026-08-19T22:59:02.134Z",
+        "protocol": "passed",
+        "domain_smoke": "passed",
+        "last_verified": "2026-08-20T03:00:02.633Z",
         "evidence_id": "cert-apktool-mcp"
       }
     },
@@ -1036,7 +1038,7 @@
     {
       "id": "jadx-ai-mcp",
       "display_name": "JADX AI MCP",
-      "asset_type": "mcp_server",
+      "asset_type": "cli_dependency",
       "source": {
         "url": "https://github.com/zinja-coder/jadx-ai-mcp",
         "ref": "main",
@@ -1053,12 +1055,9 @@
         "gui-state-recovery"
       ],
       "runtime": {
-        "transport": "stdio",
-        "command": "npx",
-        "args": [
-          "-y",
-          "jadx-ai-mcp"
-        ],
+        "transport": "none",
+        "command": "",
+        "args": [],
         "env_refs": [],
         "cwd": null,
         "healthcheck": {},
@@ -1074,17 +1073,20 @@
         "approval_policy": "on_mutation"
       },
       "verification": {
-        "install": "unknown",
-        "protocol": "unknown",
+        "install": "passed",
+        "protocol": "not_applicable",
         "domain_smoke": "unknown",
-        "last_verified": null,
+        "last_verified": "2026-08-22T09:28:28.438Z",
         "evidence_id": null
+      },
+      "metadata": {
+        "notes": "Marked as cli_dependency because no installable MCP server package/directory was found; see capability report."
       }
     },
     {
       "id": "jadx-mcp-server",
       "display_name": "JADX MCP Server",
-      "asset_type": "mcp_server",
+      "asset_type": "cli_dependency",
       "source": {
         "url": "https://github.com/Qtty/jadx-mcp-server",
         "ref": "main",
@@ -1101,12 +1103,9 @@
         "query-budgeting"
       ],
       "runtime": {
-        "transport": "stdio",
-        "command": "npx",
-        "args": [
-          "-y",
-          "jadx-mcp-server"
-        ],
+        "transport": "none",
+        "command": "",
+        "args": [],
         "env_refs": [],
         "cwd": null,
         "healthcheck": {},
@@ -1122,11 +1121,14 @@
         "approval_policy": "on_mutation"
       },
       "verification": {
-        "install": "unknown",
-        "protocol": "unknown",
+        "install": "passed",
+        "protocol": "not_applicable",
         "domain_smoke": "unknown",
-        "last_verified": null,
+        "last_verified": "2026-08-22T09:28:28.438Z",
         "evidence_id": null
+      },
+      "metadata": {
+        "notes": "Marked as cli_dependency because no installable MCP server package/directory was found; see capability report."
       }
     },
     {
@@ -1222,7 +1224,7 @@
     {
       "id": "ghidra-mcp-headless",
       "display_name": "Ghidra MCP Headless",
-      "asset_type": "mcp_server",
+      "asset_type": "cli_dependency",
       "source": {
         "url": "https://github.com/SumTuusDeus/ghidra-mcp",
         "ref": "main",
@@ -1257,17 +1259,20 @@
         "approval_policy": "on_mutation"
       },
       "verification": {
-        "install": "unknown",
-        "protocol": "unknown",
+        "install": "passed",
+        "protocol": "not_applicable",
         "domain_smoke": "unknown",
-        "last_verified": null,
+        "last_verified": "2026-08-22T09:28:28.438Z",
         "evidence_id": null
+      },
+      "metadata": {
+        "notes": "Marked as cli_dependency because no installable MCP server package/directory was found; see capability report."
       }
     },
     {
       "id": "ghidramcp-lauriewired",
       "display_name": "GhidraMCP LaurieWired",
-      "asset_type": "mcp_server",
+      "asset_type": "cli_dependency",
       "source": {
         "url": "https://github.com/LaurieWired/GhidraMCP",
         "ref": "main",
@@ -1302,11 +1307,14 @@
         "approval_policy": "on_mutation"
       },
       "verification": {
-        "install": "unknown",
-        "protocol": "unknown",
+        "install": "passed",
+        "protocol": "not_applicable",
         "domain_smoke": "unknown",
-        "last_verified": null,
+        "last_verified": "2026-08-22T09:28:28.438Z",
         "evidence_id": null
+      },
+      "metadata": {
+        "notes": "Marked as cli_dependency because no installable MCP server package/directory was found; see capability report."
       }
     },
     {
@@ -1356,7 +1364,7 @@
     {
       "id": "pyghidra-mcp",
       "display_name": "pyghidra-mcp",
-      "asset_type": "mcp_server",
+      "asset_type": "cli_dependency",
       "source": {
         "url": "https://github.com/clearbluejar/pyghidra-mcp",
         "ref": "main",
@@ -1391,11 +1399,14 @@
         "approval_policy": "on_mutation"
       },
       "verification": {
-        "install": "unknown",
-        "protocol": "unknown",
+        "install": "passed",
+        "protocol": "not_applicable",
         "domain_smoke": "unknown",
-        "last_verified": null,
+        "last_verified": "2026-08-22T09:28:28.438Z",
         "evidence_id": null
+      },
+      "metadata": {
+        "notes": "Marked as cli_dependency because no installable MCP server package/directory was found; see capability report."
       }
     },
     {
@@ -1446,7 +1457,7 @@
     {
       "id": "autogenesis",
       "display_name": "AutoGenesis",
-      "asset_type": "mcp_server",
+      "asset_type": "cli_dependency",
       "source": {
         "url": "https://github.com/microsoft/AutoGenesis",
         "ref": "main",
@@ -1463,12 +1474,9 @@
         "test-flake-diagnosis"
       ],
       "runtime": {
-        "transport": "stdio",
-        "command": "npx",
-        "args": [
-          "-y",
-          "autogenesis"
-        ],
+        "transport": "none",
+        "command": "",
+        "args": [],
         "env_refs": [],
         "cwd": null,
         "healthcheck": {},
@@ -1484,11 +1492,14 @@
         "approval_policy": "on_mutation"
       },
       "verification": {
-        "install": "unknown",
-        "protocol": "failed",
+        "install": "passed",
+        "protocol": "not_applicable",
         "domain_smoke": "unknown",
-        "last_verified": "2026-08-19T23:15:35.261Z",
+        "last_verified": "2026-08-22T09:28:28.438Z",
         "evidence_id": "cert-autogenesis"
+      },
+      "metadata": {
+        "notes": "Marked as cli_dependency because no installable MCP server package/directory was found; see capability report."
       }
     },
     {
@@ -1602,11 +1613,8 @@
       ],
       "runtime": {
         "transport": "stdio",
-        "command": "npx",
-        "args": [
-          "-y",
-          "hyper-v-mcp"
-        ],
+        "command": "hyperv-mcp",
+        "args": [],
         "env_refs": [],
         "cwd": null,
         "healthcheck": {},
@@ -1622,11 +1630,11 @@
         "approval_policy": "on_mutation"
       },
       "verification": {
-        "install": "unknown",
-        "protocol": "unknown",
-        "domain_smoke": "unknown",
-        "last_verified": null,
-        "evidence_id": null
+        "install": "passed",
+        "protocol": "passed",
+        "domain_smoke": "passed",
+        "last_verified": "2026-08-22T05:17:58.378Z",
+        "evidence_id": "cert-hyper-v-mcp"
       }
     },
     {
@@ -1695,11 +1703,8 @@
       ],
       "runtime": {
         "transport": "stdio",
-        "command": "npx",
-        "args": [
-          "-y",
-          "x64dbg-automate-mcp"
-        ],
+        "command": "x64dbg-automate-mcp",
+        "args": [],
         "env_refs": [],
         "cwd": null,
         "healthcheck": {},
@@ -1716,10 +1721,10 @@
       },
       "verification": {
         "install": "unknown",
-        "protocol": "unknown",
-        "domain_smoke": "unknown",
-        "last_verified": null,
-        "evidence_id": null
+        "protocol": "passed",
+        "domain_smoke": "failed",
+        "last_verified": "2026-08-20T09:26:58.454Z",
+        "evidence_id": "cert-x64dbg-automate-mcp"
       }
     },
     {
@@ -1998,6 +2003,413 @@
         "domain_smoke": "passed",
         "last_verified": "2026-08-20T00:58:20.769Z",
         "evidence_id": "cert-playwright-cli-skills"
+      }
+    },
+    {
+      "id": "ilspy",
+      "display_name": "ILSpy",
+      "asset_type": "gui_dependency",
+      "source": {
+        "url": "https://github.com/icsharpcode/ILSpy",
+        "ref": "main",
+        "commit": null,
+        "license": null,
+        "sha256": null
+      },
+      "profiles": [
+        "DOTNET-RE"
+      ],
+      "capabilities": [
+        "ilspy-decompile-assembly",
+        "ilspy-browse-assembly"
+      ],
+      "runtime": {
+        "transport": "none",
+        "command": "",
+        "args": [],
+        "env_refs": [],
+        "cwd": null,
+        "healthcheck": {},
+        "timeout_ms": 30000,
+        "max_concurrency": 1,
+        "auto_start": false
+      },
+      "permissions": {
+        "filesystem_roots": [],
+        "network_hosts": [],
+        "credentials": [],
+        "mutation_level": "read_only",
+        "approval_policy": "on_mutation"
+      },
+      "verification": {
+        "install": "unknown",
+        "protocol": "unknown",
+        "domain_smoke": "unknown",
+        "last_verified": null,
+        "evidence_id": null
+      }
+    },
+    {
+      "id": "cutter",
+      "display_name": "Cutter",
+      "asset_type": "gui_dependency",
+      "source": {
+        "url": "https://github.com/rizinorg/cutter",
+        "ref": "main",
+        "commit": null,
+        "license": null,
+        "sha256": null
+      },
+      "profiles": [
+        "NATIVE-RE"
+      ],
+      "capabilities": [
+        "cutter-disassembly-decompile",
+        "cutter-graph-navigation"
+      ],
+      "runtime": {
+        "transport": "none",
+        "command": "",
+        "args": [],
+        "env_refs": [],
+        "cwd": null,
+        "healthcheck": {},
+        "timeout_ms": 30000,
+        "max_concurrency": 1,
+        "auto_start": false
+      },
+      "permissions": {
+        "filesystem_roots": [],
+        "network_hosts": [],
+        "credentials": [],
+        "mutation_level": "read_only",
+        "approval_policy": "on_mutation"
+      },
+      "verification": {
+        "install": "unknown",
+        "protocol": "unknown",
+        "domain_smoke": "unknown",
+        "last_verified": null,
+        "evidence_id": null
+      }
+    },
+    {
+      "id": "rizin",
+      "display_name": "Rizin",
+      "asset_type": "cli_dependency",
+      "source": {
+        "url": "https://github.com/rizinorg/rizin",
+        "ref": "main",
+        "commit": null,
+        "license": null,
+        "sha256": null
+      },
+      "profiles": [
+        "NATIVE-RE"
+      ],
+      "capabilities": [
+        "rizin-analysis",
+        "rizin-scripting",
+        "rizin-ghidra-decompiler"
+      ],
+      "runtime": {
+        "transport": "none",
+        "command": "",
+        "args": [],
+        "env_refs": [],
+        "cwd": null,
+        "healthcheck": {},
+        "timeout_ms": 30000,
+        "max_concurrency": 1,
+        "auto_start": false
+      },
+      "permissions": {
+        "filesystem_roots": [],
+        "network_hosts": [],
+        "credentials": [],
+        "mutation_level": "read_only",
+        "approval_policy": "on_mutation"
+      },
+      "verification": {
+        "install": "unknown",
+        "protocol": "unknown",
+        "domain_smoke": "unknown",
+        "last_verified": null,
+        "evidence_id": null
+      }
+    },
+    {
+      "id": "gdb",
+      "display_name": "GDB",
+      "asset_type": "cli_dependency",
+      "source": {
+        "url": "https://sourceware.org/gdb/",
+        "ref": "main",
+        "commit": null,
+        "license": null,
+        "sha256": null
+      },
+      "profiles": [
+        "NATIVE-RE",
+        "EMBEDDED-DEV"
+      ],
+      "capabilities": [
+        "gdb-debug-session",
+        "gdb-remote-target",
+        "gdb-scripting"
+      ],
+      "runtime": {
+        "transport": "none",
+        "command": "",
+        "args": [],
+        "env_refs": [],
+        "cwd": null,
+        "healthcheck": {},
+        "timeout_ms": 30000,
+        "max_concurrency": 1,
+        "auto_start": false
+      },
+      "permissions": {
+        "filesystem_roots": [],
+        "network_hosts": [],
+        "credentials": [],
+        "mutation_level": "read_only",
+        "approval_policy": "on_mutation"
+      },
+      "verification": {
+        "install": "unknown",
+        "protocol": "unknown",
+        "domain_smoke": "unknown",
+        "last_verified": null,
+        "evidence_id": null
+      }
+    },
+    {
+      "id": "lldb",
+      "display_name": "LLDB",
+      "asset_type": "cli_dependency",
+      "source": {
+        "url": "https://github.com/llvm/llvm-project",
+        "ref": "main",
+        "commit": null,
+        "license": null,
+        "sha256": null
+      },
+      "profiles": [
+        "NATIVE-RE",
+        "CROSS-DEV"
+      ],
+      "capabilities": [
+        "lldb-debug-session",
+        "lldb-scripting",
+        "lldb-remote-target"
+      ],
+      "runtime": {
+        "transport": "none",
+        "command": "",
+        "args": [],
+        "env_refs": [],
+        "cwd": null,
+        "healthcheck": {},
+        "timeout_ms": 30000,
+        "max_concurrency": 1,
+        "auto_start": false
+      },
+      "permissions": {
+        "filesystem_roots": [],
+        "network_hosts": [],
+        "credentials": [],
+        "mutation_level": "read_only",
+        "approval_policy": "on_mutation"
+      },
+      "verification": {
+        "install": "unknown",
+        "protocol": "unknown",
+        "domain_smoke": "unknown",
+        "last_verified": null,
+        "evidence_id": null
+      }
+    },
+    {
+      "id": "edbg",
+      "display_name": "EDBG",
+      "asset_type": "cli_dependency",
+      "source": {
+        "url": "https://github.com/ataradov/edbg",
+        "ref": "main",
+        "commit": null,
+        "license": null,
+        "sha256": null
+      },
+      "profiles": [
+        "EMBEDDED-DEV"
+      ],
+      "capabilities": [
+        "edbg-flash",
+        "edbg-swd-debug",
+        "edbg-target-reset"
+      ],
+      "runtime": {
+        "transport": "none",
+        "command": "",
+        "args": [],
+        "env_refs": [],
+        "cwd": null,
+        "healthcheck": {},
+        "timeout_ms": 30000,
+        "max_concurrency": 1,
+        "auto_start": false
+      },
+      "permissions": {
+        "filesystem_roots": [],
+        "network_hosts": [],
+        "credentials": [],
+        "mutation_level": "read_only",
+        "approval_policy": "on_mutation"
+      },
+      "verification": {
+        "install": "unknown",
+        "protocol": "unknown",
+        "domain_smoke": "unknown",
+        "last_verified": null,
+        "evidence_id": null
+      }
+    },
+    {
+      "id": "wireshark",
+      "display_name": "Wireshark",
+      "asset_type": "gui_dependency",
+      "source": {
+        "url": "https://gitlab.com/wireshark/wireshark",
+        "ref": "main",
+        "commit": null,
+        "license": null,
+        "sha256": null
+      },
+      "profiles": [
+        "NETWORK-RE"
+      ],
+      "capabilities": [
+        "wireshark-capture",
+        "wireshark-protocol-analysis",
+        "wireshark-packet-export"
+      ],
+      "runtime": {
+        "transport": "none",
+        "command": "",
+        "args": [],
+        "env_refs": [],
+        "cwd": null,
+        "healthcheck": {},
+        "timeout_ms": 30000,
+        "max_concurrency": 1,
+        "auto_start": false
+      },
+      "permissions": {
+        "filesystem_roots": [],
+        "network_hosts": [],
+        "credentials": [],
+        "mutation_level": "read_only",
+        "approval_policy": "on_mutation"
+      },
+      "verification": {
+        "install": "unknown",
+        "protocol": "unknown",
+        "domain_smoke": "unknown",
+        "last_verified": null,
+        "evidence_id": null
+      }
+    },
+    {
+      "id": "zap",
+      "display_name": "ZAP",
+      "asset_type": "gui_dependency",
+      "source": {
+        "url": "https://github.com/zaproxy/zaproxy",
+        "ref": "main",
+        "commit": null,
+        "license": null,
+        "sha256": null
+      },
+      "profiles": [
+        "WEB-RE",
+        "SECURITY"
+      ],
+      "capabilities": [
+        "zap-spider",
+        "zap-active-scan",
+        "zap-proxy-capture"
+      ],
+      "runtime": {
+        "transport": "none",
+        "command": "",
+        "args": [],
+        "env_refs": [],
+        "cwd": null,
+        "healthcheck": {},
+        "timeout_ms": 30000,
+        "max_concurrency": 1,
+        "auto_start": false
+      },
+      "permissions": {
+        "filesystem_roots": [],
+        "network_hosts": [],
+        "credentials": [],
+        "mutation_level": "read_only",
+        "approval_policy": "on_mutation"
+      },
+      "verification": {
+        "install": "unknown",
+        "protocol": "unknown",
+        "domain_smoke": "unknown",
+        "last_verified": null,
+        "evidence_id": null
+      }
+    },
+    {
+      "id": "bytecode-viewer",
+      "display_name": "Bytecode Viewer",
+      "asset_type": "gui_dependency",
+      "source": {
+        "url": "https://github.com/Konloch/bytecode-viewer",
+        "ref": "main",
+        "commit": null,
+        "license": null,
+        "sha256": null
+      },
+      "profiles": [
+        "JAVA-RE",
+        "ANDROID-RE"
+      ],
+      "capabilities": [
+        "bytecode-decompile",
+        "bytecode-edit",
+        "apk-jar-analysis"
+      ],
+      "runtime": {
+        "transport": "none",
+        "command": "",
+        "args": [],
+        "env_refs": [],
+        "cwd": null,
+        "healthcheck": {},
+        "timeout_ms": 30000,
+        "max_concurrency": 1,
+        "auto_start": false
+      },
+      "permissions": {
+        "filesystem_roots": [],
+        "network_hosts": [],
+        "credentials": [],
+        "mutation_level": "read_only",
+        "approval_policy": "on_mutation"
+      },
+      "verification": {
+        "install": "unknown",
+        "protocol": "unknown",
+        "domain_smoke": "unknown",
+        "last_verified": null,
+        "evidence_id": null
       }
     }
   ]

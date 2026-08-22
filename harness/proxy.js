@@ -98,4 +98,4 @@ async function callTool(fullName, args) {
   throw new Error(`Tool ${fullName} is not active. Enable its parent MCP first.`);
 }
 
-module.exports = { setRegistry, enable, disable, listActive, getActiveToolNames, callTool };
+module.exports = { setRegistry, enable, disable, listActive, getActiveToolNames, getActiveToolsMeta, callTool };

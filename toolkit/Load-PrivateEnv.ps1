@@ -1,6 +1,6 @@
 [CmdletBinding()]
 param(
-    [string[]]$SearchPaths = @("G:\private", "C:\Users\Admin\private", "$PSScriptRoot\..\private"),
+    [string[]]$SearchPaths = @("G:\private", "C:\Users\Admin\private", "$PSScriptRoot\..\private", "C:\Users\Admin"),
     [switch]$Quiet
 )
 

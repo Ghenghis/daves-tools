@@ -1,5 +1,6 @@
 const { Client } = require('@modelcontextprotocol/sdk/client/index.js');
 const { StdioClientTransport } = require('@modelcontextprotocol/sdk/client/stdio.js');
+const { z } = require('zod');
 
 const DEFAULT_TIMEOUT_MS = 30000;
 const CALL_TIMEOUT_MS = 15000;
@@ -79,7 +80,11 @@ async function certify(asset, options = {}) {
     await withTimeout(client.connect(transport), timeout, 'connect');
     result.init = 'passed';
 
-    const toolsResp = await withTimeout(client.listTools(), timeout, 'listTools');
+    const toolsResp = await withTimeout(
+      client.request({ method: 'tools/list' }, z.any()),
+      timeout,
+      'listTools'
+    );
     result.list_tools = 'passed';
     const tools = (toolsResp && toolsResp.tools) || [];
     result.tools = tools.map(t => ({

@@ -1,10 +1,10 @@
 # DAVE-AI Tools Status Report
 
-**Generated:** 2026-08-19T18:10:12.7991642-07:00
+**Generated:** 2026-08-20T11:31:43.8085045-07:00
 
 ## Executive Summary
 
-- **Overall cockpit readiness:** 29 / 43 catalog assets healthy
+- **Overall cockpit readiness:** 31 / 43 catalog assets healthy
 - **MCP live certifications passing:** 2 / 16
 - **LLM provider tokens ready:** 5 / 7
 - **Primary cockpit:** Dave's Tools with project-specific preflight and fallbacks
@@ -18,7 +18,7 @@
 | cli_dependency | 7 | 7 | 0 |
 | gui_dependency | 4 | 4 | 0 |
 | marketplace | 3 | 3 | 0 |
-| mcp_server | 16 | 2 | 14 |
+| mcp_server | 16 | 4 | 12 |
 | service | 1 | 1 | 0 |
 | skill_pack | 10 | 10 | 0 |
 
@@ -51,13 +51,11 @@
   - Repair actions: Run certifier
 - **JADX MCP Server** ($(@{id=jadx-mcp-server; display_name=JADX MCP Server; asset_type=mcp_server; install_ok=True; env_ok=True; missing_env=System.Object[]; protocol_ok=unknown; healthy=False; repair_actions=System.Object[]}.id)) - asset_type: mcp_server
   - Repair actions: Run certifier
-- **pyghidra-mcp** ($(@{id=pyghidra-mcp; display_name=pyghidra-mcp; asset_type=mcp_server; install_ok=True; env_ok=True; missing_env=System.Object[]; protocol_ok=unknown; healthy=False; repair_actions=System.Object[]}.id)) - asset_type: mcp_server
-  - Repair actions: Run certifier
-- **x64dbg Automate MCP** ($(@{id=x64dbg-automate-mcp; display_name=x64dbg Automate MCP; asset_type=mcp_server; install_ok=True; env_ok=True; missing_env=System.Object[]; protocol_ok=unknown; healthy=False; repair_actions=System.Object[]}.id)) - asset_type: mcp_server
-  - Repair actions: Run certifier
-- **Hyper-V MCP** ($(@{id=hyper-v-mcp; display_name=Hyper-V MCP; asset_type=mcp_server; install_ok=True; env_ok=True; missing_env=System.Object[]; protocol_ok=unknown; healthy=False; repair_actions=System.Object[]}.id)) - asset_type: mcp_server
+- **Hyper-V MCP** ($(@{id=hyper-v-mcp; display_name=Hyper-V MCP; asset_type=mcp_server; install_ok=True; env_ok=True; missing_env=System.Object[]; protocol_ok=failed; healthy=False; repair_actions=System.Object[]}.id)) - asset_type: mcp_server
   - Repair actions: Run certifier
 - **AutoGenesis** ($(@{id=autogenesis; display_name=AutoGenesis; asset_type=mcp_server; install_ok=True; env_ok=True; missing_env=System.Object[]; protocol_ok=failed; healthy=False; repair_actions=System.Object[]}.id)) - asset_type: mcp_server
+  - Repair actions: Run certifier
+- **pyghidra-mcp** ($(@{id=pyghidra-mcp; display_name=pyghidra-mcp; asset_type=mcp_server; install_ok=True; env_ok=True; missing_env=System.Object[]; protocol_ok=unknown; healthy=False; repair_actions=System.Object[]}.id)) - asset_type: mcp_server
   - Repair actions: Run certifier
 - **SearXNG MCP** ($(@{id=searxng-mcp; display_name=SearXNG MCP; asset_type=mcp_server; install_ok=True; env_ok=True; missing_env=System.Object[]; protocol_ok=unknown; healthy=False; repair_actions=System.Object[]}.id)) - asset_type: mcp_server
   - Repair actions: Run certifier
@@ -65,13 +63,11 @@
   - Repair actions: Run certifier
 - **Serena** ($(@{id=serena; display_name=Serena; asset_type=mcp_server; install_ok=True; env_ok=True; missing_env=System.Object[]; protocol_ok=failed; healthy=False; repair_actions=System.Object[]}.id)) - asset_type: mcp_server
   - Repair actions: Run certifier
-- **Android MCP** ($(@{id=android-mcp; display_name=Android MCP; asset_type=mcp_server; install_ok=True; env_ok=True; missing_env=System.Object[]; protocol_ok=failed; healthy=False; repair_actions=System.Object[]}.id)) - asset_type: mcp_server
-  - Repair actions: Run certifier
 - **JADX AI MCP** ($(@{id=jadx-ai-mcp; display_name=JADX AI MCP; asset_type=mcp_server; install_ok=True; env_ok=True; missing_env=System.Object[]; protocol_ok=unknown; healthy=False; repair_actions=System.Object[]}.id)) - asset_type: mcp_server
   - Repair actions: Run certifier
-- **Apktool MCP** ($(@{id=apktool-mcp; display_name=Apktool MCP; asset_type=mcp_server; install_ok=True; env_ok=True; missing_env=System.Object[]; protocol_ok=failed; healthy=False; repair_actions=System.Object[]}.id)) - asset_type: mcp_server
-  - Repair actions: Run certifier
 - **Appium MCP** ($(@{id=appium-mcp; display_name=Appium MCP; asset_type=mcp_server; install_ok=True; env_ok=True; missing_env=System.Object[]; protocol_ok=unknown; healthy=False; repair_actions=System.Object[]}.id)) - asset_type: mcp_server
+  - Repair actions: Run certifier
+- **Android MCP** ($(@{id=android-mcp; display_name=Android MCP; asset_type=mcp_server; install_ok=True; env_ok=True; missing_env=System.Object[]; protocol_ok=failed; healthy=False; repair_actions=System.Object[]}.id)) - asset_type: mcp_server
   - Repair actions: Run certifier
 
 ## LLM Provider Token Status
