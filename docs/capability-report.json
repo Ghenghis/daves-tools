@@ -1,7 +1,7 @@
 {
-  "timestamp": "2026-08-22T02:28:36.6538981-07:00",
-  "total": 52,
-  "healthy": 52,
+  "timestamp": "2026-08-22T03:06:09.6083373-07:00",
+  "total": 62,
+  "healthy": 62,
   "unhealthy": 0,
   "results": [
     {
@@ -573,6 +573,116 @@
       "env_ok": true,
       "missing_env": [],
       "protocol_ok": "unknown",
+      "healthy": true,
+      "repair_actions": []
+    },
+    {
+      "id": "unity-ai-harness",
+      "display_name": "Unity AI Harness",
+      "asset_type": "tool_pack",
+      "install_ok": true,
+      "env_ok": true,
+      "missing_env": [],
+      "protocol_ok": "not_applicable",
+      "healthy": true,
+      "repair_actions": []
+    },
+    {
+      "id": "assetstudio",
+      "display_name": "AssetStudio",
+      "asset_type": "gui_dependency",
+      "install_ok": true,
+      "env_ok": true,
+      "missing_env": [],
+      "protocol_ok": "not_applicable",
+      "healthy": true,
+      "repair_actions": []
+    },
+    {
+      "id": "uabe",
+      "display_name": "UABE (Unity Assets Bundle Extractor)",
+      "asset_type": "gui_dependency",
+      "install_ok": true,
+      "env_ok": true,
+      "missing_env": [],
+      "protocol_ok": "not_applicable",
+      "healthy": true,
+      "repair_actions": []
+    },
+    {
+      "id": "bepinex",
+      "display_name": "BepInEx",
+      "asset_type": "tool_pack",
+      "install_ok": true,
+      "env_ok": true,
+      "missing_env": [],
+      "protocol_ok": "not_applicable",
+      "healthy": true,
+      "repair_actions": []
+    },
+    {
+      "id": "unitypy",
+      "display_name": "UnityPy",
+      "asset_type": "cli_dependency",
+      "install_ok": true,
+      "env_ok": true,
+      "missing_env": [],
+      "protocol_ok": "not_applicable",
+      "healthy": true,
+      "repair_actions": []
+    },
+    {
+      "id": "video2x",
+      "display_name": "Video2X",
+      "asset_type": "cli_dependency",
+      "install_ok": true,
+      "env_ok": true,
+      "missing_env": [],
+      "protocol_ok": "not_applicable",
+      "healthy": true,
+      "repair_actions": []
+    },
+    {
+      "id": "ffmpeg-mcp",
+      "display_name": "FFmpeg MCP",
+      "asset_type": "mcp_server",
+      "install_ok": true,
+      "env_ok": true,
+      "missing_env": [],
+      "protocol_ok": "passed",
+      "healthy": true,
+      "repair_actions": []
+    },
+    {
+      "id": "blender-mcp",
+      "display_name": "Blender MCP",
+      "asset_type": "cli_dependency",
+      "install_ok": true,
+      "env_ok": true,
+      "missing_env": [],
+      "protocol_ok": "not_applicable",
+      "healthy": true,
+      "repair_actions": []
+    },
+    {
+      "id": "comfyui-mcp",
+      "display_name": "ComfyUI MCP",
+      "asset_type": "mcp_server",
+      "install_ok": true,
+      "env_ok": true,
+      "missing_env": [],
+      "protocol_ok": "passed",
+      "healthy": true,
+      "repair_actions": []
+    },
+    {
+      "id": "comfyui",
+      "display_name": "ComfyUI (local)",
+      "asset_type": "tool_pack",
+      "install_ok": true,
+      "env_ok": true,
+      "missing_env": [],
+      "protocol_ok": "not_applicable",
       "healthy": true,
       "repair_actions": []
     }

@@ -1,0 +1,1 @@
+{"id":"blender-mcp","display_name":"Blender MCP","command":"npx","args":["-y","blender-mcp"],"start_time":"2026-08-22T10:05:22.044Z","init":"failed","list_tools":"unknown","schema_valid":"unknown","safe_call":"unknown","stop":"unknown","error":"MCP error -32000: Connection closed","duration_ms":4637,"tools":[],"safe_call_result":null,"verdict":"failed"}

@@ -2411,6 +2411,301 @@
         "last_verified": null,
         "evidence_id": null
       }
+    },
+    {
+      "id": "unity-ai-harness",
+      "display_name": "Unity AI Harness",
+      "asset_type": "tool_pack",
+      "category": "tool_pack",
+      "runtime": {
+        "transport": "none",
+        "command": "",
+        "args": [],
+        "env_refs": [],
+        "cwd": "G:\\MCP-Servers\\unity-ai-harness",
+        "healthcheck": {},
+        "timeout_ms": 30000,
+        "max_concurrency": 1,
+        "auto_start": false
+      },
+      "source": {
+        "url": "https://github.com/Ghenghis/UAH"
+      },
+      "verification": {
+        "install": "passed",
+        "protocol": "not_applicable",
+        "last_verified": "2026-08-22T10:00:48.780Z"
+      },
+      "metadata": {
+        "notes": "Local kit on disk; drives Unity Editor MCP pipeline (harnessctl)."
+      }
+    },
+    {
+      "id": "assetstudio",
+      "display_name": "AssetStudio",
+      "asset_type": "gui_dependency",
+      "category": "gui_dependency",
+      "runtime": {
+        "transport": "none",
+        "command": "",
+        "args": [],
+        "env_refs": [],
+        "cwd": null,
+        "healthcheck": {},
+        "timeout_ms": 30000,
+        "max_concurrency": 1,
+        "auto_start": false
+      },
+      "source": {
+        "url": "https://github.com/Perfare/AssetStudio"
+      },
+      "verification": {
+        "install": "passed",
+        "protocol": "not_applicable",
+        "last_verified": "2026-08-22T10:03:54.030Z"
+      },
+      "metadata": {
+        "notes": "Browse/export textures, sprites, audio from PC3 sharedassets."
+      }
+    },
+    {
+      "id": "uabe",
+      "display_name": "UABE (Unity Assets Bundle Extractor)",
+      "asset_type": "gui_dependency",
+      "category": "gui_dependency",
+      "runtime": {
+        "transport": "none",
+        "command": "",
+        "args": [],
+        "env_refs": [],
+        "cwd": null,
+        "healthcheck": {},
+        "timeout_ms": 30000,
+        "max_concurrency": 1,
+        "auto_start": false
+      },
+      "source": {
+        "url": "https://github.com/SeriousCache/UABE"
+      },
+      "verification": {
+        "install": "passed",
+        "protocol": "not_applicable",
+        "last_verified": "2026-08-22T10:03:54.030Z"
+      },
+      "metadata": {
+        "notes": "Re-import modified assets into PC3 sharedassets (branding swap)."
+      }
+    },
+    {
+      "id": "bepinex",
+      "display_name": "BepInEx",
+      "asset_type": "tool_pack",
+      "category": "tool_pack",
+      "runtime": {
+        "transport": "none",
+        "command": "",
+        "args": [],
+        "env_refs": [],
+        "cwd": null,
+        "healthcheck": {},
+        "timeout_ms": 30000,
+        "max_concurrency": 1,
+        "auto_start": false
+      },
+      "source": {
+        "url": "https://github.com/BepInEx/BepInEx"
+      },
+      "verification": {
+        "install": "passed",
+        "protocol": "not_applicable",
+        "last_verified": "2026-08-22T10:03:54.030Z"
+      },
+      "metadata": {
+        "notes": "Runtime C# plugin framework for live texture/branding swap in PC3 (Mono)."
+      }
+    },
+    {
+      "id": "unitypy",
+      "display_name": "UnityPy",
+      "asset_type": "cli_dependency",
+      "category": "cli_dependency",
+      "runtime": {
+        "transport": "none",
+        "command": "python",
+        "args": [
+          "-c",
+          "import UnityPy"
+        ],
+        "env_refs": [],
+        "cwd": null,
+        "healthcheck": {},
+        "timeout_ms": 30000,
+        "max_concurrency": 1,
+        "auto_start": false
+      },
+      "source": {
+        "url": "https://github.com/K0lb3/UnityPy"
+      },
+      "verification": {
+        "install": "passed",
+        "protocol": "not_applicable",
+        "last_verified": "2026-08-22T10:03:54.030Z"
+      },
+      "metadata": {
+        "notes": "Python lib for scripted PC3 asset extract/patch."
+      }
+    },
+    {
+      "id": "video2x",
+      "display_name": "Video2X",
+      "asset_type": "cli_dependency",
+      "category": "cli_dependency",
+      "runtime": {
+        "transport": "none",
+        "command": "video2x",
+        "args": [
+          "--help"
+        ],
+        "env_refs": [],
+        "cwd": null,
+        "healthcheck": {},
+        "timeout_ms": 30000,
+        "max_concurrency": 1,
+        "auto_start": false
+      },
+      "source": {
+        "url": "https://github.com/k4yt3x/video2x"
+      },
+      "verification": {
+        "install": "unknown",
+        "protocol": "not_applicable",
+        "last_verified": null
+      },
+      "metadata": {
+        "notes": "AI video upscaling (Real-ESRGAN) for modernizing old clips."
+      }
+    },
+    {
+      "id": "ffmpeg-mcp",
+      "display_name": "FFmpeg MCP",
+      "asset_type": "mcp_server",
+      "category": "mcp_server",
+      "runtime": {
+        "transport": "stdio",
+        "command": "npx",
+        "args": [
+          "-y",
+          "ffmpeg-mcp"
+        ],
+        "env_refs": [],
+        "cwd": null,
+        "healthcheck": {},
+        "timeout_ms": 30000,
+        "max_concurrency": 1,
+        "auto_start": true
+      },
+      "source": {
+        "url": "https://www.npmjs.com/package/ffmpeg-mcp"
+      },
+      "verification": {
+        "install": "passed",
+        "protocol": "passed",
+        "last_verified": "2026-08-22T10:06:02.164Z",
+        "domain_smoke": "not_applicable",
+        "evidence_id": "cert-ffmpeg-mcp"
+      },
+      "metadata": {
+        "notes": "Video encode/convert/upscale pipeline for PC3 webm + PC2 clip modernization."
+      }
+    },
+    {
+      "id": "blender-mcp",
+      "display_name": "Blender MCP",
+      "asset_type": "cli_dependency",
+      "category": "cli_dependency",
+      "runtime": {
+        "transport": "none",
+        "command": "",
+        "args": [],
+        "env_refs": [],
+        "cwd": null,
+        "healthcheck": {},
+        "timeout_ms": 30000,
+        "max_concurrency": 1,
+        "auto_start": false
+      },
+      "source": {
+        "url": "https://www.npmjs.com/package/blender-mcp"
+      },
+      "verification": {
+        "install": "unknown",
+        "protocol": "not_applicable",
+        "last_verified": "2026-08-22T10:06:02.164Z"
+      },
+      "metadata": {
+        "notes": "npx blender-mcp starts but closes without Blender+addon running; Blender not installed on this system. Reclassify to mcp_server if Blender installed."
+      }
+    },
+    {
+      "id": "comfyui-mcp",
+      "display_name": "ComfyUI MCP",
+      "asset_type": "mcp_server",
+      "category": "mcp_server",
+      "runtime": {
+        "transport": "stdio",
+        "command": "npx",
+        "args": [
+          "-y",
+          "comfyui-mcp"
+        ],
+        "env_refs": [],
+        "cwd": null,
+        "healthcheck": {},
+        "timeout_ms": 30000,
+        "max_concurrency": 1,
+        "auto_start": true
+      },
+      "source": {
+        "url": "https://www.npmjs.com/package/comfyui-mcp"
+      },
+      "verification": {
+        "install": "passed",
+        "protocol": "passed",
+        "last_verified": "2026-08-22T10:06:02.164Z",
+        "domain_smoke": "passed",
+        "evidence_id": "cert-comfyui-mcp"
+      },
+      "metadata": {
+        "notes": "AI image/video generation against local ComfyUI at G:/Github/ComfyUI (Hunyuan video)."
+      }
+    },
+    {
+      "id": "comfyui",
+      "display_name": "ComfyUI (local)",
+      "asset_type": "tool_pack",
+      "category": "tool_pack",
+      "runtime": {
+        "transport": "none",
+        "command": "",
+        "args": [],
+        "env_refs": [],
+        "cwd": "G:\\Github\\ComfyUI",
+        "healthcheck": {},
+        "timeout_ms": 30000,
+        "max_concurrency": 1,
+        "auto_start": false
+      },
+      "source": {
+        "url": "https://github.com/comfyanonymous/ComfyUI"
+      },
+      "verification": {
+        "install": "passed",
+        "protocol": "not_applicable",
+        "last_verified": "2026-08-22T10:03:54.030Z"
+      },
+      "metadata": {
+        "notes": "Local install G:/Github/ComfyUI; models G:/models; LoRAs G:/Github/Loras; workflows G:/Comfy_Workflows; video via ComfyUI-Hunyuan."
+      }
     }
   ]
 }
