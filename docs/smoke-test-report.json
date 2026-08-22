@@ -1,0 +1,14 @@
+{
+  "timestamp": "2026-08-22T10:52:31.665Z",
+  "mode": "fast",
+  "assets": 62,
+  "live_certified": 0,
+  "failures": [],
+  "warnings": [
+    "serena: env var UV_PYTHON not set in this environment",
+    "github-mcp: env var GITHUB_PERSONAL_ACCESS_TOKEN not set in this environment",
+    "gitlab-mcp: env var GITLAB_PERSONAL_ACCESS_TOKEN not set in this environment",
+    "searxng-mcp: env var SEARXNG_URL not set in this environment"
+  ],
+  "verdict": "passed"
+}

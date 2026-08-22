@@ -121,13 +121,13 @@
         "command": "uv",
         "args": [
           "run",
-          "G:/MCP-Servers/serena/scripts/mcp_server.py"
+          "scripts/mcp_server.py"
         ],
         "env_refs": [
           "UV_PYTHON",
           "PATH"
         ],
-        "cwd": null,
+        "cwd": "G:/MCP-Servers/serena",
         "healthcheck": {},
         "timeout_ms": 30000,
         "max_concurrency": 1,
@@ -146,8 +146,8 @@
       "verification": {
         "install": "passed",
         "protocol": "passed",
-        "domain_smoke": "unknown",
-        "last_verified": "2026-08-22T05:17:58.378Z",
+        "domain_smoke": "passed",
+        "last_verified": "2026-08-22T10:41:32.740Z",
         "evidence_id": "cert-serena"
       }
     },
@@ -266,7 +266,7 @@
         "command": "npx",
         "args": [
           "-y",
-          "@upstash/context7-mcp@latest"
+          "@upstash/context7-mcp@4.0.3"
         ],
         "env_refs": [],
         "cwd": null,
@@ -288,6 +288,9 @@
         "domain_smoke": "not_applicable",
         "last_verified": "2026-08-19T22:57:48.633Z",
         "evidence_id": "cert-context7"
+      },
+      "metadata": {
+        "pinned_version": "4.0.3"
       }
     },
     {
@@ -315,7 +318,7 @@
         "command": "npx",
         "args": [
           "-y",
-          "@modelcontextprotocol/server-github"
+          "@modelcontextprotocol/server-github@2025.4.8"
         ],
         "env_refs": [
           "GITHUB_PERSONAL_ACCESS_TOKEN"
@@ -341,6 +344,9 @@
         "domain_smoke": "not_applicable",
         "last_verified": "2026-08-19T23:08:24.093Z",
         "evidence_id": "cert-github-mcp"
+      },
+      "metadata": {
+        "pinned_version": "2025.4.8"
       }
     },
     {
@@ -368,7 +374,7 @@
         "command": "npx",
         "args": [
           "-y",
-          "@modelcontextprotocol/server-gitlab"
+          "@modelcontextprotocol/server-gitlab@2025.4.25"
         ],
         "env_refs": [
           "GITLAB_PERSONAL_ACCESS_TOKEN"
@@ -394,6 +400,9 @@
         "domain_smoke": "failed",
         "last_verified": "2026-08-20T22:03:48.988Z",
         "evidence_id": "cert-gitlab-mcp"
+      },
+      "metadata": {
+        "pinned_version": "2025.4.25"
       }
     },
     {
@@ -420,7 +429,7 @@
         "command": "npx",
         "args": [
           "-y",
-          "mcp-searxng"
+          "mcp-searxng@2.0.0"
         ],
         "env_refs": [
           "SEARXNG_URL"
@@ -444,6 +453,9 @@
         "domain_smoke": "passed",
         "last_verified": "2026-08-22T05:17:58.378Z",
         "evidence_id": "cert-searxng-mcp"
+      },
+      "metadata": {
+        "pinned_version": "2.0.0"
       }
     },
     {
@@ -988,6 +1000,9 @@
         "domain_smoke": "passed",
         "last_verified": "2026-08-20T03:00:02.633Z",
         "evidence_id": "cert-apktool-mcp"
+      },
+      "metadata": {
+        "isolation": "container"
       }
     },
     {
@@ -2595,7 +2610,7 @@
         "command": "npx",
         "args": [
           "-y",
-          "ffmpeg-mcp"
+          "ffmpeg-mcp@0.0.3"
         ],
         "env_refs": [],
         "cwd": null,
@@ -2610,12 +2625,13 @@
       "verification": {
         "install": "passed",
         "protocol": "passed",
-        "last_verified": "2026-08-22T10:06:02.164Z",
+        "last_verified": "2026-08-22T10:22:25.379Z",
         "domain_smoke": "not_applicable",
         "evidence_id": "cert-ffmpeg-mcp"
       },
       "metadata": {
-        "notes": "Video encode/convert/upscale pipeline for PC3 webm + PC2 clip modernization."
+        "notes": "Video encode/convert/upscale pipeline for PC3 webm + PC2 clip modernization.",
+        "pinned_version": "0.0.3"
       }
     },
     {
@@ -2656,7 +2672,7 @@
         "command": "npx",
         "args": [
           "-y",
-          "comfyui-mcp"
+          "comfyui-mcp@0.52.57"
         ],
         "env_refs": [],
         "cwd": null,
@@ -2671,12 +2687,13 @@
       "verification": {
         "install": "passed",
         "protocol": "passed",
-        "last_verified": "2026-08-22T10:06:02.164Z",
+        "last_verified": "2026-08-22T10:33:34.766Z",
         "domain_smoke": "passed",
         "evidence_id": "cert-comfyui-mcp"
       },
       "metadata": {
-        "notes": "AI image/video generation against local ComfyUI at G:/Github/ComfyUI (Hunyuan video)."
+        "notes": "AI image/video generation against local ComfyUI at G:/Github/ComfyUI (Hunyuan video).",
+        "pinned_version": "0.52.57"
       }
     },
     {
@@ -2690,7 +2707,9 @@
         "args": [],
         "env_refs": [],
         "cwd": "G:\\Github\\ComfyUI",
-        "healthcheck": {},
+        "healthcheck": {
+          "url": "http://localhost:8188/"
+        },
         "timeout_ms": 30000,
         "max_concurrency": 1,
         "auto_start": false

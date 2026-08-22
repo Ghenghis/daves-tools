@@ -1,1 +1,89 @@
 {"timestamp":"2026-08-19T22:56:02.993Z","type":"certification.test","asset":"local-test","verdict":"passed","evidence":"docs/local-test-certification.json"}
+{"timestamp":"2026-08-22T10:12:33.158Z","type":"mcp.heartbeat_fail","key":"serena","failures":1,"error":"MCP error -32000: Connection closed","source":"watchdog"}
+{"timestamp":"2026-08-22T10:12:43.145Z","type":"mcp.heartbeat_ok","key":"context7","latency_ms":9952,"source":"watchdog"}
+{"timestamp":"2026-08-22T10:12:48.242Z","type":"mcp.heartbeat_ok","key":"github-mcp","latency_ms":5063,"source":"watchdog"}
+{"timestamp":"2026-08-22T10:12:53.459Z","type":"mcp.heartbeat_fail","key":"gitlab-mcp","failures":1,"error":"MCP error -32000: Connection closed","source":"watchdog"}
+{"timestamp":"2026-08-22T10:13:02.191Z","type":"mcp.heartbeat_ok","key":"searxng-mcp","latency_ms":8684,"source":"watchdog"}
+{"timestamp":"2026-08-22T10:13:02.616Z","type":"mcp.heartbeat_ok","key":"android-mcp","latency_ms":412,"source":"watchdog"}
+{"timestamp":"2026-08-22T10:13:08.016Z","type":"mcp.heartbeat_ok","key":"appium-mcp","latency_ms":5273,"source":"watchdog"}
+{"timestamp":"2026-08-22T10:13:22.069Z","type":"mcp.heartbeat_fail","key":"apktool-mcp","failures":1,"error":"connect timeout","source":"watchdog"}
+{"timestamp":"2026-08-22T10:13:22.246Z","type":"mcp.heartbeat_fail","key":"hyper-v-mcp","failures":1,"error":"MCP error -32000: Connection closed","source":"watchdog"}
+{"timestamp":"2026-08-22T10:13:22.436Z","type":"mcp.heartbeat_fail","key":"x64dbg-automate-mcp","failures":1,"error":"MCP error -32000: Connection closed","source":"watchdog"}
+{"timestamp":"2026-08-22T10:13:27.924Z","type":"mcp.heartbeat_ok","key":"ffmpeg-mcp","latency_ms":5455,"source":"watchdog"}
+{"timestamp":"2026-08-22T10:13:39.189Z","type":"mcp.heartbeat_ok","key":"comfyui-mcp","latency_ms":8220,"source":"watchdog"}
+{"timestamp":"2026-08-22T10:13:56.006Z","type":"mcp.heartbeat_fail","key":"serena","failures":2,"error":"MCP error -32000: Connection closed","source":"watchdog"}
+{"timestamp":"2026-08-22T10:14:01.033Z","type":"mcp.heartbeat_ok","key":"context7","latency_ms":4992,"source":"watchdog"}
+{"timestamp":"2026-08-22T10:14:05.619Z","type":"mcp.heartbeat_ok","key":"github-mcp","latency_ms":4556,"source":"watchdog"}
+{"timestamp":"2026-08-22T10:14:10.181Z","type":"mcp.heartbeat_fail","key":"gitlab-mcp","failures":2,"error":"MCP error -32000: Connection closed","source":"watchdog"}
+{"timestamp":"2026-08-22T10:14:15.010Z","type":"mcp.heartbeat_ok","key":"searxng-mcp","latency_ms":4790,"source":"watchdog"}
+{"timestamp":"2026-08-22T10:14:15.320Z","type":"mcp.heartbeat_ok","key":"android-mcp","latency_ms":297,"source":"watchdog"}
+{"timestamp":"2026-08-22T10:14:18.601Z","type":"mcp.heartbeat_ok","key":"appium-mcp","latency_ms":3157,"source":"watchdog"}
+{"timestamp":"2026-08-22T10:26:24.943Z","type":"mcp.heartbeat_fail","key":"serena","failures":3,"error":"MCP error -32000: Connection closed","source":"watchdog"}
+{"timestamp":"2026-08-22T10:26:24.944Z","type":"mcp.repair_triggered","key":"serena"}
+{"timestamp":"2026-08-22T10:26:25.677Z","type":"mcp.repair_result","key":"serena","ok":false,"error":"Command failed: pwsh -ExecutionPolicy Bypass -File C:\\Users\\Admin\\CascadeProjects\\daves-tools\\toolkit\\Auto-Repair.ps1 -Only serena\n\u001b[31;1mAuto-Repair.ps1: \u001b[31;1mA parameter cannot be found that matches parameter name 'Only'.\u001b[0m\r\n"}
+{"timestamp":"2026-08-22T10:26:30.866Z","type":"mcp.heartbeat_ok","key":"context7","latency_ms":5147,"source":"watchdog"}
+{"timestamp":"2026-08-22T10:26:35.852Z","type":"mcp.heartbeat_ok","key":"github-mcp","latency_ms":4950,"source":"watchdog"}
+{"timestamp":"2026-08-22T10:26:40.667Z","type":"mcp.heartbeat_fail","key":"gitlab-mcp","failures":3,"error":"MCP error -32000: Connection closed","source":"watchdog"}
+{"timestamp":"2026-08-22T10:26:40.669Z","type":"mcp.repair_triggered","key":"gitlab-mcp"}
+{"timestamp":"2026-08-22T10:26:41.502Z","type":"mcp.repair_result","key":"gitlab-mcp","ok":false,"error":"Command failed: pwsh -ExecutionPolicy Bypass -File C:\\Users\\Admin\\CascadeProjects\\daves-tools\\toolkit\\Auto-Repair.ps1 -Only gitlab-mcp\n\u001b[31;1mAuto-Repair.ps1: \u001b[31;1mA parameter cannot be found that matches parameter name 'Only'.\u001b[0m\r\n"}
+{"timestamp":"2026-08-22T10:26:47.107Z","type":"mcp.heartbeat_ok","key":"searxng-mcp","latency_ms":5551,"source":"watchdog"}
+{"timestamp":"2026-08-22T10:26:47.450Z","type":"mcp.heartbeat_ok","key":"android-mcp","latency_ms":330,"source":"watchdog"}
+{"timestamp":"2026-08-22T10:26:50.922Z","type":"mcp.heartbeat_ok","key":"appium-mcp","latency_ms":3341,"source":"watchdog"}
+{"timestamp":"2026-08-22T10:26:52.723Z","type":"mcp.heartbeat_ok","key":"apktool-mcp","latency_ms":1665,"source":"watchdog"}
+{"timestamp":"2026-08-22T10:26:52.824Z","type":"mcp.heartbeat_fail","key":"hyper-v-mcp","failures":2,"error":"MCP error -32000: Connection closed","source":"watchdog"}
+{"timestamp":"2026-08-22T10:26:52.918Z","type":"mcp.heartbeat_fail","key":"x64dbg-automate-mcp","failures":2,"error":"MCP error -32000: Connection closed","source":"watchdog"}
+{"timestamp":"2026-08-22T10:26:57.846Z","type":"mcp.heartbeat_ok","key":"ffmpeg-mcp","latency_ms":4893,"source":"watchdog"}
+{"timestamp":"2026-08-22T10:27:17.211Z","type":"mcp.heartbeat_fail","key":"comfyui-mcp","failures":1,"error":"MCP error -32000: Connection closed","source":"watchdog"}
+{"timestamp":"2026-08-22T10:27:17.255Z","type":"mcp.http_fail","key":"comfyui","failures":1,"error":"fetch failed"}
+{"timestamp":"2026-08-22T10:33:37.292Z","type":"watchdog.env_loaded","vars":96}
+{"timestamp":"2026-08-22T10:34:01.713Z","type":"mcp.heartbeat_fail","key":"serena","failures":4,"error":"MCP error -32000: Connection closed","source":"watchdog"}
+{"timestamp":"2026-08-22T10:34:01.713Z","type":"mcp.repair_triggered","key":"serena"}
+{"timestamp":"2026-08-22T10:34:02.467Z","type":"mcp.repair_result","key":"serena","ok":false,"error":"Command failed: pwsh -ExecutionPolicy Bypass -File C:\\Users\\Admin\\CascadeProjects\\daves-tools\\toolkit\\Auto-Repair.ps1 -Only serena\n\u001b[31;1mAuto-Repair.ps1: \u001b[31;1mA parameter cannot be found that matches parameter name 'Only'.\u001b[0m\r\n"}
+{"timestamp":"2026-08-22T10:34:13.684Z","type":"mcp.heartbeat_ok","key":"context7","latency_ms":11170,"source":"watchdog"}
+{"timestamp":"2026-08-22T10:34:20.608Z","type":"mcp.heartbeat_ok","key":"github-mcp","latency_ms":6886,"source":"watchdog"}
+{"timestamp":"2026-08-22T10:34:36.673Z","type":"mcp.heartbeat_ok","key":"gitlab-mcp","latency_ms":16019,"source":"watchdog"}
+{"timestamp":"2026-08-22T10:34:51.565Z","type":"mcp.heartbeat_ok","key":"searxng-mcp","latency_ms":14820,"source":"watchdog"}
+{"timestamp":"2026-08-22T10:34:51.928Z","type":"mcp.heartbeat_ok","key":"android-mcp","latency_ms":349,"source":"watchdog"}
+{"timestamp":"2026-08-22T10:34:55.531Z","type":"mcp.heartbeat_ok","key":"appium-mcp","latency_ms":3469,"source":"watchdog"}
+{"timestamp":"2026-08-22T10:35:03.303Z","type":"mcp.heartbeat_ok","key":"apktool-mcp","latency_ms":7620,"source":"watchdog"}
+{"timestamp":"2026-08-22T10:35:05.739Z","type":"mcp.heartbeat_fail","key":"hyper-v-mcp","failures":3,"error":"MCP error -32000: Connection closed","source":"watchdog"}
+{"timestamp":"2026-08-22T10:35:05.739Z","type":"mcp.repair_triggered","key":"hyper-v-mcp"}
+{"timestamp":"2026-08-22T10:35:06.437Z","type":"mcp.repair_result","key":"hyper-v-mcp","ok":false,"error":"Command failed: pwsh -ExecutionPolicy Bypass -File C:\\Users\\Admin\\CascadeProjects\\daves-tools\\toolkit\\Auto-Repair.ps1 -Only hyper-v-mcp\n\u001b[31;1mAuto-Repair.ps1: \u001b[31;1mA parameter cannot be found that matches parameter name 'Only'.\u001b[0m\r\n"}
+{"timestamp":"2026-08-22T10:35:07.708Z","type":"mcp.heartbeat_fail","key":"x64dbg-automate-mcp","failures":3,"error":"MCP error -32000: Connection closed","source":"watchdog"}
+{"timestamp":"2026-08-22T10:35:07.708Z","type":"mcp.repair_triggered","key":"x64dbg-automate-mcp"}
+{"timestamp":"2026-08-22T10:35:08.397Z","type":"mcp.repair_result","key":"x64dbg-automate-mcp","ok":false,"error":"Command failed: pwsh -ExecutionPolicy Bypass -File C:\\Users\\Admin\\CascadeProjects\\daves-tools\\toolkit\\Auto-Repair.ps1 -Only x64dbg-automate-mcp\n\u001b[31;1mAuto-Repair.ps1: \u001b[31;1mA parameter cannot be found that matches parameter name 'Only'.\u001b[0m\r\n"}
+{"timestamp":"2026-08-22T10:35:16.066Z","type":"mcp.heartbeat_ok","key":"ffmpeg-mcp","latency_ms":7630,"source":"watchdog"}
+{"timestamp":"2026-08-22T10:35:22.673Z","type":"mcp.heartbeat_ok","key":"comfyui-mcp","latency_ms":5489,"source":"watchdog"}
+{"timestamp":"2026-08-22T10:35:22.731Z","type":"mcp.http_fail","key":"comfyui","failures":2,"error":"fetch failed"}
+{"timestamp":"2026-08-22T10:35:48.583Z","type":"watchdog.env_loaded","vars":96}
+{"timestamp":"2026-08-22T10:36:01.221Z","type":"mcp.heartbeat_fail","key":"serena","failures":5,"error":"MCP error -32000: Connection closed","source":"watchdog"}
+{"timestamp":"2026-08-22T10:36:01.221Z","type":"mcp.repair_triggered","key":"serena"}
+{"timestamp":"2026-08-22T10:36:01.910Z","type":"mcp.repair_result","key":"serena","ok":false,"error":"Command failed: pwsh -ExecutionPolicy Bypass -File C:\\Users\\Admin\\CascadeProjects\\daves-tools\\toolkit\\Auto-Repair.ps1 -Only serena\n\u001b[31;1mAuto-Repair.ps1: \u001b[31;1mA parameter cannot be found that matches parameter name 'Only'.\u001b[0m\r\n"}
+{"timestamp":"2026-08-22T10:36:07.007Z","type":"mcp.heartbeat_ok","key":"context7","latency_ms":5059,"source":"watchdog"}
+{"timestamp":"2026-08-22T10:36:11.732Z","type":"mcp.heartbeat_ok","key":"github-mcp","latency_ms":4693,"source":"watchdog"}
+{"timestamp":"2026-08-22T10:36:16.340Z","type":"mcp.heartbeat_ok","key":"gitlab-mcp","latency_ms":4575,"source":"watchdog"}
+{"timestamp":"2026-08-22T10:36:21.228Z","type":"mcp.heartbeat_ok","key":"searxng-mcp","latency_ms":4850,"source":"watchdog"}
+{"timestamp":"2026-08-22T10:36:21.541Z","type":"mcp.heartbeat_ok","key":"android-mcp","latency_ms":301,"source":"watchdog"}
+{"timestamp":"2026-08-22T10:36:24.929Z","type":"mcp.heartbeat_ok","key":"appium-mcp","latency_ms":3260,"source":"watchdog"}
+{"timestamp":"2026-08-22T10:36:30.980Z","type":"mcp.heartbeat_ok","key":"apktool-mcp","latency_ms":5902,"source":"watchdog"}
+{"timestamp":"2026-08-22T10:36:32.153Z","type":"mcp.heartbeat_ok","key":"hyper-v-mcp","latency_ms":1089,"source":"watchdog"}
+{"timestamp":"2026-08-22T10:36:33.318Z","type":"mcp.heartbeat_ok","key":"x64dbg-automate-mcp","latency_ms":1059,"source":"watchdog"}
+{"timestamp":"2026-08-22T10:36:38.177Z","type":"mcp.heartbeat_ok","key":"ffmpeg-mcp","latency_ms":4827,"source":"watchdog"}
+{"timestamp":"2026-08-22T10:36:44.682Z","type":"mcp.heartbeat_ok","key":"comfyui-mcp","latency_ms":5399,"source":"watchdog"}
+{"timestamp":"2026-08-22T10:36:44.726Z","type":"mcp.http_fail","key":"comfyui","failures":3,"error":"fetch failed"}
+{"timestamp":"2026-08-22T10:41:32.989Z","type":"watchdog.env_loaded","vars":96}
+{"timestamp":"2026-08-22T10:42:03.967Z","type":"mcp.heartbeat_fail","key":"serena","failures":6,"error":"connect timeout","source":"watchdog"}
+{"timestamp":"2026-08-22T10:42:03.967Z","type":"mcp.repair_triggered","key":"serena"}
+{"timestamp":"2026-08-22T10:42:04.659Z","type":"mcp.repair_result","key":"serena","ok":false,"error":"Command failed: pwsh -ExecutionPolicy Bypass -File C:\\Users\\Admin\\CascadeProjects\\daves-tools\\toolkit\\Auto-Repair.ps1 -Only serena\n\u001b[31;1mAuto-Repair.ps1: \u001b[31;1mA parameter cannot be found that matches parameter name 'Only'.\u001b[0m\r\n"}
+{"timestamp":"2026-08-22T10:42:09.677Z","type":"mcp.heartbeat_ok","key":"context7","latency_ms":4981,"source":"watchdog"}
+{"timestamp":"2026-08-22T10:42:14.924Z","type":"mcp.heartbeat_ok","key":"github-mcp","latency_ms":5210,"source":"watchdog"}
+{"timestamp":"2026-08-22T10:42:19.649Z","type":"mcp.heartbeat_ok","key":"gitlab-mcp","latency_ms":4692,"source":"watchdog"}
+{"timestamp":"2026-08-22T10:42:24.683Z","type":"mcp.heartbeat_ok","key":"searxng-mcp","latency_ms":4989,"source":"watchdog"}
+{"timestamp":"2026-08-22T10:42:24.983Z","type":"mcp.heartbeat_ok","key":"android-mcp","latency_ms":288,"source":"watchdog"}
+{"timestamp":"2026-08-22T10:42:28.204Z","type":"mcp.heartbeat_ok","key":"appium-mcp","latency_ms":3093,"source":"watchdog"}
+{"timestamp":"2026-08-22T10:42:35.772Z","type":"mcp.heartbeat_ok","key":"apktool-mcp","latency_ms":7411,"source":"watchdog"}
+{"timestamp":"2026-08-22T10:42:36.703Z","type":"mcp.heartbeat_ok","key":"hyper-v-mcp","latency_ms":861,"source":"watchdog"}
+{"timestamp":"2026-08-22T10:42:37.681Z","type":"mcp.heartbeat_ok","key":"x64dbg-automate-mcp","latency_ms":902,"source":"watchdog"}
+{"timestamp":"2026-08-22T10:42:42.408Z","type":"mcp.heartbeat_ok","key":"ffmpeg-mcp","latency_ms":4696,"source":"watchdog"}
+{"timestamp":"2026-08-22T10:42:48.995Z","type":"mcp.heartbeat_ok","key":"comfyui-mcp","latency_ms":5470,"source":"watchdog"}
+{"timestamp":"2026-08-22T10:42:49.052Z","type":"mcp.http_fail","key":"comfyui","failures":4,"error":"fetch failed"}

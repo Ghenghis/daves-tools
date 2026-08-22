@@ -1,6 +1,8 @@
 const { Client } = require('@modelcontextprotocol/sdk/client/index.js');
 const { StdioClientTransport } = require('@modelcontextprotocol/sdk/client/stdio.js');
 const { setHealth } = require('./registry.js');
+const supervisor = require('./supervisor.js');
+const { buildContainerCommand } = require('./container.js');
 
 const active = new Map();
 let registryRef = { servers: {} };
@@ -14,11 +16,18 @@ async function enable(registry, key, sendNotification) {
   if (!server) throw new Error(`Unknown MCP: ${key}`);
   if (active.has(key)) return { status: 'already active', tools: Object.keys(active.get(key).tools) };
 
+  const container = buildContainerCommand({ runtime: server.snippet, metadata: (server.snippet && server.snippet.metadata) || {} });
+  const usingContainer = container && !container.fallback;
+  const command = usingContainer ? container.command : server.snippet.command;
+  const args = usingContainer ? container.args : (server.snippet.args || []);
+  const cwd = usingContainer ? container.cwd : (server.snippet.cwd || undefined);
+
   const child = new Client({ name: `harness-child-${key}`, version: '1.0.0' });
   const transport = new StdioClientTransport({
-    command: server.snippet.command,
-    args: server.snippet.args || [],
-    env: { ...process.env, ...(server.snippet.env || {}) }
+    command,
+    args,
+    env: { ...process.env, ...(server.snippet.env || {}) },
+    cwd
   });
 
   try {
@@ -37,6 +46,10 @@ async function enable(registry, key, sendNotification) {
     registry.servers[key].enabled = true;
     registry.servers[key].health = 'healthy';
     setHealth(registry, key, 'healthy');
+    supervisor.watch(key, child, () => restart(registry, key, sendNotification), {
+      httpUrl: (server.snippet.healthcheck && server.snippet.healthcheck.url) || null,
+      intervalMs: (server.snippet.healthcheck && server.snippet.healthcheck.interval_ms) || undefined
+    });
     if (sendNotification) sendNotification({ method: 'notifications/tools/list_changed' });
     return { status: 'active', tools: Object.keys(toolMap), count: Object.keys(toolMap).length };
   } catch (err) {
@@ -49,6 +62,7 @@ async function enable(registry, key, sendNotification) {
 async function disable(registry, key, sendNotification) {
   const entry = active.get(key);
   if (!entry) return { status: 'not active' };
+  supervisor.unwatch(key);
   try { await entry.client.close(); } catch {}
   active.delete(key);
   registry.servers[key].enabled = false;
@@ -56,6 +70,20 @@ async function disable(registry, key, sendNotification) {
   setHealth(registry, key, 'idle');
   if (sendNotification) sendNotification({ method: 'notifications/tools/list_changed' });
   return { status: 'disabled', key };
+}
+
+async function restart(registry, key, sendNotification) {
+  const entry = active.get(key);
+  if (entry) {
+    supervisor.unwatch(key);
+    try { await entry.client.close(); } catch {}
+    active.delete(key);
+  }
+  return await enable(registry, key, sendNotification);
+}
+
+function getSupervisorStatus() {
+  return supervisor.getStatus();
 }
 
 function listActive() {
@@ -98,4 +126,4 @@ async function callTool(fullName, args) {
   throw new Error(`Tool ${fullName} is not active. Enable its parent MCP first.`);
 }
 
-module.exports = { setRegistry, enable, disable, listActive, getActiveToolNames, getActiveToolsMeta, callTool };
+module.exports = { setRegistry, enable, disable, restart, listActive, getActiveToolNames, getActiveToolsMeta, getSupervisorStatus, callTool };

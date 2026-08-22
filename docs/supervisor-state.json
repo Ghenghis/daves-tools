@@ -1,0 +1,135 @@
+{
+  "started_at": "2026-08-22T10:12:32.934Z",
+  "servers": {
+    "serena": {
+      "status": "dead",
+      "last_heartbeat": null,
+      "last_latency_ms": 30029,
+      "consecutive_failures": 6,
+      "restart_count": 4,
+      "last_restart_at": "2026-08-22T10:42:04.659Z",
+      "last_error": "connect timeout",
+      "last_repair_at": "2026-08-22T10:42:04.659Z"
+    },
+    "context7": {
+      "status": "up",
+      "last_heartbeat": "2026-08-22T10:42:09.677Z",
+      "last_latency_ms": 4981,
+      "consecutive_failures": 0,
+      "restart_count": 0,
+      "last_restart_at": null,
+      "last_error": null,
+      "last_repair_at": null
+    },
+    "github-mcp": {
+      "status": "up",
+      "last_heartbeat": "2026-08-22T10:42:14.924Z",
+      "last_latency_ms": 5210,
+      "consecutive_failures": 0,
+      "restart_count": 0,
+      "last_restart_at": null,
+      "last_error": null,
+      "last_repair_at": null
+    },
+    "gitlab-mcp": {
+      "status": "up",
+      "last_heartbeat": "2026-08-22T10:42:19.649Z",
+      "last_latency_ms": 4692,
+      "consecutive_failures": 0,
+      "restart_count": 1,
+      "last_restart_at": "2026-08-22T10:26:41.502Z",
+      "last_error": null,
+      "last_repair_at": "2026-08-22T10:26:41.502Z"
+    },
+    "searxng-mcp": {
+      "status": "up",
+      "last_heartbeat": "2026-08-22T10:42:24.683Z",
+      "last_latency_ms": 4989,
+      "consecutive_failures": 0,
+      "restart_count": 0,
+      "last_restart_at": null,
+      "last_error": null,
+      "last_repair_at": null
+    },
+    "android-mcp": {
+      "status": "up",
+      "last_heartbeat": "2026-08-22T10:42:24.983Z",
+      "last_latency_ms": 288,
+      "consecutive_failures": 0,
+      "restart_count": 0,
+      "last_restart_at": null,
+      "last_error": null,
+      "last_repair_at": null
+    },
+    "appium-mcp": {
+      "status": "up",
+      "last_heartbeat": "2026-08-22T10:42:28.204Z",
+      "last_latency_ms": 3093,
+      "consecutive_failures": 0,
+      "restart_count": 0,
+      "last_restart_at": null,
+      "last_error": null,
+      "last_repair_at": null
+    },
+    "apktool-mcp": {
+      "status": "up",
+      "last_heartbeat": "2026-08-22T10:42:35.772Z",
+      "last_latency_ms": 7411,
+      "consecutive_failures": 0,
+      "restart_count": 0,
+      "last_restart_at": null,
+      "last_error": null,
+      "last_repair_at": null
+    },
+    "hyper-v-mcp": {
+      "status": "up",
+      "last_heartbeat": "2026-08-22T10:42:36.703Z",
+      "last_latency_ms": 861,
+      "consecutive_failures": 0,
+      "restart_count": 1,
+      "last_restart_at": "2026-08-22T10:35:06.437Z",
+      "last_error": null,
+      "last_repair_at": "2026-08-22T10:35:06.437Z"
+    },
+    "x64dbg-automate-mcp": {
+      "status": "up",
+      "last_heartbeat": "2026-08-22T10:42:37.681Z",
+      "last_latency_ms": 902,
+      "consecutive_failures": 0,
+      "restart_count": 1,
+      "last_restart_at": "2026-08-22T10:35:08.397Z",
+      "last_error": null,
+      "last_repair_at": "2026-08-22T10:35:08.397Z"
+    },
+    "ffmpeg-mcp": {
+      "status": "up",
+      "last_heartbeat": "2026-08-22T10:42:42.408Z",
+      "last_latency_ms": 4696,
+      "consecutive_failures": 0,
+      "restart_count": 0,
+      "last_restart_at": null,
+      "last_error": null,
+      "last_repair_at": null
+    },
+    "comfyui-mcp": {
+      "status": "up",
+      "last_heartbeat": "2026-08-22T10:42:48.995Z",
+      "last_latency_ms": 5470,
+      "consecutive_failures": 0,
+      "restart_count": 0,
+      "last_restart_at": null,
+      "last_error": null,
+      "last_repair_at": null
+    },
+    "comfyui": {
+      "status": "degraded",
+      "last_heartbeat": null,
+      "last_latency_ms": 56,
+      "consecutive_failures": 4,
+      "restart_count": 0,
+      "last_restart_at": null,
+      "last_error": "fetch failed",
+      "last_repair_at": null
+    }
+  }
+}

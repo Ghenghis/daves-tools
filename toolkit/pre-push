@@ -1,0 +1,12 @@
+#!/bin/sh
+# Blocks push if the MCP smoke test fails.
+# Install: copy to .git/hooks/pre-push (or run toolkit/Install-GitHooks.ps1)
+
+echo "pre-push: running MCP smoke test (fast)..."
+node toolkit/Smoke-Test.js --fast
+if [ $? -ne 0 ]; then
+  echo "pre-push: smoke test FAILED - push blocked. See docs/smoke-test-report.json"
+  exit 1
+fi
+echo "pre-push: smoke test passed."
+exit 0

@@ -2,6 +2,8 @@
 param(
     [string]$RegistryPath = "C:\Users\Admin\CascadeProjects\daves-tools\configs\typed-registry.json",
     [string]$DoctorPath   = "C:\Users\Admin\CascadeProjects\daves-tools\docs\capability-report.json",
+    [string]$HarnessEntry = "C:\Users\Admin\CascadeProjects\daves-tools\harness\index.js",
+    [switch]$FanOut,
     [switch]$WhatIf
 )
 
@@ -50,8 +52,18 @@ function Merge-McpConfig($FilePath, $McpServers, $TopKey = $null) {
     Write-Output "Wrote $FilePath"
 }
 
-$mcp = Get-McpServers
-Write-Output "Installing $($mcp.Count) healthy MCP servers into IDE configs..."
+if ($FanOut) {
+    $mcp = Get-McpServers
+    Write-Output "Fan-out mode: installing $($mcp.Count) healthy MCP servers into IDE configs..."
+} else {
+    $mcp = @{
+        'daves-tools-harness' = @{
+            command = 'node'
+            args    = @($HarnessEntry)
+        }
+    }
+    Write-Output "Gateway mode: IDEs get single daves-tools-harness entry (harness fans out to $($healthy.Count) healthy MCPs)."
+}
 
 $appData = $env:APPDATA
 $userProf = $env:USERPROFILE
@@ -67,5 +79,13 @@ Merge-McpConfig -FilePath "$userProf\.kilocode\mcp.json" -McpServers $mcp
 
 # Devin
 Merge-McpConfig -FilePath "$userProf\.devin\mcp.json" -McpServers $mcp
+
+# Reference fan-out configs (not live) for audit/fallback
+$fan = Get-McpServers
+$refDir = "C:\Users\Admin\CascadeProjects\daves-tools\configs\mcp-ide"
+Merge-McpConfig -FilePath "$refDir\claude_desktop_config.json" -McpServers $fan
+Merge-McpConfig -FilePath "$refDir\codex_mcp.json" -McpServers $fan
+Merge-McpConfig -FilePath "$refDir\kilocode_mcp.json" -McpServers $fan
+Merge-McpConfig -FilePath "$refDir\devin_mcp.json" -McpServers $fan
 
 Write-Output "IDE config installation complete."

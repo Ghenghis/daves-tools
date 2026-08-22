@@ -1,6 +1,7 @@
 const { Client } = require('@modelcontextprotocol/sdk/client/index.js');
 const { StdioClientTransport } = require('@modelcontextprotocol/sdk/client/stdio.js');
 const { z } = require('zod');
+const { buildContainerCommand } = require('./container.js');
 
 const DEFAULT_TIMEOUT_MS = 30000;
 const CALL_TIMEOUT_MS = 15000;
@@ -40,7 +41,10 @@ async function certify(asset, options = {}) {
     error: null,
     duration_ms: 0,
     tools: [],
-    safe_call_result: null
+    safe_call_result: null,
+    server_version: null,
+    pinned_version: (asset.metadata && asset.metadata.pinned_version) || null,
+    version_match: 'unknown'
   };
 
   if (asset.runtime.transport === 'none' || !asset.runtime.command) {
@@ -53,8 +57,12 @@ async function certify(asset, options = {}) {
     return result;
   }
 
-  const command = asset.runtime.command;
-  const args = (asset.runtime.args || []).filter(Boolean).map(a => a.replace('<PROJECT_ROOT>', process.cwd()));
+  const container = buildContainerCommand(asset);
+  const usingContainer = container && !container.fallback;
+  const command = usingContainer ? container.command : asset.runtime.command;
+  const rawArgs = usingContainer ? container.args : asset.runtime.args;
+  const args = (rawArgs || []).filter(Boolean).map(a => a.replace('<PROJECT_ROOT>', process.cwd()));
+  const runtimeCwd = usingContainer ? container.cwd : asset.runtime.cwd;
   const timeout = asset.runtime.timeout_ms || DEFAULT_TIMEOUT_MS;
 
   let client = null;
@@ -67,7 +75,8 @@ async function certify(asset, options = {}) {
       command,
       args,
       env: buildEnv(asset),
-      stderr: 'pipe'
+      stderr: 'pipe',
+      cwd: runtimeCwd || undefined
     });
 
     try {
@@ -79,6 +88,22 @@ async function certify(asset, options = {}) {
 
     await withTimeout(client.connect(transport), timeout, 'connect');
     result.init = 'passed';
+
+    try {
+      const info = client.getServerVersion && client.getServerVersion();
+      if (info && info.version) {
+        result.server_version = info.version;
+        if (result.pinned_version) {
+          result.version_match = info.version === result.pinned_version ? 'passed' : 'warning';
+        } else {
+          result.version_match = 'not_pinned';
+        }
+      } else {
+        result.version_match = result.pinned_version ? 'unreported' : 'not_pinned';
+      }
+    } catch {
+      result.version_match = 'unreported';
+    }
 
     const toolsResp = await withTimeout(
       client.request({ method: 'tools/list' }, z.any()),

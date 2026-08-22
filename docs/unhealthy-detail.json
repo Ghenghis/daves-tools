@@ -1,0 +1,346 @@
+[
+  {
+    "id": "serena",
+    "display_name": "Serena",
+    "asset_type": "mcp_server",
+    "source": {
+      "url": "https://github.com/oraios/serena",
+      "ref": "main",
+      "commit": null,
+      "license": null,
+      "sha256": null
+    },
+    "command": "uvx",
+    "args": [
+      "mcp-server-serena",
+      "--project",
+      "<PROJECT_ROOT>"
+    ],
+    "env_refs": [
+      "UV_PYTHON",
+      "PATH"
+    ],
+    "verification": {
+      "install": "unknown",
+      "protocol": "failed",
+      "domain_smoke": "unknown",
+      "last_verified": "2026-08-20T00:57:39.335Z",
+      "evidence_id": "cert-serena"
+    }
+  },
+  {
+    "id": "gitlab-mcp",
+    "display_name": "GitLab MCP",
+    "asset_type": "mcp_server",
+    "source": {
+      "url": "https://docs.gitlab.com/user/model_context_protocol/mcp_server/",
+      "ref": "main",
+      "commit": null,
+      "license": null,
+      "sha256": null
+    },
+    "command": "npx",
+    "args": [
+      "-y",
+      "@modelcontextprotocol/server-gitlab"
+    ],
+    "env_refs": [
+      "GITLAB_PERSONAL_ACCESS_TOKEN"
+    ],
+    "verification": {
+      "install": "unknown",
+      "protocol": "failed",
+      "domain_smoke": "unknown",
+      "last_verified": "2026-08-19T23:20:13.972Z",
+      "evidence_id": "cert-gitlab-mcp"
+    }
+  },
+  {
+    "id": "searxng-mcp",
+    "display_name": "SearXNG MCP",
+    "asset_type": "mcp_server",
+    "source": {
+      "url": "https://github.com/ihor-sokoliuk/mcp-searxng",
+      "ref": "main",
+      "commit": null,
+      "license": null,
+      "sha256": null
+    },
+    "command": "node",
+    "args": [
+      "G:\\Github\\searxng-mcp\\dist\\index.js"
+    ],
+    "env_refs": [],
+    "verification": {
+      "install": "unknown",
+      "protocol": "unknown",
+      "domain_smoke": "unknown",
+      "last_verified": null,
+      "evidence_id": null
+    }
+  },
+  {
+    "id": "android-mcp",
+    "display_name": "Android MCP",
+    "asset_type": "mcp_server",
+    "source": {
+      "url": "https://github.com/qalvinahmad/android-mcp",
+      "ref": "main",
+      "commit": null,
+      "license": null,
+      "sha256": null
+    },
+    "command": "node",
+    "args": [
+      "G:\\Github\\android-mcp\\dist\\index.js"
+    ],
+    "env_refs": [],
+    "verification": {
+      "install": "unknown",
+      "protocol": "failed",
+      "domain_smoke": "unknown",
+      "last_verified": "2026-08-19T23:16:35.764Z",
+      "evidence_id": "cert-android-mcp"
+    }
+  },
+  {
+    "id": "appium-mcp",
+    "display_name": "Appium MCP",
+    "asset_type": "mcp_server",
+    "source": {
+      "url": "https://github.com/appium/appium-mcp",
+      "ref": "main",
+      "commit": null,
+      "license": null,
+      "sha256": null
+    },
+    "command": "node",
+    "args": [
+      "G:\\Github\\appium-mcp\\dist\\index.js"
+    ],
+    "env_refs": [],
+    "verification": {
+      "install": "unknown",
+      "protocol": "unknown",
+      "domain_smoke": "unknown",
+      "last_verified": null,
+      "evidence_id": null
+    }
+  },
+  {
+    "id": "apktool-mcp",
+    "display_name": "Apktool MCP",
+    "asset_type": "mcp_server",
+    "source": {
+      "url": "https://github.com/zinja-coder/apktool-mcp-server",
+      "ref": "main",
+      "commit": null,
+      "license": null,
+      "sha256": null
+    },
+    "command": "npx",
+    "args": [
+      "-y",
+      "apktool-mcp"
+    ],
+    "env_refs": [],
+    "verification": {
+      "install": "unknown",
+      "protocol": "failed",
+      "domain_smoke": "unknown",
+      "last_verified": "2026-08-19T22:59:02.134Z",
+      "evidence_id": "cert-apktool-mcp"
+    }
+  },
+  {
+    "id": "jadx-ai-mcp",
+    "display_name": "JADX AI MCP",
+    "asset_type": "mcp_server",
+    "source": {
+      "url": "https://github.com/zinja-coder/jadx-ai-mcp",
+      "ref": "main",
+      "commit": null,
+      "license": null,
+      "sha256": null
+    },
+    "command": "npx",
+    "args": [
+      "-y",
+      "jadx-ai-mcp"
+    ],
+    "env_refs": [],
+    "verification": {
+      "install": "unknown",
+      "protocol": "unknown",
+      "domain_smoke": "unknown",
+      "last_verified": null,
+      "evidence_id": null
+    }
+  },
+  {
+    "id": "jadx-mcp-server",
+    "display_name": "JADX MCP Server",
+    "asset_type": "mcp_server",
+    "source": {
+      "url": "https://github.com/Qtty/jadx-mcp-server",
+      "ref": "main",
+      "commit": null,
+      "license": null,
+      "sha256": null
+    },
+    "command": "npx",
+    "args": [
+      "-y",
+      "jadx-mcp-server"
+    ],
+    "env_refs": [],
+    "verification": {
+      "install": "unknown",
+      "protocol": "unknown",
+      "domain_smoke": "unknown",
+      "last_verified": null,
+      "evidence_id": null
+    }
+  },
+  {
+    "id": "ghidra-mcp-headless",
+    "display_name": "Ghidra MCP Headless",
+    "asset_type": "mcp_server",
+    "source": {
+      "url": "https://github.com/SumTuusDeus/ghidra-mcp",
+      "ref": "main",
+      "commit": null,
+      "license": null,
+      "sha256": null
+    },
+    "command": "",
+    "args": [],
+    "env_refs": [],
+    "verification": {
+      "install": "unknown",
+      "protocol": "unknown",
+      "domain_smoke": "unknown",
+      "last_verified": null,
+      "evidence_id": null
+    }
+  },
+  {
+    "id": "ghidramcp-lauriewired",
+    "display_name": "GhidraMCP LaurieWired",
+    "asset_type": "mcp_server",
+    "source": {
+      "url": "https://github.com/LaurieWired/GhidraMCP",
+      "ref": "main",
+      "commit": null,
+      "license": null,
+      "sha256": null
+    },
+    "command": "",
+    "args": [],
+    "env_refs": [],
+    "verification": {
+      "install": "unknown",
+      "protocol": "unknown",
+      "domain_smoke": "unknown",
+      "last_verified": null,
+      "evidence_id": null
+    }
+  },
+  {
+    "id": "pyghidra-mcp",
+    "display_name": "pyghidra-mcp",
+    "asset_type": "mcp_server",
+    "source": {
+      "url": "https://github.com/clearbluejar/pyghidra-mcp",
+      "ref": "main",
+      "commit": null,
+      "license": null,
+      "sha256": null
+    },
+    "command": "",
+    "args": [],
+    "env_refs": [],
+    "verification": {
+      "install": "unknown",
+      "protocol": "unknown",
+      "domain_smoke": "unknown",
+      "last_verified": null,
+      "evidence_id": null
+    }
+  },
+  {
+    "id": "autogenesis",
+    "display_name": "AutoGenesis",
+    "asset_type": "mcp_server",
+    "source": {
+      "url": "https://github.com/microsoft/AutoGenesis",
+      "ref": "main",
+      "commit": null,
+      "license": null,
+      "sha256": null
+    },
+    "command": "npx",
+    "args": [
+      "-y",
+      "autogenesis"
+    ],
+    "env_refs": [],
+    "verification": {
+      "install": "unknown",
+      "protocol": "failed",
+      "domain_smoke": "unknown",
+      "last_verified": "2026-08-19T23:15:35.261Z",
+      "evidence_id": "cert-autogenesis"
+    }
+  },
+  {
+    "id": "hyper-v-mcp",
+    "display_name": "Hyper-V MCP",
+    "asset_type": "mcp_server",
+    "source": {
+      "url": "https://github.com/originsec/hyperv-mcp",
+      "ref": "main",
+      "commit": null,
+      "license": null,
+      "sha256": null
+    },
+    "command": "npx",
+    "args": [
+      "-y",
+      "hyper-v-mcp"
+    ],
+    "env_refs": [],
+    "verification": {
+      "install": "unknown",
+      "protocol": "unknown",
+      "domain_smoke": "unknown",
+      "last_verified": null,
+      "evidence_id": null
+    }
+  },
+  {
+    "id": "x64dbg-automate-mcp",
+    "display_name": "x64dbg Automate MCP",
+    "asset_type": "mcp_server",
+    "source": {
+      "url": "https://github.com/dariushoule/x64dbg-automate-pyclient",
+      "ref": "main",
+      "commit": null,
+      "license": null,
+      "sha256": null
+    },
+    "command": "npx",
+    "args": [
+      "-y",
+      "x64dbg-automate-mcp"
+    ],
+    "env_refs": [],
+    "verification": {
+      "install": "unknown",
+      "protocol": "unknown",
+      "domain_smoke": "unknown",
+      "last_verified": null,
+      "evidence_id": null
+    }
+  }
+]

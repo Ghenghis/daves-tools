@@ -2,7 +2,8 @@ const { Server } = require('@modelcontextprotocol/sdk/server/index.js');
 const { StdioServerTransport } = require('@modelcontextprotocol/sdk/server/stdio.js');
 const { CallToolRequestSchema, ListToolsRequestSchema } = require('@modelcontextprotocol/sdk/types.js');
 const { load, save, toggle } = require('./registry.js');
-const { setRegistry, enable, disable, listActive, getActiveToolNames, getActiveToolsMeta, callTool } = require('./proxy.js');
+const { setRegistry, enable, disable, restart, listActive, getActiveToolNames, getActiveToolsMeta, getSupervisorStatus, callTool } = require('./proxy.js');
+const supervisor = require('./supervisor.js');
 const { recommend } = require('./recommender.js');
 const { canCall } = require('./policy.js');
 const { redactSecrets } = require('./secrets.js');
@@ -26,7 +27,9 @@ const orchestratorTools = [
   { name: 'disable_mcp', description: 'Stop an MCP server by key and remove its tools.', inputSchema: { type: 'object', properties: { key: { type: 'string' } }, required: ['key'] } },
   { name: 'list_active_mcps', description: 'Show currently active MCP servers and their proxied tools.', inputSchema: { type: 'object', properties: {}, required: [] } },
   { name: 'discover_mcps_for_task', description: 'Recommend MCP servers to enable for a given task.', inputSchema: { type: 'object', properties: { task: { type: 'string' } }, required: ['task'] } },
-  { name: 'call_mcp_tool', description: 'Call a namespaced child MCP tool (e.g. x64dbg__step).', inputSchema: { type: 'object', properties: { tool: { type: 'string' }, arguments: { type: 'object' } }, required: ['tool'] } }
+  { name: 'call_mcp_tool', description: 'Call a namespaced child MCP tool (e.g. x64dbg__step).', inputSchema: { type: 'object', properties: { tool: { type: 'string' }, arguments: { type: 'object' } }, required: ['tool'] } },
+  { name: 'mcp_supervisor_status', description: 'Show heartbeat/health/restart state for all supervised MCP servers.', inputSchema: { type: 'object', properties: {}, required: [] } },
+  { name: 'restart_mcp', description: 'Force-restart an MCP server child process now.', inputSchema: { type: 'object', properties: { key: { type: 'string' } }, required: ['key'] } }
 ];
 
 server.setRequestHandler(ListToolsRequestSchema, async () => {
@@ -62,6 +65,14 @@ server.setRequestHandler(CallToolRequestSchema, async (req) => {
     if (name === 'list_active_mcps') {
       return { content: [{ type: 'text', text: JSON.stringify({ servers: listActive(), tools: getActiveToolsMeta() }, null, 2) }] };
     }
+    if (name === 'mcp_supervisor_status') {
+      return { content: [{ type: 'text', text: JSON.stringify(getSupervisorStatus(), null, 2) }] };
+    }
+    if (name === 'restart_mcp') {
+      const result = await restart(registry, args.key, sendNotification);
+      recordEvent('mcp.manual_restart', { key: args.key, status: result.status });
+      return { content: [{ type: 'text', text: JSON.stringify(result, null, 2) }] };
+    }
     if (name === 'discover_mcps_for_task') {
       return { content: [{ type: 'text', text: JSON.stringify(recommend(registry, args.task), null, 2) }] };
     }
@@ -88,9 +99,23 @@ server.setRequestHandler(CallToolRequestSchema, async (req) => {
 });
 
 async function main() {
+  supervisor.start();
   const transport = new StdioServerTransport();
   await server.connect(transport);
-  console.error('daves-tools-harness started');
+  console.error('daves-tools-harness started (supervisor active)');
+
+  const toEnable = Object.values(registry.servers || {}).filter(s => s.enabled);
+  if (toEnable.length) {
+    console.error(`auto-enabling ${toEnable.length} MCP servers in background...`);
+    Promise.allSettled(toEnable.map(s => enable(registry, s.key, sendNotification))).then(results => {
+      const ok = results.filter(r => r.status === 'fulfilled').length;
+      const failed = results.map((r, i) => ({ r, key: toEnable[i].key })).filter(x => x.r.status === 'rejected').map(x => x.key);
+      console.error(`auto-enable complete: ${ok}/${toEnable.length} up`);
+      if (failed.length) console.error(`auto-enable failed: ${failed.join(', ')}`);
+      recordEvent('harness.auto_enable', { total: toEnable.length, ok, failed });
+      try { server.notification({ method: 'notifications/tools/list_changed' }); } catch {}
+    });
+  }
 }
 
 main().catch(err => {

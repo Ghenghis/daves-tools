@@ -23,6 +23,31 @@ foreach ($k in $defaults.Keys) {
     $loaded[$k] = '<default>'
 }
 
+$dpapiFiles = @()
+foreach ($dir in $SearchPaths) {
+    $candidate = Join-Path $dir '.env.dpapi.json'
+    if (Test-Path $candidate) { $dpapiFiles += Get-Item $candidate }
+}
+foreach ($file in $dpapiFiles | Sort-Object LastWriteTime -Descending) {
+    try {
+        Add-Type -AssemblyName System.Security
+        $store = Get-Content $file.FullName -Raw | ConvertFrom-Json
+        foreach ($prop in $store.values.PSObject.Properties) {
+            $k = $prop.Name
+            if (-not $loaded.ContainsKey($k)) {
+                $cipher = [Convert]::FromBase64String($prop.Value)
+                $plain = [System.Security.Cryptography.ProtectedData]::Unprotect(
+                    $cipher, $null, [System.Security.Cryptography.DataProtectionScope]::CurrentUser)
+                $v = [System.Text.Encoding]::UTF8.GetString($plain)
+                [Environment]::SetEnvironmentVariable($k, $v, 'Process')
+                $loaded[$k] = "$($file.FullName) (dpapi)"
+            }
+        }
+    } catch {
+        if (-not $Quiet) { Write-Warning "DPAPI store unreadable at $($file.FullName): $($_.Exception.Message)" }
+    }
+}
+
 foreach ($file in $all | Sort-Object LastWriteTime -Descending) {
     Get-Content $file.FullName | ForEach-Object {
         $line = $_.Trim()
