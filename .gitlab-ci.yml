@@ -1,5 +1,6 @@
 stages:
   - smoke
+  - release
 
 smoke-test:
   stage: smoke
@@ -33,3 +34,27 @@ live-certification:
     - if: $CI_PIPELINE_SOURCE == "web"
     - if: $CI_COMMIT_BRANCH == "master"
       when: manual
+
+# Windows-ready release build. Triggered by vX.Y.Z tag pushes; also
+# runnable manually from the GitLab UI with a custom version override.
+release-build:
+  stage: release
+  tags:
+    - daves-vps
+  image: mcr.microsoft.com/powershell:latest
+  variables:
+    VERSION_OVERRIDE: ''
+  before_script:
+    - pwsh -NoProfile -Command "Install-Module PSScriptAnalyzer -RequiredVersion 1.25.0 -Scope CurrentUser -Force -SkipPublisherCheck"
+    - pwsh -NoProfile -Command "Install-Module Pester -RequiredVersion 6.1.0 -Scope CurrentUser -Force -SkipPublisherCheck"
+  script:
+    - pwsh -NoProfile -Command "$v = if ($env:VERSION_OVERRIDE) { $env:VERSION_OVERRIDE } else { $env:CI_COMMIT_REF_NAME -replace '^v','' }; & ./toolkit/Build-Release.ps1 -Version $v -OutDir dist"
+    - pwsh -NoProfile -Command "$v = if ($env:VERSION_OVERRIDE) { $env:VERSION_OVERRIDE } else { $env:CI_COMMIT_REF_NAME -replace '^v','' }; & ./toolkit/Verify-Release.ps1 -ZipPath dist/daves-tools-v$v.zip -KeepExtract"
+  artifacts:
+    when: always
+    paths:
+      - dist/
+    expire_in: 90 days
+  rules:
+    - if: $CI_COMMIT_TAG =~ /^v\d+\.\d+\.\d+/
+    - if: $CI_PIPELINE_SOURCE == "web"

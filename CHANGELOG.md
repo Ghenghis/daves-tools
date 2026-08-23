@@ -2,6 +2,21 @@
 
 All notable changes to `daves-tools` are documented here. Versions follow [Semantic Versioning](https://semver.org/).
 
+## [v1.3.0] - 2026-08-23
+
+### Added
+- `toolkit/Build-Release.ps1`: produces a Windows-ready release ZIP with a SHA256 sidecar and a `RELEASE.json` manifest. Excludes `node_modules`, `daemon`, `logs`, `audit`, agent-specific dirs, and other build/dev artifacts. Uses `robocopy /MIR` with exclude filters.
+- `toolkit/Verify-Release.ps1`: full verification gate — SHA256 check, extract to a temp dir, run `Validate-TypedRegistry.ps1`, `PSScriptAnalyzer` over every bundled `toolkit/*.ps1`, both Pester suites (15 Toolkit.Tests + 24 MiniMax harness tests), and assert all required entrypoints are present.
+- `toolkit/Toolkit.Tests.ps1`: 4 new tests covering Build-Release (ZIP+sha256, version injection, exclude rules) and Verify-Release (full-gate acceptance).
+- `.github/workflows/release.yml`: triggers on `vX.Y.Z` tag push. Installs PSScriptAnalyzer + Pester, runs `Build-Release.ps1` + `Verify-Release.ps1`, uploads the artifact + SHA256 to the GitHub Release via `softprops/action-gh-release`.
+- `.gitlab-ci.yml`: `release-build` job in a new `release` stage. Same build+verify pipeline on the `daves-vps` runner for any `vX.Y.Z` tag.
+
+### Verified
+- First v1.2.0 artifact: `dist/daves-tools-v1.2.0.zip` (224 KB, 141 entries, SHA256 `748C3FD05AACC83F16B193DC3C42C396817E0754ED8234C75DA62F2AB092CAC2`)
+- All 39 Pester tests pass inside the bundle (15 Toolkit + 24 MiniMax)
+- PSScriptAnalyzer: 0 findings on the bundled scripts
+- `Validate-TypedRegistry.ps1`: clean against the bundled registry
+
 ## [v1.2.0] - 2026-08-23
 
 ### Added

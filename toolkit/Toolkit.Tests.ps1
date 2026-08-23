@@ -146,3 +146,58 @@ Describe 'Certify-Mcps env-loading contract' {
         $source | Should -Match "GITLAB_TOKEN'\s*=\s*'GITLAB_PERSONAL_ACCESS_TOKEN'"
     }
 }
+
+Describe 'Build-Release and Verify-Release' {
+    It 'Build-Release.ps1 produces a versioned ZIP with a manifest and a SHA256 sidecar' {
+        $outDir = Join-Path -Path $script:WorkDir -ChildPath 'release'
+        & (Join-Path -Path $script:ToolkitDir -ChildPath 'Build-Release.ps1') -Version '9.9.9-test' -OutDir $outDir -SkipVerify | Out-Null
+        $LASTEXITCODE | Should -Be 0
+        Test-Path (Join-Path -Path $outDir -ChildPath 'daves-tools-v9.9.9-test.zip') | Should -BeTrue
+        Test-Path (Join-Path -Path $outDir -ChildPath 'daves-tools-v9.9.9-test.zip.sha256') | Should -BeTrue
+        Test-Path (Join-Path -Path $outDir -ChildPath 'daves-tools-v9.9.9-test/RELEASE.json') | Should -BeTrue
+
+        # SHA256 sidecar matches the actual hash
+        $expected = (Get-Content -LiteralPath (Join-Path -Path $outDir -ChildPath 'daves-tools-v9.9.9-test.zip.sha256') -Raw).Trim().Split(' ')[0].ToLower()
+        $actual = (Get-FileHash -LiteralPath (Join-Path -Path $outDir -ChildPath 'daves-tools-v9.9.9-test.zip') -Algorithm SHA256).Hash.ToLower()
+        $actual | Should -BeExactly $expected
+    }
+
+    It 'Build-Release injects the version into the bundled harness/package.json' {
+        $outDir = Join-Path -Path $script:WorkDir -ChildPath 'release2'
+        & (Join-Path -Path $script:ToolkitDir -ChildPath 'Build-Release.ps1') -Version '9.9.8-test' -OutDir $outDir -SkipVerify | Out-Null
+        $bundleRoot = Get-ChildItem -Path $outDir -Directory | Where-Object { $_.Name -like 'daves-tools-*' } | Select-Object -First 1
+        $pkg = Get-Content -LiteralPath (Join-Path -Path $bundleRoot.FullName -ChildPath 'harness/package.json') -Raw | ConvertFrom-Json
+        $pkg.version | Should -Be '9.9.8-test'
+    }
+
+    It 'Build-Release excludes node_modules, logs, daemon, audit, secrets patterns' {
+        $outDir = Join-Path -Path $script:WorkDir -ChildPath 'release3'
+        & (Join-Path -Path $script:ToolkitDir -ChildPath 'Build-Release.ps1') -Version '9.9.7-test' -OutDir $outDir -SkipVerify | Out-Null
+        $bundleRoot = Get-ChildItem -Path $outDir -Directory | Where-Object { $_.Name -like 'daves-tools-*' } | Select-Object -First 1
+        $bundlePath = $bundleRoot.FullName
+        # Excludes
+        Test-Path (Join-Path -Path $bundlePath -ChildPath 'harness/node_modules') | Should -BeFalse
+        Test-Path (Join-Path -Path $bundlePath -ChildPath 'harness/daemon') | Should -BeFalse
+        Test-Path (Join-Path -Path $bundlePath -ChildPath 'logs') | Should -BeFalse
+        Test-Path (Join-Path -Path $bundlePath -ChildPath '.git') | Should -BeFalse
+        # Includes
+        Test-Path (Join-Path -Path $bundlePath -ChildPath 'toolkit/Install-DavesTools.ps1') | Should -BeTrue
+        Test-Path (Join-Path -Path $bundlePath -ChildPath 'harness/package.json') | Should -BeTrue
+        Test-Path (Join-Path -Path $bundlePath -ChildPath 'configs/typed-registry.json') | Should -BeTrue
+        Test-Path (Join-Path -Path $bundlePath -ChildPath 'README.md') | Should -BeTrue
+        Test-Path (Join-Path -Path $bundlePath -ChildPath 'CHANGELOG.md') | Should -BeTrue
+        Test-Path (Join-Path -Path $bundlePath -ChildPath 'RELEASE.json') | Should -BeTrue
+    }
+
+    It 'Verify-Release accepts a freshly built ZIP' {
+        $outDir = Join-Path -Path $script:WorkDir -ChildPath 'release4'
+        & (Join-Path -Path $script:ToolkitDir -ChildPath 'Build-Release.ps1') -Version '9.9.6-test' -OutDir $outDir -SkipVerify | Out-Null
+        $zipPath = Join-Path -Path $outDir -ChildPath 'daves-tools-v9.9.6-test.zip'
+        # Use a dedicated extract dir so Verify's cleanup does not race the test framework
+        $extractRoot = Join-Path -Path $script:WorkDir -ChildPath 'extract4'
+        & (Join-Path -Path $script:ToolkitDir -ChildPath 'Verify-Release.ps1') -ZipPath $zipPath -ExtractRoot $extractRoot -KeepExtract | Out-Null
+        $LASTEXITCODE | Should -Be 0
+        Test-Path (Join-Path -Path $extractRoot -ChildPath 'daves-tools-v9.9.6-test') | Should -BeTrue
+        Remove-Item -Recurse -Force $extractRoot
+    }
+}

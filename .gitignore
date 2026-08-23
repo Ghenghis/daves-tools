@@ -9,8 +9,12 @@ docs/profiles.tmp
 configs/mcp-ide/
 logs/
 daves-tools.zip
+dist/
 configs/service-ports.json
 docs/harness-events.ndjson
 docs/supervisor-state.json
 docs/smoke-test-report.json
 .serena/
+harness/daemon/
+apktool_mcp_server_workspace/
+audit-2026-08-19/
