@@ -201,3 +201,39 @@ Describe 'Build-Release and Verify-Release' {
         Remove-Item -Recurse -Force $extractRoot
     }
 }
+
+Describe 'Install-DavesTools-GUI (Windows installer wizard)' {
+    It 'parses cleanly and exposes the 7 wizard steps' {
+        $tokens = $null; $errors = $null
+        $null = [System.Management.Automation.Language.Parser]::ParseFile(
+            (Join-Path -Path $script:ToolkitDir -ChildPath 'Install-DavesTools-GUI.ps1'),
+            [ref]$tokens, [ref]$errors)
+        $errors.Count | Should -Be 0 -Because 'the GUI installer must parse without PowerShell syntax errors'
+        $errors | ForEach-Object { Write-Output $_ }
+    }
+
+    It 'declares all 5 install components with the expected Cmd hooks' {
+        $source = Get-Content -LiteralPath (Join-Path -Path $script:ToolkitDir -ChildPath 'Install-DavesTools-GUI.ps1') -Raw
+        foreach ($cmd in @('CoreInstall', 'ServiceInstall', 'WatchdogInstall', 'IdeInstall', 'SecretInstall')) {
+            $source | Should -Match "Cmd\s*=\s*'$cmd'"
+        }
+        # Each component runs the same primitive as Install-DavesTools.ps1
+        $source | Should -Match "Install-McpService\.ps1"
+        $source | Should -Match "Watch-LmStudio\.ps1\s*-RegisterTask"
+        $source | Should -Match "Install-IdeConfigs\.ps1"
+    }
+
+    It 'persists the install path under HKCU so re-launches remember the choice' {
+        $source = Get-Content -LiteralPath (Join-Path -Path $script:ToolkitDir -ChildPath 'Install-DavesTools-GUI.ps1') -Raw
+        $source | Should -Match 'HKCU:\\Software\\daves-tools'
+        $source | Should -Match 'Set-ItemProperty.*InstallPath'
+    }
+
+    It 'survives PSScriptAnalyzer with zero findings' {
+        Import-Module PSScriptAnalyzer -RequiredVersion 1.25.0 -Force
+        $r = Invoke-ScriptAnalyzer -Path (Join-Path -Path $script:ToolkitDir -ChildPath 'Install-DavesTools-GUI.ps1')
+        $blocking = $r | Where-Object { $_.Severity -eq 'Warning' -or $_.Severity -eq 'Error' }
+        $blocking | ForEach-Object { Write-Output ($_.RuleName + ' @ ' + $_.Line + ': ' + $_.Message) }
+        $blocking.Count | Should -Be 0
+    }
+}

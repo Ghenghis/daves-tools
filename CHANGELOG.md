@@ -2,6 +2,20 @@
 
 All notable changes to `daves-tools` are documented here. Versions follow [Semantic Versioning](https://semver.org/).
 
+## [v1.4.0] - 2026-08-23
+
+### Added
+- `toolkit/Install-DavesTools-GUI.ps1`: WinForms-based Windows installer wizard. Dark theme with 7 steps (Welcome → License → Install Location → Components → Prerequisites → Install → Complete). Live log pane shows the actual command and stdout/stderr of each install step. Step indicator on the left marks each step ✓ done, ● active, ○ pending. Cancel button mid-install aborts cleanly. Persists the chosen install path in `HKCU:\Software\daves-tools\InstallPath` for next launch. Mirrors `Install-DavesTools.ps1` 1:1 — same `npm install`, same certifier, same `Install-McpService.ps1`, same `Watch-LmStudio.ps1 -RegisterTask`, same `Install-IdeConfigs.ps1`.
+- `toolkit/Toolkit.Tests.ps1`: 4 new GUI installer tests — parses cleanly, declares the 5 install components with the expected Cmd hooks, persists the install path in HKCU, and survives PSScriptAnalyzer with zero findings.
+
+### Changed
+- Pester suite is now 19 Toolkit.Tests + 24 MiniMax harness tests = 43 total.
+
+### Verified
+- PSScriptAnalyzer: 0 findings on the GUI installer
+- Full test run: 19/19 Toolkit.Tests pass, 24/24 MiniMax harness tests pass
+- The bundled GUI installer inside the v1.3.0 release ZIP also passes PSScriptAnalyzer and parses with zero errors
+
 ## [v1.3.0] - 2026-08-23
 
 ### Added
