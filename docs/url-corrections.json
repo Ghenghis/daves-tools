@@ -1,0 +1,143 @@
+{
+  "version": "1.0.0",
+  "generated": "2026-08-23T10:05:00Z",
+  "comment": "Corrections, clone strategies, and stub fallbacks for items in missing-from-catalog.json that fail to clone. Keys match the 'Name' field.",
+  "corrections": {
+    "GitLab MCP": {
+      "action": "snippet",
+      "note": "Official docs page is not a GitHub repo; use the packaged MCP server",
+      "snippet": {
+        "command": "npx",
+        "args": ["-y", "@modelcontextprotocol/server-gitlab"],
+        "env": {
+          "GITLAB_PERSONAL_ACCESS_TOKEN": "<TOKEN>"
+        }
+      },
+      "verified": false
+    },
+    "AutoGenesis": {
+      "action": "stub",
+      "note": "microsoft/AutoGenesis is not a public GitHub repository; create a local placeholder",
+      "snippet": {
+        "command": "stub",
+        "args": [],
+        "env": {}
+      },
+      "verified": false
+    },
+    "win-dev-skills": {
+      "action": "stub",
+      "note": "microsoft/win-dev-skills is not a public GitHub repository; create a local placeholder",
+      "snippet": {
+        "command": "stub",
+        "args": [],
+        "env": {}
+      },
+      "verified": false
+    },
+    "WinApp CLI": {
+      "corrected_url": "https://github.com/microsoft/WinAppDriver",
+      "clone_strategy": "shallow",
+      "fallback_action": "stub",
+      "note": "winappCli appears renamed; try the WinAppDriver repository",
+      "verified": false,
+      "stub_snippet": {
+        "command": "stub",
+        "args": [],
+        "env": {}
+      }
+    },
+    "Hyper-V MCP": {
+      "action": "stub",
+      "note": "originsec/hyperv-mcp is not accessible; create a local placeholder",
+      "snippet": {
+        "command": "stub",
+        "args": [],
+        "env": {}
+      },
+      "verified": false
+    },
+    "x64dbg": {
+      "clone_strategy": "full",
+      "fallback_action": "stub",
+      "note": "Very large repo; try full clone if shallow times out",
+      "stub_snippet": {
+        "command": "stub",
+        "args": [],
+        "env": {}
+      }
+    },
+    "x64dbg Automate MCP": {
+      "clone_strategy": "full",
+      "fallback_action": "stub",
+      "note": "Small repo; retry full clone if shallow fails",
+      "stub_snippet": {
+        "command": "stub",
+        "args": [],
+        "env": {}
+      }
+    },
+    "x64dbg-skills": {
+      "action": "stub",
+      "note": "dariushoule/x64dbg-skills is not a public GitHub repository; create a local placeholder",
+      "snippet": {
+        "command": "stub",
+        "args": [],
+        "env": {}
+      },
+      "verified": false
+    },
+    "AssetRipper": {
+      "clone_strategy": "full",
+      "fallback_action": "stub",
+      "note": "Large C# project; full clone or stub",
+      "stub_snippet": {
+        "command": "stub",
+        "args": [],
+        "env": {}
+      }
+    },
+    "Cpp2IL": {
+      "clone_strategy": "full",
+      "fallback_action": "stub",
+      "note": "Retry full clone if shallow fails",
+      "stub_snippet": {
+        "command": "stub",
+        "args": [],
+        "env": {}
+      }
+    },
+    "dnSpyEx": {
+      "clone_strategy": "full",
+      "fallback_action": "stub",
+      "note": "Large .NET project; full clone or stub",
+      "stub_snippet": {
+        "command": "stub",
+        "args": [],
+        "env": {}
+      }
+    },
+    "r2unity": {
+      "action": "stub",
+      "note": "radareorg/r2unity is not a public GitHub repository; create a local placeholder",
+      "snippet": {
+        "command": "stub",
+        "args": [],
+        "env": {}
+      },
+      "verified": false
+    },
+    "Playwright CLI + Skills": {
+      "corrected_url": "https://github.com/microsoft/playwright",
+      "clone_strategy": "shallow",
+      "fallback_action": "stub",
+      "note": "playwright-cli was merged into the microsoft/playwright repo",
+      "verified": true,
+      "stub_snippet": {
+        "command": "npx",
+        "args": ["-y", "@playwright/mcp"],
+        "env": {}
+      }
+    }
+  }
+}
