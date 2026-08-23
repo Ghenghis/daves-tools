@@ -38,6 +38,11 @@ jobs:
           $result = Invoke-Pester -Path 'toolkit/Test-MiniMaxClientIntegrations.Tests.ps1' -Output Detailed -PassThru
           if ($result.FailedCount -gt 0) { throw "$($result.FailedCount) Pester test(s) failed" }
 
+      - name: Validate typed-registry JSON
+        shell: powershell
+        run: |
+          & .\toolkit\Validate-TypedRegistry.ps1
+
       - name: Scan tracked text for credentials
         shell: powershell
         run: |
