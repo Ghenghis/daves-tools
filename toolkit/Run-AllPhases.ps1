@@ -2,7 +2,8 @@
 param(
     [string]$InstallRoot = "G:\Github",
     [switch]$InstallDeps,
-    [switch]$PackageOnly
+    [switch]$PackageOnly,
+    [switch]$FixFailures
 )
 
 $ErrorActionPreference = "Stop"
@@ -14,7 +15,29 @@ $tiers = @(
 )
 
 if (-not $PackageOnly) {
-    foreach ($phase in $tiers) {
+    $phases = if ($FixFailures) {
+        $preflightPath = Join-Path (Join-Path (Split-Path $PSScriptRoot) 'docs') 'preflight.json'
+        if (Test-Path $preflightPath) {
+            $preflight = Get-Content -Path $preflightPath -Raw | ConvertFrom-Json
+            $failedTiers = if ($preflight.failures) { $preflight.failures.tier | Select-Object -Unique } else { @() }
+            if ($failedTiers.Count -gt 0) {
+                $tiers | Where-Object {
+                    $phaseTiers = $_.Tiers
+                    $failedTiers | Where-Object { $phaseTiers -contains $_ }
+                }
+            } else {
+                Write-Output "No failed tiers in preflight.json; nothing to fix."
+                @()
+            }
+        } else {
+            Write-Output "No preflight.json found; running all phases."
+            $tiers
+        }
+    } else {
+        $tiers
+    }
+
+    foreach ($phase in $phases) {
         Write-Output "=== Starting Phase $($phase.Name) (Tiers $($phase.Tiers -join ', ')) ==="
         & "$PSScriptRoot\Complete-Phase.ps1" -Phase $phase.Name -Tiers $phase.Tiers -InstallRoot $InstallRoot -InstallDeps:$InstallDeps
     }
