@@ -66,9 +66,10 @@ $status = foreach ($item in $items) {
         }
     }
 
-    if ($correction -and $correction.action -eq 'stub') {
+    if ($correction -and ($correction.action -in @('stub','snippet'))) {
         New-Item -ItemType Directory -Path $target -Force | Out-Null
-        Write-StubSnippet -Target $target -Snippet $correction.snippet -FallbackName $safe
+        $stubSnippet = if ($correction.stub_snippet) { $correction.stub_snippet } else { $correction.snippet }
+        Write-StubSnippet -Target $target -Snippet $stubSnippet -FallbackName $safe
         $result.cloned = $true
         $result.snippet_path = Join-Path $target 'claude-desktop-snippet.json'
         $result
@@ -124,26 +125,20 @@ $status = foreach ($item in $items) {
     if ($InstallDeps -and $pkg) {
         $lock = if (Test-Path (Join-Path $target 'pnpm-lock.yaml')) { 'pnpm' } else { 'npm' }
         try {
-            if ($lock -eq 'pnpm') {
-                Start-Process -FilePath 'pnpm' -ArgumentList 'install' -WorkingDirectory $target -NoNewWindow -Wait -PassThru | Out-Null
-            } else {
-                Start-Process -FilePath 'npm' -ArgumentList 'install' -WorkingDirectory $target -NoNewWindow -Wait -PassThru | Out-Null
-            }
+            $proc = Start-Process -FilePath 'cmd.exe' -ArgumentList @('/c', "$lock install >nul 2>&1") -WorkingDirectory $target -NoNewWindow -Wait -PassThru
+            if ($proc.ExitCode -ne 0) { throw "exit code $($proc.ExitCode)" }
             $result.deps_installed = $true
         } catch {
-            $result.error = "deps install failed: $_"
+            $result.deps_error = "deps install failed: $_"
         }
 
         if ($result.deps_installed -and $pkg.scripts -and $pkg.scripts.build) {
             try {
-                if ($lock -eq 'pnpm') {
-                    Start-Process -FilePath 'pnpm' -ArgumentList 'run','build' -WorkingDirectory $target -NoNewWindow -Wait -PassThru | Out-Null
-                } else {
-                    Start-Process -FilePath 'npm' -ArgumentList 'run','build' -WorkingDirectory $target -NoNewWindow -Wait -PassThru | Out-Null
-                }
+                $proc = Start-Process -FilePath 'cmd.exe' -ArgumentList @('/c', "$lock run build >nul 2>&1") -WorkingDirectory $target -NoNewWindow -Wait -PassThru
+                if ($proc.ExitCode -ne 0) { throw "exit code $($proc.ExitCode)" }
                 $result.built = $true
             } catch {
-                $result.error = "build failed: $_"
+                $result.build_error = "build failed: $_"
             }
         }
     }
