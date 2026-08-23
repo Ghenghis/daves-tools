@@ -180,7 +180,7 @@ function Find-OpenPort {
                     if ($skippedReserved.Count -gt 0) {
                         $msg += "; skipped reserved: {0}" -f ($skippedReserved -join ', ')
                     }
-                    Write-Host $msg
+                    Write-Output $msg
                 }
                 return $port
             }

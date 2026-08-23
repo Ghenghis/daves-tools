@@ -16,7 +16,7 @@ $reg = $raw | ConvertFrom-Json
 $lower = $Idea.ToLower()
 $words = $lower -split '\W+' | Where-Object { $_ }
 
-function Score-Overlap($source) {
+function Measure-Overlap($source) {
     $sourceWords = $source.ToLower() -split '\W+' | Where-Object { $_ }
     $score = 0
     foreach ($w in $words) {
@@ -27,13 +27,13 @@ function Score-Overlap($source) {
 
 $profileScores = @{}
 foreach ($a in $reg.assets) {
-    $nameScore = Score-Overlap $a.display_name
+    $nameScore = Measure-Overlap $a.display_name
     foreach ($p in $a.profiles) {
-        $score = Score-Overlap $p
+        $score = Measure-Overlap $p
         if ($score -gt 0) { $profileScores[$p] += $score }
     }
     foreach ($c in $a.capabilities) {
-        $score = Score-Overlap $c
+        $score = Measure-Overlap $c
         if ($score -gt 0) {
             foreach ($p in $a.profiles) { $profileScores[$p] += $score * 0.5 }
         }

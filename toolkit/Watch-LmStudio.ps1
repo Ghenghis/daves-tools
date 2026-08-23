@@ -23,7 +23,7 @@ function Write-Log($message) {
     $dir = Split-Path $logPath -Parent
     if (-not (Test-Path $dir)) { New-Item -ItemType Directory -Path $dir -Force | Out-Null }
     Add-Content -Path $logPath -Value $line
-    if ($Host.Name -ne 'ServerRemoteHost') { Write-Host $line }
+    if ($Host.Name -ne 'ServerRemoteHost') { Write-Output $line }
 }
 
 function Find-LmStudioExe {
@@ -45,24 +45,31 @@ function Find-LmStudioExe {
 function Test-LmStudioAlive {
     try {
         $r = Invoke-RestMethod -Uri $config.url -Method GET -TimeoutSec 10 -ErrorAction Stop
-        return $r -ne $null
+        return $null -ne $r
     } catch {
         return $false
     }
 }
 
 function Stop-LmStudioProcess {
+    [CmdletBinding(SupportsShouldProcess = $true)]
+    param()
     Get-Process | Where-Object { $_.Name -like '*LM Studio*' -or $_.Path -like '*LM-Studio*' } | ForEach-Object {
         Write-Log ('Stopping PID {0}' -f $_.Id)
-        Stop-Process -Id $_.Id -Force -ErrorAction SilentlyContinue
+        if ($PSCmdlet.ShouldProcess("PID $($_.Id)", 'Stop-Process')) {
+            Stop-Process -Id $_.Id -Force -ErrorAction SilentlyContinue
+        }
     }
     Start-Sleep -Seconds 2
 }
 
 function Start-LmStudioProcess {
+    [CmdletBinding(SupportsShouldProcess = $true)]
+    param()
     $exe = Find-LmStudioExe
     if (-not $exe) { return }
     Write-Log ('Starting {0}' -f $exe)
+    if (-not $PSCmdlet.ShouldProcess($exe, 'Start-Process')) { return }
     try {
         if ($config.startArgs -and $config.startArgs.Count -gt 0) {
             Start-Process -FilePath $exe -ArgumentList $config.startArgs -WindowStyle Hidden

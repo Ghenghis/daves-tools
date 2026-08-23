@@ -19,7 +19,7 @@ if (-not (Test-Path $logDir)) { New-Item -ItemType Directory -Path $logDir -Forc
 . (Join-Path $PSScriptRoot 'Find-OpenPort.ps1')
 
 $port = Find-OpenPort -PreferredPort $PreferredPort -BindAddress $BindAddress -ServiceName 'comfyui'
-Write-Host ("[Start-ComfyUI] Using port {0}" -f $port)
+Write-Output ("[Start-ComfyUI] Using port {0}" -f $port)
 
 $servicePortsPath = Join-Path (Join-Path $repoRoot 'configs') 'service-ports.json'
 $state = if (Test-Path $servicePortsPath) {
@@ -45,7 +45,7 @@ $logPath = Join-Path $logDir 'comfyui-server.log'
 $argsList = @('main.py', '--listen', $BindAddress, '--port', $port)
 if ($Cpu) { $argsList += '--cpu' }
 
-Write-Host ("[Start-ComfyUI] Logging to {0}" -f $logPath)
+Write-Output ("[Start-ComfyUI] Logging to {0}" -f $logPath)
 
 if ($Foreground) {
     Set-Location $ComfyUIPath
@@ -53,5 +53,5 @@ if ($Foreground) {
 } else {
     Start-Process -FilePath 'python' -ArgumentList $argsList -WorkingDirectory $ComfyUIPath `
         -RedirectStandardOutput $logPath -RedirectStandardError "$logPath.err" -WindowStyle Hidden
-    Write-Host ("[Start-ComfyUI] Started in background. GUI: http://127.0.0.1:{0}" -f $port)
+    Write-Output ("[Start-ComfyUI] Started in background. GUI: http://127.0.0.1:{0}" -f $port)
 }

@@ -14,7 +14,7 @@ $raw = [System.IO.File]::ReadAllText($RegistryPath)
 $raw = $raw -replace '^\uFEFF', ''
 $reg = $raw | ConvertFrom-Json
 
-function Test-CommandExists($cmd) {
+function Test-CommandExist($cmd) {
     if ($cmd -eq 'none' -or !$cmd) { return $false }
     if ($cmd -match '^[a-zA-Z0-9_\-]+$') {
         return [bool](Get-Command $cmd -ErrorAction SilentlyContinue)
@@ -41,10 +41,10 @@ function Get-RepairAction($a, $installOk, $envOk, $protoOk) {
 }
 
 $results = foreach ($a in $reg.assets) {
-    $installOk = if ($a.runtime.transport -eq 'none') { $true } else { Test-CommandExists $a.runtime.command }
+    $installOk = if ($a.runtime.transport -eq 'none') { $true } else { Test-CommandExist $a.runtime.command }
     $missingEnv = @()
     foreach ($e in $a.runtime.env_refs) {
-        if ([Environment]::GetEnvironmentVariable($e) -eq $null) { $missingEnv += $e }
+        if ($null -eq [Environment]::GetEnvironmentVariable($e)) { $missingEnv += $e }
     }
     $envOk = $missingEnv.Count -eq 0
     $protoOk = $a.verification.protocol

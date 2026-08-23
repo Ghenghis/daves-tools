@@ -14,7 +14,7 @@ function Test-Command($name) {
 }
 
 function Write-Step($message) {
-    Write-Host ('[daves-tools] {0}' -f $message)
+    Write-Output ('[daves-tools] {0}' -f $message)
 }
 
 $RepoPath = Resolve-Path $RepoPath

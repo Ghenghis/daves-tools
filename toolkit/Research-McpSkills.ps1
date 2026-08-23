@@ -78,8 +78,6 @@ $skillTaxonomy = @{
     )
 }
 
-$allProfiles = $catalog | ForEach-Object { $_.Profile -split '[/,]' } | ForEach-Object { $_.Trim() } | Sort-Object -Unique
-
 $perServerResults = @()
 
 foreach ($item in $catalog) {

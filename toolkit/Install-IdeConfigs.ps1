@@ -3,8 +3,7 @@ param(
     [string]$RegistryPath = "C:\Users\Admin\CascadeProjects\daves-tools\configs\typed-registry.json",
     [string]$DoctorPath   = "C:\Users\Admin\CascadeProjects\daves-tools\docs\capability-report.json",
     [string]$HarnessEntry = "C:\Users\Admin\CascadeProjects\daves-tools\harness\index.js",
-    [switch]$FanOut,
-    [switch]$WhatIf
+    [switch]$FanOut
 )
 
 $ErrorActionPreference = "Stop"
@@ -14,7 +13,7 @@ $reg = Get-Content $RegistryPath | ConvertFrom-Json
 $doctor = if (Test-Path $DoctorPath) { Get-Content $DoctorPath | ConvertFrom-Json } else { @{ results = @() } }
 $healthy = @($doctor.results | Where-Object { $_.healthy -eq $true } | ForEach-Object { $_.id })
 
-function Get-McpServers() {
+function Get-McpServer {
     $mcp = @{}
     foreach ($a in $reg.assets) {
         if ($a.runtime.transport -ne 'stdio' -or -not $a.runtime.command) { continue }
@@ -53,7 +52,7 @@ function Merge-McpConfig($FilePath, $McpServers, $TopKey = $null) {
 }
 
 if ($FanOut) {
-    $mcp = Get-McpServers
+    $mcp = Get-McpServer
     Write-Output "Fan-out mode: installing $($mcp.Count) healthy MCP servers into IDE configs..."
 } else {
     $mcp = @{
@@ -81,7 +80,7 @@ Merge-McpConfig -FilePath "$userProf\.kilocode\mcp.json" -McpServers $mcp
 Merge-McpConfig -FilePath "$userProf\.devin\mcp.json" -McpServers $mcp
 
 # Reference fan-out configs (not live) for audit/fallback
-$fan = Get-McpServers
+$fan = Get-McpServer
 $refDir = "C:\Users\Admin\CascadeProjects\daves-tools\configs\mcp-ide"
 Merge-McpConfig -FilePath "$refDir\claude_desktop_config.json" -McpServers $fan
 Merge-McpConfig -FilePath "$refDir\codex_mcp.json" -McpServers $fan

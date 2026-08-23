@@ -12,8 +12,8 @@ param(
 
 $ErrorActionPreference = 'Stop'
 
-if (-not $PSScriptRoot) { $PSScriptRoot = (Get-Item $MyInvocation.MyCommand.Path).DirectoryName }
-$toolkitDir = (Resolve-Path $PSScriptRoot).Path
+$scriptRoot = if ($PSScriptRoot) { $PSScriptRoot } else { (Get-Item $MyInvocation.MyCommand.Path).DirectoryName }
+$toolkitDir = (Resolve-Path $scriptRoot).Path
 $repoRoot = (Resolve-Path (Join-Path $toolkitDir '..')).Path
 
 if ([string]::IsNullOrWhiteSpace($RegistryPath)) { $RegistryPath = Join-Path (Join-Path $repoRoot 'configs') 'typed-registry.json' }
@@ -44,7 +44,6 @@ if (-not (Test-JsonEscaped -Content $raw)) {
 
 $warnings = @()
 if (Test-Path -LiteralPath $SchemaPath) {
-    $schemaJson = [System.IO.File]::ReadAllText($SchemaPath) | ConvertFrom-Json
     # Best-effort structural checks for required fields; emit warnings unless -Strict.
     if (-not $data.version) { $warnings += 'Schema warning: missing top-level version' }
     if (-not $data.assets) { $warnings += 'Schema warning: missing top-level assets array' }
@@ -63,8 +62,8 @@ if ($warnings.Count -gt 0) {
     if ($Strict) { throw "Schema violations found ($($warnings.Count)). Use -Strict to fail, or fix the registry data." }
 }
 
-Write-Host "typed-registry.json is valid JSON with no bad escape sequences"
+Write-Output "typed-registry.json is valid JSON with no bad escape sequences"
 if ($warnings.Count -gt 0) {
-    Write-Host "Schema warnings: $($warnings.Count) (run with -Strict to fail the gate)"
+    Write-Output "Schema warnings: $($warnings.Count) (run with -Strict to fail the gate)"
 }
 exit 0

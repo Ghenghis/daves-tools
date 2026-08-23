@@ -36,4 +36,4 @@ $missing = foreach ($item in $catalog) {
 
 $missing | Format-Table -AutoSize
 $missing | ConvertTo-Json -Depth 3 | Set-Content -Path "$PSScriptRoot\..\docs\missing-from-catalog.json" -Encoding UTF8
-Write-Host "Wrote $(($missing).Count) missing items to docs\missing-from-catalog.json" -ForegroundColor Green
+Write-Output "Wrote $(($missing).Count) missing items to docs\missing-from-catalog.json"

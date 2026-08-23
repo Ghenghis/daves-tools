@@ -41,7 +41,7 @@ function Invoke-WithTimeout {
     return $result
 }
 
-Write-Host ('Starting audit, timeout {0}s per step. Writing to {1}' -f $TimeoutSeconds, $LogPath)
+Write-Output ('Starting audit, timeout {0}s per step. Writing to {1}' -f $TimeoutSeconds, $LogPath)
 
 Add-Section 'Scheduled tasks with non-Microsoft authors or dave/ai/mcp/comfy/lm paths'
 $r = Invoke-WithTimeout -Label 'Get-ScheduledTask' -Script {
@@ -51,7 +51,7 @@ $r = Invoke-WithTimeout -Label 'Get-ScheduledTask' -Script {
         Format-Table -AutoSize | Out-String -Width 200
 }
 $lines.Add(($r -join "`n"))
-Write-Host 'Scheduled tasks: done'
+Write-Output 'Scheduled tasks: done'
 
 Add-Section 'Running PowerShell/pwsh/cmd processes'
 $r = Invoke-WithTimeout -Label 'Get-Process' -Script {
@@ -60,7 +60,7 @@ $r = Invoke-WithTimeout -Label 'Get-Process' -Script {
         Format-Table -AutoSize | Out-String -Width 200
 }
 $lines.Add(($r -join "`n"))
-Write-Host 'Processes: done'
+Write-Output 'Processes: done'
 
 Add-Section 'PowerShell process command lines (WMI)'
 $r = Invoke-WithTimeout -Label 'Win32_Process' -Script {
@@ -70,7 +70,7 @@ $r = Invoke-WithTimeout -Label 'Win32_Process' -Script {
         Format-Table -AutoSize -Wrap | Out-String -Width 200
 }
 $lines.Add(($r -join "`n"))
-Write-Host 'Command lines: done'
+Write-Output 'Command lines: done'
 
 Add-Section 'PowerShell script block log (Operational, last 20, ID 4104)'
 $r = Invoke-WithTimeout -Seconds ([Math]::Max($TimeoutSeconds, 30)) -Label 'Get-WinEvent Operational' -Script {
@@ -83,7 +83,7 @@ $r = Invoke-WithTimeout -Seconds ([Math]::Max($TimeoutSeconds, 30)) -Label 'Get-
     }
 }
 $lines.Add(($r -join "`n"))
-Write-Host 'Script block log: done'
+Write-Output 'Script block log: done'
 
 Add-Section 'Windows PowerShell classic log (last 20)'
 $r = Invoke-WithTimeout -Seconds ([Math]::Max($TimeoutSeconds, 30)) -Label 'Get-WinEvent classic' -Script {
@@ -96,7 +96,7 @@ $r = Invoke-WithTimeout -Seconds ([Math]::Max($TimeoutSeconds, 30)) -Label 'Get-
     }
 }
 $lines.Add(($r -join "`n"))
-Write-Host 'Classic log: done'
+Write-Output 'Classic log: done'
 
 Add-Section 'Task Scheduler operational log (last 20 task runs)'
 $r = Invoke-WithTimeout -Seconds ([Math]::Max($TimeoutSeconds, 30)) -Label 'Get-WinEvent TaskScheduler' -Script {
@@ -109,7 +109,7 @@ $r = Invoke-WithTimeout -Seconds ([Math]::Max($TimeoutSeconds, 30)) -Label 'Get-
     }
 }
 $lines.Add(($r -join "`n"))
-Write-Host 'Task Scheduler log: done'
+Write-Output 'Task Scheduler log: done'
 
 $lines | Out-File $LogPath -Encoding utf8
-Write-Host ('Wrote ' + $LogPath)
+Write-Output ('Wrote ' + $LogPath)

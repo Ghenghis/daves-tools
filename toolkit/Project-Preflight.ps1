@@ -50,7 +50,7 @@ $fallback = $desired | Where-Object { ($healthy -notcontains $_) -or $certLookup
 $allHealthy = $reg.assets | Where-Object { $_.asset_type -in @('mcp_server','skill_pack') -and $healthy -contains $_.id -and $certLookup[$_.id] -ne 'failed' } | Select-Object -First 5
 $fallback += $allHealthy.id | Where-Object { $primary -notcontains $_ }
 
-$profile = [ordered]@{
+$preflight = [ordered]@{
     timestamp = (Get-Date -Format 'o')
     idea = $Idea
     selected_profile = $best
@@ -64,6 +64,6 @@ $profile = [ordered]@{
     )
 }
 
-[System.IO.File]::WriteAllText($ProfilePath, ($profile | ConvertTo-Json -Depth 3))
+[System.IO.File]::WriteAllText($ProfilePath, ($preflight | ConvertTo-Json -Depth 3))
 Write-Output "Wrote $ProfilePath"
-Write-Output "Healthy assets: $($healthy.Count); Primary: $($primary.Count); Fallback: $(($profile.fallback).Count)"
+Write-Output "Healthy assets: $($healthy.Count); Primary: $($primary.Count); Fallback: $(($preflight.fallback).Count)"

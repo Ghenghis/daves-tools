@@ -17,7 +17,6 @@ $asset = $reg.assets | Where-Object { $_.id -eq $AssetId } | Select-Object -Firs
 if (-not $asset) { throw "Asset $AssetId not found in registry" }
 
 $dir = Join-Path $InstallRoot $asset.id
-$backup = $dir + ".bak"
 $log = @()
 
 function Backup-Dir($src) {

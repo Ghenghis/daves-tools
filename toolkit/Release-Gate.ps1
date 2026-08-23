@@ -29,7 +29,6 @@ Add-Gate 'no_uncommitted_changes' $uncommittedStatus $uncommitted
 $unpushedStatus = if ([string]::IsNullOrWhiteSpace($unpushed)) { 'passed' } else { 'failed' }
 Add-Gate 'no_unpushed_commits' $unpushedStatus $unpushed
 
-$allHealthy = ($reg.assets | Where-Object { $_.verification.protocol -eq 'passed' }).Count
 $total = $reg.assets.Count
 $registryStatus = if ($total -gt 0) { 'passed' } else { 'failed' }
 Add-Gate 'typed_registry_present' $registryStatus "$total assets"

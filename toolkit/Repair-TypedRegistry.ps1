@@ -12,8 +12,8 @@ param(
 
 $ErrorActionPreference = 'Stop'
 
-if (-not $PSScriptRoot) { $PSScriptRoot = (Get-Item $MyInvocation.MyCommand.Path).DirectoryName }
-$toolkitDir = (Resolve-Path $PSScriptRoot).Path
+$scriptRoot = if ($PSScriptRoot) { $PSScriptRoot } else { (Get-Item $MyInvocation.MyCommand.Path).DirectoryName }
+$toolkitDir = (Resolve-Path $scriptRoot).Path
 $repoRoot = (Resolve-Path (Join-Path $toolkitDir '..')).Path
 
 if ([string]::IsNullOrWhiteSpace($RegistryPath)) { $RegistryPath = Join-Path (Join-Path $repoRoot 'configs') 'typed-registry.json' }
@@ -39,7 +39,7 @@ if (-not $BackupDir) {
 
 $backupFile = Join-Path $BackupDir ("typed-registry-backup-{0:yyyyMMddTHHmmss}.json" -f (Get-Date).ToUniversalTime())
 Copy-Item -LiteralPath $RegistryPath -Destination $backupFile -Force
-Write-Host "Backup: $backupFile"
+Write-Output "Backup: $backupFile"
 
 $raw = [System.IO.File]::ReadAllText($RegistryPath, [System.Text.UTF8Encoding]::new($true))
 
@@ -48,13 +48,13 @@ $validEscapes = '[\\/"bfnrtu]'
 $repaired = [regex]::Replace($raw, '(?m)(?<!\\)\\(?!' + $validEscapes + ')', { param($m) '\\' + $m.Value.Substring(1) })
 
 if ($raw -ne $repaired) {
-    Write-Host "Repaired invalid JSON escapes in $RegistryPath"
+    Write-Output "Repaired invalid JSON escapes in $RegistryPath"
     if ($PSCmdlet.ShouldProcess($RegistryPath, 'write repaired JSON')) {
         Write-RepairedFile -Path $RegistryPath -Content $repaired
     }
 }
 else {
-    Write-Host "No invalid JSON escapes found in $RegistryPath"
+    Write-Output "No invalid JSON escapes found in $RegistryPath"
 }
 
 & (Join-Path $PSScriptRoot 'Validate-TypedRegistry.ps1') -RegistryPath $RegistryPath -SchemaPath $SchemaPath

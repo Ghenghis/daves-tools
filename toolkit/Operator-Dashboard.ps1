@@ -1,6 +1,5 @@
 [CmdletBinding()]
 param(
-    [string]$RegistryPath = "C:\Users\Admin\CascadeProjects\daves-tools\configs\typed-registry.json",
     [string]$ReportPath = "C:\Users\Admin\CascadeProjects\daves-tools\docs\capability-report.json"
 )
 
