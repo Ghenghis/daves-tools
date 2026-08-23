@@ -15,33 +15,40 @@ $tiers = @(
 )
 
 if (-not $PackageOnly) {
+    $failedCatalogPath = Join-Path (Join-Path (Split-Path $PSScriptRoot) 'docs') 'failed-catalog.json'
     $phases = if ($FixFailures) {
-        $preflightPath = Join-Path (Join-Path (Split-Path $PSScriptRoot) 'docs') 'preflight.json'
-        if (Test-Path $preflightPath) {
-            $preflight = Get-Content -Path $preflightPath -Raw | ConvertFrom-Json
-            $failedTiers = if ($preflight.failures) { $preflight.failures.tier | Select-Object -Unique } else { @() }
-            $matchingPhases = foreach ($phase in $tiers) {
+        if (Test-Path $failedCatalogPath) {
+            $failedCatalog = Get-Content -Path $failedCatalogPath -Raw | ConvertFrom-Json
+            $tiersRaw = $failedCatalog.Tier | Select-Object -Unique
+            $failedTiers = if ($tiersRaw -is [array]) { $tiersRaw } else { @($tiersRaw) }
+            $matchingPhases = [System.Collections.ArrayList]@()
+            foreach ($phase in $tiers) {
                 $hasFailure = $false
                 foreach ($tier in $failedTiers) {
                     if ($phase.Tiers -contains $tier) { $hasFailure = $true; break }
                 }
-                if ($hasFailure) { $phase }
+                if ($hasFailure) { [void]$matchingPhases.Add($phase) }
             }
             if ($matchingPhases.Count -eq 0) {
-                Write-Output "No failed tiers in preflight.json; nothing to fix."
+                Write-Output "No failed tiers in failed-catalog.json; nothing to fix."
             }
             $matchingPhases
         } else {
-            Write-Output "No preflight.json found; running all phases."
+            Write-Output "No failed-catalog.json found; running all phases."
             $tiers
         }
     } else {
         $tiers
     }
 
+    $catalogArg = @{}
+    if ($FixFailures -and (Test-Path $failedCatalogPath)) {
+        $catalogArg['CatalogPath'] = $failedCatalogPath
+    }
+
     foreach ($phase in $phases) {
         Write-Output "=== Starting Phase $($phase.Name) (Tiers $($phase.Tiers -join ', ')) ==="
-        & "$PSScriptRoot\Complete-Phase.ps1" -Phase $phase.Name -Tiers $phase.Tiers -InstallRoot $InstallRoot -InstallDeps:$InstallDeps
+        & "$PSScriptRoot\Complete-Phase.ps1" -Phase $phase.Name -Tiers $phase.Tiers -InstallRoot $InstallRoot -InstallDeps:$InstallDeps @catalogArg
     }
 }
 
