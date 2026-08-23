@@ -1,8 +1,8 @@
 {
-    "timestamp":  "2026-08-23T04:23:13.7853023-07:00",
+    "timestamp":  "2026-08-23T04:26:06.8917774-07:00",
     "total":  62,
-    "healthy":  61,
-    "unhealthy":  9,
+    "healthy":  62,
+    "unhealthy":  0,
     "results":  [
                     {
                         "id":  "anthropic-skills",
@@ -118,10 +118,10 @@
                         "missing_env":  [
 
                                         ],
-                        "protocol_ok":  "failed",
-                        "healthy":  false,
+                        "protocol_ok":  "passed",
+                        "healthy":  true,
                         "repair_actions":  [
-                                               "Run certifier"
+
                                            ]
                     },
                     {
@@ -478,7 +478,7 @@
                         "missing_env":  [
 
                                         ],
-                        "protocol_ok":  "not_applicable",
+                        "protocol_ok":  "failed",
                         "healthy":  true,
                         "repair_actions":  [
 
@@ -898,7 +898,7 @@
                         "missing_env":  [
 
                                         ],
-                        "protocol_ok":  "not_applicable",
+                        "protocol_ok":  "failed",
                         "healthy":  true,
                         "repair_actions":  [
 
