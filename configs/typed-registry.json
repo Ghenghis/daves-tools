@@ -145,9 +145,9 @@
       },
       "verification": {
         "install": "passed",
-        "protocol": "failed",
-        "domain_smoke": "unknown",
-        "last_verified": "2026-08-22T18:38:00.742Z",
+        "protocol": "passed",
+        "domain_smoke": "passed",
+        "last_verified": "2026-08-23T10:51:05.437Z",
         "evidence_id": "cert-serena"
       }
     },
@@ -286,7 +286,7 @@
         "install": "unknown",
         "protocol": "passed",
         "domain_smoke": "not_applicable",
-        "last_verified": "2026-08-19T22:57:48.633Z",
+        "last_verified": "2026-08-23T10:51:16.460Z",
         "evidence_id": "cert-context7"
       },
       "metadata": {
@@ -342,7 +342,7 @@
         "install": "unknown",
         "protocol": "passed",
         "domain_smoke": "not_applicable",
-        "last_verified": "2026-08-19T23:08:24.093Z",
+        "last_verified": "2026-08-23T10:51:23.598Z",
         "evidence_id": "cert-github-mcp"
       },
       "metadata": {
@@ -396,9 +396,9 @@
       },
       "verification": {
         "install": "unknown",
-        "protocol": "passed",
-        "domain_smoke": "failed",
-        "last_verified": "2026-08-20T22:03:48.988Z",
+        "protocol": "failed",
+        "domain_smoke": "unknown",
+        "last_verified": "2026-08-23T10:51:29.851Z",
         "evidence_id": "cert-gitlab-mcp"
       },
       "metadata": {
@@ -451,7 +451,7 @@
         "install": "passed",
         "protocol": "passed",
         "domain_smoke": "passed",
-        "last_verified": "2026-08-22T05:17:58.378Z",
+        "last_verified": "2026-08-23T10:51:39.701Z",
         "evidence_id": "cert-searxng-mcp"
       },
       "metadata": {
@@ -545,8 +545,8 @@
       "verification": {
         "install": "passed",
         "protocol": "passed",
-        "domain_smoke": "unknown",
-        "last_verified": "2026-08-22T05:17:58.378Z",
+        "domain_smoke": "passed",
+        "last_verified": "2026-08-23T10:51:45.472Z",
         "evidence_id": "cert-android-mcp"
       }
     },
