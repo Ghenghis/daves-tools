@@ -86,14 +86,14 @@ $status = foreach ($item in $items) {
         $env:GIT_LFS_SKIP_SMUDGE = '1'
 
         if ($correction.clone_strategy -ne 'full') {
-            git clone --depth 1 $url $target 2>&1 | Out-Null
+            & { $ErrorActionPreference = 'SilentlyContinue'; git clone --depth 1 $url $target 2>&1 | Out-Null }
             if ($LASTEXITCODE -eq 0) { $result.cloned = $true }
         }
 
         if (-not $result.cloned) {
             if (Test-Path $target) { Remove-Item -Recurse -Force $target }
             Start-Sleep -Seconds 2
-            git clone $url $target 2>&1 | Out-Null
+            & { $ErrorActionPreference = 'SilentlyContinue'; git clone $url $target 2>&1 | Out-Null }
             if ($LASTEXITCODE -eq 0) { $result.cloned = $true }
         }
 
