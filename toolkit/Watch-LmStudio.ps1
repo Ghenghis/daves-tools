@@ -9,13 +9,13 @@ Param(
 $ErrorActionPreference = 'Continue'
 
 if (-not $ConfigPath) {
-    $ConfigPath = Join-Path (Join-Path (Split-Path $PSScriptRoot -Parent) 'configs') 'lmstudio-watchdog.json'
+    $ConfigPath = Join-Path -Path (Join-Path -Path (Split-Path -Path $PSScriptRoot -Parent) -ChildPath 'configs') -ChildPath 'lmstudio-watchdog.json'
 }
 
 $config = Get-Content $ConfigPath -Raw | ConvertFrom-Json
 $logPath = $config.logPath
 if (-not [System.IO.Path]::IsPathRooted($logPath)) {
-    $logPath = Join-Path (Split-Path $PSScriptRoot -Parent) $logPath
+    $logPath = Join-Path -Path (Split-Path -Path $PSScriptRoot -Parent) -ChildPath $logPath
 }
 
 function Write-Log($message) {
@@ -29,9 +29,9 @@ function Write-Log($message) {
 function Find-LmStudioExe {
     $paths = @(
         $config.exe,
-        (Join-Path $env:LOCALAPPDATA 'LM-Studio' 'LM Studio.exe'),
-        (Join-Path $env:LOCALAPPDATA 'LM-Studio' 'app-0*' 'LM Studio.exe'),
-        (Join-Path $env:ProgramFiles 'LM-Studio' 'LM Studio.exe')
+        (Join-Path -Path $env:LOCALAPPDATA -ChildPath 'LM-Studio\LM Studio.exe'),
+        (Join-Path -Path $env:LOCALAPPDATA -ChildPath 'LM-Studio\app-0*\LM Studio.exe'),
+        (Join-Path -Path $env:ProgramFiles -ChildPath 'LM-Studio\LM Studio.exe')
     )
     foreach ($p in $paths) {
         if ($p -and (Test-Path $p)) { return $p }
@@ -91,7 +91,7 @@ function Wait-ForAlive {
 }
 
 if ($RegisterTask) {
-    $action = New-ScheduledTaskAction -Execute 'powershell.exe' -Argument ('-WindowStyle Hidden -ExecutionPolicy Bypass -File "{0}"' -f (Join-Path $PSScriptRoot 'Watch-LmStudio.ps1'))
+    $action = New-ScheduledTaskAction -Execute 'powershell.exe' -Argument ('-WindowStyle Hidden -ExecutionPolicy Bypass -File "{0}"' -f (Join-Path -Path $PSScriptRoot -ChildPath 'Watch-LmStudio.ps1'))
     $trigger = New-ScheduledTaskTrigger -AtLogon
     $principal = New-ScheduledTaskPrincipal -UserId $env:USERNAME -RunLevel Limited
     $settings = New-ScheduledTaskSettingsSet -AllowStartIfOnBatteries -DontStopIfGoingOnBatteries -StartWhenAvailable
