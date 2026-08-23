@@ -1,11 +1,11 @@
 {
   "version": "1.0.0",
-  "generated": "2026-08-19T11:47:54.7065434-07:00",
+  "generated": "2026-08-23T10:19:49.332Z",
   "schema": "configs/typed-registry.schema.json",
-  "total": 43,
-  "mcp_server_count": 16,
+  "total": 62,
+  "mcp_server_count": 12,
   "skill_pack_count": 10,
-  "dependency_count": 12,
+  "dependency_count": 32,
   "assets": [
     {
       "id": "anthropic-skills",
@@ -2453,6 +2453,16 @@
       },
       "metadata": {
         "notes": "Local kit on disk; drives Unity Editor MCP pipeline (harnessctl)."
+      },
+      "profiles": [
+        "UNITY-RE"
+      ],
+      "permissions": {
+        "filesystem_roots": [],
+        "network_hosts": [],
+        "credentials": [],
+        "mutation_level": "on_mutation",
+        "approval_policy": "on_mutation"
       }
     },
     {
@@ -2481,6 +2491,16 @@
       },
       "metadata": {
         "notes": "Browse/export textures, sprites, audio from PC3 sharedassets."
+      },
+      "profiles": [
+        "UNITY-RE"
+      ],
+      "permissions": {
+        "filesystem_roots": [],
+        "network_hosts": [],
+        "credentials": [],
+        "mutation_level": "on_mutation",
+        "approval_policy": "on_mutation"
       }
     },
     {
@@ -2509,6 +2529,16 @@
       },
       "metadata": {
         "notes": "Re-import modified assets into PC3 sharedassets (branding swap)."
+      },
+      "profiles": [
+        "UNITY-RE"
+      ],
+      "permissions": {
+        "filesystem_roots": [],
+        "network_hosts": [],
+        "credentials": [],
+        "mutation_level": "on_mutation",
+        "approval_policy": "on_mutation"
       }
     },
     {
@@ -2537,6 +2567,16 @@
       },
       "metadata": {
         "notes": "Runtime C# plugin framework for live texture/branding swap in PC3 (Mono)."
+      },
+      "profiles": [
+        "UNITY-RE"
+      ],
+      "permissions": {
+        "filesystem_roots": [],
+        "network_hosts": [],
+        "credentials": [],
+        "mutation_level": "on_mutation",
+        "approval_policy": "on_mutation"
       }
     },
     {
@@ -2568,6 +2608,16 @@
       },
       "metadata": {
         "notes": "Python lib for scripted PC3 asset extract/patch."
+      },
+      "profiles": [
+        "UNITY-RE"
+      ],
+      "permissions": {
+        "filesystem_roots": [],
+        "network_hosts": [],
+        "credentials": [],
+        "mutation_level": "on_mutation",
+        "approval_policy": "on_mutation"
       }
     },
     {
@@ -2598,6 +2648,16 @@
       },
       "metadata": {
         "notes": "AI video upscaling (Real-ESRGAN) for modernizing old clips."
+      },
+      "profiles": [
+        "MEDIA"
+      ],
+      "permissions": {
+        "filesystem_roots": [],
+        "network_hosts": [],
+        "credentials": [],
+        "mutation_level": "on_mutation",
+        "approval_policy": "on_mutation"
       }
     },
     {
@@ -2632,6 +2692,16 @@
       "metadata": {
         "notes": "Video encode/convert/upscale pipeline for PC3 webm + PC2 clip modernization.",
         "pinned_version": "0.0.3"
+      },
+      "profiles": [
+        "MEDIA"
+      ],
+      "permissions": {
+        "filesystem_roots": [],
+        "network_hosts": [],
+        "credentials": [],
+        "mutation_level": "on_mutation",
+        "approval_policy": "on_mutation"
       }
     },
     {
@@ -2660,6 +2730,16 @@
       },
       "metadata": {
         "notes": "npx blender-mcp starts but closes without Blender+addon running; Blender not installed on this system. Reclassify to mcp_server if Blender installed."
+      },
+      "profiles": [
+        "MEDIA"
+      ],
+      "permissions": {
+        "filesystem_roots": [],
+        "network_hosts": [],
+        "credentials": [],
+        "mutation_level": "on_mutation",
+        "approval_policy": "on_mutation"
       }
     },
     {
@@ -2694,6 +2774,16 @@
       "metadata": {
         "notes": "AI image/video generation against local ComfyUI at G:/Github/ComfyUI (Hunyuan video).",
         "pinned_version": "0.52.57"
+      },
+      "profiles": [
+        "MEDIA"
+      ],
+      "permissions": {
+        "filesystem_roots": [],
+        "network_hosts": [],
+        "credentials": [],
+        "mutation_level": "on_mutation",
+        "approval_policy": "on_mutation"
       }
     },
     {
@@ -2724,6 +2814,16 @@
       },
       "metadata": {
         "notes": "Local install G:/Github/ComfyUI; models G:/models; LoRAs G:/Github/Loras; workflows G:/Comfy_Workflows; video via ComfyUI-Hunyuan."
+      },
+      "profiles": [
+        "MEDIA"
+      ],
+      "permissions": {
+        "filesystem_roots": [],
+        "network_hosts": [],
+        "credentials": [],
+        "mutation_level": "on_mutation",
+        "approval_policy": "on_mutation"
       }
     }
   ]

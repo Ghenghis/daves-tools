@@ -1,185 +1,149 @@
 {
-    "timestamp":  "2026-08-19T18:02:41.0721965-07:00",
-    "total":  16,
-    "passed":  2,
-    "failed":  5,
-    "not_applicable":  0,
-    "results":  [
-                    {
-                        "id":  "serena",
-                        "display_name":  "Serena",
-                        "command":  "uvx",
-                        "args":  "mcp-server-serena --project \u003cPROJECT_ROOT\u003e",
-                        "verdict":  "failed",
-                        "protocol":  "failed",
-                        "domain_smoke":  "unknown",
-                        "last_verified":  "2026-08-20T00:57:39.335Z",
-                        "error":  "MCP error -32000: Connection closed"
-                    },
-                    {
-                        "id":  "context7",
-                        "display_name":  "Context7",
-                        "command":  "npx",
-                        "args":  "-y @upstash/context7-mcp@latest",
-                        "verdict":  "passed",
-                        "protocol":  "passed",
-                        "domain_smoke":  "not_applicable",
-                        "last_verified":  "2026-08-19T22:57:48.633Z",
-                        "error":  null
-                    },
-                    {
-                        "id":  "github-mcp",
-                        "display_name":  "GitHub MCP",
-                        "command":  "npx",
-                        "args":  "-y @modelcontextprotocol/server-github",
-                        "verdict":  "passed",
-                        "protocol":  "passed",
-                        "domain_smoke":  "not_applicable",
-                        "last_verified":  "2026-08-19T23:08:24.093Z",
-                        "error":  null
-                    },
-                    {
-                        "id":  "gitlab-mcp",
-                        "display_name":  "GitLab MCP",
-                        "command":  "npx",
-                        "args":  "-y @modelcontextprotocol/server-gitlab",
-                        "verdict":  "failed",
-                        "protocol":  "failed",
-                        "domain_smoke":  "unknown",
-                        "last_verified":  "2026-08-19T23:20:13.972Z",
-                        "error":  "MCP error -32000: Connection closed"
-                    },
-                    {
-                        "id":  "searxng-mcp",
-                        "display_name":  "SearXNG MCP",
-                        "command":  "node",
-                        "args":  "G:\\Github\\searxng-mcp\\dist\\index.js",
-                        "verdict":  "unknown",
-                        "protocol":  "unknown",
-                        "domain_smoke":  "unknown",
-                        "last_verified":  null,
-                        "error":  ""
-                    },
-                    {
-                        "id":  "android-mcp",
-                        "display_name":  "Android MCP",
-                        "command":  "node",
-                        "args":  "G:\\Github\\android-mcp\\dist\\index.js",
-                        "verdict":  "failed",
-                        "protocol":  "failed",
-                        "domain_smoke":  "unknown",
-                        "last_verified":  "2026-08-19T23:16:35.764Z",
-                        "error":  "MCP error -32000: Connection closed"
-                    },
-                    {
-                        "id":  "appium-mcp",
-                        "display_name":  "Appium MCP",
-                        "command":  "node",
-                        "args":  "G:\\Github\\appium-mcp\\dist\\index.js",
-                        "verdict":  "unknown",
-                        "protocol":  "unknown",
-                        "domain_smoke":  "unknown",
-                        "last_verified":  null,
-                        "error":  ""
-                    },
-                    {
-                        "id":  "apktool-mcp",
-                        "display_name":  "Apktool MCP",
-                        "command":  "npx",
-                        "args":  "-y apktool-mcp",
-                        "verdict":  "failed",
-                        "protocol":  "failed",
-                        "domain_smoke":  "unknown",
-                        "last_verified":  "2026-08-19T22:59:02.134Z",
-                        "error":  "MCP error -32000: Connection closed"
-                    },
-                    {
-                        "id":  "jadx-ai-mcp",
-                        "display_name":  "JADX AI MCP",
-                        "command":  "npx",
-                        "args":  "-y jadx-ai-mcp",
-                        "verdict":  "unknown",
-                        "protocol":  "unknown",
-                        "domain_smoke":  "unknown",
-                        "last_verified":  null,
-                        "error":  ""
-                    },
-                    {
-                        "id":  "jadx-mcp-server",
-                        "display_name":  "JADX MCP Server",
-                        "command":  "npx",
-                        "args":  "-y jadx-mcp-server",
-                        "verdict":  "unknown",
-                        "protocol":  "unknown",
-                        "domain_smoke":  "unknown",
-                        "last_verified":  null,
-                        "error":  ""
-                    },
-                    {
-                        "id":  "ghidra-mcp-headless",
-                        "display_name":  "Ghidra MCP Headless",
-                        "command":  "",
-                        "args":  "",
-                        "verdict":  "unknown",
-                        "protocol":  "unknown",
-                        "domain_smoke":  "unknown",
-                        "last_verified":  null,
-                        "error":  ""
-                    },
-                    {
-                        "id":  "ghidramcp-lauriewired",
-                        "display_name":  "GhidraMCP LaurieWired",
-                        "command":  "",
-                        "args":  "",
-                        "verdict":  "unknown",
-                        "protocol":  "unknown",
-                        "domain_smoke":  "unknown",
-                        "last_verified":  null,
-                        "error":  ""
-                    },
-                    {
-                        "id":  "pyghidra-mcp",
-                        "display_name":  "pyghidra-mcp",
-                        "command":  "",
-                        "args":  "",
-                        "verdict":  "unknown",
-                        "protocol":  "unknown",
-                        "domain_smoke":  "unknown",
-                        "last_verified":  null,
-                        "error":  ""
-                    },
-                    {
-                        "id":  "autogenesis",
-                        "display_name":  "AutoGenesis",
-                        "command":  "npx",
-                        "args":  "-y autogenesis",
-                        "verdict":  "failed",
-                        "protocol":  "failed",
-                        "domain_smoke":  "unknown",
-                        "last_verified":  "2026-08-19T23:15:35.261Z",
-                        "error":  "MCP error -32000: Connection closed"
-                    },
-                    {
-                        "id":  "hyper-v-mcp",
-                        "display_name":  "Hyper-V MCP",
-                        "command":  "npx",
-                        "args":  "-y hyper-v-mcp",
-                        "verdict":  "unknown",
-                        "protocol":  "unknown",
-                        "domain_smoke":  "unknown",
-                        "last_verified":  null,
-                        "error":  ""
-                    },
-                    {
-                        "id":  "x64dbg-automate-mcp",
-                        "display_name":  "x64dbg Automate MCP",
-                        "command":  "npx",
-                        "args":  "-y x64dbg-automate-mcp",
-                        "verdict":  "unknown",
-                        "protocol":  "unknown",
-                        "domain_smoke":  "unknown",
-                        "last_verified":  null,
-                        "error":  ""
-                    }
-                ]
+  "timestamp": "2026-08-23T10:24:28.676Z",
+  "total": 14,
+  "passed": 12,
+  "failed": 2,
+  "unknown_or_na": 0,
+  "results": [
+    {
+      "id": "android-mcp",
+      "display_name": "Android MCP",
+      "verdict": "passed",
+      "protocol": "passed",
+      "smoke": "passed",
+      "last_verified": "2026-08-21T21:46:00.122Z",
+      "error": null,
+      "duration_ms": 2388
+    },
+    {
+      "id": "apktool-mcp",
+      "display_name": "Apktool MCP",
+      "verdict": "passed",
+      "protocol": "passed",
+      "smoke": "passed",
+      "last_verified": "2026-08-20T02:59:45.249Z",
+      "error": null,
+      "duration_ms": 17384
+    },
+    {
+      "id": "appium-mcp",
+      "display_name": "Appium MCP",
+      "verdict": "passed",
+      "protocol": "passed",
+      "smoke": "passed",
+      "last_verified": "2026-08-21T21:45:57.576Z",
+      "error": null,
+      "duration_ms": 22656
+    },
+    {
+      "id": "autogenesis",
+      "display_name": "AutoGenesis",
+      "verdict": "failed",
+      "protocol": "failed",
+      "smoke": "unknown",
+      "last_verified": "2026-08-21T21:52:46.763Z",
+      "error": "MCP error -32000: Connection closed",
+      "duration_ms": 4928
+    },
+    {
+      "id": "blender-mcp",
+      "display_name": "Blender MCP",
+      "verdict": "failed",
+      "protocol": "failed",
+      "smoke": "unknown",
+      "last_verified": "2026-08-22T10:05:22.044Z",
+      "error": "MCP error -32000: Connection closed",
+      "duration_ms": 4637
+    },
+    {
+      "id": "comfyui-mcp",
+      "display_name": "ComfyUI MCP",
+      "verdict": "passed",
+      "protocol": "passed",
+      "smoke": "passed",
+      "last_verified": "2026-08-22T10:33:04.993Z",
+      "error": null,
+      "duration_ms": 29771
+    },
+    {
+      "id": "context7",
+      "display_name": "Context7",
+      "verdict": "passed",
+      "protocol": "passed",
+      "smoke": "not_applicable",
+      "last_verified": "2026-08-19T22:57:35.540Z",
+      "error": null,
+      "duration_ms": 13092
+    },
+    {
+      "id": "ffmpeg-mcp",
+      "display_name": "FFmpeg MCP",
+      "verdict": "passed",
+      "protocol": "passed",
+      "smoke": "not_applicable",
+      "last_verified": "2026-08-22T10:22:16.179Z",
+      "error": null,
+      "duration_ms": 9200
+    },
+    {
+      "id": "github-mcp",
+      "display_name": "GitHub MCP",
+      "verdict": "passed",
+      "protocol": "passed",
+      "smoke": "not_applicable",
+      "last_verified": "2026-08-19T23:08:19.132Z",
+      "error": null,
+      "duration_ms": 4960
+    },
+    {
+      "id": "gitlab-mcp",
+      "display_name": "GitLab MCP",
+      "verdict": "passed",
+      "protocol": "passed",
+      "smoke": "failed",
+      "last_verified": "2026-08-20T22:03:38.380Z",
+      "error": null,
+      "duration_ms": 10608
+    },
+    {
+      "id": "hyper-v-mcp",
+      "display_name": "Hyper-V MCP",
+      "verdict": "passed",
+      "protocol": "passed",
+      "smoke": "passed",
+      "last_verified": "2026-08-21T21:53:18.635Z",
+      "error": null,
+      "duration_ms": 4539
+    },
+    {
+      "id": "playwright-cli-skills",
+      "display_name": "Playwright CLI + Skills",
+      "verdict": "passed",
+      "protocol": "passed",
+      "smoke": "passed",
+      "last_verified": "2026-08-20T00:58:15.269Z",
+      "error": null,
+      "duration_ms": 5499
+    },
+    {
+      "id": "searxng-mcp",
+      "display_name": "SearXNG MCP",
+      "verdict": "passed",
+      "protocol": "passed",
+      "smoke": "passed",
+      "last_verified": "2026-08-21T21:43:27.448Z",
+      "error": null,
+      "duration_ms": 18660
+    },
+    {
+      "id": "x64dbg-automate-mcp",
+      "display_name": "x64dbg Automate MCP",
+      "verdict": "passed",
+      "protocol": "passed",
+      "smoke": "failed",
+      "last_verified": "2026-08-20T09:26:40.210Z",
+      "error": null,
+      "duration_ms": 18243
+    }
+  ]
 }

@@ -4,7 +4,7 @@ A typed, certifiable, Windows-first harness for Model Context Protocol (MCP) ser
 
 This repository is the control plane for the DAVE-AI ecosystem: a single source of truth for what tools are installed, how they are launched, what they are allowed to touch, and whether they are actually healthy.
 
-- 43 catalogued assets (16 MCP servers, 10 skill packs, 12 runtime dependencies, 5 reusable profiles)
+- 62 catalogued assets (12 MCP servers, 10 skill packs, 20 CLI dependencies, 11 GUI dependencies, 3 marketplaces, 3 tool packs, 1 benchmark, 1 agent runtime, 1 service)
 - One typed registry (`configs/typed-registry.json`) drives every launcher, certifier, and installer
 - Every asset is tagged with profiles, permissions, health rules, and a mutation approval policy
 - High-risk tools can be sandboxed in containers via `harness/container.js`
@@ -49,11 +49,11 @@ This repository is the control plane for the DAVE-AI ecosystem: a single source 
 
 | Path | Purpose |
 |------|---------|
-| `configs/typed-registry.json` | Single source of truth for all 43 assets |
-| `harness/` | Certifier, proxy, container resolver, health checks, watchdog |
+| `configs/typed-registry.json` | Single source of truth for all 62 assets |
+| `harness/` | Certifier, proxy, container resolver, health checks, watchdog, supervisor |
+| `harness/daemon/` | Windows service wrapper (`davestoolsmcpwatchdog.exe`) |
 | `docs/` | Certification reports, setup guides, security model, catalog |
 | `toolkit/` | PowerShell and Node scripts for install, sync, and watchdogs |
-| `tests/` | Unit and integration tests for the harness |
 
 ## Architecture
 
@@ -91,12 +91,7 @@ No MCP server is loaded unless it is represented in this file and has passed at 
 
 ## Certification status
 
-The latest run in `docs/certification-summary.json` shows:
-
-- Total MCP servers tested: 16
-- Passed: 2
-- Failed: 5
-- Unknown / not tested: 9
+The latest run in `docs/certification-summary.json` shows results for every `mcp_server` asset in the registry. Numbers vary as the registry and supervisor evolve; for the current pass/fail split see `docs/CERTIFICATION-SUMMARY.md`. The supervisor's heartbeat log (`docs/harness-events.ndjson`) is the live source of truth for "is this MCP actually running right now."
 
 `docs/MCP-CATALOG.md` lists every asset, its certification verdict, and the tool surface exposed when it passes. `docs/CERTIFICATION-LESSONS.md` explains the most common failure modes and how to fix them.
 

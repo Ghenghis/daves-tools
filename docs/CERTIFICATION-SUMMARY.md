@@ -1,27 +1,25 @@
 # Certification Summary
 
-**Generated:** 2026-08-19T18:02:41.0721965-07:00**
+**Generated:** 2026-08-23T10:24:28.676Z
 
-- **Total:** 16
-- **Passed:** 2
-- **Failed:** 5
-- **N/A:** 0
+- **Total:** 14
+- **Passed:** 12
+- **Failed:** 2
+- **Unknown/N-A:** 0
 
 | Asset | Verdict | Protocol | Smoke | Last Verified | Error |
 |---|---|---|---|---|---|
-| Android MCP | failed | failed | unknown | 2026-08-19T23:16:35.764Z | MCP error -32000: Connection closed |
-| Apktool MCP | failed | failed | unknown | 2026-08-19T22:59:02.134Z | MCP error -32000: Connection closed |
-| AutoGenesis | failed | failed | unknown | 2026-08-19T23:15:35.261Z | MCP error -32000: Connection closed |
-| GitLab MCP | failed | failed | unknown | 2026-08-19T23:20:13.972Z | MCP error -32000: Connection closed |
-| Serena | failed | failed | unknown | 2026-08-20T00:57:39.335Z | MCP error -32000: Connection closed |
-| Context7 | passed | passed | not_applicable | 2026-08-19T22:57:48.633Z |  |
-| GitHub MCP | passed | passed | not_applicable | 2026-08-19T23:08:24.093Z |  |
-| GhidraMCP LaurieWired | unknown | unknown | unknown |  |  |
-| pyghidra-mcp | unknown | unknown | unknown |  |  |
-| Hyper-V MCP | unknown | unknown | unknown |  |  |
-| x64dbg Automate MCP | unknown | unknown | unknown |  |  |
-| Appium MCP | unknown | unknown | unknown |  |  |
-| SearXNG MCP | unknown | unknown | unknown |  |  |
-| JADX AI MCP | unknown | unknown | unknown |  |  |
-| Ghidra MCP Headless | unknown | unknown | unknown |  |  |
-| JADX MCP Server | unknown | unknown | unknown |  |  |
+| Android MCP | passed | passed | passed | 2026-08-21T21:46:00.122Z |  |
+| Apktool MCP | passed | passed | passed | 2026-08-20T02:59:45.249Z |  |
+| Appium MCP | passed | passed | passed | 2026-08-21T21:45:57.576Z |  |
+| AutoGenesis | failed | failed | unknown | 2026-08-21T21:52:46.763Z | MCP error -32000: Connection closed |
+| Blender MCP | failed | failed | unknown | 2026-08-22T10:05:22.044Z | MCP error -32000: Connection closed |
+| ComfyUI MCP | passed | passed | passed | 2026-08-22T10:33:04.993Z |  |
+| Context7 | passed | passed | not_applicable | 2026-08-19T22:57:35.540Z |  |
+| FFmpeg MCP | passed | passed | not_applicable | 2026-08-22T10:22:16.179Z |  |
+| GitHub MCP | passed | passed | not_applicable | 2026-08-19T23:08:19.132Z |  |
+| GitLab MCP | passed | passed | failed | 2026-08-20T22:03:38.380Z |  |
+| Hyper-V MCP | passed | passed | passed | 2026-08-21T21:53:18.635Z |  |
+| Playwright CLI + Skills | passed | passed | passed | 2026-08-20T00:58:15.269Z |  |
+| SearXNG MCP | passed | passed | passed | 2026-08-21T21:43:27.448Z |  |
+| x64dbg Automate MCP | passed | passed | failed | 2026-08-20T09:26:40.210Z |  |

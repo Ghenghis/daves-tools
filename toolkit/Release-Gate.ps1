@@ -22,13 +22,17 @@ function Add-Gate($name, $status, $evidence) {
     [void]$gates.Add([ordered]@{ name = $name; status = $status; evidence = $evidence })
 }
 
-Add-Gate 'branch_is_main' ($branch -eq 'master' ? 'passed' : 'failed') $branch
-Add-Gate 'no_uncommitted_changes' ([string]::IsNullOrWhiteSpace($uncommitted) ? 'passed' : 'failed') $uncommitted
-Add-Gate 'no_unpushed_commits' ([string]::IsNullOrWhiteSpace($unpushed) ? 'passed' : 'failed') $unpushed
+$branchStatus = if ($branch -eq 'master') { 'passed' } else { 'failed' }
+Add-Gate 'branch_is_main' $branchStatus $branch
+$uncommittedStatus = if ([string]::IsNullOrWhiteSpace($uncommitted)) { 'passed' } else { 'failed' }
+Add-Gate 'no_uncommitted_changes' $uncommittedStatus $uncommitted
+$unpushedStatus = if ([string]::IsNullOrWhiteSpace($unpushed)) { 'passed' } else { 'failed' }
+Add-Gate 'no_unpushed_commits' $unpushedStatus $unpushed
 
 $allHealthy = ($reg.assets | Where-Object { $_.verification.protocol -eq 'passed' }).Count
 $total = $reg.assets.Count
-Add-Gate 'typed_registry_present' ($total -gt 0 ? 'passed' : 'failed') "$total assets"
+$registryStatus = if ($total -gt 0) { 'passed' } else { 'failed' }
+Add-Gate 'typed_registry_present' $registryStatus "$total assets"
 
 $preflightPath = "C:\Users\Admin\CascadeProjects\daves-tools\toolkit\Run-Preflight.ps1"
 $preflight = @()
