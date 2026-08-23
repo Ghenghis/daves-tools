@@ -1,0 +1,67 @@
+name: Quality
+
+on:
+  pull_request:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+jobs:
+  powershell:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install pinned PowerShell quality tools
+        shell: powershell
+        run: |
+          Install-PackageProvider -Name NuGet -Force
+          Install-Module PSScriptAnalyzer -RequiredVersion 1.25.0 -Scope CurrentUser -Force -SkipPublisherCheck
+          Install-Module Pester -RequiredVersion 6.1.0 -Scope CurrentUser -Force -SkipPublisherCheck
+
+      - name: Run PSScriptAnalyzer with zero findings
+        shell: powershell
+        run: |
+          Import-Module PSScriptAnalyzer -RequiredVersion 1.25.0 -Force
+          $paths = @(
+            'toolkit/Test-MiniMaxClientIntegrations.ps1',
+            'toolkit/Test-MiniMaxClientIntegrations.Tests.ps1'
+          )
+          $findings = @($paths | ForEach-Object { Invoke-ScriptAnalyzer -Path $_ })
+          $findings | Format-Table -AutoSize
+          if ($findings.Count -gt 0) { throw "PSScriptAnalyzer returned $($findings.Count) finding(s)" }
+
+      - name: Run Pester
+        shell: powershell
+        run: |
+          Import-Module Pester -RequiredVersion 6.1.0 -Force
+          $result = Invoke-Pester -Path 'toolkit/Test-MiniMaxClientIntegrations.Tests.ps1' -Output Detailed -PassThru
+          if ($result.FailedCount -gt 0) { throw "$($result.FailedCount) Pester test(s) failed" }
+
+      - name: Scan tracked text for credentials
+        shell: powershell
+        run: |
+          $pattern = '(?i)(sk-[A-Za-z0-9_-]{20,}|ghp_[A-Za-z0-9]{20,}|github_pat_[A-Za-z0-9_]{20,}|glpat-[A-Za-z0-9_-]{20,})'
+          $extensions = @('.ps1', '.psm1', '.js', '.json', '.yaml', '.yml', '.md', '.cmd')
+          $hits = @()
+          foreach ($file in (git ls-files)) {
+            if ([IO.Path]::GetExtension($file) -notin $extensions) { continue }
+            if ((Get-Content -LiteralPath $file -Raw -ErrorAction SilentlyContinue) -match $pattern) { $hits += $file }
+          }
+          if ($hits.Count -gt 0) { $hits | ForEach-Object { Write-Error "credential pattern: $_" }; exit 1 }
+
+  node:
+    runs-on: windows-latest
+    defaults:
+      run:
+        working-directory: harness
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: harness/package-lock.json
+      - run: npm ci
+      - run: npm test --if-present
+      - run: npm audit --omit=dev --audit-level=high

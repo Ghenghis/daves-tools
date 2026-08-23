@@ -148,3 +148,41 @@ Use `node harness/certifier.js --profile CORE` to certify only the core profile,
 ## License and contribution
 
 This project is private. See the repository owner for contribution guidelines. The registry may reference third-party MCP servers and skill packs under their own licenses; those licenses are recorded in `configs/typed-registry.json`.
+
+## MiniMax four-client release harness
+
+`toolkit/Test-MiniMaxClientIntegrations.ps1` verifies the local Claude, Codex,
+Kilo, and Devin MiniMax configuration. It checks gateway services and listeners,
+model catalogs, file-backed credentials, bounded MCP surfaces, targeted MCP
+handshakes, and recognized plaintext credential patterns.
+
+Cost-free structural run:
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File toolkit\Test-MiniMaxClientIntegrations.ps1
+```
+
+Authenticated text contracts:
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File toolkit\Test-MiniMaxClientIntegrations.ps1 -Live
+```
+
+Safe repair preview:
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File toolkit\Test-MiniMaxClientIntegrations.ps1 -Fix -WhatIf
+```
+
+The harness never kills an unexpected port owner. Reports are appended as JSON
+Lines under `logs/client-integrations.jsonl`, which is excluded from Git. Pester
+coverage lives beside the script and is enforced by `.github/workflows/quality.yml`:
+
+```powershell
+Import-Module Pester -RequiredVersion 6.1.0
+Invoke-Pester toolkit\Test-MiniMaxClientIntegrations.Tests.ps1 -Output Detailed
+```
+
+The unrestricted `mini connect` aggregate is intentionally not a release
+profile: it exposed 387 tools during verification. Desktop clients use direct,
+targeted MiniMax MCP launchers instead.
