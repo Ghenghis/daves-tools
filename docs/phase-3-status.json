@@ -1,82 +1,5 @@
 ﻿[
     {
-        "name":  "Android Reverse Engineering Skill",
-        "kind":  "Plugin/skill",
-        "tier":  "D",
-        "url":  "https://github.com/SimoneAvogadro/android-reverse-engineering-skill",
-        "cloned":  true,
-        "deps_installed":  false,
-        "built":  false,
-        "snippet_path":  "G:\\Github\\android-reverse-engineering-skill\\claude-desktop-snippet.json",
-        "error":  null
-    },
-    {
-        "name":  "Apktool",
-        "kind":  "CLI",
-        "tier":  "D",
-        "url":  "https://github.com/iBotPeaches/Apktool",
-        "cloned":  true,
-        "deps_installed":  false,
-        "built":  false,
-        "snippet_path":  "G:\\Github\\apktool\\claude-desktop-snippet.json",
-        "error":  null
-    },
-    {
-        "name":  "Apktool MCP",
-        "kind":  "MCP",
-        "tier":  "D",
-        "url":  "https://github.com/zinja-coder/apktool-mcp-server",
-        "cloned":  true,
-        "deps_installed":  false,
-        "built":  false,
-        "snippet_path":  "G:\\Github\\apktool-mcp\\claude-desktop-snippet.json",
-        "error":  null
-    },
-    {
-        "name":  "Frida MCP Skills",
-        "kind":  "Skills",
-        "tier":  "D",
-        "url":  "https://github.com/yfe404/frida-mcp-skills",
-        "cloned":  true,
-        "deps_installed":  false,
-        "built":  false,
-        "snippet_path":  "G:\\Github\\frida-mcp-skills\\claude-desktop-snippet.json",
-        "error":  null
-    },
-    {
-        "name":  "JADX AI MCP",
-        "kind":  "MCP/plugin",
-        "tier":  "D",
-        "url":  "https://github.com/zinja-coder/jadx-ai-mcp",
-        "cloned":  true,
-        "deps_installed":  false,
-        "built":  false,
-        "snippet_path":  "G:\\Github\\jadx-ai-mcp\\claude-desktop-snippet.json",
-        "error":  null
-    },
-    {
-        "name":  "JADX MCP Server",
-        "kind":  "MCP",
-        "tier":  "D",
-        "url":  "https://github.com/Qtty/jadx-mcp-server",
-        "cloned":  true,
-        "deps_installed":  false,
-        "built":  false,
-        "snippet_path":  "G:\\Github\\jadx-mcp-server\\claude-desktop-snippet.json",
-        "error":  null
-    },
-    {
-        "name":  "MobSF",
-        "kind":  "App/API",
-        "tier":  "D",
-        "url":  "https://github.com/MobSF/Mobile-Security-Framework-MobSF",
-        "cloned":  true,
-        "deps_installed":  false,
-        "built":  false,
-        "snippet_path":  "G:\\Github\\mobsf\\claude-desktop-snippet.json",
-        "error":  null
-    },
-    {
         "name":  "AutoGenesis",
         "kind":  "MCP/test framework",
         "tier":  "E",
@@ -102,7 +25,7 @@
         "name":  "WinApp CLI",
         "kind":  "CLI/skills",
         "tier":  "E",
-        "url":  "https://github.com/microsoft/winappCli",
+        "url":  "https://github.com/microsoft/WinAppDriver",
         "cloned":  true,
         "deps_installed":  false,
         "built":  false,
@@ -201,9 +124,9 @@
         "name":  "Playwright CLI + Skills",
         "kind":  "CLI/skills",
         "tier":  "H",
-        "url":  "https://github.com/microsoft/playwright-cli",
+        "url":  "https://github.com/microsoft/playwright",
         "cloned":  true,
-        "deps_installed":  false,
+        "deps_installed":  true,
         "built":  false,
         "snippet_path":  "G:\\Github\\playwright-cli---skills\\claude-desktop-snippet.json",
         "error":  null
