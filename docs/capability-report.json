@@ -1,690 +1,938 @@
 {
-  "timestamp": "2026-08-22T03:06:09.6083373-07:00",
-  "total": 62,
-  "healthy": 62,
-  "unhealthy": 0,
-  "results": [
-    {
-      "id": "anthropic-skills",
-      "display_name": "Anthropic Skills",
-      "asset_type": "skill_pack",
-      "install_ok": true,
-      "env_ok": true,
-      "missing_env": [],
-      "protocol_ok": "unknown",
-      "healthy": true,
-      "repair_actions": []
-    },
-    {
-      "id": "claude-plugins-official",
-      "display_name": "Claude Plugins Official",
-      "asset_type": "marketplace",
-      "install_ok": true,
-      "env_ok": true,
-      "missing_env": [],
-      "protocol_ok": "unknown",
-      "healthy": true,
-      "repair_actions": []
-    },
-    {
-      "id": "serena",
-      "display_name": "Serena",
-      "asset_type": "mcp_server",
-      "install_ok": true,
-      "env_ok": true,
-      "missing_env": [],
-      "protocol_ok": "passed",
-      "healthy": true,
-      "repair_actions": []
-    },
-    {
-      "id": "superpowers",
-      "display_name": "Superpowers",
-      "asset_type": "skill_pack",
-      "install_ok": true,
-      "env_ok": true,
-      "missing_env": [],
-      "protocol_ok": "unknown",
-      "healthy": true,
-      "repair_actions": []
-    },
-    {
-      "id": "trail-of-bits-skills-curated",
-      "display_name": "Trail of Bits Skills Curated",
-      "asset_type": "marketplace",
-      "install_ok": true,
-      "env_ok": true,
-      "missing_env": [],
-      "protocol_ok": "unknown",
-      "healthy": true,
-      "repair_actions": []
-    },
-    {
-      "id": "context7",
-      "display_name": "Context7",
-      "asset_type": "mcp_server",
-      "install_ok": true,
-      "env_ok": true,
-      "missing_env": [],
-      "protocol_ok": "passed",
-      "healthy": true,
-      "repair_actions": []
-    },
-    {
-      "id": "github-mcp",
-      "display_name": "GitHub MCP",
-      "asset_type": "mcp_server",
-      "install_ok": true,
-      "env_ok": true,
-      "missing_env": [],
-      "protocol_ok": "passed",
-      "healthy": true,
-      "repair_actions": []
-    },
-    {
-      "id": "gitlab-mcp",
-      "display_name": "GitLab MCP",
-      "asset_type": "mcp_server",
-      "install_ok": true,
-      "env_ok": true,
-      "missing_env": [],
-      "protocol_ok": "passed",
-      "healthy": true,
-      "repair_actions": []
-    },
-    {
-      "id": "searxng-mcp",
-      "display_name": "SearXNG MCP",
-      "asset_type": "mcp_server",
-      "install_ok": true,
-      "env_ok": true,
-      "missing_env": [],
-      "protocol_ok": "passed",
-      "healthy": true,
-      "repair_actions": []
-    },
-    {
-      "id": "trail-of-bits-skills",
-      "display_name": "Trail of Bits Skills",
-      "asset_type": "marketplace",
-      "install_ok": true,
-      "env_ok": true,
-      "missing_env": [],
-      "protocol_ok": "unknown",
-      "healthy": true,
-      "repair_actions": []
-    },
-    {
-      "id": "android-mcp",
-      "display_name": "Android MCP",
-      "asset_type": "mcp_server",
-      "install_ok": true,
-      "env_ok": true,
-      "missing_env": [],
-      "protocol_ok": "passed",
-      "healthy": true,
-      "repair_actions": []
-    },
-    {
-      "id": "android-mcp-lean",
-      "display_name": "Android MCP Lean",
-      "asset_type": "skill_pack",
-      "install_ok": true,
-      "env_ok": true,
-      "missing_env": [],
-      "protocol_ok": "unknown",
-      "healthy": true,
-      "repair_actions": []
-    },
-    {
-      "id": "androidworld",
-      "display_name": "AndroidWorld",
-      "asset_type": "benchmark",
-      "install_ok": true,
-      "env_ok": true,
-      "missing_env": [],
-      "protocol_ok": "unknown",
-      "healthy": true,
-      "repair_actions": []
-    },
-    {
-      "id": "appium-mcp",
-      "display_name": "Appium MCP",
-      "asset_type": "mcp_server",
-      "install_ok": true,
-      "env_ok": true,
-      "missing_env": [],
-      "protocol_ok": "passed",
-      "healthy": true,
-      "repair_actions": []
-    },
-    {
-      "id": "maestro",
-      "display_name": "Maestro",
-      "asset_type": "cli_dependency",
-      "install_ok": true,
-      "env_ok": true,
-      "missing_env": [],
-      "protocol_ok": "unknown",
-      "healthy": true,
-      "repair_actions": []
-    },
-    {
-      "id": "maestro-mcp",
-      "display_name": "Maestro MCP",
-      "asset_type": "skill_pack",
-      "install_ok": true,
-      "env_ok": true,
-      "missing_env": [],
-      "protocol_ok": "unknown",
-      "healthy": true,
-      "repair_actions": []
-    },
-    {
-      "id": "mobile-harness",
-      "display_name": "Mobile Harness",
-      "asset_type": "skill_pack",
-      "install_ok": true,
-      "env_ok": true,
-      "missing_env": [],
-      "protocol_ok": "unknown",
-      "healthy": true,
-      "repair_actions": []
-    },
-    {
-      "id": "mobilerun",
-      "display_name": "Mobilerun",
-      "asset_type": "agent_runtime",
-      "install_ok": true,
-      "env_ok": true,
-      "missing_env": [],
-      "protocol_ok": "unknown",
-      "healthy": true,
-      "repair_actions": []
-    },
-    {
-      "id": "android-reverse-engineering-skill",
-      "display_name": "Android Reverse Engineering Skill",
-      "asset_type": "skill_pack",
-      "install_ok": true,
-      "env_ok": true,
-      "missing_env": [],
-      "protocol_ok": "unknown",
-      "healthy": true,
-      "repair_actions": []
-    },
-    {
-      "id": "apktool",
-      "display_name": "Apktool",
-      "asset_type": "cli_dependency",
-      "install_ok": true,
-      "env_ok": true,
-      "missing_env": [],
-      "protocol_ok": "unknown",
-      "healthy": true,
-      "repair_actions": []
-    },
-    {
-      "id": "apktool-mcp",
-      "display_name": "Apktool MCP",
-      "asset_type": "mcp_server",
-      "install_ok": true,
-      "env_ok": true,
-      "missing_env": [],
-      "protocol_ok": "passed",
-      "healthy": true,
-      "repair_actions": []
-    },
-    {
-      "id": "frida-mcp-skills",
-      "display_name": "Frida MCP Skills",
-      "asset_type": "skill_pack",
-      "install_ok": true,
-      "env_ok": true,
-      "missing_env": [],
-      "protocol_ok": "unknown",
-      "healthy": true,
-      "repair_actions": []
-    },
-    {
-      "id": "jadx-ai-mcp",
-      "display_name": "JADX AI MCP",
-      "asset_type": "cli_dependency",
-      "install_ok": true,
-      "env_ok": true,
-      "missing_env": [],
-      "protocol_ok": "not_applicable",
-      "healthy": true,
-      "repair_actions": []
-    },
-    {
-      "id": "jadx-mcp-server",
-      "display_name": "JADX MCP Server",
-      "asset_type": "cli_dependency",
-      "install_ok": true,
-      "env_ok": true,
-      "missing_env": [],
-      "protocol_ok": "not_applicable",
-      "healthy": true,
-      "repair_actions": []
-    },
-    {
-      "id": "mobsf",
-      "display_name": "MobSF",
-      "asset_type": "service",
-      "install_ok": true,
-      "env_ok": true,
-      "missing_env": [],
-      "protocol_ok": "unknown",
-      "healthy": true,
-      "repair_actions": []
-    },
-    {
-      "id": "ghidra",
-      "display_name": "Ghidra",
-      "asset_type": "cli_dependency",
-      "install_ok": true,
-      "env_ok": true,
-      "missing_env": [],
-      "protocol_ok": "unknown",
-      "healthy": true,
-      "repair_actions": []
-    },
-    {
-      "id": "ghidra-mcp-headless",
-      "display_name": "Ghidra MCP Headless",
-      "asset_type": "cli_dependency",
-      "install_ok": true,
-      "env_ok": true,
-      "missing_env": [],
-      "protocol_ok": "not_applicable",
-      "healthy": true,
-      "repair_actions": []
-    },
-    {
-      "id": "ghidramcp-lauriewired",
-      "display_name": "GhidraMCP LaurieWired",
-      "asset_type": "cli_dependency",
-      "install_ok": true,
-      "env_ok": true,
-      "missing_env": [],
-      "protocol_ok": "not_applicable",
-      "healthy": true,
-      "repair_actions": []
-    },
-    {
-      "id": "iaito",
-      "display_name": "iaito",
-      "asset_type": "gui_dependency",
-      "install_ok": true,
-      "env_ok": true,
-      "missing_env": [],
-      "protocol_ok": "unknown",
-      "healthy": true,
-      "repair_actions": []
-    },
-    {
-      "id": "pyghidra-mcp",
-      "display_name": "pyghidra-mcp",
-      "asset_type": "cli_dependency",
-      "install_ok": true,
-      "env_ok": true,
-      "missing_env": [],
-      "protocol_ok": "not_applicable",
-      "healthy": true,
-      "repair_actions": []
-    },
-    {
-      "id": "radare2",
-      "display_name": "radare2",
-      "asset_type": "cli_dependency",
-      "install_ok": true,
-      "env_ok": true,
-      "missing_env": [],
-      "protocol_ok": "unknown",
-      "healthy": true,
-      "repair_actions": []
-    },
-    {
-      "id": "autogenesis",
-      "display_name": "AutoGenesis",
-      "asset_type": "cli_dependency",
-      "install_ok": true,
-      "env_ok": true,
-      "missing_env": [],
-      "protocol_ok": "not_applicable",
-      "healthy": true,
-      "repair_actions": []
-    },
-    {
-      "id": "win-dev-skills",
-      "display_name": "win-dev-skills",
-      "asset_type": "skill_pack",
-      "install_ok": true,
-      "env_ok": true,
-      "missing_env": [],
-      "protocol_ok": "unknown",
-      "healthy": true,
-      "repair_actions": []
-    },
-    {
-      "id": "winapp-cli",
-      "display_name": "WinApp CLI",
-      "asset_type": "cli_dependency",
-      "install_ok": true,
-      "env_ok": true,
-      "missing_env": [],
-      "protocol_ok": "unknown",
-      "healthy": true,
-      "repair_actions": []
-    },
-    {
-      "id": "hyper-v-mcp",
-      "display_name": "Hyper-V MCP",
-      "asset_type": "mcp_server",
-      "install_ok": true,
-      "env_ok": true,
-      "missing_env": [],
-      "protocol_ok": "passed",
-      "healthy": true,
-      "repair_actions": []
-    },
-    {
-      "id": "x64dbg",
-      "display_name": "x64dbg",
-      "asset_type": "gui_dependency",
-      "install_ok": true,
-      "env_ok": true,
-      "missing_env": [],
-      "protocol_ok": "unknown",
-      "healthy": true,
-      "repair_actions": []
-    },
-    {
-      "id": "x64dbg-automate-mcp",
-      "display_name": "x64dbg Automate MCP",
-      "asset_type": "mcp_server",
-      "install_ok": true,
-      "env_ok": true,
-      "missing_env": [],
-      "protocol_ok": "passed",
-      "healthy": true,
-      "repair_actions": []
-    },
-    {
-      "id": "x64dbg-skills",
-      "display_name": "x64dbg-skills",
-      "asset_type": "skill_pack",
-      "install_ok": true,
-      "env_ok": true,
-      "missing_env": [],
-      "protocol_ok": "unknown",
-      "healthy": true,
-      "repair_actions": []
-    },
-    {
-      "id": "assetripper",
-      "display_name": "AssetRipper",
-      "asset_type": "gui_dependency",
-      "install_ok": true,
-      "env_ok": true,
-      "missing_env": [],
-      "protocol_ok": "unknown",
-      "healthy": true,
-      "repair_actions": []
-    },
-    {
-      "id": "cpp2il",
-      "display_name": "Cpp2IL",
-      "asset_type": "cli_dependency",
-      "install_ok": true,
-      "env_ok": true,
-      "missing_env": [],
-      "protocol_ok": "unknown",
-      "healthy": true,
-      "repair_actions": []
-    },
-    {
-      "id": "dnspyex",
-      "display_name": "dnSpyEx",
-      "asset_type": "gui_dependency",
-      "install_ok": true,
-      "env_ok": true,
-      "missing_env": [],
-      "protocol_ok": "unknown",
-      "healthy": true,
-      "repair_actions": []
-    },
-    {
-      "id": "r2unity",
-      "display_name": "r2unity",
-      "asset_type": "cli_dependency",
-      "install_ok": true,
-      "env_ok": true,
-      "missing_env": [],
-      "protocol_ok": "unknown",
-      "healthy": true,
-      "repair_actions": []
-    },
-    {
-      "id": "playwright-cli-skills",
-      "display_name": "Playwright CLI + Skills",
-      "asset_type": "skill_pack",
-      "install_ok": true,
-      "env_ok": true,
-      "missing_env": [],
-      "protocol_ok": "passed",
-      "healthy": true,
-      "repair_actions": []
-    },
-    {
-      "id": "ilspy",
-      "display_name": "ILSpy",
-      "asset_type": "gui_dependency",
-      "install_ok": true,
-      "env_ok": true,
-      "missing_env": [],
-      "protocol_ok": "unknown",
-      "healthy": true,
-      "repair_actions": []
-    },
-    {
-      "id": "cutter",
-      "display_name": "Cutter",
-      "asset_type": "gui_dependency",
-      "install_ok": true,
-      "env_ok": true,
-      "missing_env": [],
-      "protocol_ok": "unknown",
-      "healthy": true,
-      "repair_actions": []
-    },
-    {
-      "id": "rizin",
-      "display_name": "Rizin",
-      "asset_type": "cli_dependency",
-      "install_ok": true,
-      "env_ok": true,
-      "missing_env": [],
-      "protocol_ok": "unknown",
-      "healthy": true,
-      "repair_actions": []
-    },
-    {
-      "id": "gdb",
-      "display_name": "GDB",
-      "asset_type": "cli_dependency",
-      "install_ok": true,
-      "env_ok": true,
-      "missing_env": [],
-      "protocol_ok": "unknown",
-      "healthy": true,
-      "repair_actions": []
-    },
-    {
-      "id": "lldb",
-      "display_name": "LLDB",
-      "asset_type": "cli_dependency",
-      "install_ok": true,
-      "env_ok": true,
-      "missing_env": [],
-      "protocol_ok": "unknown",
-      "healthy": true,
-      "repair_actions": []
-    },
-    {
-      "id": "edbg",
-      "display_name": "EDBG",
-      "asset_type": "cli_dependency",
-      "install_ok": true,
-      "env_ok": true,
-      "missing_env": [],
-      "protocol_ok": "unknown",
-      "healthy": true,
-      "repair_actions": []
-    },
-    {
-      "id": "wireshark",
-      "display_name": "Wireshark",
-      "asset_type": "gui_dependency",
-      "install_ok": true,
-      "env_ok": true,
-      "missing_env": [],
-      "protocol_ok": "unknown",
-      "healthy": true,
-      "repair_actions": []
-    },
-    {
-      "id": "zap",
-      "display_name": "ZAP",
-      "asset_type": "gui_dependency",
-      "install_ok": true,
-      "env_ok": true,
-      "missing_env": [],
-      "protocol_ok": "unknown",
-      "healthy": true,
-      "repair_actions": []
-    },
-    {
-      "id": "bytecode-viewer",
-      "display_name": "Bytecode Viewer",
-      "asset_type": "gui_dependency",
-      "install_ok": true,
-      "env_ok": true,
-      "missing_env": [],
-      "protocol_ok": "unknown",
-      "healthy": true,
-      "repair_actions": []
-    },
-    {
-      "id": "unity-ai-harness",
-      "display_name": "Unity AI Harness",
-      "asset_type": "tool_pack",
-      "install_ok": true,
-      "env_ok": true,
-      "missing_env": [],
-      "protocol_ok": "not_applicable",
-      "healthy": true,
-      "repair_actions": []
-    },
-    {
-      "id": "assetstudio",
-      "display_name": "AssetStudio",
-      "asset_type": "gui_dependency",
-      "install_ok": true,
-      "env_ok": true,
-      "missing_env": [],
-      "protocol_ok": "not_applicable",
-      "healthy": true,
-      "repair_actions": []
-    },
-    {
-      "id": "uabe",
-      "display_name": "UABE (Unity Assets Bundle Extractor)",
-      "asset_type": "gui_dependency",
-      "install_ok": true,
-      "env_ok": true,
-      "missing_env": [],
-      "protocol_ok": "not_applicable",
-      "healthy": true,
-      "repair_actions": []
-    },
-    {
-      "id": "bepinex",
-      "display_name": "BepInEx",
-      "asset_type": "tool_pack",
-      "install_ok": true,
-      "env_ok": true,
-      "missing_env": [],
-      "protocol_ok": "not_applicable",
-      "healthy": true,
-      "repair_actions": []
-    },
-    {
-      "id": "unitypy",
-      "display_name": "UnityPy",
-      "asset_type": "cli_dependency",
-      "install_ok": true,
-      "env_ok": true,
-      "missing_env": [],
-      "protocol_ok": "not_applicable",
-      "healthy": true,
-      "repair_actions": []
-    },
-    {
-      "id": "video2x",
-      "display_name": "Video2X",
-      "asset_type": "cli_dependency",
-      "install_ok": true,
-      "env_ok": true,
-      "missing_env": [],
-      "protocol_ok": "not_applicable",
-      "healthy": true,
-      "repair_actions": []
-    },
-    {
-      "id": "ffmpeg-mcp",
-      "display_name": "FFmpeg MCP",
-      "asset_type": "mcp_server",
-      "install_ok": true,
-      "env_ok": true,
-      "missing_env": [],
-      "protocol_ok": "passed",
-      "healthy": true,
-      "repair_actions": []
-    },
-    {
-      "id": "blender-mcp",
-      "display_name": "Blender MCP",
-      "asset_type": "cli_dependency",
-      "install_ok": true,
-      "env_ok": true,
-      "missing_env": [],
-      "protocol_ok": "not_applicable",
-      "healthy": true,
-      "repair_actions": []
-    },
-    {
-      "id": "comfyui-mcp",
-      "display_name": "ComfyUI MCP",
-      "asset_type": "mcp_server",
-      "install_ok": true,
-      "env_ok": true,
-      "missing_env": [],
-      "protocol_ok": "passed",
-      "healthy": true,
-      "repair_actions": []
-    },
-    {
-      "id": "comfyui",
-      "display_name": "ComfyUI (local)",
-      "asset_type": "tool_pack",
-      "install_ok": true,
-      "env_ok": true,
-      "missing_env": [],
-      "protocol_ok": "not_applicable",
-      "healthy": true,
-      "repair_actions": []
-    }
-  ]
+    "timestamp":  "2026-08-23T04:23:13.7853023-07:00",
+    "total":  62,
+    "healthy":  61,
+    "unhealthy":  9,
+    "results":  [
+                    {
+                        "id":  "anthropic-skills",
+                        "display_name":  "Anthropic Skills",
+                        "asset_type":  "skill_pack",
+                        "install_ok":  true,
+                        "env_ok":  true,
+                        "missing_env":  [
+
+                                        ],
+                        "protocol_ok":  "unknown",
+                        "healthy":  true,
+                        "repair_actions":  [
+
+                                           ]
+                    },
+                    {
+                        "id":  "claude-plugins-official",
+                        "display_name":  "Claude Plugins Official",
+                        "asset_type":  "marketplace",
+                        "install_ok":  true,
+                        "env_ok":  true,
+                        "missing_env":  [
+
+                                        ],
+                        "protocol_ok":  "unknown",
+                        "healthy":  true,
+                        "repair_actions":  [
+
+                                           ]
+                    },
+                    {
+                        "id":  "serena",
+                        "display_name":  "Serena",
+                        "asset_type":  "mcp_server",
+                        "install_ok":  true,
+                        "env_ok":  true,
+                        "missing_env":  [
+
+                                        ],
+                        "protocol_ok":  "passed",
+                        "healthy":  true,
+                        "repair_actions":  [
+
+                                           ]
+                    },
+                    {
+                        "id":  "superpowers",
+                        "display_name":  "Superpowers",
+                        "asset_type":  "skill_pack",
+                        "install_ok":  true,
+                        "env_ok":  true,
+                        "missing_env":  [
+
+                                        ],
+                        "protocol_ok":  "unknown",
+                        "healthy":  true,
+                        "repair_actions":  [
+
+                                           ]
+                    },
+                    {
+                        "id":  "trail-of-bits-skills-curated",
+                        "display_name":  "Trail of Bits Skills Curated",
+                        "asset_type":  "marketplace",
+                        "install_ok":  true,
+                        "env_ok":  true,
+                        "missing_env":  [
+
+                                        ],
+                        "protocol_ok":  "unknown",
+                        "healthy":  true,
+                        "repair_actions":  [
+
+                                           ]
+                    },
+                    {
+                        "id":  "context7",
+                        "display_name":  "Context7",
+                        "asset_type":  "mcp_server",
+                        "install_ok":  true,
+                        "env_ok":  true,
+                        "missing_env":  [
+
+                                        ],
+                        "protocol_ok":  "passed",
+                        "healthy":  true,
+                        "repair_actions":  [
+
+                                           ]
+                    },
+                    {
+                        "id":  "github-mcp",
+                        "display_name":  "GitHub MCP",
+                        "asset_type":  "mcp_server",
+                        "install_ok":  true,
+                        "env_ok":  true,
+                        "missing_env":  [
+
+                                        ],
+                        "protocol_ok":  "passed",
+                        "healthy":  true,
+                        "repair_actions":  [
+
+                                           ]
+                    },
+                    {
+                        "id":  "gitlab-mcp",
+                        "display_name":  "GitLab MCP",
+                        "asset_type":  "mcp_server",
+                        "install_ok":  true,
+                        "env_ok":  true,
+                        "missing_env":  [
+
+                                        ],
+                        "protocol_ok":  "failed",
+                        "healthy":  false,
+                        "repair_actions":  [
+                                               "Run certifier"
+                                           ]
+                    },
+                    {
+                        "id":  "searxng-mcp",
+                        "display_name":  "SearXNG MCP",
+                        "asset_type":  "mcp_server",
+                        "install_ok":  true,
+                        "env_ok":  true,
+                        "missing_env":  [
+
+                                        ],
+                        "protocol_ok":  "passed",
+                        "healthy":  true,
+                        "repair_actions":  [
+
+                                           ]
+                    },
+                    {
+                        "id":  "trail-of-bits-skills",
+                        "display_name":  "Trail of Bits Skills",
+                        "asset_type":  "marketplace",
+                        "install_ok":  true,
+                        "env_ok":  true,
+                        "missing_env":  [
+
+                                        ],
+                        "protocol_ok":  "unknown",
+                        "healthy":  true,
+                        "repair_actions":  [
+
+                                           ]
+                    },
+                    {
+                        "id":  "android-mcp",
+                        "display_name":  "Android MCP",
+                        "asset_type":  "mcp_server",
+                        "install_ok":  true,
+                        "env_ok":  true,
+                        "missing_env":  [
+
+                                        ],
+                        "protocol_ok":  "passed",
+                        "healthy":  true,
+                        "repair_actions":  [
+
+                                           ]
+                    },
+                    {
+                        "id":  "android-mcp-lean",
+                        "display_name":  "Android MCP Lean",
+                        "asset_type":  "skill_pack",
+                        "install_ok":  true,
+                        "env_ok":  true,
+                        "missing_env":  [
+
+                                        ],
+                        "protocol_ok":  "unknown",
+                        "healthy":  true,
+                        "repair_actions":  [
+
+                                           ]
+                    },
+                    {
+                        "id":  "androidworld",
+                        "display_name":  "AndroidWorld",
+                        "asset_type":  "benchmark",
+                        "install_ok":  true,
+                        "env_ok":  true,
+                        "missing_env":  [
+
+                                        ],
+                        "protocol_ok":  "unknown",
+                        "healthy":  true,
+                        "repair_actions":  [
+
+                                           ]
+                    },
+                    {
+                        "id":  "appium-mcp",
+                        "display_name":  "Appium MCP",
+                        "asset_type":  "mcp_server",
+                        "install_ok":  true,
+                        "env_ok":  true,
+                        "missing_env":  [
+
+                                        ],
+                        "protocol_ok":  "passed",
+                        "healthy":  true,
+                        "repair_actions":  [
+
+                                           ]
+                    },
+                    {
+                        "id":  "maestro",
+                        "display_name":  "Maestro",
+                        "asset_type":  "cli_dependency",
+                        "install_ok":  true,
+                        "env_ok":  true,
+                        "missing_env":  [
+
+                                        ],
+                        "protocol_ok":  "unknown",
+                        "healthy":  true,
+                        "repair_actions":  [
+
+                                           ]
+                    },
+                    {
+                        "id":  "maestro-mcp",
+                        "display_name":  "Maestro MCP",
+                        "asset_type":  "skill_pack",
+                        "install_ok":  true,
+                        "env_ok":  true,
+                        "missing_env":  [
+
+                                        ],
+                        "protocol_ok":  "unknown",
+                        "healthy":  true,
+                        "repair_actions":  [
+
+                                           ]
+                    },
+                    {
+                        "id":  "mobile-harness",
+                        "display_name":  "Mobile Harness",
+                        "asset_type":  "skill_pack",
+                        "install_ok":  true,
+                        "env_ok":  true,
+                        "missing_env":  [
+
+                                        ],
+                        "protocol_ok":  "unknown",
+                        "healthy":  true,
+                        "repair_actions":  [
+
+                                           ]
+                    },
+                    {
+                        "id":  "mobilerun",
+                        "display_name":  "Mobilerun",
+                        "asset_type":  "agent_runtime",
+                        "install_ok":  true,
+                        "env_ok":  true,
+                        "missing_env":  [
+
+                                        ],
+                        "protocol_ok":  "unknown",
+                        "healthy":  true,
+                        "repair_actions":  [
+
+                                           ]
+                    },
+                    {
+                        "id":  "android-reverse-engineering-skill",
+                        "display_name":  "Android Reverse Engineering Skill",
+                        "asset_type":  "skill_pack",
+                        "install_ok":  true,
+                        "env_ok":  true,
+                        "missing_env":  [
+
+                                        ],
+                        "protocol_ok":  "unknown",
+                        "healthy":  true,
+                        "repair_actions":  [
+
+                                           ]
+                    },
+                    {
+                        "id":  "apktool",
+                        "display_name":  "Apktool",
+                        "asset_type":  "cli_dependency",
+                        "install_ok":  true,
+                        "env_ok":  true,
+                        "missing_env":  [
+
+                                        ],
+                        "protocol_ok":  "unknown",
+                        "healthy":  true,
+                        "repair_actions":  [
+
+                                           ]
+                    },
+                    {
+                        "id":  "apktool-mcp",
+                        "display_name":  "Apktool MCP",
+                        "asset_type":  "mcp_server",
+                        "install_ok":  true,
+                        "env_ok":  true,
+                        "missing_env":  [
+
+                                        ],
+                        "protocol_ok":  "passed",
+                        "healthy":  true,
+                        "repair_actions":  [
+
+                                           ]
+                    },
+                    {
+                        "id":  "frida-mcp-skills",
+                        "display_name":  "Frida MCP Skills",
+                        "asset_type":  "skill_pack",
+                        "install_ok":  true,
+                        "env_ok":  true,
+                        "missing_env":  [
+
+                                        ],
+                        "protocol_ok":  "unknown",
+                        "healthy":  true,
+                        "repair_actions":  [
+
+                                           ]
+                    },
+                    {
+                        "id":  "jadx-ai-mcp",
+                        "display_name":  "JADX AI MCP",
+                        "asset_type":  "cli_dependency",
+                        "install_ok":  true,
+                        "env_ok":  true,
+                        "missing_env":  [
+
+                                        ],
+                        "protocol_ok":  "not_applicable",
+                        "healthy":  true,
+                        "repair_actions":  [
+
+                                           ]
+                    },
+                    {
+                        "id":  "jadx-mcp-server",
+                        "display_name":  "JADX MCP Server",
+                        "asset_type":  "cli_dependency",
+                        "install_ok":  true,
+                        "env_ok":  true,
+                        "missing_env":  [
+
+                                        ],
+                        "protocol_ok":  "not_applicable",
+                        "healthy":  true,
+                        "repair_actions":  [
+
+                                           ]
+                    },
+                    {
+                        "id":  "mobsf",
+                        "display_name":  "MobSF",
+                        "asset_type":  "service",
+                        "install_ok":  true,
+                        "env_ok":  true,
+                        "missing_env":  [
+
+                                        ],
+                        "protocol_ok":  "unknown",
+                        "healthy":  true,
+                        "repair_actions":  [
+
+                                           ]
+                    },
+                    {
+                        "id":  "ghidra",
+                        "display_name":  "Ghidra",
+                        "asset_type":  "cli_dependency",
+                        "install_ok":  true,
+                        "env_ok":  true,
+                        "missing_env":  [
+
+                                        ],
+                        "protocol_ok":  "unknown",
+                        "healthy":  true,
+                        "repair_actions":  [
+
+                                           ]
+                    },
+                    {
+                        "id":  "ghidra-mcp-headless",
+                        "display_name":  "Ghidra MCP Headless",
+                        "asset_type":  "cli_dependency",
+                        "install_ok":  true,
+                        "env_ok":  true,
+                        "missing_env":  [
+
+                                        ],
+                        "protocol_ok":  "not_applicable",
+                        "healthy":  true,
+                        "repair_actions":  [
+
+                                           ]
+                    },
+                    {
+                        "id":  "ghidramcp-lauriewired",
+                        "display_name":  "GhidraMCP LaurieWired",
+                        "asset_type":  "cli_dependency",
+                        "install_ok":  true,
+                        "env_ok":  true,
+                        "missing_env":  [
+
+                                        ],
+                        "protocol_ok":  "not_applicable",
+                        "healthy":  true,
+                        "repair_actions":  [
+
+                                           ]
+                    },
+                    {
+                        "id":  "iaito",
+                        "display_name":  "iaito",
+                        "asset_type":  "gui_dependency",
+                        "install_ok":  true,
+                        "env_ok":  true,
+                        "missing_env":  [
+
+                                        ],
+                        "protocol_ok":  "unknown",
+                        "healthy":  true,
+                        "repair_actions":  [
+
+                                           ]
+                    },
+                    {
+                        "id":  "pyghidra-mcp",
+                        "display_name":  "pyghidra-mcp",
+                        "asset_type":  "cli_dependency",
+                        "install_ok":  true,
+                        "env_ok":  true,
+                        "missing_env":  [
+
+                                        ],
+                        "protocol_ok":  "not_applicable",
+                        "healthy":  true,
+                        "repair_actions":  [
+
+                                           ]
+                    },
+                    {
+                        "id":  "radare2",
+                        "display_name":  "radare2",
+                        "asset_type":  "cli_dependency",
+                        "install_ok":  true,
+                        "env_ok":  true,
+                        "missing_env":  [
+
+                                        ],
+                        "protocol_ok":  "unknown",
+                        "healthy":  true,
+                        "repair_actions":  [
+
+                                           ]
+                    },
+                    {
+                        "id":  "autogenesis",
+                        "display_name":  "AutoGenesis",
+                        "asset_type":  "cli_dependency",
+                        "install_ok":  true,
+                        "env_ok":  true,
+                        "missing_env":  [
+
+                                        ],
+                        "protocol_ok":  "not_applicable",
+                        "healthy":  true,
+                        "repair_actions":  [
+
+                                           ]
+                    },
+                    {
+                        "id":  "win-dev-skills",
+                        "display_name":  "win-dev-skills",
+                        "asset_type":  "skill_pack",
+                        "install_ok":  true,
+                        "env_ok":  true,
+                        "missing_env":  [
+
+                                        ],
+                        "protocol_ok":  "unknown",
+                        "healthy":  true,
+                        "repair_actions":  [
+
+                                           ]
+                    },
+                    {
+                        "id":  "winapp-cli",
+                        "display_name":  "WinApp CLI",
+                        "asset_type":  "cli_dependency",
+                        "install_ok":  true,
+                        "env_ok":  true,
+                        "missing_env":  [
+
+                                        ],
+                        "protocol_ok":  "unknown",
+                        "healthy":  true,
+                        "repair_actions":  [
+
+                                           ]
+                    },
+                    {
+                        "id":  "hyper-v-mcp",
+                        "display_name":  "Hyper-V MCP",
+                        "asset_type":  "mcp_server",
+                        "install_ok":  true,
+                        "env_ok":  true,
+                        "missing_env":  [
+
+                                        ],
+                        "protocol_ok":  "passed",
+                        "healthy":  true,
+                        "repair_actions":  [
+
+                                           ]
+                    },
+                    {
+                        "id":  "x64dbg",
+                        "display_name":  "x64dbg",
+                        "asset_type":  "gui_dependency",
+                        "install_ok":  true,
+                        "env_ok":  true,
+                        "missing_env":  [
+
+                                        ],
+                        "protocol_ok":  "unknown",
+                        "healthy":  true,
+                        "repair_actions":  [
+
+                                           ]
+                    },
+                    {
+                        "id":  "x64dbg-automate-mcp",
+                        "display_name":  "x64dbg Automate MCP",
+                        "asset_type":  "mcp_server",
+                        "install_ok":  true,
+                        "env_ok":  true,
+                        "missing_env":  [
+
+                                        ],
+                        "protocol_ok":  "passed",
+                        "healthy":  true,
+                        "repair_actions":  [
+
+                                           ]
+                    },
+                    {
+                        "id":  "x64dbg-skills",
+                        "display_name":  "x64dbg-skills",
+                        "asset_type":  "skill_pack",
+                        "install_ok":  true,
+                        "env_ok":  true,
+                        "missing_env":  [
+
+                                        ],
+                        "protocol_ok":  "unknown",
+                        "healthy":  true,
+                        "repair_actions":  [
+
+                                           ]
+                    },
+                    {
+                        "id":  "assetripper",
+                        "display_name":  "AssetRipper",
+                        "asset_type":  "gui_dependency",
+                        "install_ok":  true,
+                        "env_ok":  true,
+                        "missing_env":  [
+
+                                        ],
+                        "protocol_ok":  "unknown",
+                        "healthy":  true,
+                        "repair_actions":  [
+
+                                           ]
+                    },
+                    {
+                        "id":  "cpp2il",
+                        "display_name":  "Cpp2IL",
+                        "asset_type":  "cli_dependency",
+                        "install_ok":  true,
+                        "env_ok":  true,
+                        "missing_env":  [
+
+                                        ],
+                        "protocol_ok":  "unknown",
+                        "healthy":  true,
+                        "repair_actions":  [
+
+                                           ]
+                    },
+                    {
+                        "id":  "dnspyex",
+                        "display_name":  "dnSpyEx",
+                        "asset_type":  "gui_dependency",
+                        "install_ok":  true,
+                        "env_ok":  true,
+                        "missing_env":  [
+
+                                        ],
+                        "protocol_ok":  "unknown",
+                        "healthy":  true,
+                        "repair_actions":  [
+
+                                           ]
+                    },
+                    {
+                        "id":  "r2unity",
+                        "display_name":  "r2unity",
+                        "asset_type":  "cli_dependency",
+                        "install_ok":  true,
+                        "env_ok":  true,
+                        "missing_env":  [
+
+                                        ],
+                        "protocol_ok":  "unknown",
+                        "healthy":  true,
+                        "repair_actions":  [
+
+                                           ]
+                    },
+                    {
+                        "id":  "playwright-cli-skills",
+                        "display_name":  "Playwright CLI + Skills",
+                        "asset_type":  "skill_pack",
+                        "install_ok":  true,
+                        "env_ok":  true,
+                        "missing_env":  [
+
+                                        ],
+                        "protocol_ok":  "passed",
+                        "healthy":  true,
+                        "repair_actions":  [
+
+                                           ]
+                    },
+                    {
+                        "id":  "ilspy",
+                        "display_name":  "ILSpy",
+                        "asset_type":  "gui_dependency",
+                        "install_ok":  true,
+                        "env_ok":  true,
+                        "missing_env":  [
+
+                                        ],
+                        "protocol_ok":  "unknown",
+                        "healthy":  true,
+                        "repair_actions":  [
+
+                                           ]
+                    },
+                    {
+                        "id":  "cutter",
+                        "display_name":  "Cutter",
+                        "asset_type":  "gui_dependency",
+                        "install_ok":  true,
+                        "env_ok":  true,
+                        "missing_env":  [
+
+                                        ],
+                        "protocol_ok":  "unknown",
+                        "healthy":  true,
+                        "repair_actions":  [
+
+                                           ]
+                    },
+                    {
+                        "id":  "rizin",
+                        "display_name":  "Rizin",
+                        "asset_type":  "cli_dependency",
+                        "install_ok":  true,
+                        "env_ok":  true,
+                        "missing_env":  [
+
+                                        ],
+                        "protocol_ok":  "unknown",
+                        "healthy":  true,
+                        "repair_actions":  [
+
+                                           ]
+                    },
+                    {
+                        "id":  "gdb",
+                        "display_name":  "GDB",
+                        "asset_type":  "cli_dependency",
+                        "install_ok":  true,
+                        "env_ok":  true,
+                        "missing_env":  [
+
+                                        ],
+                        "protocol_ok":  "unknown",
+                        "healthy":  true,
+                        "repair_actions":  [
+
+                                           ]
+                    },
+                    {
+                        "id":  "lldb",
+                        "display_name":  "LLDB",
+                        "asset_type":  "cli_dependency",
+                        "install_ok":  true,
+                        "env_ok":  true,
+                        "missing_env":  [
+
+                                        ],
+                        "protocol_ok":  "unknown",
+                        "healthy":  true,
+                        "repair_actions":  [
+
+                                           ]
+                    },
+                    {
+                        "id":  "edbg",
+                        "display_name":  "EDBG",
+                        "asset_type":  "cli_dependency",
+                        "install_ok":  true,
+                        "env_ok":  true,
+                        "missing_env":  [
+
+                                        ],
+                        "protocol_ok":  "unknown",
+                        "healthy":  true,
+                        "repair_actions":  [
+
+                                           ]
+                    },
+                    {
+                        "id":  "wireshark",
+                        "display_name":  "Wireshark",
+                        "asset_type":  "gui_dependency",
+                        "install_ok":  true,
+                        "env_ok":  true,
+                        "missing_env":  [
+
+                                        ],
+                        "protocol_ok":  "unknown",
+                        "healthy":  true,
+                        "repair_actions":  [
+
+                                           ]
+                    },
+                    {
+                        "id":  "zap",
+                        "display_name":  "ZAP",
+                        "asset_type":  "gui_dependency",
+                        "install_ok":  true,
+                        "env_ok":  true,
+                        "missing_env":  [
+
+                                        ],
+                        "protocol_ok":  "unknown",
+                        "healthy":  true,
+                        "repair_actions":  [
+
+                                           ]
+                    },
+                    {
+                        "id":  "bytecode-viewer",
+                        "display_name":  "Bytecode Viewer",
+                        "asset_type":  "gui_dependency",
+                        "install_ok":  true,
+                        "env_ok":  true,
+                        "missing_env":  [
+
+                                        ],
+                        "protocol_ok":  "unknown",
+                        "healthy":  true,
+                        "repair_actions":  [
+
+                                           ]
+                    },
+                    {
+                        "id":  "unity-ai-harness",
+                        "display_name":  "Unity AI Harness",
+                        "asset_type":  "tool_pack",
+                        "install_ok":  true,
+                        "env_ok":  true,
+                        "missing_env":  [
+
+                                        ],
+                        "protocol_ok":  "not_applicable",
+                        "healthy":  true,
+                        "repair_actions":  [
+
+                                           ]
+                    },
+                    {
+                        "id":  "assetstudio",
+                        "display_name":  "AssetStudio",
+                        "asset_type":  "gui_dependency",
+                        "install_ok":  true,
+                        "env_ok":  true,
+                        "missing_env":  [
+
+                                        ],
+                        "protocol_ok":  "not_applicable",
+                        "healthy":  true,
+                        "repair_actions":  [
+
+                                           ]
+                    },
+                    {
+                        "id":  "uabe",
+                        "display_name":  "UABE (Unity Assets Bundle Extractor)",
+                        "asset_type":  "gui_dependency",
+                        "install_ok":  true,
+                        "env_ok":  true,
+                        "missing_env":  [
+
+                                        ],
+                        "protocol_ok":  "not_applicable",
+                        "healthy":  true,
+                        "repair_actions":  [
+
+                                           ]
+                    },
+                    {
+                        "id":  "bepinex",
+                        "display_name":  "BepInEx",
+                        "asset_type":  "tool_pack",
+                        "install_ok":  true,
+                        "env_ok":  true,
+                        "missing_env":  [
+
+                                        ],
+                        "protocol_ok":  "not_applicable",
+                        "healthy":  true,
+                        "repair_actions":  [
+
+                                           ]
+                    },
+                    {
+                        "id":  "unitypy",
+                        "display_name":  "UnityPy",
+                        "asset_type":  "cli_dependency",
+                        "install_ok":  true,
+                        "env_ok":  true,
+                        "missing_env":  [
+
+                                        ],
+                        "protocol_ok":  "not_applicable",
+                        "healthy":  true,
+                        "repair_actions":  [
+
+                                           ]
+                    },
+                    {
+                        "id":  "video2x",
+                        "display_name":  "Video2X",
+                        "asset_type":  "cli_dependency",
+                        "install_ok":  true,
+                        "env_ok":  true,
+                        "missing_env":  [
+
+                                        ],
+                        "protocol_ok":  "not_applicable",
+                        "healthy":  true,
+                        "repair_actions":  [
+
+                                           ]
+                    },
+                    {
+                        "id":  "ffmpeg-mcp",
+                        "display_name":  "FFmpeg MCP",
+                        "asset_type":  "mcp_server",
+                        "install_ok":  true,
+                        "env_ok":  true,
+                        "missing_env":  [
+
+                                        ],
+                        "protocol_ok":  "passed",
+                        "healthy":  true,
+                        "repair_actions":  [
+
+                                           ]
+                    },
+                    {
+                        "id":  "blender-mcp",
+                        "display_name":  "Blender MCP",
+                        "asset_type":  "cli_dependency",
+                        "install_ok":  true,
+                        "env_ok":  true,
+                        "missing_env":  [
+
+                                        ],
+                        "protocol_ok":  "not_applicable",
+                        "healthy":  true,
+                        "repair_actions":  [
+
+                                           ]
+                    },
+                    {
+                        "id":  "comfyui-mcp",
+                        "display_name":  "ComfyUI MCP",
+                        "asset_type":  "mcp_server",
+                        "install_ok":  true,
+                        "env_ok":  true,
+                        "missing_env":  [
+
+                                        ],
+                        "protocol_ok":  "passed",
+                        "healthy":  true,
+                        "repair_actions":  [
+
+                                           ]
+                    },
+                    {
+                        "id":  "comfyui",
+                        "display_name":  "ComfyUI (local)",
+                        "asset_type":  "tool_pack",
+                        "install_ok":  true,
+                        "env_ok":  true,
+                        "missing_env":  [
+
+                                        ],
+                        "protocol_ok":  "not_applicable",
+                        "healthy":  true,
+                        "repair_actions":  [
+
+                                           ]
+                    }
+                ]
 }

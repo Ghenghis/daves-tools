@@ -396,9 +396,9 @@
       },
       "verification": {
         "install": "unknown",
-        "protocol": "failed",
-        "domain_smoke": "unknown",
-        "last_verified": "2026-08-23T10:51:29.851Z",
+        "protocol": "passed",
+        "domain_smoke": "failed",
+        "last_verified": "2026-08-23T11:24:14.758Z",
         "evidence_id": "cert-gitlab-mcp"
       },
       "metadata": {
@@ -1508,9 +1508,9 @@
       },
       "verification": {
         "install": "passed",
-        "protocol": "not_applicable",
-        "domain_smoke": "unknown",
-        "last_verified": "2026-08-22T09:28:28.438Z",
+        "protocol": "failed",
+        "domain_smoke": "not_applicable",
+        "last_verified": "2026-08-23T11:24:25.166Z",
         "evidence_id": "cert-autogenesis"
       },
       "metadata": {
@@ -2725,8 +2725,10 @@
       },
       "verification": {
         "install": "unknown",
-        "protocol": "not_applicable",
-        "last_verified": "2026-08-22T10:06:02.164Z"
+        "protocol": "failed",
+        "last_verified": "2026-08-23T11:24:25.509Z",
+        "domain_smoke": "not_applicable",
+        "evidence_id": "cert-blender-mcp"
       },
       "metadata": {
         "notes": "npx blender-mcp starts but closes without Blender+addon running; Blender not installed on this system. Reclassify to mcp_server if Blender installed."

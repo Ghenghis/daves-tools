@@ -1,8 +1,8 @@
 {
-  "timestamp": "2026-08-23T11:21:59.489Z",
-  "total": 15,
+  "timestamp": "2026-08-23T11:24:43.468Z",
+  "total": 12,
   "passed": 12,
-  "failed": 3,
+  "failed": 0,
   "unknown_or_na": 0,
   "results": [
     {
@@ -34,26 +34,6 @@
       "last_verified": "2026-08-21T21:45:57.576Z",
       "error": null,
       "duration_ms": 22656
-    },
-    {
-      "id": "autogenesis",
-      "display_name": "AutoGenesis",
-      "verdict": "failed",
-      "protocol": "failed",
-      "smoke": "unknown",
-      "last_verified": "2026-08-21T21:52:46.763Z",
-      "error": "MCP error -32000: Connection closed",
-      "duration_ms": 4928
-    },
-    {
-      "id": "blender-mcp",
-      "display_name": "Blender MCP",
-      "verdict": "failed",
-      "protocol": "failed",
-      "smoke": "unknown",
-      "last_verified": "2026-08-22T10:05:22.044Z",
-      "error": "MCP error -32000: Connection closed",
-      "duration_ms": 4637
     },
     {
       "id": "comfyui-mcp",
@@ -98,12 +78,12 @@
     {
       "id": "gitlab-mcp",
       "display_name": "GitLab MCP",
-      "verdict": "failed",
-      "protocol": "failed",
-      "smoke": "unknown",
-      "last_verified": "2026-08-23T10:51:24.550Z",
-      "error": "MCP error -32000: Connection closed",
-      "duration_ms": 5299
+      "verdict": "passed",
+      "protocol": "passed",
+      "smoke": "failed",
+      "last_verified": "2026-08-23T11:24:08.477Z",
+      "error": null,
+      "duration_ms": 6279
     },
     {
       "id": "hyper-v-mcp",
@@ -114,16 +94,6 @@
       "last_verified": "2026-08-21T21:53:18.635Z",
       "error": null,
       "duration_ms": 4539
-    },
-    {
-      "id": "playwright-cli-skills",
-      "display_name": "Playwright CLI + Skills",
-      "verdict": "passed",
-      "protocol": "passed",
-      "smoke": "passed",
-      "last_verified": "2026-08-20T00:58:15.269Z",
-      "error": null,
-      "duration_ms": 5499
     },
     {
       "id": "searxng-mcp",

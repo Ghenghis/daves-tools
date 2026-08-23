@@ -6,6 +6,10 @@ param(
 
 $ErrorActionPreference = "Stop"
 
+# Load tokens from G:\private so MCPs that need GITLAB_PERSONAL_ACCESS_TOKEN,
+# GITHUB_PERSONAL_ACCESS_TOKEN, etc. receive them via the alias map.
+. (Join-Path $PSScriptRoot 'Load-PrivateEnv.ps1') -Quiet
+
 $raw = [System.IO.File]::ReadAllText($RegistryPath)
 $raw = $raw -replace '^\uFEFF', ''
 $reg = $raw | ConvertFrom-Json
