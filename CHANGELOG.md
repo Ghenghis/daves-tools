@@ -2,6 +2,27 @@
 
 All notable changes to `daves-tools` are documented here. Versions follow [Semantic Versioning](https://semver.org/).
 
+## [v1.5.0] - 2026-08-23
+
+### Changed
+- **PSScriptAnalyzer: 0 findings** across every `toolkit/*.ps1` — was 42 Information-level notes after v1.4.0. Cleaned up by:
+  - `Install-DavesTools-GUI.ps1`: converted 35 `Add-Label X Y W H Text $font $color` calls to named parameters
+  - `Install-DavesTools-GUI.ps1`: rewrote the `npm install` invocation to call `'npm.cmd'` explicitly
+  - `Release-Gate.ps1`: converted 6 `Add-Gate` positional calls to named parameters
+  - `Build-ReadmeFromTypedRegistry.ps1`: stripped 3 lines of trailing whitespace
+  - `Install-McpService.ps1`: rewrote `npm install` to `'npm.cmd' install`
+
+### Fixed
+- `Load-PrivateEnv.ps1`: `SearchPaths` default now resolves `$PSScriptRoot` defensively (`if ($PSScriptRoot) { ... } else { (Get-Item $MyInvocation.MyCommand.Path).DirectoryName }`). Prevents null-path errors when the script is dot-sourced from a scope where `$PSScriptRoot` is empty (e.g., inside Pester tests).
+- `Load-PrivateEnv.ps1`: guards against null/empty entries inside the search loops (the DPAPI candidate check, the file enumeration loop).
+- `Capability-Doctor.ps1`: dot-sources `Load-PrivateEnv.ps1` instead of invoking it via `&`; resolves the loader path with the same defensive `$PSScriptRoot` fallback.
+- `Capability-Doctor.ps1`: now ends with `exit 0` so `$LASTEXITCODE` is reliable for callers.
+
+### Verified
+- **PSScriptAnalyzer: 0 findings** across every `toolkit/*.ps1` (was 42 Information-level + 0 Warning + 0 Error)
+- Pester: 19/19 Toolkit.Tests + 24/24 MiniMax = **43 tests pass**
+- Pester run inside the bundled v1.4.0 release ZIP: still passes after the fixes
+
 ## [v1.4.0] - 2026-08-23
 
 ### Added

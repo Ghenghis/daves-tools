@@ -1,4 +1,4 @@
-[CmdletBinding()]
+﻿[CmdletBinding()]
 param(
     [string]$RegistryPath = "$PSScriptRoot\..\configs\typed-registry.json",
     [string]$OutPath = "$PSScriptRoot\..\README.md"
@@ -67,10 +67,10 @@ foreach ($t in ($byType.Keys | Sort-Object)) {
     [void]$sb.AppendLine("|---|---|---|---|")
     foreach ($a in ($byType[$t] | Sort-Object display_name)) {
         $prof = ($a.profiles -join ', ')
-        $cmd = if ($a.runtime.command -and $a.runtime.command -ne 'none') { 
+        $cmd = if ($a.runtime.command -and $a.runtime.command -ne 'none') {
             $a.runtime.command + ' ' + ($a.runtime.args -join ' ')
-        } else { 
-            'dependency / not launchable as MCP' 
+        } else {
+            'dependency / not launchable as MCP'
         }
         [void]$sb.AppendLine("| $($a.display_name) | $prof | [$($a.source.url)]($($a.source.url)) | $cmd |")
     }

@@ -289,7 +289,16 @@ function Show-Step {
 # Step renderers
 # -----------------------------------------------------------------------------
 function Add-Label {
-    param([int]$X, [int]$Y, [int]$W, [int]$H, [string]$Text, [System.Drawing.Font]$Font = $null, [System.Drawing.Color]$Color = $null)
+    [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidUsingPositionalParameters', '', Justification = 'Positional layout is intentional and unambiguous within the wizard')]
+    param(
+        [Parameter(Position = 0)] [int]$X,
+        [Parameter(Position = 1)] [int]$Y,
+        [Parameter(Position = 2)] [int]$W,
+        [Parameter(Position = 3)] [int]$H,
+        [Parameter(Position = 4)] [string]$Text,
+        [Parameter(Position = 5)] [System.Drawing.Font]$Font = $null,
+        [Parameter(Position = 6)] [System.Drawing.Color]$Color = $null
+    )
     $lbl = New-Object System.Windows.Forms.Label
     $lbl.Location = New-Object System.Drawing.Point($X, $Y)
     $lbl.Size = New-Object System.Drawing.Size($W, $H)
@@ -302,10 +311,10 @@ function Add-Label {
 }
 
 function Show-Welcome {
-    Add-Label 24 18 560 40 'Welcome to daves-tools' $fontTitle
-    Add-Label 24 64 560 24 "Version $Version" $fontHeader $accent
-    Add-Label 24 110 560 60 'A typed, certifiable, Windows-first harness for MCP servers, skill packs, and dependencies that power local-first AI workflows.' $fontBody
-    Add-Label 24 180 560 24 'This installer will:' $fontHeader
+    Add-Label -X 24 -Y 18 -W 560 -H 40 -Text 'Welcome to daves-tools' -Font $fontTitle
+    Add-Label -X 24 -Y 64 -W 560 -H 24 -Text $Version -Font $fontHeader -Color $accent
+    Add-Label -X 24 -Y 110 -W 560 -H 60 -Text 'A typed, certifiable, Windows-first harness for MCP servers, skill packs, and dependencies that power local-first AI workflows.' -Font $fontBody
+    Add-Label -X 24 -Y 180 -W 560 -H 24 -Text 'This installer will:' -Font $fontHeader
     $bullets = @(
         '  •  Copy the harness, scripts, registry, and docs to your install location'
         '  •  Install Node dependencies for the harness'
@@ -315,13 +324,13 @@ function Show-Welcome {
         '  •  Verify the install with the same gates used in CI'
     )
     $y = 210
-    foreach ($b in $bullets) { Add-Label 36 $y 560 22 $b; $y += 22 }
-    Add-Label 24 $y 560 24 'Click Next to continue.' $fontBody $fgMuted
+    foreach ($b in $bullets) { Add-Label -X 36 -Y $y -W 560 -H 22 -Text $b; $y += 22 }
+    Add-Label -X 24 -Y $y -W 560 -H 24 -Text 'Click Next to continue.' -Font $fontBody -Color $fgMuted
 }
 
 function Show-License {
-    Add-Label 24 18 560 28 'License Agreement' $fontTitle
-    Add-Label 24 52 560 22 'Please read the license before installing.' $fontSmall $fgMuted
+    Add-Label -X 24 -Y 18 -W 560 -H 28 -Text 'License Agreement' -Font $fontTitle
+    Add-Label -X 24 -Y 52 -W 560 -H 22 -Text 'Please read the license before installing.' -Font $fontSmall -Color $fgMuted
 
     $license = New-Object System.Windows.Forms.TextBox
     $license.Location = New-Object System.Drawing.Point(24, 84)
@@ -373,10 +382,10 @@ SOFTWARE.
 }
 
 function Show-InstallPath {
-    Add-Label 24 18 560 28 'Choose Install Location' $fontTitle
-    Add-Label 24 52 560 22 'The install path is where the harness, scripts, registry, and docs will live.' $fontSmall $fgMuted
+    Add-Label -X 24 -Y 18 -W 560 -H 28 -Text 'Choose Install Location' -Font $fontTitle
+    Add-Label -X 24 -Y 52 -W 560 -H 22 -Text 'The install path is where the harness, scripts, registry, and docs will live.' -Font $fontSmall -Color $fgMuted
 
-    Add-Label 24 90 100 24 'Install to:' $fontBody
+    Add-Label -X 24 -Y 90 -W 100 -H 24 -Text 'Install to:' -Font $fontBody
     $pathBox = New-Object System.Windows.Forms.TextBox
     $pathBox.Location = New-Object System.Drawing.Point(120, 88)
     $pathBox.Size = New-Object System.Drawing.Size(380, 26)
@@ -408,15 +417,15 @@ function Show-InstallPath {
     })
     $content.Controls.Add($browse)
 
-    Add-Label 24 130 560 24 'Recommended: ' $fontSmall $fgMuted
+    Add-Label -X 24 -Y 130 -W 560 -H 24 -Text 'Recommended: ' -Font $fontSmall -Color $fgMuted
     $disk = [System.IO.DriveInfo]::new((Split-Path -Path $script:InstallPath -Qualifier))
-    Add-Label 24 152 560 22 ('Drive {0} — {1} free' -f $disk.VolumeLabel, ([Math]::Round($disk.AvailableFreeSpace / 1GB, 1))) $fontSmall $fgMuted
-    Add-Label 24 174 560 60 'The installer will write to this directory. On Windows, you typically want a path you control (e.g., %LOCALAPPDATA%\Programs\daves-tools or C:\daves-tools).' $fontBody
+    Add-Label -X 24 -Y 152 -W 560 -H 22 -Text 'Drive {0} — {1} free' -Font $disk -Color $disk
+    Add-Label -X 24 -Y 174 -W 560 -H 60 -Text 'The installer will write to this directory. On Windows, you typically want a path you control (e.g., %LOCALAPPDATA%\Programs\daves-tools or C:\daves-tools).' -Font $fontBody
 }
 
 function Show-Component {
-    Add-Label 24 18 560 28 'Choose Components' $fontTitle
-    Add-Label 24 52 560 22 'Defaults recommended. Uncheck anything you do not want installed.' $fontSmall $fgMuted
+    Add-Label -X 24 -Y 18 -W 560 -H 28 -Text 'Choose Components' -Font $fontTitle
+    Add-Label -X 24 -Y 52 -W 560 -H 22 -Text 'Defaults recommended. Uncheck anything you do not want installed.' -Font $fontSmall -Color $fgMuted
 
     $list = New-Object System.Windows.Forms.CheckedListBox
     $list.Location = New-Object System.Drawing.Point(24, 88)
@@ -446,12 +455,12 @@ function Show-Component {
     })
     $content.Controls.Add($list)
 
-    Add-Label 24 320 560 80 'After Install-DavesTools.ps1 finishes, the selected components will run in order. Each step shows its live command output below as it executes.' $fontBody $fgMuted
+    Add-Label -X 24 -Y 320 -W 560 -H 80 -Text 'After Install-DavesTools.ps1 finishes, the selected components will run in order. Each step shows its live command output below as it executes.' -Font $fontBody -Color $fgMuted
 }
 
 function Show-Prerequisite {
-    Add-Label 24 18 560 28 'Checking Prerequisites' $fontTitle
-    Add-Label 24 52 560 22 'These must be on PATH before the install can succeed.' $fontSmall $fgMuted
+    Add-Label -X 24 -Y 18 -W 560 -H 28 -Text 'Checking Prerequisites' -Font $fontTitle
+    Add-Label -X 24 -Y 52 -W 560 -H 22 -Text 'These must be on PATH before the install can succeed.' -Font $fontSmall -Color $fgMuted
 
     $checks = @(
         @{ Id = 'node';    Name = 'Node.js';                MinMajor = 18; Cmd = 'node --version' }
@@ -494,7 +503,7 @@ function Show-Prerequisite {
     })
     $content.Controls.Add($rerun)
 
-    Add-Label 24 300 560 80 'Click Re-check after installing any missing prerequisites, then Next to proceed.' $fontBody $fgMuted
+    Add-Label -X 24 -Y 300 -W 560 -H 80 -Text 'Click Re-check after installing any missing prerequisites, then Next to proceed.' -Font $fontBody -Color $fgMuted
 
     # Run the checks once when the page is shown
     foreach ($c in $checks) { Invoke-PrereqCheck -Check $c }
@@ -533,8 +542,8 @@ function Invoke-PrereqCheck {
 }
 
 function Show-Install {
-    Add-Label 24 18 560 28 'Installing' $fontTitle
-    Add-Label 24 52 560 22 'Live log below — each component shows its command and output as it runs.' $fontSmall $fgMuted
+    Add-Label -X 24 -Y 18 -W 560 -H 28 -Text 'Installing' -Font $fontTitle
+    Add-Label -X 24 -Y 52 -W 560 -H 22 -Text 'Live log below — each component shows its command and output as it runs.' -Font $fontSmall -Color $fgMuted
 
     $script:logBox = New-Object System.Windows.Forms.RichTextBox
     $script:logBox.Location = New-Object System.Drawing.Point(24, 84)
@@ -546,7 +555,7 @@ function Show-Install {
     $script:logBox.ReadOnly = $true
     $script:logBox.ScrollBars = 'Vertical'
     $content.Controls.Add($script:logBox)
-    Add-Label 24 354 560 30 'You can cancel below to stop after the current component finishes.' $fontSmall $fgMuted
+    Add-Label -X 24 -Y 354 -W 560 -H 30 -Text 'You can cancel below to stop after the current component finishes.' -Font $fontSmall -Color $fgMuted
 
     # Disable navigation during install
     $btnBack.Enabled = $false
@@ -656,7 +665,8 @@ function Install-Core {
     Write-Log ('      $ npm install (harness deps)') $fgMuted
     Push-Location 'harness'
     try {
-        $out = & npm install --no-audit --no-fund 2>&1 | Out-String
+        # PSScriptAnalyzer: positional - intentional, npm accepts args positionally
+        $out = & 'npm.cmd' install --no-audit --no-fund 2>&1 | Out-String
         Write-Log ($out.Trim()) $fgText
     } finally { Pop-Location }
     Write-Log ('      $ node harness/certifier.js --profile CORE') $fgMuted
@@ -698,25 +708,25 @@ function Install-Secret {
 }
 
 function Show-Complete {
-    Add-Label 24 18 560 28 'Installation Complete' $fontTitle
+    Add-Label -X 24 -Y 18 -W 560 -H 28 -Text 'Installation Complete' -Font $fontTitle
     if ($script:InstallSucceeded) {
-        Add-Label 24 52 560 28 ('daves-tools v' + $Version + ' installed successfully.') $fontHeader $good
+        Add-Label -X 24 -Y 52 -W 560 -H 28 -Text 'daves-tools v' -Font $Version -Color ' installed successfully.'
     } else {
-        Add-Label 24 52 560 28 ('daves-tools v' + $Version + ' installed with errors.') $fontHeader $warn
+        Add-Label -X 24 -Y 52 -W 560 -H 28 -Text 'daves-tools v' -Font $Version -Color ' installed with errors.'
     }
-    Add-Label 24 88 560 22 ('Installed to: ' + $script:InstallPath) $fontBody
-    Add-Label 24 116 560 22 'Summary:' $fontHeader
+    Add-Label -X 24 -Y 88 -W 560 -H 22 -Text 'Installed to: ' -Font $script -Color $fontBody
+    Add-Label -X 24 -Y 116 -W 560 -H 22 -Text 'Summary:' -Font $fontHeader
     $y = 146
     foreach ($line in $script:InstallSummary) {
         $color = if ($line.StartsWith('OK:')) { $good } elseif ($line.StartsWith('FAILED:')) { $bad } else { $fgText }
-        Add-Label 36 $y 540 20 $line $fontBody $color
+        Add-Label -X 36 -Y $y -W 540 -H 20 -Text $line -Font $fontBody -Color $color
         $y += 20
     }
-    Add-Label 24 ($y + 12) 560 60 'Next steps:' $fontHeader
-    Add-Label 36 ($y + 36) 540 22 '  •  Open Claude Desktop / Codex / Kilo / Devin — IDE configs are wired'
-    Add-Label 36 ($y + 56) 540 22 '  •  LM Studio is auto-restarted by the registered scheduled task'
-    Add-Label 36 ($y + 76) 540 22 '  •  Re-run this installer any time to add or remove components'
-    Add-Label 36 ($y + 96) 540 22 ('  •  Logs and tool docs live in ' + $script:InstallPath + '\docs')
+    Add-Label -X 24 -Y ($y + 12) -W 560 -H 60 -Text 'Next steps:' -Font $fontHeader
+    Add-Label -X 36 -Y ($y + 36) -W 540 -H 22 -Text '  •  Open Claude Desktop / Codex / Kilo / Devin — IDE configs are wired'
+    Add-Label -X 36 -Y ($y + 56) -W 540 -H 22 -Text '  •  LM Studio is auto-restarted by the registered scheduled task'
+    Add-Label -X 36 -Y ($y + 76) -W 540 -H 22 -Text '  •  Re-run this installer any time to add or remove components'
+    Add-Label -X 36 -Y ($y + 96) -W 540 -H 22 -Text ('  •  Logs and tool docs live in ' + $script:InstallPath + '\docs')
 }
 
 # -----------------------------------------------------------------------------

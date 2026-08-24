@@ -1,15 +1,22 @@
 [CmdletBinding()]
 param(
-    [string[]]$SearchPaths = @("G:\private", "C:\Users\Admin\private", "$PSScriptRoot\..\private", "C:\Users\Admin"),
+    [string[]]$SearchPaths = @(),
     [switch]$Quiet
 )
+
+# Resolve default search paths defensively: $PSScriptRoot is null when this
+# script is dot-sourced from a scope that didn't set it (e.g., Pester tests).
+$scriptRoot = if ($PSScriptRoot) { $PSScriptRoot } else { (Get-Item $MyInvocation.MyCommand.Path).DirectoryName }
+if (-not $SearchPaths -or $SearchPaths.Count -eq 0) {
+    $SearchPaths = @("G:\private", "C:\Users\Admin\private", "$scriptRoot\..\private", "C:\Users\Admin")
+}
 
 $ErrorActionPreference = "SilentlyContinue"
 
 $all = @()
 foreach ($dir in $SearchPaths) {
-    if (-not (Test-Path $dir)) { continue }
-    $all += Get-ChildItem -Path $dir -File -ErrorAction SilentlyContinue | Where-Object { $_.Name -like '.env*' }
+    if (-not $dir -or -not (Test-Path -LiteralPath $dir)) { continue }
+    $all += Get-ChildItem -LiteralPath $dir -File -ErrorAction SilentlyContinue | Where-Object { $_.Name -like '.env*' }
 }
 
 $defaults = @{
@@ -25,8 +32,12 @@ foreach ($k in $defaults.Keys) {
 
 $dpapiFiles = @()
 foreach ($dir in $SearchPaths) {
+    if (-not $dir) { continue }
     $candidate = Join-Path $dir '.env.dpapi.json'
-    if (Test-Path $candidate) { $dpapiFiles += Get-Item $candidate }
+    if (-not $candidate) { continue }
+    if (Test-Path -LiteralPath $candidate) {
+        $dpapiFiles += Get-Item -LiteralPath $candidate
+    }
 }
 foreach ($file in $dpapiFiles | Sort-Object LastWriteTime -Descending) {
     try {

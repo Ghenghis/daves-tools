@@ -1,8 +1,8 @@
 {
-    "timestamp":  "2026-08-23T04:26:06.8917774-07:00",
+    "timestamp":  "2026-08-23T22:46:49.3073607-07:00",
     "total":  62,
-    "healthy":  62,
-    "unhealthy":  0,
+    "healthy":  59,
+    "unhealthy":  3,
     "results":  [
                     {
                         "id":  "anthropic-skills",
@@ -99,14 +99,14 @@
                         "display_name":  "GitHub MCP",
                         "asset_type":  "mcp_server",
                         "install_ok":  true,
-                        "env_ok":  true,
+                        "env_ok":  false,
                         "missing_env":  [
-
+                                            "GITHUB_PERSONAL_ACCESS_TOKEN"
                                         ],
                         "protocol_ok":  "passed",
-                        "healthy":  true,
+                        "healthy":  false,
                         "repair_actions":  [
-
+                                               "Set env vars: GITHUB_PERSONAL_ACCESS_TOKEN"
                                            ]
                     },
                     {
@@ -114,14 +114,14 @@
                         "display_name":  "GitLab MCP",
                         "asset_type":  "mcp_server",
                         "install_ok":  true,
-                        "env_ok":  true,
+                        "env_ok":  false,
                         "missing_env":  [
-
+                                            "GITLAB_PERSONAL_ACCESS_TOKEN"
                                         ],
                         "protocol_ok":  "passed",
-                        "healthy":  true,
+                        "healthy":  false,
                         "repair_actions":  [
-
+                                               "Set env vars: GITLAB_PERSONAL_ACCESS_TOKEN"
                                            ]
                     },
                     {
@@ -129,14 +129,14 @@
                         "display_name":  "SearXNG MCP",
                         "asset_type":  "mcp_server",
                         "install_ok":  true,
-                        "env_ok":  true,
+                        "env_ok":  false,
                         "missing_env":  [
-
+                                            "SEARXNG_URL"
                                         ],
                         "protocol_ok":  "passed",
-                        "healthy":  true,
+                        "healthy":  false,
                         "repair_actions":  [
-
+                                               "Set env vars: SEARXNG_URL"
                                            ]
                     },
                     {

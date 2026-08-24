@@ -34,7 +34,7 @@ $harness = Join-Path $Root "harness"
 if (-not (Test-Path (Join-Path $harness "node_modules\node-windows"))) {
     Write-Output "Installing node-windows..."
     Push-Location $harness
-    try { npm install node-windows --save } finally { Pop-Location }
+    try { & 'npm.cmd' install node-windows --save } finally { Pop-Location }
 }
 
 Write-Output "Installing Windows service..."

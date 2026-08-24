@@ -2,13 +2,15 @@
 param(
     [string]$RegistryPath = "C:\Users\Admin\CascadeProjects\daves-tools\configs\typed-registry.json",
     [string]$JsonPath = "C:\Users\Admin\CascadeProjects\daves-tools\docs\capability-report.json",
-    [string]$MdPath = "C:\Users\Admin\CascadeProjects\daves-tools\docs\CAPABILITY-REPORT.md",
-    [string]$EnvLoader = "C:\Users\Admin\CascadeProjects\daves-tools\toolkit\Load-PrivateEnv.ps1"
+    [string]$MdPath = "C:\Users\Admin\CascadeProjects\daves-tools\docs\CAPABILITY-REPORT.md"
 )
 
 $ErrorActionPreference = "Stop"
 
-& $EnvLoader -Quiet
+$loaderPath = if ($PSScriptRoot) { Join-Path $PSScriptRoot 'Load-PrivateEnv.ps1' }
+              elseif ($MyInvocation.MyCommand.Path) { Join-Path (Split-Path -Path $MyInvocation.MyCommand.Path -Parent) 'Load-PrivateEnv.ps1' }
+              else { 'C:\Users\Admin\CascadeProjects\daves-tools\toolkit\Load-PrivateEnv.ps1' }
+. $loaderPath -Quiet
 
 $raw = [System.IO.File]::ReadAllText($RegistryPath)
 $raw = $raw -replace '^\uFEFF', ''
@@ -106,3 +108,4 @@ foreach ($r in ($results | Where-Object { $_.healthy } | Sort-Object display_nam
 
 [System.IO.File]::WriteAllText($MdPath, $sb.ToString())
 Write-Output "Wrote $JsonPath and $MdPath"
+exit 0
